@@ -21,4 +21,7 @@ public class Iniciativa {
     private Usuario usuario;
     private String area;
     public Iniciativa(){}
+    
+    
+    
 }

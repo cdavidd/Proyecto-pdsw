@@ -15,6 +15,7 @@ public class Usuario {
     private int id;
     private String nombre;
     private String email;
+    private String contraseña;
     private Rol rol;
     private ArrayList<Iniciativa> iniciativas;
     private ArrayList<Iniciativa> apoyar;

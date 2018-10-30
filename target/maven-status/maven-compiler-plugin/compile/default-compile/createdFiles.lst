@@ -1,1 +1,7 @@
+edu/eci/pdsw/samples/entities/Rol.class
+edu/eci/pdsw/samples/entities/Iniciativa.class
+edu/eci/pdsw/samples/services/impl/ServiciosBancoStub.class
+edu/eci/pdsw/samples/entities/Usuario.class
+edu/eci/pdsw/samples/services/ServiciosBanco.class
+edu/eci/pdsw/samples/services/ExcepcionServicesBanco.class
 edu/eci/pdsw/App.class
