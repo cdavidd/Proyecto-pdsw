@@ -1,3 +1,4 @@
+edu/eci/pdsw/samples/entities/Administrador.class
 edu/eci/pdsw/samples/entities/Rol.class
 edu/eci/pdsw/samples/entities/Iniciativa.class
 edu/eci/pdsw/samples/services/impl/ServiciosBancoStub.class
