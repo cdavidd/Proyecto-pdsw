@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>edu.eci.pdsw</groupId>
   <artifactId>Banco_Iniciativas</artifactId>
-  <packaging>jar</packaging>
+  <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
   <name>Banco_Iniciativas</name>
   <url>http://maven.apache.org</url>
