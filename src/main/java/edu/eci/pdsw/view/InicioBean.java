@@ -29,7 +29,7 @@ public class InicioBean extends BasePageBean{
             return servicioBanco.consultarUsuario(correo);
         }catch(ExcepcionServicesBanco ex){
             throw ex;
-        }        
+        }        	
     }
     
     public void registrarUsuario(int id, String nombre, String email, String contrasena, Rol rol) throws ExcepcionServicesBanco{

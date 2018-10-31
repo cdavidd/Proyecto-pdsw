@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="edu.eci.pdsw.sampleprj.dao.mybatis.mappers.UsuarioMapper">
+
+<select parameterType="map" id="consultarUsuario" resultMap="UsuarioResult">
+ 		select
+	    *
+	    FROM Usuario as u   
+	    WHERE u.email=#{email}
+	</select>
+
+
+<insert id="insertarUsuario">
+    insert into Usuario (id,nombre,email,contrasena,rol_id)
+    values (#{usario.id},#{usuario.nombre},#{usuario.email},#{usuario.contrasena},#{cliente.rol.id})
+</insert>
+
+<resultMap id = "UsuarioResult" type = "Usuario">
+	   <id property = "id" column = "id"/>
+	   <result property = "nombre" column = "nombre"/>
+	   <result property = "email" column = "email"/>
+	   <result property = "contrasena" column = "contrasena"/>
+	    <association  property="rol" javaType="Rol" resultMap='edu.eci.pdsw.sampleprj.dao.mybatis.mappers.RolMapper'></association> 
+	</resultMap>
+</mapper>
+
+
