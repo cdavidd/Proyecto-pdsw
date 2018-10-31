@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package edu.eci.pdsw.samples.entities;
-
 import java.util.ArrayList;
 
 /**
@@ -15,7 +14,7 @@ public class Usuario {
     private int id;
     private String nombre;
     private String email;
-    private String contraseña;
+    private String contrasena;
     private Rol rol;
     private ArrayList<Iniciativa> iniciativas;
     private ArrayList<Iniciativa> apoyar;
@@ -25,11 +24,11 @@ public class Usuario {
     	apoyar = new ArrayList<Iniciativa>();
     }
     
-    public Usuario(int id, String nombre, String email, String contraseña, Rol rol) {
+    public Usuario(int id, String nombre, String email, String contrasena, Rol rol) {
     	this.id = id;
     	this.nombre = nombre;
     	this.email = email; 
-    	this.contraseña = contraseña;
+    	this.contrasena = contrasena;
     	this.rol = rol;
     	iniciativas = new ArrayList<Iniciativa>();
     	apoyar = new ArrayList<Iniciativa>();
@@ -59,12 +58,12 @@ public class Usuario {
 		this.email = email;
 	}
 
-	public String getContraseña() {
-		return contraseña;
+	public String getContrasena() {
+		return contrasena;
 	}
 
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
 	}
 
 	public Rol getRol() {
