@@ -5,11 +5,13 @@
  */
 package edu.eci.pdsw.samples.entities;
 
+
+
 /**
  *
  * @author 2133561
  */
-public abstract class Rol {
+public abstract class Rol{
     private int id;
     private String nombre;
     public Rol(){}

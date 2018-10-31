@@ -14,6 +14,6 @@ import edu.eci.pdsw.samples.entities.Usuario;
 public interface ServiciosBanco {
     
     public abstract void registrarUsuario(Usuario u) throws ExcepcionServicesBanco;
-    public abstract Usuario consultarUsuario(int id) throws ExcepcionServicesBanco;
+    public abstract Usuario consultarUsuario(String correo) throws ExcepcionServicesBanco;
     
 }

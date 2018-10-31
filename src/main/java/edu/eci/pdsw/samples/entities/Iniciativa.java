@@ -5,13 +5,14 @@
  */
 package edu.eci.pdsw.samples.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  *
  * @author 2133561
  */
-public class Iniciativa {
+public class Iniciativa implements Serializable{
 
     private int id;
     private String descripcion;

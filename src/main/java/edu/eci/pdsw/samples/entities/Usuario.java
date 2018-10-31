@@ -4,13 +4,14 @@
  * and open the template in the editor.
  */
 package edu.eci.pdsw.samples.entities;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author 2133561
  */
-public class Usuario {
+public class Usuario implements Serializable{
     private int id;
     private String nombre;
     private String email;
@@ -34,60 +35,60 @@ public class Usuario {
     	apoyar = new ArrayList<Iniciativa>();
     }
 
-	public int getId() {
-		return id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public String getNombre() {
-		return nombre;
-	}
+    public String getNombre() {
+        return nombre;
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public String getContrasena() {
-		return contrasena;
-	}
+    public String getContrasena() {
+        return contrasena;
+    }
 
-	public void setContrasena(String contrasena) {
-		this.contrasena = contrasena;
-	}
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
 
-	public Rol getRol() {
-		return rol;
-	}
+    public Rol getRol() {
+        return rol;
+    }
 
-	public void setRol(Rol rol) {
-		this.rol = rol;
-	}
+    public void setRol(Rol rol) {
+        this.rol = rol;
+    }
 
-	public ArrayList<Iniciativa> getIniciativas() {
-		return iniciativas;
-	}
+    public ArrayList<Iniciativa> getIniciativas() {
+        return iniciativas;
+    }
 
-	public void setIniciativas(ArrayList<Iniciativa> iniciativas) {
-		this.iniciativas = iniciativas;
-	}
+    public void setIniciativas(ArrayList<Iniciativa> iniciativas) {
+        this.iniciativas = iniciativas;
+    }
 
-	public ArrayList<Iniciativa> getApoyar() {
-		return apoyar;
-	}
+    public ArrayList<Iniciativa> getApoyar() {
+        return apoyar;
+    }
 
-	public void setApoyar(ArrayList<Iniciativa> apoyar) {
-		this.apoyar = apoyar;
-	}
+    public void setApoyar(ArrayList<Iniciativa> apoyar) {
+        this.apoyar = apoyar;
+    }
     
 }

@@ -1,12 +1,12 @@
 package edu.eci.pdsw.samples.entities;
 
-public class Administrador extends Rol{
+import java.io.Serializable;
 
-	
-	
-	public Administrador(int id, String nombre) {
-		super(id,nombre);
-	}
+public class Administrador extends Rol implements Serializable{
+
+    public Administrador(int id, String nombre) {
+            super(id,nombre);
+    }
 	
 	
 }

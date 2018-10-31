@@ -19,7 +19,7 @@ import java.util.Map;
  */
 public class ServiciosBancoStub implements ServiciosBanco {
     
-    private final Map<Integer,Usuario> usuarios;
+    private final Map<String,Usuario> usuarios;
     
     
     public ServiciosBancoStub(){
@@ -28,24 +28,23 @@ public class ServiciosBancoStub implements ServiciosBanco {
     }
     @Override
     public void registrarUsuario(Usuario u) throws ExcepcionServicesBanco {
-    	 if (!usuarios.containsKey(u.getId())) {
-             usuarios.put(u.getId(), u);
-         } else {
-             throw new ExcepcionServicesBanco("El cliente con documento "+u+" ya esta registrado.");
-  }
+        if (!usuarios.containsKey(u.getEmail())){
+            usuarios.put(u.getEmail(), u);
+        } else {
+            throw new ExcepcionServicesBanco("El cliente con documento "+u.getEmail()+" ya esta registrado.");
+        }
     }
 
     @Override
-    public Usuario consultarUsuario(int id) throws ExcepcionServicesBanco {
+    public Usuario consultarUsuario(String correo) throws ExcepcionServicesBanco {
     	  Usuario u=null;
-          if(usuarios.containsKey(id)){
-              u=usuarios.get(id);
+          if(usuarios.containsKey(correo)){
+              u=usuarios.get(correo);
               return u;
           }
           else {
-              throw new ExcepcionServicesBanco("El cliente con documento "+u+" no esta registrado."); 
-          }
-         
+              throw new ExcepcionServicesBanco("El cliente con correo "+correo+" no esta registrado."); 
+          }    
     }
     
     private void poblar() {
@@ -56,10 +55,10 @@ public class ServiciosBancoStub implements ServiciosBanco {
     	Usuario user4 = new Usuario(4,"andres","andres@mail","1asfd",admin);
     	Usuario user5 = new Usuario(5,"diego","diego@mail","asf",admin);
     	
-    	usuarios.put(1, user1);
-    	usuarios.put(2, user2);
-    	usuarios.put(3, user3);
-    	usuarios.put(4, user4);
-    	usuarios.put(5, user5);	
+    	usuarios.put("pepo@mail", user1);
+    	usuarios.put("rafael@mail", user2);
+    	usuarios.put("carlos@mail", user3);
+    	usuarios.put("andres@mail", user4);
+    	usuarios.put("diego@mail", user5);	
     }   
 }
