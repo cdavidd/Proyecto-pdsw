@@ -8,21 +8,23 @@
 
 <head>
 <link rel="stylesheet" type="text/css" href="Recursos\estilos.css" media="screen" />
-<title>Inicio</title>
+<title>Registro</title>
 </head>
 <body>
 	<div id="Titulo"> 
-		<h1>PAGINA DE INICIO A LA PLATAFORMA DE INICIATIVAS </h1>
+		<h1>PAGINA DE REGISTRO A LA PLATAFORMA DE INICIATIVAS </h1>
 	</div>
 	<img src="Recursos\imagen3.jpg" align="down" height="150" width="350" border="2" style="position:absolute;top:84%;left:0.5%;" />
 	<form>
 		<div id="Login"> 
-			<h2> LOGIN </h2>
+			<h2> REGISTRO </h2>
 		</div>
-		<input type="text" placeholder="Correo" name="usuario"  />
+		<input type="text" placeholder="Carné" name="id"  />
+		<input type="text" placeholder="Nombre" name="nombre" />
+		<input type="text" placeholder="Correo" name="email" />
 		<input type="password" placeholder="&#128272; Contraseña" name="contrasena"  />
-		<input type="button" value="Ingresar" action="Registro" />
-		<input type="button" value="Registro" action="Registro" />
+		<input type="submit" value="Registrarse" />
+		<button outcome="Inicio" value="Registrarse" />
 	</form>
 	<br/>
 </body>
