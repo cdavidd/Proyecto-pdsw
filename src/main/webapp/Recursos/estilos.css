@@ -12,10 +12,28 @@
 body {  
         background-image:url('imagen5.jpg');
 		background-repeat: no-repeat;
-		background-position: down;
-		background-size: 100% 150%;
-	}
+
+		background-size: cover;
+                background-attachment: fixed;
+                 
 	
+	
+}
+.scroll
+{
+     overflow-x:scroll;
+     overflow-y:hidden;
+}
+#imagenU{
+    padding: 5%;
+    
+    width: 150%;
+    height: 150%;
+    position: absolute;
+    top: 60%;
+    left: 0.5%;         
+}
+  
 h1{
 		font-size: 3rem;
 		text-align: center;
@@ -58,10 +76,14 @@ input[type="button"]{
 	form{
 		width:75%;
 	}
+        
 }
 @media(max-widh: 480px){
 	form{
 		width:90%;
+
 	}
+
+        
 }
 

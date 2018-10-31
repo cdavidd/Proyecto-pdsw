@@ -3,27 +3,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-  xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 
-<head>
-<link rel="stylesheet" type="text/css" href="Recursos\estilos.css" media="screen" />
-<title>Inicio</title>
-</head>
-<body>
-	<div id="Titulo"> 
-		<h1>PAGINA DE INICIO A LA PLATAFORMA DE INICIATIVAS </h1>
-	</div>
-	<img src="Recursos\imagen3.jpg" align="down" height="150" width="350" border="2" style="position:absolute;top:84%;left:0.5%;" />
-	<form>
-		<div id="Login"> 
-			<h2> LOGIN </h2>
-		</div>
-		<input type="text" placeholder="Correo" name="usuario"  />
-		<input type="password" placeholder="&#128272; Contraseña" name="contrasena"  />
-		<input type="button" value="Ingresar" action="Registro" />
-		<input type="button" value="Registro" action="Registro" />
-	</form>
-	<br/>
-</body>
+    <h:head>
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="Recursos\estilos.css" media="screen" />
+    </h:head>
+    <h:body style="overflow-x:hidden; overflow-y:hidden">
+        <div id="imagenU">
+            <img src="Recursos\imagen3.jpg" align="down" height="150" width="350" border="2" />
+        </div>
+        <h:form id="cliente_form"> 
+            <h1>Login</h1>
+            <br><p:inputText id="correo" placeholder="&#128386; Correo" >  </p:inputText></br>
+            <br><p:inputText id="contrasena"  placeholder="&#128272; Contraseña" type="password">  </p:inputText></br>
+            <p:button  value="login" />
+            <p:button outcome="Registro.xhtml" value="Registrarse" />
+
+        </h:form>
+    </h:body>
 </html>
