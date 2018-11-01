@@ -12,7 +12,6 @@
     </properties>
     <typeAliases>
         <typeAlias type="edu.eci.pdsw.samples.entities.Usuario" alias="Usuario"/>
-        <typeAlias type="edu.eci.pdsw.samples.entities.Rol" alias="Rol"/>
     </typeAliases>	
 
     <environments default="development">
@@ -31,7 +30,6 @@
     </environments>
         
     <mappers>
-        <mapper resource="mappers/UsuarioMapper.xml"></mapper>
-        <mapper resource="mappers/RolMapper.xml"></mapper>       
+        <mapper resource="mappers/UsuarioMapper.xml"></mapper>     
     </mappers> 
 </configuration>

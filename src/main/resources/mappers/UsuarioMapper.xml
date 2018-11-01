@@ -14,8 +14,8 @@
 
 
 <insert id="insertarUsuario">
-    insert into Usuario (id,nombre,email,contrasena,rol_id)
-    values (#{usario.id},#{usuario.nombre},#{usuario.email},#{usuario.contrasena},#{cliente.rol.id})
+    insert into Usuario (id,nombre,email,contrasena)
+    values (#{usario.id},#{usuario.nombre},#{usuario.email},#{usuario.contrasena})
 </insert>
 
 <resultMap id = "UsuarioResult" type = "Usuario">
@@ -23,7 +23,6 @@
 	   <result property = "nombre" column = "nombre"/>
 	   <result property = "email" column = "email"/>
 	   <result property = "contrasena" column = "contrasena"/>
-	    <association  property="rol" javaType="Rol" resultMap='edu.eci.pdsw.sampleprj.dao.mybatis.mappers.RolMapper'></association> 
 	</resultMap>
 </mapper>
 

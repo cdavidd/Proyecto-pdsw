@@ -11,12 +11,13 @@ import java.util.ArrayList;
  *
  * @author 2133561
  */
-public class Usuario implements Serializable{
+public abstract class Usuario implements Serializable{
+    
     private int id;
     private String nombre;
     private String email;
     private String contrasena;
-    private Rol rol;
+    public String rol;
     private ArrayList<Iniciativa> iniciativas;
     private ArrayList<Iniciativa> apoyar;
     
@@ -25,12 +26,11 @@ public class Usuario implements Serializable{
     	apoyar = new ArrayList<Iniciativa>();
     }
     
-    public Usuario(int id, String nombre, String email, String contrasena, Rol rol) {
+    public Usuario(int id, String nombre, String email, String contrasena) {
     	this.id = id;
     	this.nombre = nombre;
     	this.email = email; 
     	this.contrasena = contrasena;
-    	this.rol = rol;
     	iniciativas = new ArrayList<Iniciativa>();
     	apoyar = new ArrayList<Iniciativa>();
     }
@@ -67,14 +67,6 @@ public class Usuario implements Serializable{
         this.contrasena = contrasena;
     }
 
-    public Rol getRol() {
-        return rol;
-    }
-
-    public void setRol(Rol rol) {
-        this.rol = rol;
-    }
-
     public ArrayList<Iniciativa> getIniciativas() {
         return iniciativas;
     }
@@ -89,6 +81,10 @@ public class Usuario implements Serializable{
 
     public void setApoyar(ArrayList<Iniciativa> apoyar) {
         this.apoyar = apoyar;
+    }
+    
+    public String toString(){
+        return id+" "+nombre+" "+email+" "+contrasena;
     }
     
 }

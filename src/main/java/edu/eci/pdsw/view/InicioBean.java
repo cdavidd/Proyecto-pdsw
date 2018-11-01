@@ -2,8 +2,6 @@ package edu.eci.pdsw.view;
 
 
 import com.google.inject.Inject;
-
-import edu.eci.pdsw.samples.entities.Rol;
 import edu.eci.pdsw.samples.entities.Usuario;
 import edu.eci.pdsw.samples.services.ExcepcionServicesBanco;
 import edu.eci.pdsw.samples.services.ServiciosBanco;
@@ -24,20 +22,35 @@ public class InicioBean extends BasePageBean{
     @Inject
     ServiciosBanco servicioBanco;
     
-    public Usuario consultar(String correo) throws Exception{
+    private int id;
+    private String email;
+    
+    public Usuario consultar(String correo){
         try{
+            /*Usuario a =servicioBanco.consultarUsuario(correo);
+            System.out.println(a.toString());*/
             return servicioBanco.consultarUsuario(correo);
         }catch(ExcepcionServicesBanco ex){
-            throw ex;
+            System.out.println(ex.getMessage());
+            return null;
         }        	
     }
     
-    public void registrarUsuario(int id, String nombre, String email, String contrasena, Rol rol) throws ExcepcionServicesBanco{
-        try{
-            servicioBanco.registrarUsuario(new Usuario(id,nombre,email,contrasena,rol));
-        }catch(ExcepcionServicesBanco ex){
-            throw ex;
-        }
+    public int getId(){
+        return id;
     }
+    
+    public void setId(int ID){
+        this.id=ID;
+    }
+    
+    public String getEmail(){
+        return email;
+    }
+    
+    public void setEmail(String mail){
+        this.email=mail;
+    }
+    
     
 }
