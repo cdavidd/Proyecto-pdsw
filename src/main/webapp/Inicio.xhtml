@@ -6,20 +6,25 @@
 	xmlns:p="http://primefaces.org/ui">
 
     <h:head>
-        <title></title>
+        <title>Inicio</title>
         <link rel="stylesheet" type="text/css" href="Recursos\estilos.css" media="screen" />
     </h:head>
     <h:body style="overflow-x:hidden; overflow-y:hidden">
         <div id="imagenU">
-            <img src="Recursos\imagen3.jpg" align="down" height="150" width="350" border="2" />
+            <img src="Recursos\imagen3.png"  border="2" />
         </div>
+		<h1>Login</h1>
         <h:form id="cliente_form"> 
-            <h1>Login</h1>
-            <br><p:inputText id="correo" placeholder="&#128386; Correo" value="#{inicioBean.email}" >  </p:inputText></br>
-            <br><p:inputText id="contrasena"  placeholder="&#128272; Contraseña" type="password" value="#{inicioBean.id}" > </p:inputText></br>
-            <p:commandButton  value="login" actionListener="#{inicioBean.consultar(inicioBean.email)}" />
-            <p:button outcome="Registro.xhtml" value="Registrarse" />   
-
+			<div id="Cuadro_email">
+				<br><p:inputText id="correo" placeholder="&#128386; Correo" value="#{inicioBean.email}" > </p:inputText></br>
+			</div>
+			<div id="Cuadro_pass">
+				<br><p:inputText id="contrasena"  placeholder="&#128272; Contraseña" type="password" value="#{inicioBean.id}" > </p:inputText></br>
+			</div>
+			<div id="Botones">
+				<p:commandButton  value="login" actionListener="#{inicioBean.consultar(inicioBean.email)}" />
+				<p:button outcome="Registro.xhtml" value="Registrarse" />   
+			</div>
         </h:form>
     </h:body>
 </html>
