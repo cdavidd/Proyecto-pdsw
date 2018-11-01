@@ -16,12 +16,73 @@ public class Iniciativa implements Serializable{
 
     private int id;
     private String descripcion;
-    private String estado;
+    private TipoEstado estado;
     private int votos;
     private Date fechaCreacion;
     private Usuario usuario;
     private String area;
     public Iniciativa(){}
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public TipoEstado getEstado() {
+        return estado;
+    }
+
+    public void setEstado(TipoEstado estado) {
+        this.estado = estado;
+    }
+
+    public int getVotos() {
+        return votos;
+    }
+
+    public void setVotos(int votos) {
+        this.votos = votos;
+    }
+
+    public Date getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(Date fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
+
+    @Override
+    public String toString() {
+        return "Iniciativa{" + "id=" + id + ", descripcion=" + descripcion + ", estado=" + estado + ", votos=" + votos + ", fechaCreacion=" + fechaCreacion + ", usuario=" + usuario + ", area=" + area + '}';
+    }
     
     
     

@@ -6,11 +6,13 @@
 package edu.eci.pdsw.samples.services.impl;
 
 import edu.eci.pdsw.samples.entities.Administrador;
+import edu.eci.pdsw.samples.entities.Iniciativa;
+import edu.eci.pdsw.samples.entities.TipoEstado;
 import edu.eci.pdsw.samples.entities.Usuario;
 import edu.eci.pdsw.samples.services.ExcepcionServicesBanco;
 import edu.eci.pdsw.samples.services.ServiciosBanco;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+
 
 /**
  *
@@ -59,4 +61,26 @@ public class ServiciosBancoStub implements ServiciosBanco {
     	usuarios.put("andres@mail", user4);
     	usuarios.put("diego@mail", user5);	
     }   
+
+    @Override
+    public List<Usuario> consultarUsuarios() {
+        return new LinkedList<>(usuarios.values());
+    }
+
+    @Override
+    public void cambiarEstado(Iniciativa iniciativa, TipoEstado tipoEstado) {
+        iniciativa.setEstado(tipoEstado);
+    }
+
+    @Override
+    public List<Usuario> consultarUsuariosSinRol() {
+        List<Usuario> temp= new LinkedList<>(usuarios.values());
+        List<Usuario> res= new ArrayList<Usuario>();
+        for(Usuario u: temp){
+            if(u.getRol()==null){
+                res.add(u);
+            }
+        }
+        return res;
+    }
 }

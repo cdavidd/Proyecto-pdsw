@@ -5,7 +5,11 @@
  */
 package edu.eci.pdsw.samples.services;
 
+import edu.eci.pdsw.samples.entities.Iniciativa;
+import edu.eci.pdsw.samples.entities.TipoEstado;
 import edu.eci.pdsw.samples.entities.Usuario;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -15,5 +19,11 @@ public interface ServiciosBanco {
     
     public abstract void registrarUsuario(Usuario u) throws ExcepcionServicesBanco;
     public abstract Usuario consultarUsuario(String correo) throws ExcepcionServicesBanco;
+
+    public List<Usuario> consultarUsuarios();
+
+    public void cambiarEstado(Iniciativa iniciativa, TipoEstado tipoEstado);
+
+    public List<Usuario> consultarUsuariosSinRol();
     
 }

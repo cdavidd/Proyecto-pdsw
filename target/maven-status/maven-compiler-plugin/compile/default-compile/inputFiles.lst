@@ -1,12 +1,17 @@
-C:\Users\Luis\Documents\proyecto final\Proyecto-pdsw\src\main\java\edu\eci\pdsw\samples\services\ExcepcionServicesBanco.java
-C:\Users\Luis\Documents\proyecto final\Proyecto-pdsw\src\main\java\edu\eci\pdsw\samples\services\impl\ServiciosBancoStub.java
-C:\Users\Luis\Documents\proyecto final\Proyecto-pdsw\src\main\java\edu\eci\pdsw\samples\entities\Usuario.java
-C:\Users\Luis\Documents\proyecto final\Proyecto-pdsw\src\main\java\edu\eci\pdsw\view\BasePageBean.java
-C:\Users\Luis\Documents\proyecto final\Proyecto-pdsw\src\main\java\edu\eci\pdsw\App.java
-C:\Users\Luis\Documents\proyecto final\Proyecto-pdsw\src\main\java\edu\eci\pdsw\samples\entities\Administrador.java
-C:\Users\Luis\Documents\proyecto final\Proyecto-pdsw\src\main\java\edu\eci\pdsw\guice\GuiceContextListener.java
-C:\Users\Luis\Documents\proyecto final\Proyecto-pdsw\src\main\java\edu\eci\pdsw\view\InicioBean.java
-C:\Users\Luis\Documents\proyecto final\Proyecto-pdsw\src\main\java\edu\eci\pdsw\samples\services\ServiciosBanco.java
-C:\Users\Luis\Documents\proyecto final\Proyecto-pdsw\src\main\java\edu\eci\pdsw\sampleprj\dao\mybatis\mappers\UsuarioMapper.java
-C:\Users\Luis\Documents\proyecto final\Proyecto-pdsw\src\main\java\edu\eci\pdsw\samples\entities\Iniciativa.java
-C:\Users\Luis\Documents\proyecto final\Proyecto-pdsw\src\main\java\edu\eci\pdsw\view\RegistroBean.java
+/home/local/LABINFO/2133561/Proyecto-pdsw/src/main/java/edu/eci/pdsw/App.java
+/home/local/LABINFO/2133561/Proyecto-pdsw/src/main/java/edu/eci/pdsw/samples/entities/Iniciativa.java
+/home/local/LABINFO/2133561/Proyecto-pdsw/src/main/java/edu/eci/pdsw/samples/services/ServiciosBanco.java
+/home/local/LABINFO/2133561/Proyecto-pdsw/src/main/java/edu/eci/pdsw/samples/entities/Administrador.java
+/home/local/LABINFO/2133561/Proyecto-pdsw/src/main/java/edu/eci/pdsw/samples/entities/Publico.java
+/home/local/LABINFO/2133561/Proyecto-pdsw/src/main/java/edu/eci/pdsw/view/RegistroBean.java
+/home/local/LABINFO/2133561/Proyecto-pdsw/src/main/java/edu/eci/pdsw/samples/services/ExcepcionServicesBanco.java
+/home/local/LABINFO/2133561/Proyecto-pdsw/src/main/java/edu/eci/pdsw/samples/entities/TipoEstado.java
+/home/local/LABINFO/2133561/Proyecto-pdsw/src/main/java/edu/eci/pdsw/guice/GuiceContextListener.java
+/home/local/LABINFO/2133561/Proyecto-pdsw/src/main/java/edu/eci/pdsw/samples/entities/Proponente.java
+/home/local/LABINFO/2133561/Proyecto-pdsw/src/main/java/edu/eci/pdsw/samples/entities/Pmo_Odi.java
+/home/local/LABINFO/2133561/Proyecto-pdsw/src/main/java/edu/eci/pdsw/view/AdministradorBean.java
+/home/local/LABINFO/2133561/Proyecto-pdsw/src/main/java/edu/eci/pdsw/samples/services/impl/ServiciosBancoStub.java
+/home/local/LABINFO/2133561/Proyecto-pdsw/src/main/java/edu/eci/pdsw/sampleprj/dao/mybatis/mappers/UsuarioMapper.java
+/home/local/LABINFO/2133561/Proyecto-pdsw/src/main/java/edu/eci/pdsw/samples/entities/Usuario.java
+/home/local/LABINFO/2133561/Proyecto-pdsw/src/main/java/edu/eci/pdsw/view/InicioBean.java
+/home/local/LABINFO/2133561/Proyecto-pdsw/src/main/java/edu/eci/pdsw/view/BasePageBean.java

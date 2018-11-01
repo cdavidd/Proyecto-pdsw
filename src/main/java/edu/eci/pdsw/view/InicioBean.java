@@ -27,8 +27,8 @@ public class InicioBean extends BasePageBean{
     
     public Usuario consultar(String correo){
         try{
-            /*Usuario a =servicioBanco.consultarUsuario(correo);
-            System.out.println(a.toString());*/
+            Usuario a =servicioBanco.consultarUsuario(correo);
+            System.out.println(a.toString());
             return servicioBanco.consultarUsuario(correo);
         }catch(ExcepcionServicesBanco ex){
             System.out.println(ex.getMessage());

@@ -17,7 +17,7 @@ public abstract class Usuario implements Serializable{
     private String nombre;
     private String email;
     private String contrasena;
-    public String rol;
+    public String rol=null;
     private ArrayList<Iniciativa> iniciativas;
     private ArrayList<Iniciativa> apoyar;
     
@@ -83,8 +83,18 @@ public abstract class Usuario implements Serializable{
         this.apoyar = apoyar;
     }
     
-    public String toString(){
-        return id+" "+nombre+" "+email+" "+contrasena;
+    @Override
+    public String toString() {
+            return "Usuario [id=" + id + ", nombre=" + nombre + ", email=" + email + ", contrasena=" + contrasena + ", rol="
+                            + rol + ", iniciativas=" + iniciativas + ", apoyar=" + apoyar + "]";
+    }
+
+    public String getRol() {
+            return rol;
+    }
+
+    public void setRol(String rol) {
+            this.rol = rol;
     }
     
 }
