@@ -10,11 +10,11 @@
 }
 
 body {  
-        background-image:url('imagen5.jpg');
+        background-image:url('imagen5.png');
 		background-repeat: no-repeat;
 
 		background-size: cover;
-                background-attachment: fixed;
+        background-attachment: fixed;
                  
 	
 	
@@ -26,20 +26,18 @@ body {
 }
 
 #imagenU{
-    padding: 5%;
-    
-    width: 150%;
-    height: 150%;
+    width: 100%;
+    height: 80%;
     position: absolute;
-    top: 60%;
-    left: 0.5%;         
+    top: 85%;  
+	left: 0.5%;
 }
   
 h1{
 		font-size: 3rem;
 		text-align: center;
 		color: white;
-		margin-top: 0.5em;
+		margin-top: 1em;
 	}
 	
 form{
@@ -57,15 +55,18 @@ h2{
 	margin-bottom: 2em;
 }
 
-input{
+#Cuadro_email{
 	display: block;
-	padding: 10px;
-	width: 100%;
-	margin: 30px 0;
-	font-size: 20px;
-
+	font-size: 150%;
 }
-input[type="button"]{
+
+#Cuadro_pass{
+	display: block;
+	font-size: 150%;
+	margin-bottom: 2em;
+}
+
+#Botones{
 	margin-left: auto;
     margin-right: auto;
     float: none;
@@ -73,6 +74,21 @@ input[type="button"]{
 	width: 50%;
 	border-radius:20px;
 }
+
+input{
+	display: block;
+	width: 100%;
+}
+
+input[type="button"]{
+	margin-left: auto;
+    margin-right: auto;
+    float: none;
+	text-align:center;
+	width: 60%;
+	border-radius:20px;
+}
+
 @media(max-widh: 768px){
 	form{
 		width:75%;
