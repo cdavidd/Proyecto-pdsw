@@ -10,8 +10,8 @@
 	   <result property = "nombre" column = "nombre"/>
 	   <result property = "email" column = "email"/>
 	   <result property = "contrasena" column = "contrasena"/>
-       <collection property="iniciativas" ofType="Iniciativa" resultMap='edu.eci.pdsw.sampleprj.dao.mybatis.mappers.Iniciativa.IniciativaResult'></collection> 
-       <collection property="apoyar" ofType="Iniciativa" resultMap='edu.eci.pdsw.sampleprj.dao.mybatis.mappers.Iniciativa.IniciativaResult'></collection>  
+       <collection property="iniciativas" ofType="Iniciativa" resultMap='edu.eci.pdsw.sampleprj.dao.mybatis.mappers.IniciativaMapper.IniciativaResult'></collection> 
+       <collection property="apoyar" ofType="Iniciativa" resultMap='edu.eci.pdsw.sampleprj.dao.mybatis.mappers.IniciativaMapper.IniciativaResult'></collection>  
 	</resultMap>
 </mapper>
 
