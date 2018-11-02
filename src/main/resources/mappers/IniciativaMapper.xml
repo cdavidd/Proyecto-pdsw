@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="edu.eci.pdsw.sampleprj.dao.mybatis.mappers.Iniciativa">
+<mapper namespace="edu.eci.pdsw.sampleprj.dao.mybatis.mappers.IniciativaMapper">
 
 <resultMap id = "IniciativaResult" type = "Iniciativa">
 	   <id property = "id" column = "id"/>
@@ -12,12 +12,12 @@
 	   <result property = "fecha_creacion" column = "fecha_creacion"/>
        <result property = "area" column = "area"/> 
 	</resultMap>
-</mapper>
 
 
-<update id = "cambiarEstado" resultMap="UsuarioResult">
+
+<update id = "cambiarEstado" parameterType = "Iniciativa">
       UPDATE Iniciativa SET estado = #{estado}
       WHERE ID = #{iniciativa.id};
 </update>
 
-
+</mapper>

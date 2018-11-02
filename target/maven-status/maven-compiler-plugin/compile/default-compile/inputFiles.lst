@@ -4,6 +4,7 @@
 /home/diego/PDSW/Proyecto-pdsw/src/main/java/edu/eci/pdsw/samples/entities/Pmo_Odi.java
 /home/diego/PDSW/Proyecto-pdsw/src/main/java/edu/eci/pdsw/samples/entities/Usuario.java
 /home/diego/PDSW/Proyecto-pdsw/src/main/java/edu/eci/pdsw/view/RegistroBean.java
+/home/diego/PDSW/Proyecto-pdsw/src/main/java/edu/eci/pdsw/samples/services/ServiciosBancoFactory.java
 /home/diego/PDSW/Proyecto-pdsw/src/main/java/edu/eci/pdsw/sampleprj/dao/UsuarioDAO.java
 /home/diego/PDSW/Proyecto-pdsw/src/main/java/edu/eci/pdsw/App.java
 /home/diego/PDSW/Proyecto-pdsw/src/main/java/edu/eci/pdsw/view/BasePageBean.java

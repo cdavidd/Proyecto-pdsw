@@ -4,10 +4,15 @@
  * and open the template in the editor.
  */
 package edu.eci.pdsw.guice;
-
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+
+import edu.eci.pdsw.sampleprj.dao.IniciativaDAO;
+import edu.eci.pdsw.sampleprj.dao.UsuarioDAO;
+import edu.eci.pdsw.sampleprj.dao.mybatis.MyBATISIniciativaDAO;
+import edu.eci.pdsw.sampleprj.dao.mybatis.MyBATISUsuarioDAO;
 import edu.eci.pdsw.samples.services.ServiciosBanco;
+import edu.eci.pdsw.samples.services.impl.ServiciosBancoImpl;
 import edu.eci.pdsw.samples.services.impl.ServiciosBancoStub;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
@@ -32,12 +37,11 @@ public class GuiceContextListener implements ServletContextListener{
                 install(JdbcHelper.PostgreSQL);
                 setEnvironmentId("development");
                 setClassPathResource("mybatis-config.xml");
-
-       
-                bind(ServiciosBanco.class).to(ServiciosBancoStub.class);
+                bind(IniciativaDAO.class).to(MyBATISIniciativaDAO.class);
+	            bind(UsuarioDAO.class).to(MyBATISUsuarioDAO.class);
+	            bind(ServiciosBanco.class).to(ServiciosBancoImpl.class);
             }   
-        });
-
+       });
         servletContextEvent.getServletContext().setAttribute(Injector.class.getName(), injector);
     }
 }

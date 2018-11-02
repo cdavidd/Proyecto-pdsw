@@ -12,6 +12,7 @@
     </properties>
     <typeAliases>
         <typeAlias type="edu.eci.pdsw.samples.entities.Usuario" alias="Usuario"/>
+        <typeAlias type="edu.eci.pdsw.samples.entities.Iniciativa" alias="Iniciativa"/>
     </typeAliases>	
 
     <environments default="development">
@@ -19,17 +20,18 @@
             <transactionManager type="JDBC" />
             <dataSource type="POOLED">
                 <property name="driver" value="${driver}" />
-                <!--property name="url" value="jdbc:mysql://localhost:3306/video_rental"/!-->
+
                 <property name="url" value="${url}"/>
                 <property name="username" value="${username}" />
                 <property name="password" value="${password}" />
 
-                <!--property name="url" value="jdbc:mysql://localhost:3306/video_rental"/!-->
+
             </dataSource>
         </environment>
     </environments>
         
     <mappers>
-        <mapper resource="mappers/UsuarioMapper.xml"></mapper>     
+        <mapper resource="mappers/UsuarioMapper.xml"></mapper>
+        <mapper resource="mappers/IniciativaMapper.xml"></mapper>     
     </mappers> 
 </configuration>
