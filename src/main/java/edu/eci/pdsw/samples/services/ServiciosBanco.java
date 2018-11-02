@@ -20,10 +20,10 @@ public interface ServiciosBanco {
     public abstract void registrarUsuario(Usuario u) throws ExcepcionServicesBanco;
     public abstract Usuario consultarUsuario(String correo) throws ExcepcionServicesBanco;
 
-    public List<Usuario> consultarUsuarios();
+    public List<Usuario> consultarUsuarios() throws ExcepcionServicesBanco;
 
-    public void cambiarEstado(Iniciativa iniciativa, TipoEstado tipoEstado);
+    public void cambiarEstado(Iniciativa iniciativa, TipoEstado tipoEstado) throws ExcepcionServicesBanco;
 
-    public List<Usuario> consultarUsuariosSinRol();
+    public List<Usuario> consultarUsuariosSinRol() throws ExcepcionServicesBanco;
     
 }

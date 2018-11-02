@@ -51,6 +51,4 @@ public class InicioBean extends BasePageBean{
     public void setEmail(String mail){
         this.email=mail;
     }
-    
-    
 }

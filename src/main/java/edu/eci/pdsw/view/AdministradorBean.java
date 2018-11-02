@@ -10,6 +10,7 @@ import com.google.inject.Inject;
 import edu.eci.pdsw.samples.entities.Iniciativa;
 import edu.eci.pdsw.samples.entities.TipoEstado;
 import edu.eci.pdsw.samples.entities.Usuario;
+import edu.eci.pdsw.samples.services.ExcepcionServicesBanco;
 import edu.eci.pdsw.samples.services.ServiciosBanco;
 import java.util.*;
 import javax.faces.bean.ManagedBean;
@@ -29,14 +30,16 @@ public class AdministradorBean extends BasePageBean{
     @Inject
     ServiciosBanco servicioBanco;
     
-    public List<Usuario> consultarUsuariosSinRol(){
-        return servicioBanco.consultarUsuariosSinRol();
+    public List<Usuario> consultarUsuariosSinRol() throws ExcepcionServicesBanco{
+    	return servicioBanco.consultarUsuariosSinRol();	
     }
-    public List<Usuario> consultarUsuarios(){
+    
+    
+    public List<Usuario> consultarUsuarios() throws ExcepcionServicesBanco{
         return servicioBanco.consultarUsuarios();
     }
-    public void cambiarEstado(Iniciativa iniciativa, String tipoEstado){
-        
+    
+    public void cambiarEstado(Iniciativa iniciativa, String tipoEstado) throws ExcepcionServicesBanco{     
         String ej= tipoEstado.toLowerCase();
         if (ej.equals("en_espera_revision")){
             servicioBanco.cambiarEstado(iniciativa,TipoEstado.En_Espera_Revision);
@@ -47,6 +50,5 @@ public class AdministradorBean extends BasePageBean{
         }else if (ej.equals("solucionado")){
             servicioBanco.cambiarEstado(iniciativa,TipoEstado.Solucionado);
         }
-    }
-    
+    }   
 }
