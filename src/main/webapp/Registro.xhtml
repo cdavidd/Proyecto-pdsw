@@ -7,12 +7,14 @@
 
     <h:head>
         <title>Registrar</title>
-        <link rel="stylesheet" type="text/css" href="Recursos\estilos.css" media="screen" />
+        <link rel="stylesheet" href="fontello.css" />
+        <link rel="stylesheet" type="text/css" href="Recursos/registro.css" media="screen" />
+        <link rel="stylesheet" href="Recursos/estilosP.css" />
     </h:head>
     <h:body>
         
         <h:form id="form_registro">
-                <h1>Registro Usuario</h1>
+                <h2>Registro Usuario</h2>
                 <br><p:inputText id="carne"  placeholder="&#49;&#50;&#51; Carnet" value="#{registroBean.id}"> </p:inputText></br>
                 <br><p:inputText id="nombre" placeholder="&#128100; Nombre" value="#{registroBean.nombre}"> </p:inputText></br>
                 <br><p:inputText id="correo" placeholder="&#128386; Correo" value="#{registroBean.email}" > </p:inputText></br>
@@ -21,5 +23,19 @@
                 <p:commandButton value="Registrarse" actionListener="#{registroBean.registrarUsuario(registroBean.id,registroBean.nombre,registroBean.email,registroBean.contrasena)}" action="Inicio" />
 
         </h:form>
+		<header>
+            <div class="contenedor"> 
+                <h1 class="icon-bank">banco de iniciativas</h1>
+                <input type="checkbox" id="menu-bar"></input>
+                <label class="icon-menu" for="menu-bar"></label> 
+                <nav class="menu">
+                    <a href="prueba.xhtml">Inicio</a>
+                    <a href="Inicio.xhtml" >Iniciar sesion</a>
+                    <a href="Registro.xhtml" >Registrarse</a>
+                    <a href="">Iniciativas</a>
+                    <a href="">Contacto</a>
+                </nav>
+            </div>
+        </header>
     </h:body>
 </html>

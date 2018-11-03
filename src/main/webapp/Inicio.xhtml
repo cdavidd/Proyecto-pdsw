@@ -7,13 +7,15 @@
 
     <h:head>
         <title>Inicio</title>
-        <link rel="stylesheet" type="text/css" href="Recursos\estilos.css" media="screen" />
+        <link rel="stylesheet" href="fontello.css" />
+        <link rel="stylesheet" href="Recursos/estilosP.css" />
+        <link rel="stylesheet" href="Recursos/login.css" />
     </h:head>
     <h:body style="overflow-x:hidden; overflow-y:hidden">
         <div id="imagenU">
             <img src="Recursos\imagen3.png"  border="2" />
         </div>
-		<h1>Login</h1>
+		<h2>INICIAR SESION</h2>
         <h:form id="cliente_form"> 
 			<div id="Cuadro_email">
 				<br><p:inputText id="correo" placeholder="&#128386; Correo" value="#{inicioBean.email}" > </p:inputText></br>
@@ -26,5 +28,19 @@
 				<p:button outcome="Registro.xhtml" value="Registrarse" />   
 			</div>
         </h:form>
+		<header>
+            <div class="contenedor"> 
+                <h1 class="icon-bank">banco de iniciativas</h1>
+                <input type="checkbox" id="menu-bar"></input>
+                <label class="icon-menu" for="menu-bar"></label> 
+                <nav class="menu">
+                    <a href="prueba.xhtml">Inicio</a>
+                    <a href="Inicio.xhtml" >Iniciar sesion</a>
+                    <a href="Registro.xhtml" >Registrarse</a>
+                    <a href="">Iniciativas</a>
+                    <a href="">Contacto</a>
+                </nav>
+            </div>
+        </header>
     </h:body>
 </html>
