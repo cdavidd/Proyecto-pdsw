@@ -11,9 +11,13 @@ import java.util.ArrayList;
  *
  * @author 2133561
  */
-public abstract class Usuario implements Serializable{
+public class Usuario implements Serializable{
     
-    private int id;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private int id;
     private String nombre;
     private String email;
     private String contrasena;
@@ -21,9 +25,17 @@ public abstract class Usuario implements Serializable{
     private ArrayList<Iniciativa> iniciativas;
     private ArrayList<Iniciativa> apoyar;
     
-    public Usuario (){
-    	iniciativas = new ArrayList<Iniciativa>();
-    	apoyar = new ArrayList<Iniciativa>();
+    public Usuario(){
+    }
+    
+    public Usuario(int id, String nombre, String email, String contrasena, String rol) {
+    	this.id = id;
+    	this.nombre = nombre;
+    	this.email = email; 
+    	this.contrasena = contrasena;
+    	this.rol = rol;
+    	this.iniciativas = new ArrayList<Iniciativa>();
+    	this.apoyar = new ArrayList<Iniciativa>();
     }
     
     public Usuario(int id, String nombre, String email, String contrasena) {
@@ -31,10 +43,21 @@ public abstract class Usuario implements Serializable{
     	this.nombre = nombre;
     	this.email = email; 
     	this.contrasena = contrasena;
-    	iniciativas = new ArrayList<Iniciativa>();
-    	apoyar = new ArrayList<Iniciativa>();
+    	this.iniciativas = new ArrayList<Iniciativa>();
+    	this.apoyar = new ArrayList<Iniciativa>();
     }
 
+    public Usuario(int id, String nombre, String email, String contrasena,String rol, ArrayList<Iniciativa> iniciativas,ArrayList<Iniciativa> apoyar) {
+    	this.id = id;
+    	this.nombre = nombre;
+    	this.email = email; 
+    	this.contrasena = contrasena;
+    	this.rol = rol;
+    	this.iniciativas = iniciativas;
+    	this.apoyar = apoyar;
+    }
+    
+    
     public int getId() {
         return id;
     }

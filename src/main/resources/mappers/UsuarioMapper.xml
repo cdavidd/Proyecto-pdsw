@@ -10,6 +10,7 @@
 	   <result property = "nombre" column = "nombre"/>
 	   <result property = "email" column = "email"/>
 	   <result property = "contrasena" column = "contrasena"/>
+       <result property = "rol" column = "rol"/>
        <collection property="iniciativas" ofType="Iniciativa" resultMap='edu.eci.pdsw.sampleprj.dao.mybatis.mappers.IniciativaMapper.IniciativaResult'></collection> 
        <collection property="apoyar" ofType="Iniciativa" resultMap='edu.eci.pdsw.sampleprj.dao.mybatis.mappers.IniciativaMapper.IniciativaResult'></collection>  
 	</resultMap>
@@ -17,8 +18,13 @@
 
 <select id="consultarUsuario" resultMap="UsuarioResult">
  		select
-	    *
-	    WHERE  u.email=#{email} 
+	    id, 
+        nombre, 
+        email, 
+        contrasena,
+        rol 
+        from usuarios  
+	    WHERE email = #{email}
  	</select>
 
 <insert id="insertarUsuario">

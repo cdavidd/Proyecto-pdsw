@@ -1,6 +1,4 @@
 package edu.eci.pdsw.view;
-
-
 import com.google.inject.Inject;
 import edu.eci.pdsw.samples.entities.Usuario;
 import edu.eci.pdsw.samples.services.ExcepcionServicesBanco;
@@ -22,7 +20,7 @@ public class InicioBean extends BasePageBean{
     @Inject
     ServiciosBanco servicioBanco;
     
-    private int id;
+    private String contrasena;
     private String email;
     
     public Usuario consultar(String correo){
@@ -36,12 +34,12 @@ public class InicioBean extends BasePageBean{
         }        	
     }
     
-    public int getId(){
-        return id;
+    public String getContrasena(){
+        return contrasena;
     }
     
-    public void setId(int ID){
-        this.id=ID;
+    public void setContrasena(String contrasena){
+        this.contrasena=contrasena;
     }
     
     public String getEmail(){

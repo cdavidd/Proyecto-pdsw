@@ -55,6 +55,7 @@ public class MyBATISUsuarioDAO implements UsuarioDAO{
 			return usuarioMapper.consultarUsuario(correo);
 		}
 		catch(org.apache.ibatis.exceptions.PersistenceException e) {
+			System.out.println(e.getMessage());
 		    throw new PersistenceException("Error al consultar el cliente");
 		}
 	}

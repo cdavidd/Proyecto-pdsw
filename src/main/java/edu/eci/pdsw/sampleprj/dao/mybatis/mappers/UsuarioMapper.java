@@ -15,7 +15,7 @@ import edu.eci.pdsw.samples.entities.Usuario;
 public interface UsuarioMapper {
     
     public Usuario consultarUsuario(@Param("email") String email); 
-    public void insertarUsuario(@Param("usuario")Usuario user );
+    public void insertarUsuario(@Param("usuario") Usuario user );
 	public List<Usuario> consultarUsuarios();
 	public List<Usuario> consultarUsuariosSinRol();
 }
