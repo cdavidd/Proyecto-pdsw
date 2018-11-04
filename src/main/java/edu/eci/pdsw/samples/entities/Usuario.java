@@ -11,17 +11,17 @@ import java.util.ArrayList;
  *
  * @author 2133561
  */
-public class Usuario implements Serializable{
+public abstract class Usuario implements Serializable{
     
     /**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	private int id;
+    private static final long serialVersionUID = 1L;
+    private int id;
     private String nombre;
     private String email;
     private String contrasena;
-    public String rol=null;
+    public Rol rol=null;
     private ArrayList<Iniciativa> iniciativas;
     private ArrayList<Iniciativa> apoyar;
     
@@ -33,7 +33,7 @@ public class Usuario implements Serializable{
     	this.nombre = nombre;
     	this.email = email; 
     	this.contrasena = contrasena;
-    	this.rol = rol;
+    	this.rol = Rol.valueOf(rol);
     	this.iniciativas = new ArrayList<Iniciativa>();
     	this.apoyar = new ArrayList<Iniciativa>();
     }
@@ -46,17 +46,6 @@ public class Usuario implements Serializable{
     	this.iniciativas = new ArrayList<Iniciativa>();
     	this.apoyar = new ArrayList<Iniciativa>();
     }
-
-    public Usuario(int id, String nombre, String email, String contrasena,String rol, ArrayList<Iniciativa> iniciativas,ArrayList<Iniciativa> apoyar) {
-    	this.id = id;
-    	this.nombre = nombre;
-    	this.email = email; 
-    	this.contrasena = contrasena;
-    	this.rol = rol;
-    	this.iniciativas = iniciativas;
-    	this.apoyar = apoyar;
-    }
-    
     
     public int getId() {
         return id;
@@ -112,12 +101,12 @@ public class Usuario implements Serializable{
                             + rol + ", iniciativas=" + iniciativas + ", apoyar=" + apoyar + "]";
     }
 
-    public String getRol() {
+    public Rol getRol() {
             return rol;
     }
 
     public void setRol(String rol) {
-            this.rol = rol;
+            this.rol = Rol.valueOf(rol);
     }
     
 }

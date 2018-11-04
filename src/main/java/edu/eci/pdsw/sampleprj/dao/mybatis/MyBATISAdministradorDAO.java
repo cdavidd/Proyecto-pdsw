@@ -6,16 +6,16 @@ import org.apache.ibatis.exceptions.PersistenceException;
 
 import com.google.inject.Inject;
 
-import edu.eci.pdsw.sampleprj.dao.UsuarioDAO;
-import edu.eci.pdsw.sampleprj.dao.mybatis.mappers.UsuarioMapper;
 import edu.eci.pdsw.samples.entities.Iniciativa;
 import edu.eci.pdsw.samples.entities.TipoEstado;
 import edu.eci.pdsw.samples.entities.Usuario;
+import edu.eci.pdsw.sampleprj.dao.mybatis.mappers.AdministradorMapper;
+import edu.eci.pdsw.sampleprj.dao.AdministradorDAO;
 
-public class MyBATISUsuarioDAO implements UsuarioDAO{
+public class MyBATISAdministradorDAO implements AdministradorDAO{
 
 	@Inject 
-	private UsuarioMapper usuarioMapper;
+	private AdministradorMapper usuarioMapper;
 	
 	
 	@Override

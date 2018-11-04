@@ -50,5 +50,9 @@ public class AdministradorBean extends BasePageBean{
         }else if (ej.equals("solucionado")){
             servicioBanco.cambiarEstado(iniciativa,TipoEstado.Solucionado);
         }
-    }   
+    }
+    
+    public void cambiarRol (Usuario usuario, String rol){
+        
+    }
 }

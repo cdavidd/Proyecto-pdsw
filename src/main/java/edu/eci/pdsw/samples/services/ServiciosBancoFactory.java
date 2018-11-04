@@ -7,10 +7,10 @@ import static com.google.inject.Guice.createInjector;
 import com.google.inject.Injector;
 
 import edu.eci.pdsw.sampleprj.dao.IniciativaDAO;
-import edu.eci.pdsw.sampleprj.dao.UsuarioDAO;
 import edu.eci.pdsw.sampleprj.dao.mybatis.MyBATISIniciativaDAO;
-import edu.eci.pdsw.sampleprj.dao.mybatis.MyBATISUsuarioDAO;
+import edu.eci.pdsw.sampleprj.dao.mybatis.MyBATISAdministradorDAO;
 import edu.eci.pdsw.samples.services.impl.ServiciosBancoImpl;
+import edu.eci.pdsw.sampleprj.dao.AdministradorDAO;
 
 public class ServiciosBancoFactory {
 
@@ -26,7 +26,7 @@ public class ServiciosBancoFactory {
 				install(JdbcHelper.PostgreSQL);
 				setClassPathResource("my-batis-config.xml");
 	            bind(IniciativaDAO.class).to(MyBATISIniciativaDAO.class);
-	            bind(UsuarioDAO.class).to(MyBATISUsuarioDAO.class);
+	            bind(AdministradorDAO.class).to(MyBATISAdministradorDAO.class);
 	            bind(ServiciosBanco.class).to(ServiciosBancoImpl.class);
 			}
 		});
@@ -37,7 +37,7 @@ public class ServiciosBancoFactory {
 				install(JdbcHelper.PostgreSQL);
 				setClassPathResource("my-batis-config-h2.xml");
 				bind(IniciativaDAO.class).to(MyBATISIniciativaDAO.class);
-				bind(UsuarioDAO.class).to(MyBATISUsuarioDAO.class);
+				bind(AdministradorDAO.class).to(MyBATISAdministradorDAO.class);
 				bind(ServiciosBanco.class).to(ServiciosBancoImpl.class);
 			}
 		});

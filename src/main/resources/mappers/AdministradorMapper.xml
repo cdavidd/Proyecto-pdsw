@@ -3,9 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="edu.eci.pdsw.sampleprj.dao.mybatis.mappers.UsuarioMapper">
+<mapper namespace="edu.eci.pdsw.sampleprj.dao.mybatis.mappers.AdministradorMapper">
 
-<resultMap id = "UsuarioResult" type = "Usuario">
+<resultMap id = "UsuarioResult" type = "Administrador">
 	   <id property = "id" column = "id"/>
 	   <result property = "nombre" column = "nombre"/>
 	   <result property = "email" column = "email"/>
@@ -17,14 +17,14 @@
 
 
 <select id="consultarUsuario" resultMap="UsuarioResult">
- 		select
-	    id, 
+        select
+        id, 
         nombre, 
         email, 
         contrasena,
         rol 
         from usuarios  
-	    WHERE email = #{email}
+        WHERE email = #{email}
  	</select>
 
 <insert id="insertarUsuario">

@@ -6,7 +6,7 @@ import edu.eci.pdsw.samples.entities.Iniciativa;
 import edu.eci.pdsw.samples.entities.TipoEstado;
 import edu.eci.pdsw.samples.entities.Usuario;
 
-public interface UsuarioDAO{
+public interface AdministradorDAO{
     
     public List<Usuario> consultarUsuarios() throws PersistenceException;
     public List<Usuario> consultarUsuariosSinRol() throws PersistenceException;

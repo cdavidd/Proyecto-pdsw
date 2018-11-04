@@ -8,9 +8,8 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 
 import edu.eci.pdsw.sampleprj.dao.IniciativaDAO;
-import edu.eci.pdsw.sampleprj.dao.UsuarioDAO;
 import edu.eci.pdsw.sampleprj.dao.mybatis.MyBATISIniciativaDAO;
-import edu.eci.pdsw.sampleprj.dao.mybatis.MyBATISUsuarioDAO;
+import edu.eci.pdsw.sampleprj.dao.mybatis.MyBATISAdministradorDAO;
 import edu.eci.pdsw.samples.services.ServiciosBanco;
 import edu.eci.pdsw.samples.services.impl.ServiciosBancoImpl;
 import edu.eci.pdsw.samples.services.impl.ServiciosBancoStub;
@@ -19,6 +18,7 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import org.mybatis.guice.XMLMyBatisModule;
 import org.mybatis.guice.datasource.helper.JdbcHelper;
+import edu.eci.pdsw.sampleprj.dao.AdministradorDAO;
 
 /**
  *
@@ -38,7 +38,7 @@ public class GuiceContextListener implements ServletContextListener{
                 setEnvironmentId("development");
                 setClassPathResource("mybatis-config.xml");
                 bind(IniciativaDAO.class).to(MyBATISIniciativaDAO.class);
-	            bind(UsuarioDAO.class).to(MyBATISUsuarioDAO.class);
+	            bind(AdministradorDAO.class).to(MyBATISAdministradorDAO.class);
 	            bind(ServiciosBanco.class).to(ServiciosBancoImpl.class);
             }   
        });

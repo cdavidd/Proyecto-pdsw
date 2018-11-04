@@ -11,7 +11,7 @@
     <properties resource="config.properties">
     </properties>
     <typeAliases>
-        <typeAlias type="edu.eci.pdsw.samples.entities.Usuario" alias="Usuario"/>
+        <typeAlias type="edu.eci.pdsw.samples.entities.Administrador" alias="Administrador"/>
         <typeAlias type="edu.eci.pdsw.samples.entities.Iniciativa" alias="Iniciativa"/>
     </typeAliases>	
 
@@ -27,7 +27,7 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="mappers/UsuarioMapper.xml"></mapper>
+        <mapper resource="mappers/AdministradorMapper.xml"></mapper>
         <mapper resource="mappers/IniciativaMapper.xml"></mapper>     
     </mappers> 
 </configuration>

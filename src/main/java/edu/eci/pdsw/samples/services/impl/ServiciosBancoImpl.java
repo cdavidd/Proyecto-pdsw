@@ -7,18 +7,18 @@ import org.apache.ibatis.exceptions.PersistenceException;
 import com.google.inject.Inject;
 
 import edu.eci.pdsw.sampleprj.dao.IniciativaDAO;
-import edu.eci.pdsw.sampleprj.dao.UsuarioDAO;
 import edu.eci.pdsw.samples.entities.Iniciativa;
 import edu.eci.pdsw.samples.entities.TipoEstado;
 import edu.eci.pdsw.samples.entities.Usuario;
 import edu.eci.pdsw.samples.services.ExcepcionServicesBanco;
 import edu.eci.pdsw.samples.services.ServiciosBanco;
+import edu.eci.pdsw.sampleprj.dao.AdministradorDAO;
 
 public class ServiciosBancoImpl implements ServiciosBanco{
 
 	
 	@Inject
-	private UsuarioDAO usuarioDAO;
+	private AdministradorDAO usuarioDAO;
 	
 	@Inject 
 	private IniciativaDAO iniciativaDAO;
