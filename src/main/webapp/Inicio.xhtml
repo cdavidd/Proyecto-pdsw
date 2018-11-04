@@ -24,7 +24,7 @@
 				<br><p:inputText id="contrasena"  placeholder="&#128272; Contraseña" type="password" value="#{inicioBean.contrasena}" > </p:inputText></br>
 			</div>
 			<div id="Botones">
-				<p:commandButton  value="login" actionListener="#{inicioBean.consultar(inicioBean.email)}" />
+				<p:commandButton  value="login" actionListener="#{inicioBean.consultar(inicioBean.email)}"  action= "home"/>
 				<p:button outcome="Registro.xhtml" value="Registrarse" />   
 			</div>
         </h:form>
@@ -34,11 +34,12 @@
                 <input type="checkbox" id="menu-bar"></input>
                 <label class="icon-menu" for="menu-bar"></label> 
                 <nav class="menu">
-                    <a href="prueba.xhtml">Inicio</a>
+                    <a href="home.xhtml">Home</a>
                     <a href="Inicio.xhtml" >Iniciar sesion</a>
                     <a href="Registro.xhtml" >Registrarse</a>
                     <a href="">Iniciativas</a>
                     <a href="">Contacto</a>
+                    
                 </nav>
             </div>
         </header>

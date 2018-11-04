@@ -17,16 +17,17 @@ public class InicioBean extends BasePageBean{
     
     private static final long serialVersionUID = 3594009161252782831L;
     
+    
     @Inject
     ServiciosBanco servicioBanco;
     
     private String contrasena;
     private String email;
+    private Usuario usuario;
     
     public Usuario consultar(String correo){
         try{
-            Usuario a =servicioBanco.consultarUsuario(correo);
-            System.out.println(a.toString());
+        	this.setUsuario(servicioBanco.consultarUsuario(correo));
             return servicioBanco.consultarUsuario(correo);
         }catch(ExcepcionServicesBanco ex){
             System.out.println(ex.getMessage());
@@ -49,4 +50,12 @@ public class InicioBean extends BasePageBean{
     public void setEmail(String mail){
         this.email=mail;
     }
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
 }

@@ -20,7 +20,7 @@
                 <br><p:inputText id="correo" placeholder="&#128386; Correo" value="#{registroBean.email}" > </p:inputText></br>
                 <br><p:inputText id="contrasena" placeholder="&#128272; Contraseña" type="password" value="#{registroBean.contrasena}"> </p:inputText></br>
                 <p:button outcome="Inicio" value="Inicio" />
-                <p:commandButton value="Registrarse" actionListener="#{registroBean.registrarUsuario(registroBean.id,registroBean.nombre,registroBean.email,registroBean.contrasena)}" action="Inicio" />
+                <p:commandButton value="Registrarse" actionListener="#{registroBean.registrarUsuario(registroBean.id,registroBean.nombre,registroBean.email,registroBean.contrasena)}" action="home" />
 
         </h:form>
 		<header>
@@ -29,7 +29,7 @@
                 <input type="checkbox" id="menu-bar"></input>
                 <label class="icon-menu" for="menu-bar"></label> 
                 <nav class="menu">
-                    <a href="prueba.xhtml">Inicio</a>
+                    <a href="home.xhtml">Home</a>
                     <a href="Inicio.xhtml" >Iniciar sesion</a>
                     <a href="Registro.xhtml" >Registrarse</a>
                     <a href="">Iniciativas</a>

@@ -8,24 +8,34 @@
     <h:head>
         <title></title>
 		<link rel="stylesheet" href="fontello.css" />
-                <link rel="stylesheet" href="Recursos/estilosP.css" />
+        <link rel="stylesheet" href="Recursos/estilosP.css" />
+        <link rel="stylesheet" href="Recursos/home.css" />
 	</h:head>
 	<h:body >
+
+        <h2>usuarios del sistema</h2>
+
+        <h:form id="cliente_form"> 
+		   <div id="Botones">
+              <p:button outcome="usuarios" value="Usuarios del sistema" />   
+            </div>
+	
+        </h:form>    
             <header>
                 <div class="contenedor"> 
                     <h1 class="icon-bank">banco de iniciativas de proyectos</h1>
                     <input type="checkbox" id="menu-bar"></input>
                     <label class="icon-menu" for="menu-bar"></label> 
                     <nav class="menu">
-                        
-                        
-                        
                         <a href="">Inicio</a>
                         <a href="">Iniciativas</a>
                         <a href="">Contacto</a>
+                        <a href="">#{inicioBean.usuario.nombre} (#{inicioBean.usuario.rol})</a>
                     </nav>
                 </div>
             </header>
+
+
 	</h:body>
 	
 </html>
