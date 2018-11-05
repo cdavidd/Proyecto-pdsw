@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import edu.eci.pdsw.samples.entities.Iniciativa;
+import edu.eci.pdsw.samples.entities.Rol;
 import edu.eci.pdsw.samples.entities.TipoEstado;
 import edu.eci.pdsw.samples.entities.Usuario;
 
@@ -18,4 +19,5 @@ public interface AdministradorMapper {
     public void insertarUsuario(@Param("usuario") Usuario user );
     public List<Usuario> consultarUsuarios();
     public List<Usuario> consultarUsuariosSinRol();
+    public void cambiarRol(@Param("usuario") Usuario usuario,@Param("rol")String rol);
 }

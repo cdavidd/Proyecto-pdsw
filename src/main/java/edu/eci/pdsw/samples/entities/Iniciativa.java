@@ -15,14 +15,22 @@ import java.util.Date;
 public class Iniciativa implements Serializable{
 
     private int id;
-    private String descripcion;
+    private String descripcion; //
     private TipoEstado estado;
     private int votos;
-    private Date fechaCreacion;
-    private Usuario usuario;
+    private Date fechaCreacion; //
+    private Usuario usuario; //
     private String area;
+    private String titulo;
+    
     public Iniciativa(){}
-
+    public Iniciativa(String descripcion, Date fecha, Usuario usuario, String titulo, String area){
+        this.descripcion= descripcion;
+        this.fechaCreacion= fecha;
+        this.usuario=usuario;
+        this.titulo=titulo;
+        this.area=area;
+    }
     public int getId() {
         return id;
     }

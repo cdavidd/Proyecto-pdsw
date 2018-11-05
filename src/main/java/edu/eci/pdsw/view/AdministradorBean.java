@@ -52,7 +52,7 @@ public class AdministradorBean extends BasePageBean{
         }
     }
     
-    public void cambiarRol (Usuario usuario, String rol){
-        
+    public void cambiarRol (Usuario usuario, String rol) throws ExcepcionServicesBanco{
+        servicioBanco.cambiarRol(usuario,rol);
     }
 }

@@ -17,18 +17,18 @@
         </div>
 		<h2>INICIAR SESION</h2>
         <h:form id="cliente_form"> 
-			<div id="Cuadro_email">
-				<br><p:inputText id="correo" placeholder="&#128386; Correo" value="#{inicioBean.email}" > </p:inputText></br>
-			</div>
-			<div id="Cuadro_pass">
-				<br><p:inputText id="contrasena"  placeholder="&#128272; Contraseña" type="password" value="#{inicioBean.contrasena}" > </p:inputText></br>
-			</div>
-			<div id="Botones">
-				<p:commandButton  value="login" actionListener="#{inicioBean.consultar(inicioBean.email)}"  action= "home"/>
-				<p:button outcome="Registro.xhtml" value="Registrarse" />   
-			</div>
+            <div id="Cuadro_email">
+                    <br><p:inputText id="correo" placeholder="&#128386; Correo" value="#{inicioBean.email}" > </p:inputText></br>
+            </div>
+            <div id="Cuadro_pass">
+                    <br><p:inputText id="contrasena"  placeholder="&#128272; Contraseña" type="password" value="#{inicioBean.contrasena}" > </p:inputText></br>
+            </div>
+            <div id="Botones">
+                    <p:commandButton  value="login" actionListener="#{inicioBean.consultar(inicioBean.email)}"  action= "home"/>
+                    <p:button outcome="Registro.xhtml" value="Registrarse" />   
+            </div>
         </h:form>
-		<header>
+        <header>
             <div class="contenedor"> 
                 <h1 class="icon-bank">banco de iniciativas</h1>
                 <input type="checkbox" id="menu-bar"></input>

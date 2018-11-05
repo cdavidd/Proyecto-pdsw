@@ -6,14 +6,13 @@
 <mapper namespace="edu.eci.pdsw.sampleprj.dao.mybatis.mappers.AdministradorMapper">
 
 <resultMap id = "UsuarioResult" type = "Administrador">
-	   <id property = "id" column = "id"/>
-	   <result property = "nombre" column = "nombre"/>
-	   <result property = "email" column = "email"/>
-	   <result property = "contrasena" column = "contrasena"/>
-       <result property = "rol" column = "rol"/>
-       <collection property="iniciativas" ofType="Iniciativa" resultMap='edu.eci.pdsw.sampleprj.dao.mybatis.mappers.IniciativaMapper.IniciativaResult'></collection> 
-       <collection property="apoyar" ofType="Iniciativa" resultMap='edu.eci.pdsw.sampleprj.dao.mybatis.mappers.IniciativaMapper.IniciativaResult'></collection>  
-	</resultMap>
+    <id property = "id" column = "id"/>
+    <result property = "nombre" column = "nombre"/>
+    <result property = "email" column = "email"/>
+    <result property = "contrasena" column = "contrasena"/>
+    <result property = "rol" column = "rol"/>
+    
+</resultMap>
 
 
 <select id="consultarUsuario" resultMap="UsuarioResult">
@@ -39,10 +38,15 @@
 </select>
 
 <select id="consultarUsuariosSinRol" resultMap="UsuarioResult">
- 		select
+        select
 	    *
 	    FROM Usuario as u 
         where u.rol is null
 </select>
+
+<update id="cambiarRol" >
+    UPDATE USUARIOS SET rol = #{rol}
+    WHERE id = #{usuario.id};
+</update>
 
 </mapper>

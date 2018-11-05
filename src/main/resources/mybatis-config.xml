@@ -13,6 +13,7 @@
     <typeAliases>
         <typeAlias type="edu.eci.pdsw.samples.entities.Administrador" alias="Administrador"/>
         <typeAlias type="edu.eci.pdsw.samples.entities.Iniciativa" alias="Iniciativa"/>
+        <typeAlias type="edu.eci.pdsw.samples.entities.Proponente" alias="Proponente"/>
     </typeAliases>	
 
     <environments default="development">
@@ -28,6 +29,7 @@
     </environments>
     <mappers>
         <mapper resource="mappers/AdministradorMapper.xml"></mapper>
-        <mapper resource="mappers/IniciativaMapper.xml"></mapper>     
+        <mapper resource="mappers/IniciativaMapper.xml"></mapper>
+        <mapper resource="mappers/ProponenteMapper.xml"></mapper>
     </mappers> 
 </configuration>

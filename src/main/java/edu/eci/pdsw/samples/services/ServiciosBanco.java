@@ -9,6 +9,7 @@ import edu.eci.pdsw.samples.entities.Iniciativa;
 import edu.eci.pdsw.samples.entities.TipoEstado;
 import edu.eci.pdsw.samples.entities.Usuario;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -25,5 +26,8 @@ public interface ServiciosBanco {
     public void cambiarEstado(Iniciativa iniciativa, TipoEstado tipoEstado) throws ExcepcionServicesBanco;
 
     public List<Usuario> consultarUsuariosSinRol() throws ExcepcionServicesBanco;
+
+    public void cambiarRol(Usuario usuario, String rol) throws ExcepcionServicesBanco;
     
+    public void registrarIniciativa(String descripcion, Date fecha, Usuario usuario, String titulo, String area) throws ExcepcionServicesBanco;
 }

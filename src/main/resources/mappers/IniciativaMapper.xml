@@ -6,12 +6,13 @@
 <mapper namespace="edu.eci.pdsw.sampleprj.dao.mybatis.mappers.IniciativaMapper">
 
 <resultMap id = "IniciativaResult" type = "Iniciativa">
-	   <id property = "id" column = "id"/>
-	   <result property = "descripcion" column = "descripcion"/>
-	   <result property = "estado" column = "estado"/>
-	   <result property = "fecha_creacion" column = "fecha_creacion"/>
-       <result property = "area" column = "area"/> 
-	</resultMap>
+    <id property = "id" column = "id"/>
+    <result property = "descripcion" column = "descripcion"/>
+    <result property = "estado" column = "estado"/>
+    <result property = "fecha_creacion" column = "fecha_creacion"/>
+    <result property = "area" column = "area"/>
+    <association property="usuario" javaType="Proponente" resultMap="edu.eci.pdsw.sampleprj.dao.mybatis.mappers.ProponenteMapper.ProponenteResult" />
+</resultMap>
 
 
 

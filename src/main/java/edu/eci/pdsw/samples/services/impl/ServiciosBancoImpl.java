@@ -3,73 +3,91 @@ package edu.eci.pdsw.samples.services.impl;
 import java.util.List;
 
 import org.apache.ibatis.exceptions.PersistenceException;
-
 import com.google.inject.Inject;
-
-import edu.eci.pdsw.sampleprj.dao.IniciativaDAO;
 import edu.eci.pdsw.samples.entities.Iniciativa;
 import edu.eci.pdsw.samples.entities.TipoEstado;
 import edu.eci.pdsw.samples.entities.Usuario;
 import edu.eci.pdsw.samples.services.ExcepcionServicesBanco;
 import edu.eci.pdsw.samples.services.ServiciosBanco;
-import edu.eci.pdsw.sampleprj.dao.AdministradorDAO;
+import edu.eci.pdsw.sampleprj.dao.*;
+import edu.eci.pdsw.samples.entities.Rol;
+import java.util.Date;
 
 public class ServiciosBancoImpl implements ServiciosBanco{
 
 	
-	@Inject
-	private AdministradorDAO usuarioDAO;
-	
-	@Inject 
-	private IniciativaDAO iniciativaDAO;
-	
-	@Override
-	public void registrarUsuario(Usuario u) throws ExcepcionServicesBanco {
-		try {
-			   usuarioDAO.registrarUsuario(u);
-		   }
-		   catch(PersistenceException ex) {
-	           throw new ExcepcionServicesBanco("Error al consultar el usuario "+u.getEmail());
-		   }
-	}
+    @Inject
+    private AdministradorDAO administradorDAO;
 
-	@Override
-	public Usuario consultarUsuario(String correo) throws ExcepcionServicesBanco {
-		try {
-			  return usuarioDAO.consultarUsuario(correo);
-		   }
-		   catch(PersistenceException ex) {
-	           throw new ExcepcionServicesBanco("Error al consultar el usuario "+correo);
-		   }
-	}
+    @Inject 
+    private IniciativaDAO iniciativaDAO;
+    
+    @Inject
+    private ProponenteDAO proponenteDao;
+    
+    @Override
+    public void registrarUsuario(Usuario u) throws ExcepcionServicesBanco {
+        try {
+            administradorDAO.registrarUsuario(u);
+        }catch(PersistenceException ex) {
+           throw new ExcepcionServicesBanco("Error al consultar el usuario "+u.getEmail());
+        }
+    }
 
-	@Override
-	public List<Usuario> consultarUsuarios() throws ExcepcionServicesBanco {
-		try {
-			  return usuarioDAO.consultarUsuarios();
-		   }
-		   catch(PersistenceException ex) {
-	           throw new ExcepcionServicesBanco("Error al consultar los usuarios");
-		   }
-	}
+    @Override
+    public Usuario consultarUsuario(String correo) throws ExcepcionServicesBanco {
+        try {
+            return administradorDAO.consultarUsuario(correo);
+        }catch(PersistenceException ex) {
+           throw new ExcepcionServicesBanco("Error al consultar el usuario "+correo);
+        }
+    }
 
-	@Override
-	public void cambiarEstado(Iniciativa iniciativa, TipoEstado tipoEstado) throws ExcepcionServicesBanco{
-		try {
-			  iniciativaDAO.cambiarEstado(iniciativa, tipoEstado);
-		   }
-		   catch(PersistenceException ex) {
-	           throw new ExcepcionServicesBanco("Error al cambiar el estado de la iniciativa");
-		   }		
-	}
+    @Override
+    public List<Usuario> consultarUsuarios() throws ExcepcionServicesBanco {
+        try {
+            return administradorDAO.consultarUsuarios();
+        }
+        catch(PersistenceException ex) {
+           throw new ExcepcionServicesBanco("Error al consultar los usuarios");
+        }
+    }
 
-	@Override
-	public List<Usuario> consultarUsuariosSinRol() throws ExcepcionServicesBanco{
-		try {
-			  return usuarioDAO.consultarUsuariosSinRol();
-		   }
-		   catch(PersistenceException ex) {
-	           throw new ExcepcionServicesBanco("Error al consultar los usuarios sin rol");
-		   }
-	}
+    @Override
+    public void cambiarEstado(Iniciativa iniciativa, TipoEstado tipoEstado) throws ExcepcionServicesBanco{
+        try {
+            iniciativaDAO.cambiarEstado(iniciativa, tipoEstado);
+        }
+        catch(PersistenceException ex) {
+           throw new ExcepcionServicesBanco("Error al cambiar el estado de la iniciativa");
+        }		
+    }
+
+    @Override
+    public List<Usuario> consultarUsuariosSinRol() throws ExcepcionServicesBanco{
+        try {
+            return administradorDAO.consultarUsuariosSinRol();
+           }
+        catch(PersistenceException ex) {
+           throw new ExcepcionServicesBanco("Error al consultar los usuarios sin rol");
+        }
+    }
+
+    @Override
+    public void cambiarRol(Usuario usuario, String rol) throws ExcepcionServicesBanco {
+        try{
+           administradorDAO.cambiarRol(usuario,rol);
+        }catch(PersistenceException ex) {
+            throw new ExcepcionServicesBanco("Error al cambiar el Rol a"+usuario.toString());
+        }
+    }
+
+    @Override
+    public void registrarIniciativa(String descripcion, Date fecha, Usuario usuario, String titulo, String area) throws ExcepcionServicesBanco {
+        try{
+           proponenteDao.registrarIniciativa(descripcion, fecha, usuario, titulo, area);
+        }catch(PersistenceException ex) {
+            throw new ExcepcionServicesBanco("Error al registrar iniciativa "+titulo);
+        }
+    }
 }
