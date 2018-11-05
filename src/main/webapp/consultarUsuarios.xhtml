@@ -9,6 +9,7 @@
         <title></title>
 		<link rel="stylesheet" href="fontello.css" />
                 <link rel="stylesheet" href="Recursos/estilosP.css" />
+                 <link rel="stylesheet" href="Recursos/menuSecundario.css" />
 	</h:head>
 	<h:body >
             <header>
@@ -21,14 +22,23 @@
                         
                         
                         <a href="">Inicio</a>
-                        <a href="">Iniciar Sesion</a>
-                        <a href="">Registrarse</a>
                         <a href="">Iniciativas</a>
                         <a href="">Contacto</a>
+                        <a href="">#{inicioBean.usuario.nombre} (#{inicioBean.usuario.rol})</a>
                     </nav>
                 </div>
-                
             </header>
+
+            <div class="menuOpciones">
+                    <nav class="menu2">
+                         <a href="consultarUsuarios.xhtml">Consultar Usuarios del sistema</a>
+                         <a href="">Consultar Iniciativas</a>
+                         <a href="prueba.xhtml">Cerrar Sesion</a>
+                    </nav>
+                </div>
+
+
 	</h:body>
 	
 </html>
+
