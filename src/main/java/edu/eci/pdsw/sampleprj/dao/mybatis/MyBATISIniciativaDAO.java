@@ -1,5 +1,9 @@
 package edu.eci.pdsw.sampleprj.dao.mybatis;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import org.apache.ibatis.exceptions.PersistenceException;
 
 import com.google.inject.Inject;
@@ -23,5 +27,24 @@ public class MyBATISIniciativaDAO implements IniciativaDAO{
 		catch(org.apache.ibatis.exceptions.PersistenceException e) {
 		    throw new PersistenceException("Error al cambiar el estado de la iniciativa");
 		}	
+	}
+
+	@Override
+	public Set<Iniciativa> buscarIniciativa(String palabraClave) throws PersistenceException {
+		try {
+			Set<Iniciativa> iniciativas = new HashSet<Iniciativa>();
+			String[] palabras = palabraClave.split(",");
+			for (int i=0; i<palabras.length;i++) {
+				for (Iniciativa j :iniciativaMapper.buscarIniciativa(palabras[i])) {
+					iniciativas.add(j);
+				}
+				
+			}
+			return iniciativas;
+		}
+		catch(org.apache.ibatis.exceptions.PersistenceException e) {
+		    throw new PersistenceException("Error al buscar iniciativa");
+		}	
+		
 	}	
 }

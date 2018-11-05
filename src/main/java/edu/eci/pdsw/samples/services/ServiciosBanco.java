@@ -11,6 +11,7 @@ import edu.eci.pdsw.samples.entities.Usuario;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 /**
  *
@@ -30,4 +31,6 @@ public interface ServiciosBanco {
     public void cambiarRol(Usuario usuario, String rol) throws ExcepcionServicesBanco;
     
     public void registrarIniciativa(String descripcion, Date fecha, Usuario usuario, String titulo, String area) throws ExcepcionServicesBanco;
+    
+	public abstract Set<Iniciativa> buscarIniciativa(String palabraClave)throws ExcepcionServicesBanco;
 }

@@ -55,4 +55,9 @@ public class AdministradorBean extends BasePageBean{
     public void cambiarRol (Usuario usuario, String rol) throws ExcepcionServicesBanco{
         servicioBanco.cambiarRol(usuario,rol);
     }
+    
+    public Set<Iniciativa> buscarIniciativas(String palabraClave) throws ExcepcionServicesBanco{
+    	return servicioBanco.buscarIniciativa(palabraClave);
+    	
+    }
 }

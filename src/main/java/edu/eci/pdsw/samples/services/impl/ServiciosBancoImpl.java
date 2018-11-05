@@ -1,6 +1,7 @@
 package edu.eci.pdsw.samples.services.impl;
 
 import java.util.List;
+import java.util.Set;
 
 import org.apache.ibatis.exceptions.PersistenceException;
 import com.google.inject.Inject;
@@ -90,4 +91,13 @@ public class ServiciosBancoImpl implements ServiciosBanco{
             throw new ExcepcionServicesBanco("Error al registrar iniciativa "+titulo);
         }
     }
+
+	@Override
+	public Set<Iniciativa> buscarIniciativa(String palabraClave) throws ExcepcionServicesBanco {
+		 try{
+			 return iniciativaDAO.buscarIniciativa(palabraClave);
+		}catch(PersistenceException ex) {
+	            throw new ExcepcionServicesBanco("Error al buscar iniciativa con palabra clave "+ palabraClave );
+	        }
+	}
 }

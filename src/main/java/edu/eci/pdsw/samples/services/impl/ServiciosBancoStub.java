@@ -93,4 +93,8 @@ public class ServiciosBancoStub implements ServiciosBanco {
     public void registrarIniciativa(String descripcion, Date fecha, Usuario usuario, String titulo, String area) throws ExcepcionServicesBanco {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+	@Override
+	public Set<Iniciativa> buscarIniciativa(String palabraClave) throws ExcepcionServicesBanco {
+		return null;		
+	}
 }
