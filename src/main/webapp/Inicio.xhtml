@@ -24,7 +24,7 @@
                     <br><p:inputText id="contrasena"  placeholder="&#128272; Contraseña" type="password" value="#{inicioBean.contrasena}" > </p:inputText></br>
             </div>
             <div id="Botones">
-                    <p:commandButton  value="login" actionListener="#{inicioBean.consultar(inicioBean.email)}"  action= "home"/>
+                    <p:commandButton  value="login" actionListener="#{inicioBean.consultar(inicioBean.email)}"  action= "#{inicioBean.irHome(inicioBean.email)}"/>
                     <p:button outcome="Registro.xhtml" value="Registrarse" />   
             </div>
         </h:form>

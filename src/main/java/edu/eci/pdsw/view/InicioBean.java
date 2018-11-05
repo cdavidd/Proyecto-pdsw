@@ -1,5 +1,7 @@
 package edu.eci.pdsw.view;
 import com.google.inject.Inject;
+
+import edu.eci.pdsw.samples.entities.Rol;
 import edu.eci.pdsw.samples.entities.Usuario;
 import edu.eci.pdsw.samples.services.ExcepcionServicesBanco;
 import edu.eci.pdsw.samples.services.ServiciosBanco;
@@ -34,6 +36,30 @@ public class InicioBean extends BasePageBean{
             return null;
         }        	
     }
+    
+    public String irHome(String email) {
+    	Usuario user;
+		try {
+			user = servicioBanco.consultarUsuario(email);
+			if (user.getRol().equals(Rol.Administrador)) return "homeAdmi";
+	    	
+	    	else if (user.getRol().equals(Rol.Proponente)) return "homeP";		
+			
+			else if (user.getRol().equals(Rol.Pmo_Odi))  return null;
+			
+			else if (user.getRol().equals(Rol.Publico)) return null;
+			
+			else {
+				System.out.println("entra");
+				return null;
+			}
+		} 
+		catch (ExcepcionServicesBanco e) {
+			e.printStackTrace();
+			return null;
+		}
+    }
+    
     
     public String getContrasena(){
         return contrasena;
