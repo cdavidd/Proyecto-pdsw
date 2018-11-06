@@ -8,30 +8,33 @@
     <h:head>
         <title>Registrar</title>
         <link rel="stylesheet" href="fontello.css" />
-        <link rel="stylesheet" type="text/css" href="Recursos/registro.css" media="screen" />
         <link rel="stylesheet" href="Recursos/estilosP.css" />
+        <link rel="stylesheet" href="Recursos/login.css" />  
     </h:head>
-    <h:body>
-        
+    <h:body style="overflow-x:hidden; overflow-y:hidden">    
+        <div id="imagenNew">
+            <img src="Recursos\new.png" />
+        </div>
+        <div id="imagenU">
+            <img src="Recursos\imagen3.png"  border="2" />
+        </div>
         <h:form id="form_registro">
-                <h2>Registro Usuario</h2>
                 <br><p:inputText id="carne"  placeholder="&#49;&#50;&#51; Carnet" value="#{registroBean.id}"> </p:inputText></br>
                 <br><p:inputText id="nombre" placeholder="&#128100; Nombre" value="#{registroBean.nombre}"> </p:inputText></br>
                 <br><p:inputText id="correo" placeholder="&#128386; Correo" value="#{registroBean.email}" > </p:inputText></br>
                 <br><p:inputText id="contrasena" placeholder="&#128272; Contraseña" type="password" value="#{registroBean.contrasena}"> </p:inputText></br>
-                <p:button outcome="Inicio" value="Inicio" />
-                <p:commandButton value="Registrarse" actionListener="#{registroBean.registrarUsuario(registroBean.id,registroBean.nombre,registroBean.email,registroBean.contrasena)}" action="home" />
-
+                <div id="Botones">
+                    <p:commandButton value="Registrarse" actionListener="#{registroBean.registrarUsuario(registroBean.id,registroBean.nombre,registroBean.email,registroBean.contrasena)}" action="home" />
+                </div>
         </h:form>
-		<header>
+        <header>
             <div class="contenedor"> 
-                <h1 class="icon-bank">banco de iniciativas</h1>
+                <h1 class="icon-bank"> Registro Usuario</h1>
                 <input type="checkbox" id="menu-bar"></input>
                 <label class="icon-menu" for="menu-bar"></label> 
                 <nav class="menu">
-                    <a href="home.xhtml">Home</a>
-                    <a href="Inicio.xhtml" >Iniciar sesion</a>
-                    <a href="Registro.xhtml" >Registrarse</a>
+                    <a href="inicio.xhtml">Inicio</a>
+                    <a href="inicioSesion.xhtml" >Iniciar sesion</a>
                     <a href="">Iniciativas</a>
                     <a href="">Contacto</a>
                 </nav>

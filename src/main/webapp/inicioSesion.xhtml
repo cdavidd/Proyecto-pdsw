@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Inicio Sesion</title>
+        <link rel="stylesheet" href="fontello.css" />
+        <link rel="stylesheet" href="Recursos/estilosP.css" />
+        <link rel="stylesheet" href="Recursos/login.css" />
+    </h:head>
+    <h:body style="overflow-x:hidden; overflow-y:hidden"> 
+        <div id="imagenLog">
+            <img src="Recursos\login.png" />
+        </div>
+        <div id="imagenU">
+            <img src="Recursos\imagen3.png"  border="2" />
+        </div>
+        <h:form id="cliente_form"> 
+            <div id="Cuadro_email">
+                    <br><p:inputText id="correo" placeholder="&#128386; Correo" value="#{inicioBean.email}" > </p:inputText></br>
+            </div>
+            <div id="Cuadro_pass">
+                    <br><p:inputText id="contrasena"  placeholder="&#128272; Contraseña" type="password" value="#{inicioBean.contrasena}" > </p:inputText></br>
+            </div>
+            <div id="Botones">
+                    <p:commandButton  value="login" actionListener="#{inicioBean.consultar(inicioBean.email)}"  action= "#{inicioBean.irHome(inicioBean.email)}"/>  
+            </div>
+        </h:form>
+        <header>
+            <div class="contenedor"> 
+                <h1 class="icon-bank"> Iniciar Sesion</h1>
+                <input type="checkbox" id="menu-bar"></input>
+                <label class="icon-menu" for="menu-bar"></label> 
+                <nav class="menu">
+                    <a href="inicio.xhtml">Inicio</a>
+                    <a href="Registro.xhtml" >Registrarse</a>
+                    <a href="">Iniciativas</a>
+                    <a href="">Contacto</a>
+                    
+                </nav>
+            </div>
+        </header>
+    </h:body>
+</html>
