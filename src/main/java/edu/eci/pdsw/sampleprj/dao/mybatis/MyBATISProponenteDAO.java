@@ -31,6 +31,7 @@ public class MyBATISProponenteDAO implements ProponenteDAO{
         System.out.println(area);
             proponenteMapper.registrarIniciativa(descripcion, fecha, usuario, titulo, area);
         }catch(org.apache.ibatis.exceptions.PersistenceException e) {
+        	System.out.println(e.getMessage());
             throw new PersistenceException("Error al registrar iniciativa "+titulo);
         }
     }

@@ -51,7 +51,6 @@ public class InicioBean extends BasePageBean{
 			else if (user.getRol().equals(Rol.Publico)) return null;
 			
 			else {
-				System.out.println("entra");
 				return null;
 			}
 		} 
