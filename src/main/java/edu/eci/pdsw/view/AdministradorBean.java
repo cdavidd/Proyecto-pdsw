@@ -8,6 +8,7 @@ package edu.eci.pdsw.view;
 import com.google.inject.Inject;
 
 import edu.eci.pdsw.samples.entities.Iniciativa;
+import edu.eci.pdsw.samples.entities.Rol;
 import edu.eci.pdsw.samples.entities.TipoEstado;
 import edu.eci.pdsw.samples.entities.Usuario;
 import edu.eci.pdsw.samples.services.ExcepcionServicesBanco;
@@ -15,6 +16,7 @@ import edu.eci.pdsw.samples.services.ServiciosBanco;
 import java.util.*;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 /**
  *
@@ -25,17 +27,25 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class AdministradorBean extends BasePageBean{
     private static final long serialVersionUID = 3594009161252782831L;
-    
+    private List<Usuario> usuarios;
     @Inject
     ServiciosBanco servicioBanco;
+ 
+    
     
     public List<Usuario> consultarUsuariosSinRol() throws ExcepcionServicesBanco{
     	return servicioBanco.consultarUsuariosSinRol();	
     }
     
     
-    public List<Usuario> consultarUsuarios() throws ExcepcionServicesBanco{
+    public List<Usuario> getUsuarios() throws ExcepcionServicesBanco{
         return servicioBanco.consultarUsuarios();
+    }
+
+
+    public void algo(Rol rol) {
+    	System.out.println(rol);
+    	
     }
     
     public void cambiarEstado(Iniciativa iniciativa, String tipoEstado) throws ExcepcionServicesBanco{     
@@ -55,4 +65,15 @@ public class AdministradorBean extends BasePageBean{
         servicioBanco.cambiarRol(usuario,rol);
     }
     
+    public Set<Iniciativa> buscarIniciativas(String palabraClave) throws ExcepcionServicesBanco{
+    	return servicioBanco.buscarIniciativa(palabraClave);
+    	
+    }
+
+
+
+
+	public void setUsuarios(List<Usuario> usuarios) {
+		this.usuarios = usuarios;
+	}
 }

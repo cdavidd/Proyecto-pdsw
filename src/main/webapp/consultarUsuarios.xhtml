@@ -8,19 +8,43 @@
     <h:head>
         <title></title>
 		<link rel="stylesheet" href="fontello.css" />
-                <link rel="stylesheet" href="Recursos/estilosP.css" />
+                <link rel="stylesheet" href="Recursos/usuarios.css" />
                  <link rel="stylesheet" href="Recursos/menuSecundario.css" />
 	</h:head>
 	<h:body >
+            <h:form id="UsuariosForm">
+              <p:dataTable id="usuarios_tabla" var="usuario" value="#{administradorBean.usuarios}">
+                <p:column headerText="Nombre">
+                            <h:outputText value="#{usuario.nombre}" />
+                </p:column>
+                <p:column headerText="Email">
+                            <h:outputText value="#{usuario.email}" />
+                </p:column>
+                <p:column headerText="Rol">
+                    <h:selectOneMenu value = "#{usuario.rol}" > 
+                        <f:selectItem itemValue = "Administrador" itemLabel = "Administrador" /> 
+                        <f:selectItem itemValue = "Pmo_Odi" itemLabel = "Pmo_Odi" /> 
+                        <f:selectItem itemValue = "Proponente" itemLabel = "Proponente"/> 
+                        <f:selectItem itemValue = "Publico" itemLabel = "Publico" />
+                        <f:selectItem itemValue = "En_Espera" itemLabel = "En_Espera" />  
+                        <!--<p:ajax event="change" update="@this" />-->                                         
+                        <f:ajax listener="#{administradorBean.algo(usuario.rol)}" />
+
+                    </h:selectOneMenu>  
+                </p:column>
+                <p:column headerText="Iniciativas">
+                            <h:outputText value="#{usuario.iniciativas.size()}" />
+                </p:column>
+            </p:dataTable>
+            </h:form>
+
             <header>
                 <div class="contenedor"> 
-                    <h1 class="icon-bank">banco de iniciativas de proyectos</h1>
+                    <h1 class="icon-bank">Usuarios</h1>
                     <input type="checkbox" id="menu-bar"></input>
                     <label class="icon-menu" for="menu-bar"></label> 
                     <nav class="menu">
-                        
-                        
-                        
+                    
                         <a href="">Inicio</a>
                         <a href="">Iniciativas</a>
                         <a href="">Contacto</a>
@@ -31,8 +55,7 @@
 
             <div class="menuOpciones">
                     <nav class="menu2">
-                         <a href="consultarUsuarios.xhtml">Consultar Usuarios del sistema</a>
-                         <a href="">Consultar Iniciativas</a>
+                         <a href="VerIniciativas.xhtml">Consultar Iniciativas</a>
                          <a href="Inicio.xhtml">Cerrar Sesion</a>
                     </nav>
                 </div>
@@ -41,4 +64,3 @@
 	</h:body>
 	
 </html>
-

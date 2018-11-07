@@ -13,6 +13,6 @@ public enum Rol {
     Administrador,
     Proponente,
     Publico,
-    Pmo_Odi
-    
+    Pmo_Odi,
+    En_Espera
 }

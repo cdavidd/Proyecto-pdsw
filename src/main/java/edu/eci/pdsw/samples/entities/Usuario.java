@@ -7,6 +7,12 @@ package edu.eci.pdsw.samples.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+
+
+
+
+
+
 /**
  *
  * @author 2133561
@@ -16,15 +22,19 @@ public  class Usuario implements Serializable{
     /**
 	 * 
 	 */
+	
+	
     private static final long serialVersionUID = 1L;
     private int id;
     private String nombre;
     private String email;
     private String contrasena;
-    public Rol rol=null;
+    public Rol rol;
     private ArrayList<Iniciativa> iniciativas;
     private ArrayList<Iniciativa> apoyar;
     
+  
+
     public Usuario(){
     }
     
@@ -105,8 +115,8 @@ public  class Usuario implements Serializable{
             return rol;
     }
 
-    public void setRol(String rol) {
-            this.rol = Rol.valueOf(rol);
+    public void setRol(Rol rol) {
+            this.rol = rol;
     }
     
 }

@@ -31,7 +31,7 @@
 
     <insert id="insertarUsuario">
         insert into usuarios (nombre,email,rol,contrasena)
-        values (#{usuario.nombre},#{usuario.email},#{usuario.rol},#{usuario.contrasena})
+        values (#{usuario.nombre},#{usuario.email},'En_Espera',#{usuario.contrasena})
     </insert>
 
     <select id="consultarUsuarios" resultMap="UsuarioResult">
