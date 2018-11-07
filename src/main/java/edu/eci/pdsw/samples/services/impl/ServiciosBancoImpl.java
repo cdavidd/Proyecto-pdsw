@@ -12,6 +12,7 @@ import edu.eci.pdsw.samples.services.ExcepcionServicesBanco;
 import edu.eci.pdsw.samples.services.ServiciosBanco;
 import edu.eci.pdsw.sampleprj.dao.*;
 import edu.eci.pdsw.samples.entities.Rol;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class ServiciosBancoImpl implements ServiciosBanco{
@@ -97,12 +98,22 @@ public class ServiciosBancoImpl implements ServiciosBanco{
         }
     }
 
-	@Override
-	public Set<Iniciativa> buscarIniciativa(String palabraClave) throws ExcepcionServicesBanco {
-		 try{
-			 return iniciativaDAO.buscarIniciativa(palabraClave);
-		}catch(PersistenceException ex) {
-	            throw new ExcepcionServicesBanco("Error al buscar iniciativa con palabra clave "+ palabraClave );
-	        }
-	}
+    @Override
+    public Set<Iniciativa> buscarIniciativa(String palabraClave) throws ExcepcionServicesBanco {
+             try{
+                     return iniciativaDAO.buscarIniciativa(palabraClave);
+            }catch(PersistenceException ex) {
+                throw new ExcepcionServicesBanco("Error al buscar iniciativa con palabra clave "+ palabraClave );
+            }
+    }
+
+    @Override
+    public List<Iniciativa> getIniciativas() {
+        try{
+            return iniciativaDAO.getIniciativas();
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+            return null;
+        }
+    }
 }

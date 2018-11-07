@@ -12,6 +12,7 @@ import edu.eci.pdsw.sampleprj.dao.IniciativaDAO;
 import edu.eci.pdsw.sampleprj.dao.mybatis.mappers.IniciativaMapper;
 import edu.eci.pdsw.samples.entities.Iniciativa;
 import edu.eci.pdsw.samples.entities.TipoEstado;
+import java.util.ArrayList;
 
 public class MyBATISIniciativaDAO implements IniciativaDAO{
 
@@ -47,4 +48,14 @@ public class MyBATISIniciativaDAO implements IniciativaDAO{
 		}	
 		
 	}	
+
+    @Override
+    public List<Iniciativa> getIniciativas() throws PersistenceException {
+        try {
+            return iniciativaMapper.getIniciativas();
+        }catch(org.apache.ibatis.exceptions.PersistenceException e) {
+            System.out.println(e.getMessage());
+            throw new PersistenceException("Error al buscar iniciativa");
+        }	
+    }
 }

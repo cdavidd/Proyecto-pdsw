@@ -20,6 +20,7 @@ import java.util.Set;
 public interface ServiciosBanco {
     
     public abstract void registrarUsuario(Usuario u) throws ExcepcionServicesBanco;
+    
     public abstract Usuario consultarUsuario(String correo) throws ExcepcionServicesBanco;
 
     public List<Usuario> consultarUsuarios() throws ExcepcionServicesBanco;
@@ -33,4 +34,6 @@ public interface ServiciosBanco {
     public void registrarIniciativa(String descripcion, Date fecha, int usuario, String titulo, String area) throws ExcepcionServicesBanco;
     
     public abstract Set<Iniciativa> buscarIniciativa(String palabraClave)throws ExcepcionServicesBanco;
+
+    public List<Iniciativa> getIniciativas();
 }

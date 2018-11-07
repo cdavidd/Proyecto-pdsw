@@ -6,11 +6,15 @@ import org.apache.ibatis.exceptions.PersistenceException;
 
 import edu.eci.pdsw.samples.entities.Iniciativa;
 import edu.eci.pdsw.samples.entities.TipoEstado;
+import java.util.ArrayList;
+import java.util.List;
 
 public interface IniciativaDAO {
 	
     public void cambiarEstado(Iniciativa iniciativa,TipoEstado tipoEstado ) throws PersistenceException;
-
-	public Set<Iniciativa> buscarIniciativa(String palabraClave)throws PersistenceException;
+    
+    public Set<Iniciativa> buscarIniciativa(String palabraClave)throws PersistenceException;
+    
+    public List<Iniciativa> getIniciativas() throws PersistenceException;
 
 }

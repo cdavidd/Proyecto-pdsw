@@ -28,5 +28,4 @@
 	<listener>
 		<listener-class>edu.eci.pdsw.guice.GuiceContextListener</listener-class>
 	</listener>
-    
 </web-app>

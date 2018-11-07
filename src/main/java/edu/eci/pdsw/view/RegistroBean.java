@@ -27,16 +27,12 @@ public class RegistroBean extends BasePageBean{
     
     public void registrarUsuario(int id, String nombre, String email, String contrasena){
         try{
-            System.out.println(id);
-            System.out.println(nombre);
-            System.out.println(email);
-            System.out.println(contrasena);
             servicioBanco.registrarUsuario(new Administrador(id,nombre,email,contrasena));
         }catch(ExcepcionServicesBanco ex){
             System.out.println(ex.getMessage());
         }
-    }
     
+    }
     public int getId(){
         return id;
     }

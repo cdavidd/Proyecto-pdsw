@@ -37,16 +37,8 @@ public class ProponenteBean extends BasePageBean{
     
     
     public void registrarIniciativa(String descripcion,   String titulo, String area) throws ExcepcionServicesBanco{
-        System.out.println("asaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-        System.out.println(usuarioId);
-        System.out.println(descripcion);
-        System.out.println(titulo);
-        System.out.println(area);
-        
-        java.sql.Date fecha = new java.sql.Date(Calendar.getInstance().getTime().getTime());
-        System.out.println(fecha);
-        System.out.println(servicioBanco.getClass().getName());
-        servicioBanco.registrarIniciativa(descripcion, fecha, usuarioId, titulo, area);
+        java.sql.Date f = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+        servicioBanco.registrarIniciativa(descripcion, f, usuarioId, titulo, area);
     }
 
     public ServiciosBanco getServicioBanco() {
