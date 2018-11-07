@@ -4,9 +4,7 @@ import java.util.Set;
 
 import org.apache.ibatis.exceptions.PersistenceException;
 
-import edu.eci.pdsw.samples.entities.Iniciativa;
-import edu.eci.pdsw.samples.entities.TipoEstado;
-import java.util.ArrayList;
+import edu.eci.pdsw.samples.entities.*;
 import java.util.List;
 
 public interface IniciativaDAO {

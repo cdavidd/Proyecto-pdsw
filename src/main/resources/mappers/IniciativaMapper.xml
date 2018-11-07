@@ -11,7 +11,7 @@
     <result property = "estado" column = "estado"/>
     <result property = "fechaCreacion" column = "fecha_creacion"/>
     <result property = "area" column = "area"/>
-    <association property="usuario" javaType="Proponente" resultMap="edu.eci.pdsw.sampleprj.dao.mybatis.mappers.ProponenteMapper.ProponenteResult" />
+    <association property="usuario" javaType="Usuario" resultMap="edu.eci.pdsw.sampleprj.dao.mybatis.mappers.UsuarioMapper.UsuarioResult" />
 </resultMap>
 
 

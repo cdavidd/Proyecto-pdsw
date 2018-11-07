@@ -11,9 +11,8 @@
     <properties resource="config.properties">
     </properties>
     <typeAliases>
-        <typeAlias type="edu.eci.pdsw.samples.entities.Administrador" alias="Administrador"/>
         <typeAlias type="edu.eci.pdsw.samples.entities.Iniciativa" alias="Iniciativa"/>
-        <typeAlias type="edu.eci.pdsw.samples.entities.Proponente" alias="Proponente"/>
+        <typeAlias type="edu.eci.pdsw.samples.entities.Usuario" alias="Usuario"/>
     </typeAliases>	
 
     <environments default="development">
@@ -27,9 +26,8 @@
             </dataSource>
         </environment>
     </environments>
-    <mappers>
-        <mapper resource="mappers/AdministradorMapper.xml"></mapper>
+    <mappers>        
         <mapper resource="mappers/IniciativaMapper.xml"></mapper>
-        <mapper resource="mappers/ProponenteMapper.xml"></mapper>
+        <mapper resource="mappers/UsuarioMapper.xml"></mapper>
     </mappers> 
 </configuration>

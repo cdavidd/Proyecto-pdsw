@@ -9,20 +9,20 @@ import com.google.inject.Inject;
 import edu.eci.pdsw.samples.entities.Iniciativa;
 import edu.eci.pdsw.samples.entities.TipoEstado;
 import edu.eci.pdsw.samples.entities.Usuario;
-import edu.eci.pdsw.sampleprj.dao.mybatis.mappers.AdministradorMapper;
+import edu.eci.pdsw.sampleprj.dao.mybatis.mappers.*;
 import edu.eci.pdsw.sampleprj.dao.AdministradorDAO;
 import edu.eci.pdsw.samples.entities.Rol;
 
 public class MyBATISAdministradorDAO implements AdministradorDAO{
 
     @Inject 
-    private AdministradorMapper administradorMapper;
+    private UsuarioMapper usuarioMapper;
 
 
     @Override
     public List<Usuario> consultarUsuarios() throws PersistenceException {
         try {
-            return administradorMapper.consultarUsuarios();
+            return usuarioMapper.consultarUsuarios();
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e) {
             throw new PersistenceException("Error al consultar los clientes");
@@ -33,7 +33,7 @@ public class MyBATISAdministradorDAO implements AdministradorDAO{
     @Override
     public List<Usuario> consultarUsuariosSinRol() throws PersistenceException {
         try {
-                return administradorMapper.consultarUsuariosSinRol();
+                return usuarioMapper.consultarUsuariosSinRol();
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e) {
             throw new PersistenceException("Error al consultar los clientes sin rol");
@@ -43,7 +43,7 @@ public class MyBATISAdministradorDAO implements AdministradorDAO{
     @Override
     public void registrarUsuario(Usuario u) throws PersistenceException {
         try {
-                administradorMapper.insertarUsuario(u);
+                usuarioMapper.insertarUsuario(u);
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e) {
             throw new PersistenceException("Error al registar el cliente");
@@ -53,7 +53,7 @@ public class MyBATISAdministradorDAO implements AdministradorDAO{
     @Override
     public Usuario consultarUsuario(String correo) throws PersistenceException {
         try {
-                return administradorMapper.consultarUsuario(correo);
+                return usuarioMapper.consultarUsuario(correo);
         }catch(org.apache.ibatis.exceptions.PersistenceException e) {
                 System.out.println(e.getMessage());
             throw new PersistenceException("Error al consultar el cliente");
@@ -63,7 +63,7 @@ public class MyBATISAdministradorDAO implements AdministradorDAO{
     @Override
     public void cambiarRol(Usuario usuario, String rol) throws PersistenceException {
         try{
-            administradorMapper.cambiarRol(usuario,rol);
+            usuarioMapper.cambiarRol(usuario,rol);
         }catch(org.apache.ibatis.exceptions.PersistenceException e) {
             System.out.println(e.getMessage());
             throw new PersistenceException("Error al consultar el cliente");

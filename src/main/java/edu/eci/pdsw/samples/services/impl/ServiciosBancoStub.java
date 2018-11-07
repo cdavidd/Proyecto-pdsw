@@ -5,9 +5,7 @@
  */
 package edu.eci.pdsw.samples.services.impl;
 
-import edu.eci.pdsw.samples.entities.Administrador;
-import edu.eci.pdsw.samples.entities.Iniciativa;
-import edu.eci.pdsw.samples.entities.TipoEstado;
+import edu.eci.pdsw.samples.entities.*;
 import edu.eci.pdsw.samples.entities.Usuario;
 import edu.eci.pdsw.samples.services.ExcepcionServicesBanco;
 import edu.eci.pdsw.samples.services.ServiciosBanco;
@@ -49,11 +47,11 @@ public class ServiciosBancoStub implements ServiciosBanco {
     }
     
     private void poblar() {
-    	Usuario user1 = new Administrador (1,"pepo","pepo@mail","12345");
-    	Usuario user2 = new Administrador (2,"rafael","rafael@mail","asfd");
-    	Usuario user3 = new Administrador (3,"carlos","carlos@mail","contra");
-    	Usuario user4 = new Administrador (4,"andres","andres@mail","1asfd");
-    	Usuario user5 = new Administrador (5,"diego","diego@mail","asf");
+    	Usuario user1 = new Usuario (1,"pepo","pepo@mail","12345");
+    	Usuario user2 = new Usuario (2,"rafael","rafael@mail","asfd");
+    	Usuario user3 = new Usuario (3,"carlos","carlos@mail","contra");
+    	Usuario user4 = new Usuario (4,"andres","andres@mail","1asfd");
+    	Usuario user5 = new Usuario (5,"diego","diego@mail","asf");
     	
     	usuarios.put("pepo@mail", user1);
     	usuarios.put("rafael@mail", user2);

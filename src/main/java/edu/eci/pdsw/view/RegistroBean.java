@@ -1,8 +1,7 @@
 package edu.eci.pdsw.view;
 
 import com.google.inject.Inject;
-import edu.eci.pdsw.samples.entities.Administrador;
-import edu.eci.pdsw.samples.entities.Usuario;
+import edu.eci.pdsw.samples.entities.*;
 import edu.eci.pdsw.samples.services.ExcepcionServicesBanco;
 import edu.eci.pdsw.samples.services.ServiciosBanco;
 import edu.eci.pdsw.samples.services.impl.ServiciosBancoStub;
@@ -27,7 +26,7 @@ public class RegistroBean extends BasePageBean{
     
     public void registrarUsuario(int id, String nombre, String email, String contrasena){
         try{
-            servicioBanco.registrarUsuario(new Administrador(id,nombre,email,contrasena));
+            servicioBanco.registrarUsuario(new Usuario(id,nombre,email,contrasena));
         }catch(ExcepcionServicesBanco ex){
             System.out.println(ex.getMessage());
         }

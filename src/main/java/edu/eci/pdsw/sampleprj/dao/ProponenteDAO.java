@@ -5,7 +5,7 @@
  */
 package edu.eci.pdsw.sampleprj.dao;
 
-import edu.eci.pdsw.samples.entities.Usuario;
+import edu.eci.pdsw.samples.entities.*;
 import java.util.Date;
 import org.apache.ibatis.exceptions.PersistenceException;
 

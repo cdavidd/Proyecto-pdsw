@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author 2133561
  */
-public abstract class Usuario implements Serializable{
+public  class Usuario implements Serializable{
     
     /**
 	 * 

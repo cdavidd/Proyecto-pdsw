@@ -2,10 +2,7 @@ package edu.eci.pdsw.sampleprj.dao;
 
 import java.util.List;
 import org.apache.ibatis.exceptions.PersistenceException;
-import edu.eci.pdsw.samples.entities.Iniciativa;
-import edu.eci.pdsw.samples.entities.Rol;
-import edu.eci.pdsw.samples.entities.TipoEstado;
-import edu.eci.pdsw.samples.entities.Usuario;
+import edu.eci.pdsw.samples.entities.*;
 
 public interface AdministradorDAO{
     
