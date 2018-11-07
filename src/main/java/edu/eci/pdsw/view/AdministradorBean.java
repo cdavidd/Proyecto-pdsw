@@ -15,7 +15,6 @@ import edu.eci.pdsw.samples.services.ServiciosBanco;
 import java.util.*;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
 
 /**
  *
@@ -56,8 +55,4 @@ public class AdministradorBean extends BasePageBean{
         servicioBanco.cambiarRol(usuario,rol);
     }
     
-    public Set<Iniciativa> buscarIniciativas(String palabraClave) throws ExcepcionServicesBanco{
-    	return servicioBanco.buscarIniciativa(palabraClave);
-    	
-    }
 }

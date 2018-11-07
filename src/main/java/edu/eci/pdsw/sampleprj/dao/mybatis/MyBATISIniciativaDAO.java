@@ -12,43 +12,42 @@ import edu.eci.pdsw.sampleprj.dao.IniciativaDAO;
 import edu.eci.pdsw.sampleprj.dao.mybatis.mappers.IniciativaMapper;
 import edu.eci.pdsw.samples.entities.Iniciativa;
 import edu.eci.pdsw.samples.entities.TipoEstado;
-import java.util.ArrayList;
 
 public class MyBATISIniciativaDAO implements IniciativaDAO{
 
 	
-	@Inject
-	IniciativaMapper iniciativaMapper;
-	
-	@Override
-	public void cambiarEstado(Iniciativa iniciativa, TipoEstado tipoEstado) throws PersistenceException {
-		try {
-			iniciativaMapper.cambiarEstado(iniciativa,tipoEstado);
-		}
-		catch(org.apache.ibatis.exceptions.PersistenceException e) {
-		    throw new PersistenceException("Error al cambiar el estado de la iniciativa");
-		}	
-	}
+    @Inject
+    IniciativaMapper iniciativaMapper;
 
-	@Override
-	public Set<Iniciativa> buscarIniciativa(String palabraClave) throws PersistenceException {
-		try {
-			Set<Iniciativa> iniciativas = new HashSet<Iniciativa>();
-			String[] palabras = palabraClave.split(",");
-                        
-			for (int i=0; i<palabras.length;i++) {
-				for (Iniciativa j :iniciativaMapper.buscarIniciativa(palabras[i])) {
-					iniciativas.add(j);
-				}
-				
-			}
-			return iniciativas;
-		}
-		catch(org.apache.ibatis.exceptions.PersistenceException e) {
-		    throw new PersistenceException("Error al buscar iniciativa");
-		}	
-		
-	}	
+    @Override
+    public void cambiarEstado(Iniciativa iniciativa, TipoEstado tipoEstado) throws PersistenceException {
+            try {
+                    iniciativaMapper.cambiarEstado(iniciativa,tipoEstado);
+            }
+            catch(org.apache.ibatis.exceptions.PersistenceException e) {
+                throw new PersistenceException("Error al cambiar el estado de la iniciativa");
+            }	
+    }
+
+    @Override
+    public Set<Iniciativa> buscarIniciativa(String palabraClave) throws PersistenceException {
+        try {
+                Set<Iniciativa> iniciativas = new HashSet<Iniciativa>();
+                String[] palabras = palabraClave.split(",");
+
+                for (int i=0; i<palabras.length;i++) {
+                        for (Iniciativa j :iniciativaMapper.buscarIniciativa(palabras[i])) {
+                                iniciativas.add(j);
+                        }
+
+                }
+                return iniciativas;
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e) {
+            throw new PersistenceException("Error al buscar iniciativa");
+        }	
+
+    }	
 
     @Override
     public List<Iniciativa> getIniciativas() throws PersistenceException {

@@ -1,17 +1,12 @@
 package edu.eci.pdsw.view;
+
 import com.google.inject.Inject;
 import edu.eci.pdsw.samples.entities.Iniciativa;
-
-import edu.eci.pdsw.samples.entities.Rol;
-import edu.eci.pdsw.samples.entities.TipoEstado;
-import edu.eci.pdsw.samples.entities.Usuario;
-import edu.eci.pdsw.samples.services.ExcepcionServicesBanco;
-import edu.eci.pdsw.samples.services.ServiciosBanco;
-import edu.eci.pdsw.samples.services.impl.ServiciosBancoStub;
+import edu.eci.pdsw.samples.entities.*;
+import edu.eci.pdsw.samples.services.*;
 import java.sql.Date;
-import java.util.ArrayList;
-
 import java.util.List;
+import java.util.Set;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -75,6 +70,7 @@ public class IniciativaBean extends BasePageBean{
         return fecha;
     }
     
-    
-   
+    public Set<Iniciativa> buscarIniciativas(String palabraClave) throws ExcepcionServicesBanco{
+    	return servicioBanco.buscarIniciativa(palabraClave);
+    }
 }
