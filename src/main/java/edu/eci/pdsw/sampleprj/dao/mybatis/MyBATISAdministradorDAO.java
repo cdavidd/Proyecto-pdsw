@@ -18,7 +18,6 @@ public class MyBATISAdministradorDAO implements AdministradorDAO{
     @Inject 
     private UsuarioMapper usuarioMapper;
 
-
     @Override
     public List<Usuario> consultarUsuarios() throws PersistenceException {
         try {
@@ -27,7 +26,6 @@ public class MyBATISAdministradorDAO implements AdministradorDAO{
         catch(org.apache.ibatis.exceptions.PersistenceException e) {
             throw new PersistenceException("Error al consultar los clientes");
         }
-
     }
 
     @Override

@@ -6,6 +6,7 @@
 package edu.eci.pdsw.samples.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -21,14 +22,14 @@ public class Iniciativa implements Serializable{
     private Date fechaCreacion; //
     private Usuario usuario; //
     private String area;
-    private String titulo;
+    private String[] palabrasClave;
     
     public Iniciativa(){}
-    public Iniciativa(String descripcion, Date fecha, Usuario usuario, String titulo, String area){
+    public Iniciativa(String descripcion, Date fecha, Usuario usuario, String palabrasClave, String area){
         this.descripcion= descripcion;
         this.fechaCreacion= fecha;
         this.usuario=usuario;
-        this.titulo=titulo;
+        this.setPalabrasClave(palabrasClave.split(","));
         this.area=area;
     }
     public int getId() {
@@ -91,6 +92,12 @@ public class Iniciativa implements Serializable{
     public String toString() {
         return "Iniciativa{" + "id=" + id + ", descripcion=" + descripcion + ", estado=" + estado + ", votos=" + votos + ", fechaCreacion=" + fechaCreacion + ", usuario=" + usuario + ", area=" + area + '}';
     }
+	public String[] getPalabrasClave() {
+		return palabrasClave;
+	}
+	public void setPalabrasClave(String[] palabrasClave) {
+		this.palabrasClave = palabrasClave;
+	}
     
     
     

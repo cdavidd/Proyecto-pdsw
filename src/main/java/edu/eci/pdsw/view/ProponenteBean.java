@@ -31,14 +31,14 @@ public class ProponenteBean extends BasePageBean{
     @ManagedProperty(value = "#{param.usuarioEmail}")
 
     
-    String descripcion,titulo,area;
+    String descripcion,palabrasClave,area;
     Date fecha;
     int usuarioId;
     
     
-    public void registrarIniciativa(String descripcion,   String titulo, String area) throws ExcepcionServicesBanco{
+    public void registrarIniciativa(String descripcion,String palabrasClave, String area) throws ExcepcionServicesBanco{
         java.sql.Date f = new java.sql.Date(Calendar.getInstance().getTime().getTime());
-        servicioBanco.registrarIniciativa(descripcion, f, usuarioId, titulo, area);
+        servicioBanco.registrarIniciativa(descripcion, f, usuarioId, palabrasClave, area);
     }
 
     public ServiciosBanco getServicioBanco() {
@@ -57,12 +57,12 @@ public class ProponenteBean extends BasePageBean{
         this.descripcion = descripcion;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public String getPalabrasClave() {
+        return palabrasClave;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
+    public void setPalabrasClave(String palabrasClave) {
+        this.palabrasClave = palabrasClave;
     }
 
     public String getArea() {
