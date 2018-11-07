@@ -8,8 +8,11 @@ import edu.eci.pdsw.samples.services.ServiciosBanco;
 import edu.eci.pdsw.samples.services.impl.ServiciosBancoStub;
 
 import java.util.List;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import org.primefaces.PrimeFaces;
 
 
 @SuppressWarnings("deprecation")
@@ -39,25 +42,42 @@ public class InicioBean extends BasePageBean{
     
     public String irHome(String email) {
     	Usuario user;
-        System.out.println(servicioBanco.getClass().getName());
-		try {
-			user = servicioBanco.consultarUsuario(email);
-			if (user.getRol().equals(Rol.Administrador)) return "homeAdmi";
-	    	
-	    	else if (user.getRol().equals(Rol.Proponente)) return "homeP";		
-			
-			else if (user.getRol().equals(Rol.Pmo_Odi))  return null;
-			
-			else if (user.getRol().equals(Rol.Publico)) return null;
-			
-			else {
-				return null;
-			}
-		} 
-		catch (ExcepcionServicesBanco e) {
-			e.printStackTrace();
-			return null;
-		}
+        FacesMessage message = null;
+        boolean loggedIn = false;
+        try {
+                user = servicioBanco.consultarUsuario(email);
+                System.out.println(user.getContrasena().equals(contrasena));
+                if(!user.getContrasena().equals(contrasena)){
+                     loggedIn = false;
+                     message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Loggin Error", "Invalid credentials");
+                    FacesContext.getCurrentInstance().addMessage(null, message);
+                    PrimeFaces.current().ajax().addCallbackParam("loggedIn", loggedIn);
+                    return null;
+                }else{
+                    loggedIn = true;
+                    message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", user.getNombre());
+                    FacesContext.getCurrentInstance().addMessage(null, message);
+                    PrimeFaces.current().ajax().addCallbackParam("loggedIn", loggedIn);
+                    switch (user.getRol()) {
+                        case Administrador:
+                            return "homeAdmi";
+                        case Proponente:
+                            return "homeP";
+                        case Pmo_Odi:
+                            return null;
+                        case Publico:
+                            return null;
+                        default:
+                            return null;
+                    }
+                    
+                }
+                
+        } 
+        catch (ExcepcionServicesBanco e) {
+                e.printStackTrace();
+                return null;
+        }
     }
     
     

@@ -23,7 +23,7 @@
 
 <select id="buscarIniciativas" resultMap="IniciativaResult">
         select
-	    i.id as iid,
+	i.id as iid,
         descripcion,
         estado,
         fecha_creacion,

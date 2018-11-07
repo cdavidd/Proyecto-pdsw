@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Inicio</title>
+		<link rel="stylesheet" href="fontello.css" />
+                <link rel="stylesheet" href="Recursos/estilosP.css" />
+                <link rel="stylesheet" href="Recursos/login.css" />
+    </h:head>
+    <h:body style="overflow-x:hidden; overflow-y:hidden">
+        <div id="imagenU">
+            <img src="Recursos\imagen3.png"  border="2" />
+        </div>
+        <h:form id="iniciativaForm">
+            <p:dataTable id="iniciativa_tabla" var="iniciativa" value="#{iniciativaBean.iniciativas}">
+		<p:column headerText="Descripcion">
+                    <h:outputText value="#{iniciativa.descripcion}" />
+		</p:column>
+		<p:column headerText="Estado">
+                    <h:outputText value="#{iniciativa.estado}" />
+		</p:column>
+		<p:column headerText="Fecha_Creacion">
+                    <h:outputText value="#{iniciativa.fechaCreacion}" />
+		</p:column>
+		<p:column headerText="Area">
+                    <h:outputText value="#{iniciativa.area}" />
+		</p:column>
+            </p:dataTable>
+        </h:form>
+        
+        <header>
+            <div class="contenedor"> 
+                <h1 class="icon-bank"> Iniciativas </h1>
+                <input type="checkbox" id="menu-bar"></input>
+                <label class="icon-menu" for="menu-bar"></label> 
+                <nav class="menu">
+                    <a href="Inicio.xhtml">Inicio</a>
+                    <a href="inicioSesion.xhtml">Iniciar Sesion</a>
+                    <a href="Registro.xhtml">Registrarse</a>
+                    <a href="">Contacto</a>
+                </nav>
+            </div>
+        </header>
+    </h:body>
+</html>

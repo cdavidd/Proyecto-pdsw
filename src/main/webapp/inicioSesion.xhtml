@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="fontello.css" />
         <link rel="stylesheet" href="Recursos/estilosP.css" />
         <link rel="stylesheet" href="Recursos/login.css" />
+       
     </h:head>
     <h:body style="overflow-x:hidden; overflow-y:hidden"> 
         <div id="imagenLog">
@@ -18,7 +19,7 @@
         <div id="imagenU">
             <img src="Recursos\imagen3.png"  border="2" />
         </div>
-        <h:form id="cliente_form"> 
+        <h:form id="cliente_form" onsubmit="return validar();"> 
             <div id="Cuadro_email">
                     <br><p:inputText id="correo" placeholder="&#128386; Correo" value="#{inicioBean.email}" > </p:inputText></br>
             </div>
@@ -26,9 +27,10 @@
                     <br><p:inputText id="contrasena"  placeholder="&#128272; Contraseña" type="password" value="#{inicioBean.contrasena}" > </p:inputText></br>
             </div>
             <div id="Botones">
-                    <p:commandButton  value="login" actionListener="#{inicioBean.consultar(inicioBean.email)}"  action= "#{inicioBean.irHome(inicioBean.email)}"/>  
+                    <p:commandButton  id ="enviar"  value="login" actionListener="#{inicioBean.consultar(inicioBean.email)}"  action= "#{inicioBean.irHome(inicioBean.email)}" />  
             </div>
         </h:form>
+        
         <header>
             <div class="contenedor"> 
                 <h1 class="icon-bank"> Iniciar Sesion</h1>
@@ -43,5 +45,16 @@
                 </nav>
             </div>
         </header>
+        <script type="text/javascript">
+            function handleLoginRequest(xhr, status, args) {
+                if(args.validationFailed || !args.loggedIn) {
+                    PF('dlg').jq.effect("shake", {times:5}, 100);
+                }
+                else {
+                    PF('dlg').hide();
+                    $('#loginLink').fadeOut();
+                }
+            }
+        </script>
     </h:body>
 </html>

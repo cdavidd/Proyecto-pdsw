@@ -35,6 +35,7 @@ public class MyBATISIniciativaDAO implements IniciativaDAO{
 		try {
 			Set<Iniciativa> iniciativas = new HashSet<Iniciativa>();
 			String[] palabras = palabraClave.split(",");
+                        
 			for (int i=0; i<palabras.length;i++) {
 				for (Iniciativa j :iniciativaMapper.buscarIniciativa(palabras[i])) {
 					iniciativas.add(j);
