@@ -9,22 +9,21 @@
         <title>Registrar</title>
         <link rel="stylesheet" href="fontello.css" />
         <link rel="stylesheet" href="Recursos/estilosP.css" />
-        <link rel="stylesheet" href="Recursos/login.css" />  
+        <link rel="stylesheet" href="Recursos/registro.css" />  
     </h:head>
     <h:body style="overflow-x:hidden; overflow-y:hidden">    
         <div id="imagenNew">
-            <img src="Recursos\new.png" />
+            <img src="Recursos\new.png" width="15%" height="15%" />
         </div>
         <div id="imagenU">
             <img src="Recursos\imagen3.png"  border="2" />
         </div>
         <h:form id="form_registro">
-                <br><p:inputText id="carne"  placeholder="&#49;&#50;&#51; Carnet" value="#{registroBean.id}"> </p:inputText></br>
                 <br><p:inputText id="nombre" placeholder="&#128100; Nombre" value="#{registroBean.nombre}"> </p:inputText></br>
                 <br><p:inputText id="correo" placeholder="&#128386; Correo" value="#{registroBean.email}" > </p:inputText></br>
                 <br><p:inputText id="contrasena" placeholder="&#128272; Contraseña" type="password" value="#{registroBean.contrasena}"> </p:inputText></br>
                 <div id="Botones">
-                    <p:commandButton value="Registrarse" actionListener="#{registroBean.registrarUsuario(registroBean.id,registroBean.nombre,registroBean.email,registroBean.contrasena)}" action="home" />
+                    <p:commandButton  value="Registrarse" actionListener="#{registroBean.registrarUsuario(registroBean.id,registroBean.nombre,registroBean.email,registroBean.contrasena)}" action="home" />
                 </div>
         </h:form>
         <header>

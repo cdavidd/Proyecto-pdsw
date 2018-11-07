@@ -66,20 +66,11 @@ form{
 }
 
 #imagenLog{
-  width: 30%;
-  height: 30%;
   position: absolute;
-  top: 10%;
-  left: 30%;
+  top: 15%;
+  left: 45%;
 }
 
-#imagenNew{
-  width: 10%;
-  height: 10%;
-  position: absolute;
-  top: 10%;
-  left: 30%;
-}
 
 #Cuadro_email{
 	display: block;

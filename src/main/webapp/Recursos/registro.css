@@ -69,13 +69,8 @@ h2{
     left: 0.5%;
 }
 
-#Cuadro_email{
-	display: block;
-	font-size: 150%;
-}
-
-#Cuadro_pass{
-	display: block;
-	font-size: 150%;
-	margin-bottom: 2em;
+#imagenNew{
+  position: absolute;
+  top: 13%;
+  left: 45%;
 }
