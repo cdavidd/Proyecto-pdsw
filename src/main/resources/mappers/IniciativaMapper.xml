@@ -52,5 +52,21 @@
 	FROM usuarios join iniciativas as i on i.id = usuarios.id 
 </select>
 
+<select id="consultarIniciativa" resultMap="IniciativaResult">
+        select
+        i.id as iid,
+        descripcion,
+        estado,
+        fecha_creacion,
+        area,
+        usuario_id as id,
+        nombre, 
+        email,
+        contrasena,
+        rol
+	FROM usuarios join iniciativas as i on i.id = usuarios.id
+        WHERE i.id=#{id}
+</select>
+
 
 </mapper>

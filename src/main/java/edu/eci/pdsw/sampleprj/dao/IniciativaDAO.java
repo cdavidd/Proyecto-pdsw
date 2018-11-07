@@ -15,4 +15,5 @@ public interface IniciativaDAO {
     
     public List<Iniciativa> getIniciativas() throws PersistenceException;
 
+    public Iniciativa consultarIniciativa(int id) throws PersistenceException;
 }

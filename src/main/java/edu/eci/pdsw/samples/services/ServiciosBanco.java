@@ -35,4 +35,6 @@ public interface ServiciosBanco {
     public abstract Set<Iniciativa> buscarIniciativa(String palabraClave)throws ExcepcionServicesBanco;
 
     public List<Iniciativa> getIniciativas();
+    
+    public Iniciativa consultarIniciativa(int id);
 }

@@ -12,35 +12,39 @@
                  <link rel="stylesheet" href="Recursos/menuSecundario.css" />
 	</h:head>
 	<h:body >
+            <f:metadata>
+                <f:viewParam name="id" value="#{administradorBean.id}" />
+            </f:metadata>
             <h:form id="UsuariosForm">
-              <p:dataTable id="usuarios_tabla" var="usuario" value="#{administradorBean.usuarios}">
-                <p:column headerText="Nombre">
-                            <h:outputText value="#{usuario.nombre}" />
+              <p:dataTable id="usuarios_tabla" var="ini" value="#{administradorBean.consultarIniciativa()}">
+                 <p:column headerText="Descripcion">
+                            <h:outputText value="#{ini.descripcion}" />
                 </p:column>
-                <p:column headerText="Email">
-                            <h:outputText value="#{usuario.email}" />
+               <p:column headerText="Estado">
+                   <p:cellEditor>
+                       <f:facet name="output">  
+                            <h:outputText value="#{administradorBean.estado}" />  
+                        </f:facet> 
+                       <f:facet name="input">
+                            <h:selectOneMenu id="res" value = "#{administradorBean.estado}" > 
+                                <f:selectItems value="#{administradorBean.tipoEstado}" />
+                            </h:selectOneMenu> 
+                        </f:facet>
+                   </p:cellEditor>
+                </p:column> 
+                <p:column headerText="Fecha_Creacion">
+                    <h:outputText value="#{ini.fechaCreacion}" />
                 </p:column>
-                <p:column headerText="Rol">
-                    <h:selectOneMenu value = "#{usuario.rol}" > 
-                        <f:selectItem itemValue = "Administrador" itemLabel = "Administrador" /> 
-                        <f:selectItem itemValue = "Pmo_Odi" itemLabel = "Pmo_Odi" /> 
-                        <f:selectItem itemValue = "Proponente" itemLabel = "Proponente"/> 
-                        <f:selectItem itemValue = "Publico" itemLabel = "Publico" />
-                        <f:selectItem itemValue = "En_Espera" itemLabel = "En_Espera" />  
-                        <!--<p:ajax event="change" update="@this" />-->                                         
-                        <f:ajax listener="#{administradorBean.algo(usuario.rol)}" />
-
-                    </h:selectOneMenu>  
-                </p:column>
-                <p:column headerText="Iniciativas">
-                            <h:outputText value="#{usuario.iniciativas.size()}" />
+                <p:column headerText="Area">
+                            <h:outputText value="#{ini.area}" />
                 </p:column>
             </p:dataTable>
+                <p:commandButton value="Actualizar" actionListener="#{administradorBean.cambiarEstado()}" />
             </h:form>
 
             <header>
                 <div class="contenedor"> 
-                    <h1 class="icon-bank">Usuarios</h1>
+                    <h1 class="icon-bank">Iniciativa</h1>
                     <input type="checkbox" id="menu-bar"></input>
                     <label class="icon-menu" for="menu-bar"></label> 
                     <nav class="menu">
@@ -51,6 +55,7 @@
 
             <div class="menuOpciones">
                     <nav class="menu2">
+                         <a href="consultarUsuarios.xhtml">Consultar Usuarios del sistema</a>
                          <a href="ConsultarIniciativas.xhtml">Consultar Iniciativas</a>
                          <a href="Inicio.xhtml">Cerrar Sesion</a>
                     </nav>

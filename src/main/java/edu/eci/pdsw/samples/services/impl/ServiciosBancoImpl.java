@@ -111,4 +111,14 @@ public class ServiciosBancoImpl implements ServiciosBanco{
             return null;
         }
     }
+
+    @Override
+    public Iniciativa consultarIniciativa(int id) {
+        try{
+            return iniciativaDAO.consultarIniciativa(id);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+            return null;
+        }
+    }
 }
