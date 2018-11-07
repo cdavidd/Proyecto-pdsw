@@ -15,7 +15,7 @@
     <!--Falta columna Titulo en iniciativa-->
     <insert id="registrarIniciativa">
         INSERT INTO INICIATIVAS (descripcion, estado, fecha_creacion, usuario_id, area)
-        VALUES (#{descripcion},'en_espera_revision', #{fecha},#{usuario.id},#{area})
+        VALUES (#{descripcion},"en_espera_revision", #{fecha},#{usuario},#{area})
     </insert>
     
 

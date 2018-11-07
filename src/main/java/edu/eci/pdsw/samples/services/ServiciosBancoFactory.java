@@ -11,6 +11,8 @@ import edu.eci.pdsw.sampleprj.dao.mybatis.MyBATISIniciativaDAO;
 import edu.eci.pdsw.sampleprj.dao.mybatis.MyBATISAdministradorDAO;
 import edu.eci.pdsw.samples.services.impl.ServiciosBancoImpl;
 import edu.eci.pdsw.sampleprj.dao.AdministradorDAO;
+import edu.eci.pdsw.sampleprj.dao.ProponenteDAO;
+import edu.eci.pdsw.sampleprj.dao.mybatis.MyBATISProponenteDAO;
 
 public class ServiciosBancoFactory {
 
@@ -25,6 +27,7 @@ public class ServiciosBancoFactory {
 			protected void initialize() {
 				install(JdbcHelper.PostgreSQL);
 				setClassPathResource("my-batis-config.xml");
+                    bind(ProponenteDAO.class).to(MyBATISProponenteDAO.class);
 	            bind(IniciativaDAO.class).to(MyBATISIniciativaDAO.class);
 	            bind(AdministradorDAO.class).to(MyBATISAdministradorDAO.class);
 	            bind(ServiciosBanco.class).to(ServiciosBancoImpl.class);
@@ -36,6 +39,7 @@ public class ServiciosBancoFactory {
 			protected void initialize() {
 				install(JdbcHelper.PostgreSQL);
 				setClassPathResource("my-batis-config-h2.xml");
+                                bind(ProponenteDAO.class).to(MyBATISProponenteDAO.class);
 				bind(IniciativaDAO.class).to(MyBATISIniciativaDAO.class);
 				bind(AdministradorDAO.class).to(MyBATISAdministradorDAO.class);
 				bind(ServiciosBanco.class).to(ServiciosBancoImpl.class);

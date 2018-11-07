@@ -39,6 +39,7 @@ public class InicioBean extends BasePageBean{
     
     public String irHome(String email) {
     	Usuario user;
+        System.out.println(servicioBanco.getClass().getName());
 		try {
 			user = servicioBanco.consultarUsuario(email);
 			if (user.getRol().equals(Rol.Administrador)) return "homeAdmi";
