@@ -46,6 +46,7 @@ public class MyBATISAdministradorDAO implements AdministradorDAO{
                 usuarioMapper.insertarUsuario(u);
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e) {
+        	System.out.println(e.getMessage());
             throw new PersistenceException("Error al registar el cliente");
         }
     }

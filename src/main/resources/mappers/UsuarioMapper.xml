@@ -30,20 +30,20 @@
     </select>
 
     <insert id="insertarUsuario">
-        insert into Usuario (id,nombre,email,rol,contrasena)
-        values (#{usario.id},#{usuario.nombre},#{usuario.email},#{usuario.rol},#{usuario.contrasena})
+        insert into usuarios (nombre,email,rol,contrasena)
+        values (#{usuario.nombre},#{usuario.email},#{usuario.rol},#{usuario.contrasena})
     </insert>
 
     <select id="consultarUsuarios" resultMap="UsuarioResult">
                     select
                 *
-                FROM Usuario
+                FROM usuarios
     </select>
 
     <select id="consultarUsuariosSinRol" resultMap="UsuarioResult">
             select
                 *
-                FROM Usuario as u 
+                FROM usuarios as u 
             where u.rol is null
     </select>
 
