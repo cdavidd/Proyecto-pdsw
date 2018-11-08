@@ -23,9 +23,7 @@
                 <p:column headerText="Rol">
                             <h:outputText value="#{usuario.rol}" />
                 </p:column>
-                <p:column headerText="Iniciativas">
-                            <h:outputText value="#{usuario.iniciativas.size()}" />
-                </p:column>
+                
                 <p:column headerText="Usuario">
                     <p:button outcome="perfilUsuario?email=#{usuario.email}" value="Modificar usuario"/>
                 </p:column>
