@@ -61,6 +61,7 @@ public class ServiciosBancoImpl implements ServiciosBanco{
             iniciativaDAO.cambiarEstado(iniciativa, tipoEstado);
         }
         catch(PersistenceException ex) {
+           System.out.println(ex.getMessage());
            throw new ExcepcionServicesBanco("Error al cambiar el estado de la iniciativa");
         }		
     }

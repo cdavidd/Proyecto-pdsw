@@ -22,9 +22,10 @@ public class MyBATISIniciativaDAO implements IniciativaDAO{
     @Override
     public void cambiarEstado(Iniciativa iniciativa, TipoEstado tipoEstado) throws PersistenceException {
             try {
-                    iniciativaMapper.cambiarEstado(iniciativa,tipoEstado);
+                iniciativaMapper.cambiarEstado(iniciativa.getId(),tipoEstado);
             }
             catch(org.apache.ibatis.exceptions.PersistenceException e) {
+                System.out.println(e.getMessage());
                 throw new PersistenceException("Error al cambiar el estado de la iniciativa");
             }	
     }

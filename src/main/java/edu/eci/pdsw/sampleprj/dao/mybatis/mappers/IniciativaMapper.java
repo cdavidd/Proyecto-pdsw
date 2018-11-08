@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public interface IniciativaMapper {
 
-	public void cambiarEstado(@Param("iniciativa")Iniciativa iniciativa, @Param("estado")TipoEstado tipoEstado);
+	public void cambiarEstado(@Param("id")int id, @Param("estado")TipoEstado tipoEstado);
 
 	public List<Iniciativa> buscarIniciativa(@Param("palabra")String palabraClave);
         

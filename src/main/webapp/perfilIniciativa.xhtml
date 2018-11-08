@@ -20,7 +20,7 @@
                  <p:column headerText="Descripcion">
                             <h:outputText value="#{ini.descripcion}" />
                 </p:column>
-               <p:column headerText="Estado">
+              <!-- <p:column headerText="Estado">
                    <p:cellEditor>
                        <f:facet name="output">  
                             <h:outputText value="#{administradorBean.estado}" />  
@@ -31,7 +31,7 @@
                             </h:selectOneMenu> 
                         </f:facet>
                    </p:cellEditor>
-                </p:column> 
+                </p:column> --> 
                 <p:column headerText="Fecha_Creacion">
                     <h:outputText value="#{ini.fechaCreacion}" />
                 </p:column>
@@ -39,7 +39,10 @@
                             <h:outputText value="#{ini.area}" />
                 </p:column>
             </p:dataTable>
-                <p:commandButton value="Actualizar" actionListener="#{administradorBean.cambiarEstado()}" />
+                <h:selectOneMenu id="res" value = "#{administradorBean.estado}" > 
+                    <f:selectItems value="#{administradorBean.tipoEstado}" />
+                </h:selectOneMenu> 
+                <p:commandButton value="Actualizar" actionListener="#{administradorBean.cambiarEstado()}" action="ConsultarIniciativas.xhtml" />
             </h:form>
 
             <header>

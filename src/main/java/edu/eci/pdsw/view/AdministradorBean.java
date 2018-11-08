@@ -71,22 +71,8 @@ public class AdministradorBean extends BasePageBean{
     }
     
     public void cambiarEstado() throws ExcepcionServicesBanco{   
-        //System.out.println(id);
-        System.out.println(estado);
-        //Iniciativa iniciativa=consultarIniciativa();
-        //System.out.println(iniciativa.toString());
-        
-        //String ej= tipoEstado.toLowerCase();
-       // servicioBanco.cambiarEstado(iniciativa,tipoEstado);
-        /*if (ej.equals("en_espera_revision")){
-            servicioBanco.cambiarEstado(iniciativa,TipoEstado.En_Espera_Revision);
-        }else if (ej.equals("en_revision")){
-            servicioBanco.cambiarEstado(iniciativa,TipoEstado.En_revision);
-        }else if (ej.equals("proyecto")){
-            servicioBanco.cambiarEstado(iniciativa,TipoEstado.Proyecto);
-        }else if (ej.equals("solucionado")){
-            servicioBanco.cambiarEstado(iniciativa,TipoEstado.Solucionado);
-        }*/
+        Iniciativa iniciativa=consultarIniciativa();
+        servicioBanco.cambiarEstado(iniciativa,TipoEstado.valueOf(estado));
     }
     
     public void cambiarRol (Usuario usuario, String rol) throws ExcepcionServicesBanco{
