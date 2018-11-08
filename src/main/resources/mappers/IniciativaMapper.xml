@@ -11,6 +11,7 @@
     <result property = "estado" column = "estado"/>
     <result property = "fechaCreacion" column = "fecha_creacion"/>
     <result property = "area" column = "area"/>
+    <result property = "palabrasClave" column = "palabrasclave"/>
     <association property="usuario" javaType="Usuario" resultMap="edu.eci.pdsw.sampleprj.dao.mybatis.mappers.UsuarioMapper.UsuarioResult" />
 </resultMap>
 
@@ -32,9 +33,10 @@
         nombre, 
         email,
         contrasena,
-        rol
+        rol,
+        palabrasclave
 	    FROM usuarios join iniciativas as i on i.id = usuarios.id 
-        where descripcion like '%#{palabra}%' or titulo like '%#{palabra}%' or area like '%#{palabra}%' 
+        where palabrasclave like '%#{palabra}%'
 </select>
 
 <select id="getIniciativas" resultMap="IniciativaResult">
@@ -48,7 +50,8 @@
         nombre, 
         email,
         contrasena,
-        rol
+        rol,
+        palabrasclave
 	FROM usuarios join iniciativas as i on i.id = usuarios.id 
 </select>
 
@@ -63,7 +66,8 @@
         nombre, 
         email,
         contrasena,
-        rol
+        rol,
+        palabrasclave
 	FROM usuarios join iniciativas as i on i.id = usuarios.id
         WHERE i.id=#{id}
 </select>
