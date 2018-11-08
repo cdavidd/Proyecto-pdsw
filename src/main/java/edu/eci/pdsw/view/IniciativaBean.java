@@ -73,7 +73,7 @@ public class IniciativaBean extends BasePageBean{
     }
     
     public Set<Iniciativa> buscarIniciativas(String palabraClave) throws ExcepcionServicesBanco{
-    	return servicioBanco.buscarIniciativa(palabraClave);
+    	return servicioBanco.buscarIniciativa(palabraClave.toLowerCase());
     }
 
 	public String getRol() {
