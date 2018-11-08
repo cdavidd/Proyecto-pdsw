@@ -14,8 +14,8 @@
     </resultMap>
     <!--Falta columna Titulo en iniciativa-->
     <insert id="registrarIniciativa">
-        INSERT INTO INICIATIVAS (descripcion, estado, fecha_creacion, usuario_id, area)
-        VALUES (#{descripcion},'En_Espera_Revision', #{fecha},#{usuario},#{area})
+        INSERT INTO INICIATIVAS (descripcion, estado, fecha_creacion, usuario_id,palabrasclave, area)
+        VALUES (#{descripcion},'En_Espera_Revision', #{fecha},#{usuario},#{palabrasclave},#{area})
     </insert>
     
     <select id="consultarUsuario" resultMap="UsuarioResult">

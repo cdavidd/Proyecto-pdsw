@@ -36,16 +36,16 @@ public class RegistroBean extends BasePageBean{
     
     
     
-	public List<String> getTipoRol() {
-		return tipoRol;
-	}
-	public void setTipoRol(List<String> tipoRol) {
-		this.tipoRol = tipoRol;
-	}
+    public List<String> getTipoRol() {
+            return tipoRol;
+    }
+    public void setTipoRol(List<String> tipoRol) {
+            this.tipoRol = tipoRol;
+    }
     
-    public void registrarUsuario(int id, String nombre, String email, String contrasena){
+    public void registrarUsuario(String nombre, String email, String contrasena){
         try{
-            servicioBanco.registrarUsuario(new Usuario(id,nombre,email,contrasena));
+            servicioBanco.registrarUsuario(new Usuario(nombre,email,contrasena));
         }catch(ExcepcionServicesBanco ex){
             System.out.println(ex.getMessage());
         }

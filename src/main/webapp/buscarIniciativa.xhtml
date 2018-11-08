@@ -9,7 +9,7 @@
         <title>Inicio</title>
 		<link rel="stylesheet" href="fontello.css" />
                 <link rel="stylesheet" href="Recursos/estilosP.css" />
-                <link rel="stylesheet" href="Recursos/login.css" />
+                <link rel="stylesheet" href="Recursos/verIniciativa.css" />
     </h:head>
     <h:body style="overflow-x:hidden; overflow-y:hidden">
         <div id="imagenU">
@@ -17,7 +17,6 @@
         </div>
         <h:form id="iniciativaForm">
             <br><p:inputText id="palabraclave"  placeholder="palabras clave" value="#{iniciativaBean.palabraC}"> </p:inputText></br>
-            <h:outputText value = "#{iniciativaBean.palabraC}" />
             
             <p:commandButton value="actualizar" update="iniciativa_tabla" />    
            <!-- <a href="IniciativasPalabras.xhtml"><input type="button" value="Ir"/></a> -->
@@ -48,6 +47,7 @@
                     <a href="Inicio.xhtml">Inicio</a>
                     <a href="inicioSesion.xhtml">Iniciar Sesion</a>
                     <a href="Registro.xhtml">Registrarse</a>
+                    <a href="VerIniciativas.xhtml">Iniciativas</a>
                     <a href="">Contacto</a>
                 </nav>
             </div>

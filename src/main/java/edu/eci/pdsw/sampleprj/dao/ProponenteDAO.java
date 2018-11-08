@@ -14,6 +14,6 @@ import org.apache.ibatis.exceptions.PersistenceException;
  * @author cdavi_000
  */
 public interface ProponenteDAO {
-    public void registrarIniciativa(String descripcion, Date fecha, int usuario, String titulo, String area) throws PersistenceException;
+    public void registrarIniciativa(String descripcion, Date fecha, int usuario, String palabrasclave, String area) throws PersistenceException;
     
 }

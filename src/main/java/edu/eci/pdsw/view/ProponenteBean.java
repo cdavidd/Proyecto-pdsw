@@ -33,9 +33,9 @@ public class ProponenteBean extends BasePageBean{
     @ManagedProperty(value = "#{param.usuarioId}")
 
     
-    String descripcion,palabrasClave,area;
-    Date fecha;
-    int usuarioId;
+    private String descripcion,palabrasClave,area;
+    private Date fecha;
+    private int usuarioId;
     
     
     public void registrarIniciativa(String descripcion,String palabrasClave, String area) throws ExcepcionServicesBanco{

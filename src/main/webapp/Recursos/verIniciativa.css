@@ -1,0 +1,66 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 01-nov-2018, 22:02:52
+    Author     : Luis
+*/
+
+
+input{
+    display: block;
+    width: 100%;
+    top:auto;
+    left: auto;   
+}
+
+input[type="button"]{
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+    text-align:center;
+    width: 60%;
+    border-radius:20px;
+        
+}
+
+@media(max-widh: 768px){
+    form{
+        width:75%;
+    }
+      
+        
+}
+@media(max-widh: 480px){
+    form{
+        width:90%;
+    }     
+}
+
+#Botones{
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+    text-align:center;
+    width: 50%;
+    border-radius:20px;
+}
+form{
+    margin:auto;
+    width: 100%;
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    max-width: 1200px;
+    padding: 30px;
+}
+
+#imagenU{
+    width: 100%;
+    height: 80%;
+    position: absolute;
+    top: 85%;  
+    left: 0.5%;
+}

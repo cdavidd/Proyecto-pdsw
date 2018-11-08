@@ -23,7 +23,7 @@ public class ServiciosBancoStub implements ServiciosBanco {
     
     public ServiciosBancoStub(){
         usuarios = new HashMap<>();
-        poblar();
+        //poblar();
     }
     @Override
     public void registrarUsuario(Usuario u) throws ExcepcionServicesBanco {
@@ -46,7 +46,7 @@ public class ServiciosBancoStub implements ServiciosBanco {
           }    
     }
     
-    private void poblar() {
+   /* private void poblar() {
     	Usuario user1 = new Usuario (1,"pepo","pepo@mail","12345");
     	Usuario user2 = new Usuario (2,"rafael","rafael@mail","asfd");
     	Usuario user3 = new Usuario (3,"carlos","carlos@mail","contra");
@@ -58,7 +58,7 @@ public class ServiciosBancoStub implements ServiciosBanco {
     	usuarios.put("carlos@mail", user3);
     	usuarios.put("andres@mail", user4);
     	usuarios.put("diego@mail", user5);	
-    }   
+    }   */
 
     @Override
     public List<Usuario> consultarUsuarios() {

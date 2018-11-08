@@ -15,7 +15,7 @@ import org.apache.ibatis.annotations.Param;
  * @author cdavi_000
  */
 public interface UsuarioMapper {
-    public void registrarIniciativa(@Param("descripcion")String descripcion,@Param("fecha") Date fecha,@Param("usuario") int usuario,@Param("titulo") String titulo,@Param("area") String area);
+    public void registrarIniciativa(@Param("descripcion")String descripcion,@Param("fecha") Date fecha,@Param("usuario") int usuario,@Param("palabrasclave") String palabrasclave,@Param("area") String area);
     public Usuario consultarUsuario(@Param("email") String email); 
     public void insertarUsuario(@Param("usuario") Usuario user );
     public List<Usuario> consultarUsuarios();
