@@ -39,18 +39,14 @@
         </h:form>
         
         <header>
-            <div class="contenedor"> 
-                <h1 class="icon-bank"> Iniciativas </h1>
-                <input type="checkbox" id="menu-bar"></input>
-                <label class="icon-menu" for="menu-bar"></label> 
-                <nav class="menu">
-                    <a href="Inicio.xhtml">Inicio</a>
-                    <a href="inicioSesion.xhtml">Iniciar Sesion</a>
-                    <a href="Registro.xhtml">Registrarse</a>
-                    <a href="VerIniciativas.xhtml">Iniciativas</a>
-                    <a href="">Contacto</a>
-                </nav>
-            </div>
-        </header>
+                <div class="contenedor"> 
+                    <h1 class="icon-bank"> Iniciativas</h1>
+                    <input type="checkbox" id="menu-bar"></input>
+                    <label class="icon-menu" for="menu-bar"></label> 
+                    <nav class="menu">
+                        <a href="homeAdmi.xhtml">#{inicioBean.usuario.nombre} (#{inicioBean.usuario.rol})</a>
+                    </nav>
+                </div>
+            </header>
     </h:body>
 </html>

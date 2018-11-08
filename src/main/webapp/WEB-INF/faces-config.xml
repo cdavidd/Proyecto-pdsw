@@ -13,7 +13,7 @@
 	    </navigation-case>
     </navigation-rule>
     <navigation-rule>
-	<from-view-id>/home.xhtml</from-view-id>
+	<from-view-id>/homeAdmi.xhtml</from-view-id>
 	    <navigation-case>
 	    	<from-outcome>usuarios</from-outcome>
 	    	<to-view-id>/usuarios.xhtml</to-view-id>
@@ -21,7 +21,7 @@
 	    </navigation-case>
     </navigation-rule>
     <navigation-rule>
-	<from-view-id>/Inicio.xhtml</from-view-id>
+	<from-view-id>/inicioSesion.xhtml</from-view-id>
 	    <navigation-case>
 	    	<from-outcome>homeP</from-outcome>
 	    	<to-view-id>/homeP.xhtml</to-view-id>
@@ -29,11 +29,12 @@
 	    </navigation-case>
     </navigation-rule>
     <navigation-rule>
-	<from-view-id>/Inicio.xhtml</from-view-id>
+	<from-view-id>/inicioSesion.xhtml</from-view-id>
 	    <navigation-case>
 	    	<from-outcome>homeAdmi</from-outcome>
 	    	<to-view-id>/homeAdmi.xhtml</to-view-id>
 	    	<redirect />
 	    </navigation-case>
     </navigation-rule>
+    
 </faces-config>
