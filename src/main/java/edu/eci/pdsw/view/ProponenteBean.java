@@ -9,6 +9,8 @@ import com.google.inject.Inject;
 import edu.eci.pdsw.samples.entities.Usuario;
 import edu.eci.pdsw.samples.services.ExcepcionServicesBanco;
 import edu.eci.pdsw.samples.services.ServiciosBanco;
+
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 import javax.faces.bean.ManagedBean;
@@ -37,8 +39,7 @@ public class ProponenteBean extends BasePageBean{
     
     
     public void registrarIniciativa(String descripcion,String palabrasClave, String area) throws ExcepcionServicesBanco{
-        java.sql.Date f = new java.sql.Date(Calendar.getInstance().getTime().getTime());
-        servicioBanco.registrarIniciativa(descripcion, f, usuarioId, palabrasClave, area);
+        servicioBanco.registrarIniciativa(descripcion,java.sql.Date.valueOf(LocalDate.now()), usuarioId, palabrasClave, area);
     }
 
     public ServiciosBanco getServicioBanco() {
