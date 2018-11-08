@@ -99,6 +99,7 @@ public class ServiciosBancoImpl implements ServiciosBanco{
         try{
             return iniciativaDAO.buscarIniciativa(palabraClave);
         }catch(PersistenceException ex) {
+        	System.out.println(ex.getMessage());
             throw new ExcepcionServicesBanco("Error al buscar iniciativa con palabra clave "+ palabraClave );
         }
     }

@@ -22,8 +22,9 @@
       WHERE ID = #{id};
 </update>
 
-<select id="buscarIniciativas" resultMap="IniciativaResult">
-        select
+<select id="buscarIniciativa" resultMap="IniciativaResult">
+  
+         select
 	i.id as iid,
         descripcion,
         estado,
@@ -36,7 +37,7 @@
         rol,
         palabrasclave
 	    FROM usuarios join iniciativas as i on i.id = usuarios.id 
-        where LOWER (palabrasclave) like '%#{palabra}%'
+        where lower (palabrasclave) like  lower ('%#{palabra}%')
 </select>
 
 <select id="getIniciativas" resultMap="IniciativaResult">

@@ -16,9 +16,27 @@
             <img src="Recursos\imagen3.png"  border="2" />
         </div>
         <h:form id="iniciativaForm">
-            <br><p:inputText id="l"  placeholder=" palabras clave" value="#{iniciativaBean.palabraC}"> </p:inputText></br>
-            <a href="IniciativasPalabras.xhtml"><input type="button" value="Ir"/></a>
+            <br><p:inputText id="palabraclave"  placeholder="palabras clave" value="#{iniciativaBean.palabraC}"> </p:inputText></br>
+            <h:outputText value = "#{iniciativaBean.palabraC}" />
             
+            <p:commandButton value="actualizar" update="iniciativa_tabla" />    
+           <!-- <a href="IniciativasPalabras.xhtml"><input type="button" value="Ir"/></a> -->
+              <p:dataTable id="iniciativa_tabla" var="iniciativa" value="#{iniciativaBean.buscarIniciativas(iniciativaBean.palabraC)}">
+		<p:column headerText="Descripcion">
+                    <h:outputText value="#{iniciativa.descripcion}" />
+		</p:column>
+		<p:column headerText="Estado">
+                    <h:outputText value="#{iniciativa.estado}" />
+		</p:column>
+		<p:column headerText="Fecha_Creacion">
+                    <h:outputText value="#{iniciativa.fechaCreacion}" />
+		</p:column>
+		<p:column headerText="Area">
+                    <h:outputText value="#{iniciativa.area}" />
+		</p:column>
+            </p:dataTable>
+
+
         </h:form>
         
         <header>

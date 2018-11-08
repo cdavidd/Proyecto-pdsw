@@ -45,6 +45,7 @@ public class MyBATISIniciativaDAO implements IniciativaDAO{
                 return iniciativas;
         }
         catch(org.apache.ibatis.exceptions.PersistenceException e) {
+        	System.out.println(e.getMessage());
             throw new PersistenceException("Error al buscar iniciativa");
         }	
 

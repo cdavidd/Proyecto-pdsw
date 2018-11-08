@@ -82,13 +82,13 @@ public class IniciativaBean extends BasePageBean{
         this.palabraC = palabraC;
     }
     
-    public Set<Iniciativa> buscarIniciativas(String palabraClave) throws ExcepcionServicesBanco{
-        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-        System.out.println("");
-        System.out.println(palabraC);
-        System.out.println("");
-        System.out.println("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
-    	return servicioBanco.buscarIniciativa(palabraClave.toLowerCase());
+    public Set<Iniciativa> buscarIniciativas(String palabraClave) {
+    	try {
+    		return servicioBanco.buscarIniciativa(palabraClave);
+    	}
+    	catch (ExcepcionServicesBanco e) {
+    		return null;
+    	}    	
     }
 
 	public String getRol() {
