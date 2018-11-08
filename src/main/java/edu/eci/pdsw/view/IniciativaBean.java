@@ -26,12 +26,14 @@ public class IniciativaBean extends BasePageBean{
     
     private String rol;
     private String descripcion,area;
+    private String palabraC;
     private TipoEstado estado;
     private Date fecha;
     
    
     public List<Iniciativa> getIniciativas(){
         try{
+            System.out.println(palabraC);
             return servicioBanco.getIniciativas();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
@@ -71,8 +73,21 @@ public class IniciativaBean extends BasePageBean{
     public Date getFecha(){
         return fecha;
     }
+
+    public String getPalabraC() {
+        return palabraC;
+    }
+
+    public void setPalabraC(String palabraC) {
+        this.palabraC = palabraC;
+    }
     
     public Set<Iniciativa> buscarIniciativas(String palabraClave) throws ExcepcionServicesBanco{
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+        System.out.println("");
+        System.out.println(palabraC);
+        System.out.println("");
+        System.out.println("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
     	return servicioBanco.buscarIniciativa(palabraClave.toLowerCase());
     }
 
