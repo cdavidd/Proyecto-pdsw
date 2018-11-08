@@ -37,7 +37,7 @@
         rol,
         palabrasclave
 	    FROM usuarios join iniciativas as i on i.id = usuarios.id 
-        where lower (palabrasclave) like  lower ('%#{palabra}%')
+        where lower (palabrasclave) = #{palabra}
 </select>
 
 <select id="getIniciativas" resultMap="IniciativaResult">

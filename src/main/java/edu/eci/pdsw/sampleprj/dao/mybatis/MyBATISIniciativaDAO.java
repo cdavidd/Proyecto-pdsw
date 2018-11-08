@@ -37,7 +37,7 @@ public class MyBATISIniciativaDAO implements IniciativaDAO{
                 String[] palabras = palabraClave.split(",");
 
                 for (int i=0; i<palabras.length;i++) {
-                        for (Iniciativa j :iniciativaMapper.buscarIniciativa(palabras[i])) {
+                        for (Iniciativa j :iniciativaMapper.buscarIniciativa(palabras[i].toLowerCase())) {
                                 iniciativas.add(j);
                         }
 
