@@ -28,16 +28,20 @@ import javax.faces.bean.SessionScoped;
 @RequestScoped
 public class AdministradorBean extends BasePageBean{
     private static final long serialVersionUID = 3594009161252782831L;
-    private List<Usuario> usuarios;
+ 
+    
+    
     @Inject
     ServiciosBanco servicioBanco;
     
     @ManagedProperty(value="#{param.id}")
-    
+
     private int id;
     private String estado;
     private List<String> tipoEstado= Arrays.asList("En_Espera_Revision", "En_revision", "Proyecto", "Solucionado");
 
+    
+    
     public List<String> getTipoEstado() {
         return tipoEstado;
     }
@@ -65,10 +69,6 @@ public class AdministradorBean extends BasePageBean{
     }
 
 
-    public void algo(Rol rol) {
-    	System.out.println(rol);
-    	
-    }
     
     public void cambiarEstado() throws ExcepcionServicesBanco{   
         Iniciativa iniciativa=consultarIniciativa();
@@ -82,13 +82,6 @@ public class AdministradorBean extends BasePageBean{
     public Set<Iniciativa> buscarIniciativas(String palabraClave) throws ExcepcionServicesBanco{
     	return servicioBanco.buscarIniciativa(palabraClave);
     	
-    }
-
-
-
-
-    public void setUsuarios(List<Usuario> usuarios) {
-            this.usuarios = usuarios;
     }
 
     public int getId() {
@@ -106,7 +99,8 @@ public class AdministradorBean extends BasePageBean{
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    
+
+	
     
     
 }

@@ -28,7 +28,7 @@ public class ProponenteBean extends BasePageBean{
     @Inject
     ServiciosBanco servicioBanco;
     
-    @ManagedProperty(value = "#{param.usuarioEmail}")
+    @ManagedProperty(value = "#{param.usuarioId}")
 
     
     String descripcion,palabrasClave,area;

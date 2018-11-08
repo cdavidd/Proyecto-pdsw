@@ -62,7 +62,7 @@ public class MyBATISAdministradorDAO implements AdministradorDAO{
     @Override
     public void cambiarRol(Usuario usuario, String rol) throws PersistenceException {
         try{
-            usuarioMapper.cambiarRol(usuario,rol);
+            usuarioMapper.cambiarRol(usuario,Rol.valueOf(rol));
         }catch(org.apache.ibatis.exceptions.PersistenceException e) {
             System.out.println(e.getMessage());
             throw new PersistenceException("Error al consultar el cliente");

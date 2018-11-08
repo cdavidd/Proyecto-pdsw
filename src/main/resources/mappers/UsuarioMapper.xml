@@ -47,9 +47,9 @@
             where u.rol is null
     </select>
 
-    <update id="cambiarRol" >
+    <update id="cambiarRol"  parameterType ="Usuario" >
         UPDATE USUARIOS SET rol = #{rol}
-        WHERE id = #{usuario.id};
+        WHERE id = #{usuario.id}
     </update>
 
 </mapper>

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package edu.eci.pdsw.sampleprj.dao.mybatis.mappers;
-
+import edu.eci.pdsw.samples.entities.Rol;
 import edu.eci.pdsw.samples.entities.Usuario;
 import java.util.Date;
 import java.util.List;
@@ -20,5 +20,5 @@ public interface UsuarioMapper {
     public void insertarUsuario(@Param("usuario") Usuario user );
     public List<Usuario> consultarUsuarios();
     public List<Usuario> consultarUsuariosSinRol();
-    public void cambiarRol(@Param("usuario") Usuario usuario,@Param("rol")String rol);
+    public void cambiarRol(@Param("usuario") Usuario usuario,@Param("rol")Rol rol);
 }

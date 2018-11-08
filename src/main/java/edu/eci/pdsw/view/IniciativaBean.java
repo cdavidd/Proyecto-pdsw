@@ -23,6 +23,8 @@ public class IniciativaBean extends BasePageBean{
     @Inject
     ServiciosBanco servicioBanco;
     
+    
+    private String rol;
     private String descripcion,area;
     private TipoEstado estado;
     private Date fecha;
@@ -73,4 +75,12 @@ public class IniciativaBean extends BasePageBean{
     public Set<Iniciativa> buscarIniciativas(String palabraClave) throws ExcepcionServicesBanco{
     	return servicioBanco.buscarIniciativa(palabraClave);
     }
+
+	public String getRol() {
+		return rol;
+	}
+
+	public void setRol(String rol) {
+		this.rol = rol;
+	}
 }

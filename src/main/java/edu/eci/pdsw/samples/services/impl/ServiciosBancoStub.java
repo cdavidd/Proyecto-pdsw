@@ -84,8 +84,10 @@ public class ServiciosBancoStub implements ServiciosBanco {
 
     @Override
     public void cambiarRol(Usuario usuario, String rol) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    	usuario.setRol(Rol.valueOf(rol));
     }
+    
+    
 
     @Override
     public void registrarIniciativa(String descripcion, Date fecha, int usuario, String titulo, String area) throws ExcepcionServicesBanco {
