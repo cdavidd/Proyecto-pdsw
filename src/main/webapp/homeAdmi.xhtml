@@ -7,35 +7,54 @@
 
     <h:head>
         <title></title>
-		<link rel="stylesheet" href="fontello.css" />
-        <link rel="stylesheet" href="Recursos/estilosP.css" />
-        <link rel="stylesheet" href="Recursos/home.css" />
-        <link rel="stylesheet" href="Recursos/menuSecundario.css" />
+        <link rel="stylesheet" href="Recursos/usuarios.css" />
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+        
     </h:head>
-	<h:body >
+    <h:body style="overflow-x:hidden; overflow-y:scroll" >
 
-                
-          
-            <header>
-                <div class="contenedor"> 
-                    <h1 class="icon-bank"> Banco de iniciativas de proyectos</h1>
-                    <input type="checkbox" id="menu-bar"></input>
-                    <label class="icon-menu" for="menu-bar"></label> 
-                    <nav class="menu">
-                        <a href="homeAdmi.xhtml">#{inicioBean.usuario.nombre} (#{inicioBean.usuario.rol})</a>
-                    </nav>
-                </div>
+        <header>
+                <div class="contenedorlogos"> 
+                    <div id="logoescuela">
+                        <img src="Recursos/logoescuela.png" alt=""></img>
+                    </div>
+                </div>  
             </header>
-        <div class="menuOpciones">
-                    <nav class="menu2">
-                         <a href="consultarUsuarios.xhtml">Consultar Usuarios del sistema</a>
-                         <a href="ConsultarIniciativas.xhtml">Consultar Iniciativas</a>
-                         <a href="buscarIniciativa.xhtml">Buscar Iniciativa</a>
-                         <a href="Inicio.xhtml">Cerrar Sesion</a>
-                         
-                    </nav>
-                </div>
+        <section class="menu">
+                <center>
+                     <div class="container">
+                        <a class="toggleMenu" href="#" style="display: none;">Menu</a>
+                         <ul class="nav" style="display: block;">
 
+                                 <li>
+                                         <a href="homeAdmi.xhtml"><i class="fa fa-user" style="font-size:24px"></i>#{inicioBean.usuario.nombre} (#{inicioBean.usuario.rol})</a>
+                                 </li>
+                                 <li>
+                                     <a href="consultarUsuarios.xhtml"><i class="fa fa-address-card" style="font-size:24px" ></i>Consultar Usuarios del sistema</a>
+                                 </li>
+                                 <li>
+                                     <a href="ConsultarIniciativas.xhtml"><i class="fa fa-bars" style="font-size:24px" ></i>Consultar Iniciativas</a>
+                                 </li> 
+                                 <li>
+                                     <a href="Inicio.xhtml"><i class="fa fa-caret-square-o-left" style="font-size:24px" ></i>Cerrar Sesion</a>
+                                 </li> 
+                         </ul>
+                     </div>
+                 </center>       
+            </section>
+        <footer id="footerinvestigacion">
+                <div class="footercontainer">
+                    <div class="direccion">
+                        <p>ESCUELA COLOMBIANA DE INGENIERIA JULIO GARAVITO</p>
+                        <br>AK.45 No.205-59 (Autopista Norte)</br>
+                        Contact center: 57(1) 668 3600
+                        <br>Linea Nacional Gratuita: 018000112668</br>
+                        Informacion detallada en: www.escuelaing.edu.co<br></br>
+                        Vigilada Mineducacion.
+                        <br><br>Bogota, D.C. - Colombia</br></br>          
+                   </div> 
+                </div>
+             </footer>
 
 	</h:body>
 	

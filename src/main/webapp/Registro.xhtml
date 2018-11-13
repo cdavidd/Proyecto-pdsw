@@ -7,38 +7,71 @@
 
     <h:head>
         <title>Registrar</title>
-        <link rel="stylesheet" href="fontello.css" />
-        <link rel="stylesheet" href="Recursos/estilosP.css" />
-        <link rel="stylesheet" href="Recursos/registro.css" />  
+        <link rel="stylesheet" href="Recursos/login.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
     </h:head>
-    <h:body style="overflow-x:hidden; overflow-y:hidden">    
-        <div id="imagenNew">
-            <img src="Recursos\new.png" width="15%" height="15%" />
-        </div>
-        <div id="imagenU">
-            <img src="Recursos\imagen3.png"  border="2" />
-        </div>
-        <h:form id="form_registro">
-                <br><p:inputText id="nombre" placeholder="&#128100; Nombre" value="#{registroBean.nombre}"> </p:inputText></br>
-                <br><p:inputText id="correo" placeholder="&#128386; Correo" value="#{registroBean.email}" > </p:inputText></br>
-                <br><p:inputText id="contrasena" placeholder="&#128272; Contraseña" type="password" value="#{registroBean.contrasena}"> </p:inputText></br>
-                <div id="Botones">
-                    <p:commandButton  value="Registrarse" actionListener="#{registroBean.registrarUsuario(registroBean.nombre,registroBean.email,registroBean.contrasena)}" action="inicioSesion.xhtml" />
+    <h:body style="overflow-x:hidden; overflow-y:scroll">    
+        <div class="cuerpo">   
+            <header>
+                <div class="contenedorlogos"> 
+                    <div id="logoescuela">
+                        <img src="Recursos/logoescuela.png" alt=""></img>
+                    </div>
+                </div>  
+            </header>
+            <section class="menu">
+                <center>
+                     <div class="container">
+                        <a class="toggleMenu" href="#" style="display: none;">Menu</a>
+                         <ul class="nav" style="display: block;">
+
+                                 <li>
+                                         <a href="inicioSesion.xhtml"><i class="fa fa-user" style="font-size:24px"></i>Iniciar Sesion</a>
+                                 </li>
+                                 <li>
+                                     <a href="Registro.xhtml"><i class=" fa fa-edit" style="font-size:24px" ></i>Registrarse</a>
+                                 </li>
+
+                                 <li>
+                                         <a href="VerIniciativas.xhtml" ><i class="fa fa-list" style="font-size:24px"></i>  Iniciativas</a>
+                                 </li>
+                                <li>
+                                         <a href="buscarIniciativa.xhtml"><i class="fa fa-search" style="font-size:24px"></i>Buscar iniciativas</a>
+                                </li>
+                                <li>
+                                         <a href=""><i class=" fa fa-phone-square" style="font-size:24px"></i>Contactenos</a>
+                                </li> 
+                         </ul>
+                     </div>
+                 </center>       
+            </section>
+            <center>
+                
+                <h:form id="form_registro">
+                    <div id="imagenNew">
+                        <img src="Recursos\new.png" width="15%" height="15%" />
+                    </div>
+                        <br><p:inputText id="nombre" placeholder="&#128100; Nombre" value="#{registroBean.nombre}"> </p:inputText></br>
+                        <br><p:inputText id="correo" placeholder="&#128386; Correo" value="#{registroBean.email}" > </p:inputText></br>
+                        <br><p:inputText id="contrasena" placeholder="&#128272; Contraseña" type="password" value="#{registroBean.contrasena}"> </p:inputText></br>
+                        <div id="Botones">
+                            <p:commandButton  value="Registrarse" actionListener="#{registroBean.registrarUsuario(registroBean.nombre,registroBean.email,registroBean.contrasena)}" action="inicioSesion.xhtml" />
+                        </div>
+                </h:form>
+            </center>
+            <footer id="footerinvestigacion">
+                <div class="footercontainer">
+                    <div class="direccion">
+                        <p>ESCUELA COLOMBIANA DE INGENIERIA JULIO GARAVITO</p>
+                        <br>AK.45 No.205-59 (Autopista Norte)</br>
+                        Contact center: 57(1) 668 3600
+                        <br>Linea Nacional Gratuita: 018000112668</br>
+                        Informacion detallada en: www.escuelaing.edu.co<br></br>
+                        Vigilada Mineducacion.
+                        <br><br>Bogota, D.C. - Colombia</br></br>          
+                   </div> 
                 </div>
-        </h:form>
-        <header>
-            <div class="contenedor"> 
-                <h1 class="icon-bank"> Registro Usuario</h1>
-                <input type="checkbox" id="menu-bar"></input>
-                <label class="icon-menu" for="menu-bar"></label> 
-                <nav class="menu">
-                    <a href="Inicio.xhtml">Inicio</a>
-                    <a href="inicioSesion.xhtml" >Iniciar sesion</a>
-                    <a href="VerIniciativas.xhtml">Iniciativas</a>
-                    <a href="buscarIniciativa.xhtml">Buscar iniciativas</a>
-                    <a href="">Contacto</a>
-                </nav>
-            </div>
-        </header>
+             </footer>
+        </div>
     </h:body>
 </html>
