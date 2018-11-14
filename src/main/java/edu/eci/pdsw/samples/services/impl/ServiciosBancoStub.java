@@ -90,7 +90,7 @@ public class ServiciosBancoStub implements ServiciosBanco {
     
 
     @Override
-    public void registrarIniciativa(String descripcion, Date fecha, int usuario, String titulo, String area) throws ExcepcionServicesBanco {
+    public void registrarIniciativa(String descripcion, Date fecha, int usuario, String titulo) throws ExcepcionServicesBanco {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

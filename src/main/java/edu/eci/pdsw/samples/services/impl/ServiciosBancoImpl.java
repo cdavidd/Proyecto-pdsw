@@ -86,9 +86,9 @@ public class ServiciosBancoImpl implements ServiciosBanco{
     }
 
     @Override
-    public void registrarIniciativa(String descripcion, Date fecha, int usuario, String palabrasclave, String area) throws ExcepcionServicesBanco {
+    public void registrarIniciativa(String descripcion, Date fecha, int usuario, String palabrasclave) throws ExcepcionServicesBanco {
         try{
-           proponenteDao.registrarIniciativa(descripcion, fecha, usuario, palabrasclave, area);
+           proponenteDao.registrarIniciativa(descripcion, fecha, usuario, palabrasclave);
         }catch(PersistenceException ex) {
             throw new ExcepcionServicesBanco("Error al registrar iniciativa ");
         }

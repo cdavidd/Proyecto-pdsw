@@ -22,9 +22,9 @@ public class MyBATISProponenteDAO implements ProponenteDAO{
     UsuarioMapper proponenteMapper;
     
     @Override
-    public void registrarIniciativa(String descripcion, Date fecha, int usuario, String palabraclave, String area) throws PersistenceException {
+    public void registrarIniciativa(String descripcion, Date fecha, int usuario, String palabraclave) throws PersistenceException {
         try{
-            proponenteMapper.registrarIniciativa(descripcion, fecha, usuario, palabraclave, area);
+            proponenteMapper.registrarIniciativa(descripcion, fecha, usuario, palabraclave);
         }catch(org.apache.ibatis.exceptions.PersistenceException e) {
         	System.out.println(e.getMessage());
             throw new PersistenceException("Error al registrar iniciativa ");

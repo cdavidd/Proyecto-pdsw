@@ -30,7 +30,7 @@ public interface ServiciosBanco {
 
     public void cambiarRol(Usuario usuario, String rol) throws ExcepcionServicesBanco;
     
-    public void registrarIniciativa(String descripcion, Date fecha, int usuario, String palabrasclave, String area) throws ExcepcionServicesBanco;
+    public void registrarIniciativa(String descripcion, Date fecha, int usuario, String palabrasclave) throws ExcepcionServicesBanco;
     
     public abstract Set<Iniciativa> buscarIniciativa(String palabraClave)throws ExcepcionServicesBanco;
 
