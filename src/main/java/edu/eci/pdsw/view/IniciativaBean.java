@@ -25,7 +25,7 @@ public class IniciativaBean extends BasePageBean{
     
     
     private String rol;
-    private String descripcion,area;
+    private String descripcion;
     private String palabraC;
     private TipoEstado estado;
     private Date fecha;
@@ -46,9 +46,6 @@ public class IniciativaBean extends BasePageBean{
         this.descripcion=d;
     }
     
-    public void setArea(String a){
-        this.area=a;
-    }
     
     public void setEstado(TipoEstado e){
         this.estado=e;
@@ -62,9 +59,6 @@ public class IniciativaBean extends BasePageBean{
         return descripcion;
     }
     
-    public String getArea(){
-        return area;
-    }
     
     public TipoEstado getEstado(){
         return estado;

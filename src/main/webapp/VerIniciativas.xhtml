@@ -57,7 +57,10 @@
                     <h:outputText value="#{iniciativa.fechaCreacion}" />
 		</p:column>
 		<p:column headerText="Area">
-                    <h:outputText value="#{iniciativa.area}" />
+                    <h:outputText value="#{iniciativa.usuario.area}" />
+		</p:column>
+                <p:column headerText="Palabras clave">
+                    <h:outputText value="#{iniciativa.palabrasClave}" />
 		</p:column>
             </p:dataTable>
         </h:form>

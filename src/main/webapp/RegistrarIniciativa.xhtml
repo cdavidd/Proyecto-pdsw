@@ -45,13 +45,11 @@
             <f:viewParam name="usuarioId" value="#{proponenteBean.usuarioId}" />
 	</f:metadata>
          <h:form id="form_registroIniciativa">
-             <br><p:inputText id="Titulo"  placeholder="&#49;&#50;&#51; palabras clave" value="#{proponenteBean.palabrasClave}"> </p:inputText></br>
-                
-                <br><p:inputText id="Area" placeholder="&#128386; Area" value="#{proponenteBean.area}" > </p:inputText></br>
-                <br><p:inputTextarea rows="10" cols="40" id="Descripcion" placeholder="&#128100; Descripcion" value="#{proponenteBean.descripcion}"> </p:inputTextarea></br>
-                <div id="Botones">
-                    <p:commandButton value="Registrar Iniciativa" actionListener="#{proponenteBean.registrarIniciativa(proponenteBean.descripcion, proponenteBean.palabrasClave, proponenteBean.area)}" action="homeP.xhtml"/>
-                </div>
+            <br><p:inputText id="Titulo"  placeholder="&#49;&#50;&#51; palabras clave" value="#{proponenteBean.palabrasClave}"> </p:inputText></br>
+            <br><p:inputTextarea rows="10" cols="40" id="Descripcion" placeholder="&#128100; Descripcion" value="#{proponenteBean.descripcion}"> </p:inputTextarea></br>
+            <div id="Botones">
+                <p:commandButton value="Registrar Iniciativa" actionListener="#{proponenteBean.registrarIniciativa(proponenteBean.descripcion, proponenteBean.palabrasClave)}" action="homeP.xhtml"/>
+            </div>
                 
                  
         </h:form>
