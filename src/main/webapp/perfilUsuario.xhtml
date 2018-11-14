@@ -64,11 +64,14 @@
                 <p:column headerText="Email">
                     <h:outputText value="#{usuario.email}" />
                 </p:column>
+                <p:column headerText="Rol">
+                    <h:outputText value="#{usuario.rol}" />
+                </p:column>
             </p:dataTable>
                 <h:selectOneMenu id="rol" value = "#{registroBean.rol}" > 
                     <f:selectItems value="#{registroBean.tipoRol}" />
                 </h:selectOneMenu> 
-                <p:commandButton value="Actualizar" actionListener="#{registroBean.cambiarRol()}" action="consultarUsuarios.xhtml" />
+                <p:commandButton value="Actualizar" actionListener="#{registroBean.cambiarRol()}" action="consultarUsuarios" />
             </h:form>
             <footer id="footerinvestigacion">
                 <div class="footercontainer">

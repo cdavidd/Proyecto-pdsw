@@ -44,4 +44,12 @@
 	    	<redirect />
 	    </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+	<from-view-id>/perfilUsuario.xhtml</from-view-id>
+	    <navigation-case>
+	    	<from-outcome>consultarUsuarios</from-outcome>
+	    	<to-view-id>/consultarUsuarios.xhtml</to-view-id>
+	    	<redirect />
+	    </navigation-case>
+    </navigation-rule>
 </faces-config>
