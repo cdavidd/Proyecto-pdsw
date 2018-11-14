@@ -52,8 +52,11 @@
                     <h:outputText value="#{iniciativa.fechaCreacion}" />
                 </p:column>
                 <p:column headerText="Area">
-                            <h:outputText value="#{iniciativa.area}" />
-                </p:column>
+                    <h:outputText value="#{iniciativa.usuario.area}" />
+		</p:column>
+                <p:column headerText="Palabras clave">
+                    <h:outputText value="#{iniciativa.palabrasClave}" />
+		</p:column>
                 <p:column headerText="Iniciativa">
 			<p:button outcome="perfilIniciativa.xhtml?id=#{iniciativa.id}" value="Ver Iniciativa" />
 		</p:column>	
