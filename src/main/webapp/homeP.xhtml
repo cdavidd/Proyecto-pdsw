@@ -36,7 +36,9 @@
                                      <a href="buscarIniciativa.xhtml"><i class="fa fa-search" style="font-size:24px" ></i>Buscar Iniciativa</a>
                                  </li>
                                 <li>
-                                     <a href="Inicio.xhtml"><i class="fa fa-window-close" style="font-size:24px" ></i>Cerrar Sesion</a>
+                                      <h:form>                                                  
+                                         <p:commandButton value="Cerrar sesion" actionListener="#{inicioBean.reiniciar}" action="Inicio"></p:commandButton> 
+                                      </h:form>
                                  </li> 
                          </ul>
                      </div>
