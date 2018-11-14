@@ -94,7 +94,6 @@ public class InicioBean extends BasePageBean{
  
     
     public void reiniciar(){
-        System.out.println("entra");
         setContrasena("");
         setEmail("");
         setUsuario(null);
