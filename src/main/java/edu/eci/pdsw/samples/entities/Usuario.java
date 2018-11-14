@@ -7,12 +7,6 @@ package edu.eci.pdsw.samples.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-
-
-
-
-
-
 /**
  *
  * @author 2133561
@@ -29,29 +23,31 @@ public  class Usuario implements Serializable{
     private String nombre;
     private String email;
     private String contrasena;
+    private String area;
     public Rol rol;
     private ArrayList<Iniciativa> iniciativas;
     private ArrayList<Iniciativa> apoyar;
-    
-  
 
+   
     public Usuario(){
     }
     
-    public Usuario(int id, String nombre, String email, String contrasena, String rol) {
+    public Usuario(int id, String nombre, String email, String contrasena, String rol,String area) {
     	this.id = id;
     	this.nombre = nombre;
     	this.email = email; 
     	this.contrasena = contrasena;
     	this.rol = Rol.valueOf(rol);
+        this.area = area;
     	this.iniciativas = new ArrayList<Iniciativa>();
     	this.apoyar = new ArrayList<Iniciativa>();
     }
     
-    public Usuario(String nombre, String email, String contrasena) {
+    public Usuario(String nombre, String email, String contrasena,String area) {
     	this.nombre = nombre;
     	this.email = email; 
     	this.contrasena = contrasena;
+        this.area = area;
     	this.iniciativas = new ArrayList<Iniciativa>();
     	this.apoyar = new ArrayList<Iniciativa>();
     }
@@ -107,7 +103,7 @@ public  class Usuario implements Serializable{
     @Override
     public String toString() {
             return "Usuario [id=" + id + ", nombre=" + nombre + ", email=" + email + ", contrasena=" + contrasena + ", rol="
-                            + rol + ", iniciativas=" + iniciativas + ", apoyar=" + apoyar + "]";
+                            + rol + ", iniciativas=" + iniciativas + ", apoyar=" + apoyar +  ", area=" + area +"]";
     }
 
     public Rol getRol() {
@@ -116,6 +112,14 @@ public  class Usuario implements Serializable{
 
     public void setRol(Rol rol) {
             this.rol = rol;
+    }
+    
+     public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
     }
     
 }

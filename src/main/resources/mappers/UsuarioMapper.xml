@@ -6,17 +6,15 @@
 <mapper namespace="edu.eci.pdsw.sampleprj.dao.mybatis.mappers.UsuarioMapper">
     <resultMap id="UsuarioResult" type="Usuario">
         <id property = "id" column = "id"/>
-        <result property = "nombre" column = "nombre"/>
+        <result property = "nombre" column = "Nombre"/>
         <result property = "email" column = "email"/>
         <result property = "contrasena" column = "contrasena"/>
         <result property = "rol" column = "rol"/>
+        <result property = "area" column = "area"/>
         <collection property="iniciativas" ofType="Iniciativa" resultMap='edu.eci.pdsw.sampleprj.dao.mybatis.mappers.IniciativaMapper.IniciativaResult'></collection> 
     </resultMap>
     <!--Falta columna Titulo en iniciativa-->
-    <insert id="registrarIniciativa">
-        INSERT INTO INICIATIVAS (descripcion, estado, fecha_creacion, usuario_id,palabrasclave, area)
-        VALUES (#{descripcion},'En_Espera_Revision', #{fecha},#{usuario},#{palabrasclave},#{area})
-    </insert>
+   
     
     <select id="consultarUsuario" resultMap="UsuarioResult">
         select
@@ -24,14 +22,15 @@
         nombre, 
         email, 
         contrasena,
-        rol 
+        rol,
+        area 
         from usuarios  
         WHERE email = #{email}
     </select>
 
     <insert id="insertarUsuario">
-        insert into usuarios (nombre,email,rol,contrasena)
-        values (#{usuario.nombre},#{usuario.email},'En_Espera',#{usuario.contrasena})
+        insert into usuarios (nombre,email,rol,contrasena,area)
+        values (#{usuario.nombre},#{usuario.email},'En_Espera',#{usuario.contrasena},#{usuario.area})
     </insert>
 
     <select id="consultarUsuarios" resultMap="UsuarioResult">

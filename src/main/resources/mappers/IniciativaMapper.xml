@@ -7,16 +7,20 @@
 
 <resultMap id = "IniciativaResult" type = "Iniciativa">
     <id property = "id" column = "iid"/>
-    <result property = "descripcion" column = "descripcion"/>
-    <result property = "estado" column = "estado"/>
-    <result property = "fechaCreacion" column = "fecha_creacion"/>
-    <result property = "area" column = "area"/>
-    <result property = "palabrasClave" column = "palabrasclave"/>
+    <result property = "descripcion" column = "Descripcion"/>
+    <result property = "estado" column = "Estado"/>
+    <result property = "fechaCreacion" column = "Fecha_Creacion"/>
+    <result property = "palabrasClave" column = "PalabrasClave"/>
     <association property="usuario" javaType="Usuario" resultMap="edu.eci.pdsw.sampleprj.dao.mybatis.mappers.UsuarioMapper.UsuarioResult" />
 </resultMap>
 
 
-
+ <insert id="registrarIniciativa">
+        INSERT INTO INICIATIVAS (descripcion, estado, fecha_creacion, usuario_id,palabrasclave)
+        VALUES (#{descripcion},'En_Espera_Revision', #{fecha},#{usuario},#{palabrasclave})
+ </insert>
+    
+    
 <update id = "cambiarEstado" parameterType = "Iniciativa">
       UPDATE Iniciativas SET estado = #{estado}
       WHERE ID = #{id};
@@ -26,16 +30,16 @@
   
          select
 	i.id as iid,
-        descripcion,
-        estado,
-        fecha_creacion,
+        Descripcion,
+        Estado,
+        Fecha_Creacion,
         area,
         usuario_id as id,
         nombre, 
         email,
         contrasena,
         rol,
-        palabrasclave
+        PalabrasClave
 	    FROM usuarios join iniciativas as i on i.id = usuarios.id 
         where lower (palabrasclave) LIKE  CONCAT('%', #{palabra},'%')
 </select>
@@ -43,8 +47,8 @@
 <select id="getIniciativas" resultMap="IniciativaResult">
         select
         i.id as iid,
-        descripcion,
-        estado,
+        Descripcion,
+        Estado,
         fecha_creacion,
         area,
         usuario_id as id,
@@ -52,15 +56,15 @@
         email,
         contrasena,
         rol,
-        palabrasclave
+        PalabrasClave
 	FROM usuarios join iniciativas as i on i.id = usuarios.id 
 </select>
 
 <select id="consultarIniciativa" resultMap="IniciativaResult">
         select
         i.id as iid,
-        descripcion,
-        estado,
+        Descripcion,
+        Estado,
         fecha_creacion,
         area,
         usuario_id as id,
@@ -68,10 +72,8 @@
         email,
         contrasena,
         rol,
-        palabrasclave
+        PalabrasClave
 	FROM usuarios join iniciativas as i on i.id = usuarios.id
         WHERE i.id=#{id}
 </select>
-
-
 </mapper>
