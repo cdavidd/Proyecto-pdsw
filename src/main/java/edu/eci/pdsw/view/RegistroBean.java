@@ -29,7 +29,15 @@ public class RegistroBean extends BasePageBean{
     
     
     private int id;
-    private String nombre,contrasena;
+    private String nombre,contrasena,area;
+
+    public String getArea() {
+        return area;
+    }
+
+    public void setArea(String area) {
+        this.area = area;
+    }
     private String rol;
 	private List<String> tipoRol= Arrays.asList("Administrador", "Publico", "Pmo_Odi", "En_Espera","Proponente");
 
@@ -43,9 +51,9 @@ public class RegistroBean extends BasePageBean{
             this.tipoRol = tipoRol;
     }
     
-    public void registrarUsuario(String nombre, String email, String contrasena){
+    public void registrarUsuario(String nombre, String email, String contrasena,String area){
         try{
-            servicioBanco.registrarUsuario(new Usuario(nombre,email,contrasena));
+            servicioBanco.registrarUsuario(new Usuario(nombre,email,contrasena,area));
         }catch(ExcepcionServicesBanco ex){
             System.out.println(ex.getMessage());
         }

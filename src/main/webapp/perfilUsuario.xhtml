@@ -67,6 +67,9 @@
                 <p:column headerText="Rol">
                     <h:outputText value="#{usuario.rol}" />
                 </p:column>
+                <p:column headerText="Area">
+                    <h:outputText value="#{usuario.area}" />
+                </p:column>
             </p:dataTable>
                 <h:selectOneMenu id="rol" value = "#{registroBean.rol}" > 
                     <f:selectItems value="#{registroBean.tipoRol}" />

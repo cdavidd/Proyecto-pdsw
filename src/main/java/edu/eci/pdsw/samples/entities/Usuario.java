@@ -43,7 +43,7 @@ public  class Usuario implements Serializable{
     	this.apoyar = new ArrayList<Iniciativa>();
     }
     
-    public Usuario(String nombre, String email, String contrasena) {
+    public Usuario(String nombre, String email, String contrasena,String area) {
     	this.nombre = nombre;
     	this.email = email; 
     	this.contrasena = contrasena;
