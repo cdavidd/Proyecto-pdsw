@@ -39,6 +39,7 @@ public class ProponenteBean extends BasePageBean{
     
     
     public void registrarIniciativa(String descripcion,String palabrasClave) throws ExcepcionServicesBanco{
+        super.nuevaIniciativa=true;
         servicioBanco.registrarIniciativa(descripcion,java.sql.Date.valueOf(LocalDate.now()), usuarioId, palabrasClave);
     }
 

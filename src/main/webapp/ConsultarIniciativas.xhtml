@@ -41,7 +41,7 @@
             </section>
 	<h:body style="overflow-x:hidden; overflow-y:scroll">
             <h:form id="IniciativasForm">
-              <p:dataTable id="iniciativas_tabla" var="iniciativa" value="#{administradorBean.iniciativas}" scrollable="true" scrollHeight="300">
+              <p:dataTable  id="iniciativas_tabla" var="iniciativa" value="#{administradorBean.iniciativas}" scrollable="true" scrollHeight="300" >
                 <p:column headerText="Descripcion">
                             <h:outputText value="#{iniciativa.descripcion}" />
                 </p:column>

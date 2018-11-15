@@ -11,7 +11,7 @@
         <result property = "contrasena" column = "contrasena"/>
         <result property = "rol" column = "rol"/>
         <result property = "area" column = "area"/>
-        <collection property="iniciativas" ofType="Iniciativa" resultMap='edu.eci.pdsw.sampleprj.dao.mybatis.mappers.IniciativaMapper.IniciativaResult'></collection> 
+        <!--<collection property="iniciativas" ofType="Iniciativa" resultMap='edu.eci.pdsw.sampleprj.dao.mybatis.mappers.IniciativaMapper.IniciativaResult'></collection> -->
     </resultMap>
     <!--Falta columna Titulo en iniciativa-->
    

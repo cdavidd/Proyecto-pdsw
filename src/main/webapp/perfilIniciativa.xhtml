@@ -64,8 +64,11 @@
                     <h:outputText value="#{ini.fechaCreacion}" />
                 </p:column>
                 <p:column headerText="Area">
-                            <h:outputText value="#{ini.area}" />
+                            <h:outputText value="#{ini.usuario.area}" />
                 </p:column>
+                <p:column headerText="Palabras clave">
+                    <h:outputText value="#{ini.palabrasClave}" />
+		</p:column>
             </p:dataTable>
                 <h:selectOneMenu id="res" value = "#{administradorBean.estado}" > 
                     <f:selectItems value="#{administradorBean.tipoEstado}" />

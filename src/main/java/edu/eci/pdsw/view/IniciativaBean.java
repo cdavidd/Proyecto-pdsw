@@ -4,18 +4,17 @@ import com.google.inject.Inject;
 import edu.eci.pdsw.samples.entities.Iniciativa;
 import edu.eci.pdsw.samples.entities.*;
 import edu.eci.pdsw.samples.services.*;
+import java.io.Serializable;
 import java.sql.Date;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-
-
+import java.util.ArrayList;
 
 @SuppressWarnings("deprecation")
 @ManagedBean(name = "iniciativaBean")
 @SessionScoped
-public class IniciativaBean extends BasePageBean{
+public class IniciativaBean extends BasePageBean implements Serializable{
     
     private static final long serialVersionUID = 3594009161252782831L;
     
@@ -29,11 +28,11 @@ public class IniciativaBean extends BasePageBean{
     private String palabraC;
     private TipoEstado estado;
     private Date fecha;
+    private List<Iniciativa> iniciativas=new ArrayList<Iniciativa>();
     
    
     public List<Iniciativa> getIniciativas(){
         try{
-            System.out.println(palabraC);
             return servicioBanco.getIniciativas();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
@@ -76,20 +75,30 @@ public class IniciativaBean extends BasePageBean{
         this.palabraC = palabraC;
     }
     
-    public Set<Iniciativa> buscarIniciativas(String palabraClave) {
-    	try {
-    		return servicioBanco.buscarIniciativa(palabraClave);
-    	}
-    	catch (ExcepcionServicesBanco e) {
-    		return null;
-    	}    	
+    public List<Iniciativa> buscarIniciativas(String palabraClave) {
+            
+        try {
+            List<Iniciativa> temp=new ArrayList<Iniciativa>();
+            if (iniciativas.isEmpty() || super.nuevaIniciativa){
+                super.nuevaIniciativa=false;
+                temp.addAll(servicioBanco.buscarIniciativa(palabraClave));
+                iniciativas= temp;
+            }
+            return iniciativas;
+        }
+        catch (ExcepcionServicesBanco e) {
+            return null;
+        }    	
     }
 
-	public String getRol() {
-		return rol;
-	}
+    public String getRol() {
+            return rol;
+    }
 
-	public void setRol(String rol) {
-		this.rol = rol;
-	}
+    public void setRol(String rol) {
+            this.rol = rol;
+    }
+    
+
+
 }
