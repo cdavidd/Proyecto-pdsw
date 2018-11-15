@@ -45,7 +45,7 @@
         contrasena,
         rol,
         PalabrasClave
-	    FROM usuarios join iniciativas as i on i.id = usuarios.id 
+	    FROM usuarios join iniciativas as i on usuario_id = usuarios.id 
         where lower (palabrasclave) LIKE  CONCAT('%', #{palabra} ,'%')
 </select>
 
@@ -62,7 +62,7 @@
         contrasena,
         rol,
         PalabrasClave
-	FROM usuarios join iniciativas as i on i.id = usuarios.id 
+	FROM usuarios join iniciativas as i on usuario_id = usuarios.id 
 </select>
 
 <select id="consultarIniciativa" resultMap="IniciativaResult">
@@ -78,7 +78,7 @@
         contrasena,
         rol,
         PalabrasClave
-	FROM usuarios join iniciativas as i on i.id = usuarios.id
+	FROM usuarios join iniciativas as i on usuario_id = usuarios.id
         WHERE i.id=#{id}
 </select>
 </mapper>

@@ -81,7 +81,7 @@ public class Iniciativa implements Serializable{
 
     @Override
     public String toString() {
-        return "Iniciativa{" + "id=" + id + ", descripcion=" + descripcion + ", estado=" + estado + ", votos=" + votos + ", fechaCreacion=" + fechaCreacion + ", usuario=" + usuario + '}';
+        return "Iniciativa{" + "id=" + id + ", palabrasclave=" + palabrasClave  + ", usuario=" + usuario + '}';
     }
 	public String getPalabrasClave() {
 		return palabrasClave;
