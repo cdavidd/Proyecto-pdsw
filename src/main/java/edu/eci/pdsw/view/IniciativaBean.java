@@ -25,14 +25,16 @@ public class IniciativaBean extends BasePageBean implements Serializable{
     
     private String rol;
     private String descripcion;
-    private String palabraC;
+    private String palabraC = "";
     private TipoEstado estado;
     private Date fecha;
+    private String palabraTemp = "";
     private List<Iniciativa> iniciativas=new ArrayList<Iniciativa>();
     
    
     public List<Iniciativa> getIniciativas(){
         try{
+            
             return servicioBanco.getIniciativas();
         }catch(Exception ex){
             System.out.println(ex.getMessage());
@@ -79,9 +81,10 @@ public class IniciativaBean extends BasePageBean implements Serializable{
             
         try {
             List<Iniciativa> temp=new ArrayList<Iniciativa>();
-            if (iniciativas.isEmpty() || super.nuevaIniciativa){
+            if (iniciativas.isEmpty() || super.nuevaIniciativa || !palabraTemp.equals(this.palabraC) ){
+                palabraTemp = palabraClave;
                 super.nuevaIniciativa=false;
-                temp.addAll(servicioBanco.buscarIniciativa(palabraClave));
+                temp.addAll(servicioBanco.buscarIniciativa(palabraC));
                 iniciativas= temp;
             }
             return iniciativas;

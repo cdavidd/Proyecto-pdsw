@@ -49,7 +49,7 @@
             </section>
         
         <h:form id="iniciativaForm">
-            <p:dataTable id="iniciativa_tabla" var="iniciativa" value="#{iniciativaBean.iniciativas}" scrollable="true" scrollHeight="300">
+            <p:dataTable id="iniciativa_tabla" rows="3" var="iniciativa" value="#{iniciativaBean.iniciativas}" scrollable="true" scrollHeight="300">
 		<p:column headerText="Descripcion">
                     <h:outputText value="#{iniciativa.descripcion}" />
 		</p:column>

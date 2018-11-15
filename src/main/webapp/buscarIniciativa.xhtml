@@ -53,7 +53,7 @@
             
             <p:commandButton value="actualizar" update="iniciativa_tabla" />    
            <!-- <a href="IniciativasPalabras.xhtml"><input type="button" value="Ir"/></a> -->
-              <p:dataTable id="iniciativa_tabla" var="iniciativa" value="#{iniciativaBean.buscarIniciativas(iniciativaBean.palabraC)}" sortMode="multiple" paginator="true" rows="10" scrollable="true" scrollHeight="300">
+              <p:dataTable id="iniciativa_tabla" var="iniciativa" value="#{iniciativaBean.buscarIniciativas(iniciativaBean.palabraC)}"  paginator="true" rows="10" scrollable="true" scrollHeight="300">
                   <p:column headerText="Descripcion"  sortBy="#{iniciativa.descripcion}">
                     <h:outputText value="#{iniciativa.descripcion}"/>
 		</p:column>
