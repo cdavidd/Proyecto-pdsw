@@ -21,4 +21,6 @@ public interface IniciativaMapper {
         
         public void registrarIniciativa(@Param("descripcion")String descripcion,@Param("fecha") Date fecha,@Param("usuario") int usuario,@Param("palabrasclave") String palabrasclave);
 		
+        public void comentarIniciativas(@Param("usuario_id")int usuario_id,@Param("iniciativa_id")int iniciativa_id,@Param("comentario")String comentario,@Param("fecha_publicacion")Date fecha_publicacion);
+
 }

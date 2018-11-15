@@ -123,4 +123,13 @@ public class ServiciosBancoImpl implements ServiciosBanco{
             return null;
         }
     }
+
+    @Override
+    public void comentarIniciativas(int id_user, int id_iniciativa, String comentario, Date fecha) {
+        try{
+            iniciativaDAO.comentarIniciativas(id_user,id_iniciativa,comentario,fecha);
+        }catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+    }
 }

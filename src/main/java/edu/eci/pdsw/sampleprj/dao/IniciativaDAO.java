@@ -5,6 +5,7 @@ import java.util.Set;
 import org.apache.ibatis.exceptions.PersistenceException;
 
 import edu.eci.pdsw.samples.entities.*;
+import java.util.Date;
 import java.util.List;
 
 public interface IniciativaDAO {
@@ -16,4 +17,6 @@ public interface IniciativaDAO {
     public List<Iniciativa> getIniciativas() throws PersistenceException;
 
     public Iniciativa consultarIniciativa(int id) throws PersistenceException;
+    
+    public void comentarIniciativas(int id_user, int id_iniciativa, String comentario, Date fecha);
 }

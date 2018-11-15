@@ -108,4 +108,9 @@ public class ServiciosBancoStub implements ServiciosBanco {
     public Iniciativa consultarIniciativa(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public void comentarIniciativas(int usuario_id, int iniciativa_if, String comentarios, Date fecha) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

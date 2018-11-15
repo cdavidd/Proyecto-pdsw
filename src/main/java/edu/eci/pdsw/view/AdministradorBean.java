@@ -13,6 +13,7 @@ import edu.eci.pdsw.samples.entities.TipoEstado;
 import edu.eci.pdsw.samples.entities.Usuario;
 import edu.eci.pdsw.samples.services.ExcepcionServicesBanco;
 import edu.eci.pdsw.samples.services.ServiciosBanco;
+import java.time.LocalDate;
 import java.util.*;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -37,7 +38,7 @@ public class AdministradorBean extends BasePageBean{
     @ManagedProperty(value="#{param.id}")
 
     private int id;
-    private String estado;
+    private String estado,comentario;
     private List<String> tipoEstado= Arrays.asList("En_Espera_Revision", "En_revision", "Proyecto", "Solucionado");
 
     
@@ -83,6 +84,10 @@ public class AdministradorBean extends BasePageBean{
     	return servicioBanco.buscarIniciativa(palabraClave);
     	
     }
+    
+    public void comentarIniciativas(int usuario_id){
+        servicioBanco.comentarIniciativas(usuario_id,id,comentario,java.sql.Date.valueOf(LocalDate.now()));
+    }
 
     public int getId() {
         return id;
@@ -100,7 +105,13 @@ public class AdministradorBean extends BasePageBean{
         this.estado = estado;
     }
 
-	
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
     
     
 }

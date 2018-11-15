@@ -19,6 +19,11 @@
         INSERT INTO INICIATIVAS (descripcion, estado, fecha_creacion, usuario_id,palabrasclave)
         VALUES (#{descripcion},'En_Espera_Revision', #{fecha},#{usuario},#{palabrasclave})
  </insert>
+ 
+ <insert id="comentarIniciativas">
+        INSERT INTO COMENTARIOS (usuario_id,iniciativa_id,comentario,fecha_publicacion)
+        VALUES (#{usuario_id},#{iniciativa_id},#{comentario},#{fecha_publicacion})
+ </insert>
     
     
 <update id = "cambiarEstado" parameterType = "Iniciativa">

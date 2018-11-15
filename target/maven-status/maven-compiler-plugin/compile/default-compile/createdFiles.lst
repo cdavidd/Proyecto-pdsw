@@ -15,6 +15,7 @@ edu\eci\pdsw\view\IniciativaBean.class
 edu\eci\pdsw\samples\services\impl\ServiciosBancoImpl.class
 edu\eci\pdsw\view\RegistroBean.class
 edu\eci\pdsw\samples\services\ServiciosBancoFactory$2.class
+edu\eci\pdsw\samples\entities\Comentario.class
 edu\eci\pdsw\view\InicioBean$1.class
 edu\eci\pdsw\sampleprj\dao\mybatis\mappers\IniciativaMapper.class
 edu\eci\pdsw\sampleprj\dao\AdministradorDAO.class
