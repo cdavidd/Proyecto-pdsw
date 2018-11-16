@@ -46,8 +46,26 @@
         rol,
         PalabrasClave
 	    FROM usuarios join iniciativas as i on usuario_id = usuarios.id 
-        where lower (palabrasclave) LIKE  CONCAT('%', #{palabra} ,'%')
+        where lower (palabrasclave) LIKE  CONCAT('%', #{palabra} ,'%') 
 </select>
+
+<select id="buscarIniciativasRelacionadas" resultMap="IniciativaResult">
+        select
+	i.id as iid,
+        Descripcion,
+        Estado,
+        Fecha_Creacion,
+        area,
+        usuario_id as id,
+        nombre, 
+        email,
+        contrasena,
+        rol,
+        PalabrasClave
+	    FROM usuarios join iniciativas as i on usuario_id = usuarios.id 
+        where lower (palabrasclave) LIKE  CONCAT('%', #{palabra} ,'%') and #{palabra} != palabrasclave
+</select>
+
 
 <select id="getIniciativas" resultMap="IniciativaResult">
         select

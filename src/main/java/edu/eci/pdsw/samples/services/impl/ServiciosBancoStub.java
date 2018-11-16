@@ -17,6 +17,7 @@ import java.util.*;
  * @author 2125509
  */
 public class ServiciosBancoStub implements ServiciosBanco {
+
     
     private final Map<String,Usuario> usuarios;
     
@@ -111,6 +112,12 @@ public class ServiciosBancoStub implements ServiciosBanco {
 
     @Override
     public void comentarIniciativas(int usuario_id, int iniciativa_if, String comentarios, Date fecha) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+    @Override
+    public Set<Iniciativa> buscarIniciativasRelacionadas(String palabraClave) throws ExcepcionServicesBanco {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

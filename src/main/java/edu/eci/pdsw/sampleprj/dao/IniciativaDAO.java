@@ -19,4 +19,6 @@ public interface IniciativaDAO {
     public Iniciativa consultarIniciativa(int id) throws PersistenceException;
     
     public void comentarIniciativas(int id_user, int id_iniciativa, String comentario, Date fecha);
+    
+    public Set<Iniciativa> buscarIniciativasRelacionadas(String palabraClave) throws PersistenceException;
 }

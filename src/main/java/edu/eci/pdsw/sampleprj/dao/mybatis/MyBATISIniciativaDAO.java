@@ -49,7 +49,24 @@ public class MyBATISIniciativaDAO implements IniciativaDAO{
         	System.out.println(e.getMessage());
             throw new PersistenceException("Error al buscar iniciativa");
         }	
-
+    }
+    
+     @Override
+    public Set<Iniciativa> buscarIniciativasRelacionadas(String palabraClave) throws PersistenceException {
+        try {
+                Set<Iniciativa> iniciativas = new HashSet<Iniciativa>();
+                String[] palabras = palabraClave.split(",");
+                for (int i=0; i<palabras.length;i++) {
+                        for (Iniciativa j :iniciativaMapper.buscarIniciativasRelacionadas(palabras[i].toLowerCase())) {
+                                iniciativas.add(j);
+                        }
+                }
+                return iniciativas;
+        }
+        catch(org.apache.ibatis.exceptions.PersistenceException e) {
+        	System.out.println(e.getMessage());
+            throw new PersistenceException("Error al buscar iniciativas relacionadas");
+        }	
     }	
 
     @Override

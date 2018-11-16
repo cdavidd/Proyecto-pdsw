@@ -15,6 +15,8 @@ public interface IniciativaMapper {
 
 	public List<Iniciativa> buscarIniciativa(@Param("palabra")String palabraClave);
         
+        public List<Iniciativa> buscarIniciativasRelacionadas(@Param("palabra")String palabraClave);
+        
         public List<Iniciativa> getIniciativas();
         
         public Iniciativa consultarIniciativa(@Param("id")int id);

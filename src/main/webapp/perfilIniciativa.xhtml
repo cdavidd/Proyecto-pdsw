@@ -75,6 +75,27 @@
                 </h:selectOneMenu> 
                 <p:commandButton value="Actualizar" actionListener="#{administradorBean.cambiarEstado()}" action="homeAdmi" />
             </h:form>
+            <h:form id="relacionadosForm">
+                <p:dataTable id="relacionados_tabla" scrollable="true" scrollHeight="150" var="ini" value="#{iniciativaBean.buscarIniciativasRelacionadas(administradorBean.consultarIniciativa().palabrasClave)}">
+                <f:facet name="header">
+                    iniciativas relacionadas
+                </f:facet>
+                <p:column headerText="Descripcion">
+                    <h:outputText value="#{ini.descripcion}" />
+                </p:column>
+                <p:column headerText="Fecha_Creacion">
+                    <h:outputText value="#{ini.fechaCreacion}" />
+                </p:column>
+                <p:column headerText="Area">
+                    <h:outputText value="#{ini.usuario.area}" />
+                </p:column>
+                <p:column headerText="Palabras clave">
+                    <h:outputText value="#{ini.palabrasClave}" />
+                </p:column>
+                </p:dataTable>
+            </h:form>
+                
+            
             <footer id="footerinvestigacion">
                 <div class="footercontainer">
                     <div class="direccion">

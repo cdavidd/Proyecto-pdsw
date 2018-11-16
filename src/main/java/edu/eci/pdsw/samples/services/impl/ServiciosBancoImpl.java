@@ -17,6 +17,7 @@ import java.util.Date;
 
 public class ServiciosBancoImpl implements ServiciosBanco{
 
+
 	
     @Inject
     private AdministradorDAO administradorDAO;
@@ -102,6 +103,17 @@ public class ServiciosBancoImpl implements ServiciosBanco{
         	System.out.println(ex.getMessage());
             throw new ExcepcionServicesBanco("Error al buscar iniciativa con palabra clave "+ palabraClave );
         }
+    }
+    
+    
+    @Override
+    public Set<Iniciativa> buscarIniciativasRelacionadas(String palabraClave) throws ExcepcionServicesBanco {
+        try{
+            return iniciativaDAO.buscarIniciativasRelacionadas(palabraClave);
+        }catch(PersistenceException ex) {
+        	System.out.println(ex.getMessage());
+            throw new ExcepcionServicesBanco("Error al buscar iniciativa relacionadas con palabra clave "+ palabraClave );
+        }    
     }
 
     @Override

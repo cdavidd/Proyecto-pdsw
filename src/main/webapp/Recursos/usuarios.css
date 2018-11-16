@@ -1,3 +1,5 @@
+
+
 *{
     margin:0;
     padding: 0;
@@ -28,6 +30,20 @@ header #logoescuela {
     position: relative;
 }
 element.style {
+}
+#relacionadosForm{
+    padding-top: 10px;
+    position: relative;
+    
+}
+
+#IniciativasForm {
+    margin:auto;
+    position: relative;
+    top: 20%;
+    left: 0%;
+    max-width: 1500px;
+    padding: 30px;
 }
 
 .contenedorlogos {
@@ -194,15 +210,7 @@ input[type="button"]{
   position: relative;
 
 }
-form{
-    margin:auto;
-    width: 50%;
-    position: absolute;
-    top: 20%;
-    left: 30%;
-    max-width: 500px;
-    padding: 30px;
-}
+
 @media(max-widh: 768px){
 	form{
 		width:75%;
