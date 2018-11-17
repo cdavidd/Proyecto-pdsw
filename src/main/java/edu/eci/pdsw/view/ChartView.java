@@ -1,6 +1,4 @@
 package edu.eci.pdsw.view;
-
-
 import edu.eci.pdsw.samples.services.ExcepcionServicesBanco;
 import static edu.eci.pdsw.samples.services.ServiciosBancoFactory.getInstance;
 import edu.eci.pdsw.samples.services.impl.ServiciosBancoImpl;
