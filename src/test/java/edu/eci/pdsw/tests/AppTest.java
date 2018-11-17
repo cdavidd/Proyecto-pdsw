@@ -1,4 +1,4 @@
-package edu.eci.pdsw;
+package edu.eci.pdsw.tests;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

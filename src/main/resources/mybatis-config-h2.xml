@@ -7,10 +7,11 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     </properties>
     
    <typeAliases>
-       <typeAlias type='edu.eci.pdsw.samples.entities.Cliente' alias='Cliente'/>
-       <typeAlias type='edu.eci.pdsw.samples.entities.Item' alias='Item'/>
-       <typeAlias type='edu.eci.pdsw.samples.entities.ItemRentado' alias='ItemRentado'/>
-       <typeAlias type='edu.eci.pdsw.samples.entities.TipoItem' alias='TipoItem'/>
+       <typeAlias type='edu.eci.pdsw.samples.entities.Comentario' alias='Comentario'/>
+       <typeAlias type='edu.eci.pdsw.samples.entities.Iniciativa' alias='Iniciativa'/>
+       <typeAlias type='edu.eci.pdsw.samples.entities.Rol' alias='Rol'/>
+       <typeAlias type='edu.eci.pdsw.samples.entities.TipoEstado' alias='TipoEstado'/>
+       <typeAlias type='edu.eci.pdsw.samples.entities.Usuario' alias='Usuario'/>
    </typeAliases>
 
    <environments default="test">
@@ -25,9 +26,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
        </environment>
    </environments>
    <mappers>
-       <mapper resource="mappers/ClienteMapper.xml"></mapper>
-       <mapper resource="mappers/ItemMapper.xml"></mapper>
-       <mapper resource="mappers/ItemRentadoMapper.xml"></mapper>
-       <mapper resource="mappers/TipoItemMapper.xml"></mapper>
+       <mapper resource="mappers/IniciativaMapper.xml"></mapper>
+       <mapper resource="mappers/UsuarioMapper.xml"></mapper>
    </mappers> 
 </configuration>

@@ -11,8 +11,11 @@
     <properties resource="config.properties">
     </properties>
     <typeAliases>
-        <typeAlias type="edu.eci.pdsw.samples.entities.Iniciativa" alias="Iniciativa"/>
-        <typeAlias type="edu.eci.pdsw.samples.entities.Usuario" alias="Usuario"/>
+       <typeAlias type='edu.eci.pdsw.samples.entities.Comentario' alias='Comentario'/>
+       <typeAlias type='edu.eci.pdsw.samples.entities.Iniciativa' alias='Iniciativa'/>
+       <typeAlias type='edu.eci.pdsw.samples.entities.Rol' alias='Rol'/>
+       <typeAlias type='edu.eci.pdsw.samples.entities.TipoEstado' alias='TipoEstado'/>
+       <typeAlias type='edu.eci.pdsw.samples.entities.Usuario' alias='Usuario'/>
     </typeAliases>	
 
     <environments default="development">
