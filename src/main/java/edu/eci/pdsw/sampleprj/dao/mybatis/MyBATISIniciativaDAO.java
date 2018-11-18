@@ -98,4 +98,14 @@ public class MyBATISIniciativaDAO implements IniciativaDAO{
             throw new PersistenceException("Error al buscar iniciativa");
         }
     }
+
+    @Override
+    public List getEstadisticas() throws PersistenceException {
+        try {
+            return iniciativaMapper.getEstadisticas();
+        }catch(org.apache.ibatis.exceptions.PersistenceException e) {
+            System.out.println(e.getMessage());
+            throw new PersistenceException("Error al consultar estadisticas ");
+        }
+    }
 }

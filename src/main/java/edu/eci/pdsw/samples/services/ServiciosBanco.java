@@ -41,4 +41,6 @@ public interface ServiciosBanco {
     public Iniciativa consultarIniciativa(int id);
     
     public void comentarIniciativas(int usuario_id, int iniciativa_if, String comentarios, Date fecha);
+
+    public List getEstadisticas() throws ExcepcionServicesBanco;
 }

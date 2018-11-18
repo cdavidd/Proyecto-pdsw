@@ -144,4 +144,15 @@ public class ServiciosBancoImpl implements ServiciosBanco{
             System.out.println(ex.getMessage());
         }
     }
+
+    @Override
+    public List getEstadisticas() throws ExcepcionServicesBanco  {
+        try {
+            return iniciativaDAO.getEstadisticas();
+        }
+        catch(PersistenceException ex) {
+           throw new ExcepcionServicesBanco("Error al consultar los usuarios");
+        }
+        
+    }
 }

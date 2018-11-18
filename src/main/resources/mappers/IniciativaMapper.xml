@@ -99,4 +99,14 @@
 	FROM usuarios join iniciativas as i on usuario_id = usuarios.id
         WHERE i.id=#{id}
 </select>
+
+<select id="getEstadisticas" parameterType="java.util.List" >
+    SELECT 
+        area, COUNT(descripcion) 
+    from 
+        iniciativas join usuarios on usuarios.id=usuario_id 
+    GROUP BY area
+</select>
+
+
 </mapper>
