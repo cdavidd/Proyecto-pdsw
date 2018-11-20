@@ -6,11 +6,9 @@ import org.apache.ibatis.annotations.Param;
 
 import edu.eci.pdsw.samples.entities.Iniciativa;
 import edu.eci.pdsw.samples.entities.TipoEstado;
-import java.util.ArrayList;
 import java.util.Date;
 
 public interface IniciativaMapper {
-
 	public void cambiarEstado(@Param("id")int id, @Param("estado")TipoEstado tipoEstado);
 
 	public List<Iniciativa> buscarIniciativa(@Param("palabra")String palabraClave);
@@ -25,6 +23,6 @@ public interface IniciativaMapper {
 		
         public void comentarIniciativas(@Param("usuario_id")int usuario_id,@Param("iniciativa_id")int iniciativa_id,@Param("comentario")String comentario,@Param("fecha_publicacion")Date fecha_publicacion);
 
-        public List getEstadisticas();
+        public List<String> getEstadisticas();
 
 }

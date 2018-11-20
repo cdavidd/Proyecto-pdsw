@@ -22,5 +22,5 @@ public interface IniciativaDAO {
     
     public Set<Iniciativa> buscarIniciativasRelacionadas(String palabraClave) throws PersistenceException;
 
-    public List getEstadisticas() throws PersistenceException;
+    public List<String> getEstadisticas() throws PersistenceException;
 }

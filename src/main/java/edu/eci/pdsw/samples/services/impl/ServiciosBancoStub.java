@@ -122,7 +122,7 @@ public class ServiciosBancoStub implements ServiciosBanco {
     }
 
     @Override
-    public List getEstadisticas() {
+    public List<String[]> getEstadisticas() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

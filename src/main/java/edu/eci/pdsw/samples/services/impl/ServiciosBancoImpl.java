@@ -146,9 +146,16 @@ public class ServiciosBancoImpl implements ServiciosBanco{
     }
 
     @Override
-    public List getEstadisticas() throws ExcepcionServicesBanco  {
+    public List<String[]> getEstadisticas() throws ExcepcionServicesBanco  {
         try {
-            return iniciativaDAO.getEstadisticas();
+            List<String[]> temp = new ArrayList<String[]>();
+            for (String s : iniciativaDAO.getEstadisticas()){
+                String[] te = new String[2];
+                te=s.split(" ");
+                //System.out.println(te[0]+" "+te[1]);
+                temp.add(te);
+            }
+            return temp;
         }
         catch(PersistenceException ex) {
            throw new ExcepcionServicesBanco("Error al consultar los usuarios");

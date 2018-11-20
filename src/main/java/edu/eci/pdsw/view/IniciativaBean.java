@@ -137,12 +137,5 @@ public class IniciativaBean extends BasePageBean implements Serializable{
             this.rol = rol;
     }
     
-    public List getEstadisticas(){
-        try{
-            return servicioBanco.getEstadisticas();
-        }catch(ExcepcionServicesBanco e){
-            return null;
-        }
-    }
 
 }

@@ -100,10 +100,12 @@ public class MyBATISIniciativaDAO implements IniciativaDAO{
     }
 
     @Override
-    public List getEstadisticas() throws PersistenceException {
+    public List<String> getEstadisticas() throws PersistenceException {
         try {
+            System.out.println(iniciativaMapper.getEstadisticas().toString());
             return iniciativaMapper.getEstadisticas();
         }catch(org.apache.ibatis.exceptions.PersistenceException e) {
+            
             System.out.println(e.getMessage());
             throw new PersistenceException("Error al consultar estadisticas ");
         }

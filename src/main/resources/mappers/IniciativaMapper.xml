@@ -100,9 +100,9 @@
         WHERE i.id=#{id}
 </select>
 
-<select id="getEstadisticas" parameterType="java.util.List" >
+<select id="getEstadisticas"  resultType="string">
     SELECT 
-        area, COUNT(descripcion) 
+        CONCAT(area,' ',COUNT(descripcion))
     from 
         iniciativas join usuarios on usuarios.id=usuario_id 
     GROUP BY area

@@ -1,15 +1,14 @@
 package edu.eci.pdsw.view;
+
+import com.google.inject.Inject;
 import edu.eci.pdsw.samples.services.ExcepcionServicesBanco;
+import edu.eci.pdsw.samples.services.ServiciosBanco;
 import static edu.eci.pdsw.samples.services.ServiciosBancoFactory.getInstance;
 import edu.eci.pdsw.samples.services.impl.ServiciosBancoImpl;
 import org.primefaces.model.chart.DonutChartModel;
 import javax.annotation.PostConstruct;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
@@ -25,20 +24,19 @@ import org.primefaces.model.chart.LineChartSeries;
 
 @ManagedBean(name ="chartView")
 @ViewScoped
-public class ChartView implements Serializable {
-
+public class ChartView extends BasePageBean implements Serializable {
+    
+    private static final long serialVersionUID = 3594009161252782831L;
+    
+    @Inject
+    ServiciosBanco servicioBanco;
 
     private PieChartModel pieModel;
+
     
-    public ChartView() throws ExcepcionServicesBanco {
-
-    }
-
-    @PostConstruct
-    public void init() {
-        
-    }
-    public void listar(){
+    public void listar() throws ExcepcionServicesBanco{
+        System.out.println(servicioBanco);
+        getEstadisticas();
         HashMap<String,Integer>l=new HashMap<>();
         for (int i=0;i<10;i++){
            l.put(Integer.toString(i), i);
@@ -70,6 +68,14 @@ public class ChartView implements Serializable {
         this.pieModel = pieModel;
     }
     
+    public List<String[]> getEstadisticas(){
+        try{
+            return servicioBanco.getEstadisticas();
+        }catch(ExcepcionServicesBanco e){
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
 
     
 
