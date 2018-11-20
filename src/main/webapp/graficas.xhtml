@@ -6,16 +6,37 @@
 	xmlns:p="http://primefaces.org/ui">
 
     <h:head>
-         <title>Prueba</title>
-         
+        <link rel="stylesheet" href="Recursos/usuarios.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
     </h:head>
     <body>
+        <header>
+                <div class="contenedorlogos"> 
+                    <div id="logoescuela">
+                        <img src="Recursos/logoescuela.png" alt=""></img>
+                    </div>
+                </div>  
+        </header>
         <h:form>
-            <p:commandButton value="Generar" actionListener="#{chartView.listar()}" update="panel"></p:commandButton>
+            <p:commandButton value="Generar Estadisticas" actionListener="#{chartView.listar()}" update="panel"></p:commandButton>
             <h:panelGroup id="panel" layout="block">
-                <p:chart type="pie" model="#{chartView.pieModel}" style="white:400px;height: 300px" rendered="#{chartView.pieModel != null}"></p:chart>
+                <p:chart type="bar" model="#{chartView.pieModel}" style="height:50%; width: 30%" rendered="#{chartView.pieModel != null}"/>
             </h:panelGroup> 
-        </h:form>>    
+        </h:form>
+        <footer id="footerinvestigacion">
+                <div class="footercontainer">
+                    <div class="direccion">
+                        <p>ESCUELA COLOMBIANA DE INGENIERIA JULIO GARAVITO</p>
+                        <br>AK.45 No.205-59 (Autopista Norte)</br>
+                        Contact center: 57(1) 668 3600
+                        <br>Linea Nacional Gratuita: 018000112668</br>
+                        Informacion detallada en: www.escuelaing.edu.co<br></br>
+                        Vigilada Mineducacion.
+                        <br><br>Bogota, D.C. - Colombia</br></br>          
+                   </div> 
+                </div>
+             </footer>
+        
     </body>
 	
 </html>

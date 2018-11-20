@@ -5,9 +5,9 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 
-    <h:head>
+     <h:head>
         <title></title>
-		<link rel="stylesheet" href="Recursos/login.css" />
+        <link rel="stylesheet" href="Recursos/prueba.css" />
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
         
     </h:head>
@@ -44,6 +44,12 @@
                      </div>
                  </center>       
             </section>
+        <h:form id="form_botones">
+          <p:commandButton style="background-color: transparent; color:black; padding: 2%; font-size: 150%; font-weight:bold;" value="Nueva Iniciativa" class=" fa fa-edit"></p:commandButton> 
+          <p:commandButton   style="background-color: transparent; color:black; padding: 2%; font-size: 150%; font-weight:bold;" value=" Buscar Iniciativa" class="fa fa-search" action="buscarIniciativaHomeP.xhtml"></p:commandButton> 
+          <p:commandButton style="background-color: transparent; color:black; padding: 2%; font-size: 150%; font-weight:bold;"  value="Cerrar sesion" class="fa fa-hotel" actionListener="#{inicioBean.reiniciar}"  action="Inicio"></p:commandButton> 
+
+        </h:form>
         <footer id="footerinvestigacion">
                 <div class="footercontainer">
                     <div class="direccion">

@@ -13,6 +13,7 @@ import javax.faces.bean.ManagedBean;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import org.primefaces.model.chart.Axis;
+import org.primefaces.model.chart.AxisType;
 import static org.primefaces.model.chart.AxisType.X;
 import static org.primefaces.model.chart.AxisType.Y;
 import org.primefaces.model.chart.BarChartModel;
@@ -31,40 +32,41 @@ public class ChartView extends BasePageBean implements Serializable {
     @Inject
     ServiciosBanco servicioBanco;
 
-    private PieChartModel pieModel;
+    private  BarChartModel pieModel;
 
     
     public void listar() throws ExcepcionServicesBanco{
-        System.out.println(servicioBanco);
-        getEstadisticas();
+        List<String[]> e=getEstadisticas();
         HashMap<String,Integer>l=new HashMap<>();
-        for (int i=0;i<10;i++){
-           l.put(Integer.toString(i), i);
-           System.out.print("entro");
+        for (int i=0;i<e.size();i++){
+           l.put(e.get(i)[0], Integer.parseInt(e.get(i)[1]));
         }
-          System.out.print("entro");
         graficar(l);
     }
     public void graficar(HashMap<String,Integer> h){
-        pieModel=new PieChartModel();
+        pieModel=new  BarChartModel();
+        ChartSeries b = new ChartSeries();
+        b.setLabel("Areas");
         for(Map.Entry<String, Integer> entry :h.entrySet()){
-            pieModel.set(entry.getKey(), entry.getValue());
+            b.set(entry.getKey(), entry.getValue());
             System.out.print(entry.getKey());
         }
-       
-        pieModel.setTitle("PRUEB");
-        pieModel.setLegendPosition("e");
-        pieModel.setFill(false);
-        pieModel.setShowDataLabels(true);
-        pieModel.setDiameter(150);
+         pieModel.addSeries(b);
+        Axis xAxis = pieModel.getAxis(AxisType.X);
+        xAxis.setLabel("Areas");
+ 
+        Axis yAxis = pieModel.getAxis(AxisType.Y);
+        yAxis.setLabel("numero Iniciativas");
+        yAxis.setMin(0);
+        yAxis.setMax(20);
         
     }
 
-    public PieChartModel getPieModel() {
+    public  BarChartModel getPieModel() {
         return pieModel;
     }
 
-    public void setPieModel(PieChartModel pieModel) {
+    public void setPieModel( BarChartModel pieModel) {
         this.pieModel = pieModel;
     }
     
