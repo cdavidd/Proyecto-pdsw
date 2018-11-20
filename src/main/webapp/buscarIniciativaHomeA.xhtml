@@ -6,13 +6,11 @@
 	xmlns:p="http://primefaces.org/ui">
 
     <h:head>
-        <title></title>
+        <title>Inicio</title>
         <link rel="stylesheet" href="Recursos/usuarios.css" />
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
     </h:head>
-    <h:body style="overflow-x:hidden; overflow-y:scroll" >
-
+    <h:body style="overflow-x:hidden; overflow-y:hidden">
         <header>
                 <div class="contenedorlogos"> 
                     <div id="logoescuela">
@@ -20,8 +18,6 @@
                     </div>
                 </div>  
             </header>
-        
-
         <section class="menu">
                 <center>
                      <div class="container">
@@ -37,18 +33,43 @@
                                  <li>
                                      <a href="ConsultarIniciativas.xhtml"><i class="fa fa-bars" style="font-size:24px" ></i>Consultar Iniciativas</a>
                                  </li> 
-                                <li>
+                                 <li>
                                     <a href="buscarIniciativaHomeA.xhtml"><i class="fa fa-search" style="font-size:24px" ></i>Buscar Iniciativas</a>
                                 </li>
-                               <li>             
-                                     <h:form>                                                  
-                                         <p:commandButton value="Cerrar sesion" actionListener="#{inicioBean.reiniciar}" action="Inicio"></p:commandButton> 
-                                      </h:form>
-                                 </li>
+                                 <li>
+                                     <a href="Inicio.xhtml"><i class="fa fa-caret-square-o-left" style="font-size:24px" ></i>Cerrar Sesion</a>
+                                 </li> 
                          </ul>
                      </div>
                  </center>       
             </section>
+        
+        
+        <h:form id="iniciativaForm">
+            <br><p:inputText id="palabraclave"  placeholder="palabras clave" value="#{iniciativaBean.palabraC}"> </p:inputText></br>
+            
+            <p:commandButton value="actualizar" update="iniciativa_tabla" />    
+           <!-- <a href="IniciativasPalabras.xhtml"><input type="button" value="Ir"/></a> -->
+              <p:dataTable id="iniciativa_tabla" var="iniciativa" value="#{iniciativaBean.buscarIniciativas(iniciativaBean.palabraC)}"  paginator="true" rows="10" scrollable="true" scrollHeight="300">
+                  <p:column headerText="Descripcion"  sortBy="#{iniciativa.descripcion}">
+                    <h:outputText value="#{iniciativa.descripcion}"/>
+		</p:column>
+                  <p:column headerText="Estado" sortBy="#{iniciativa.estado}">
+                    <h:outputText value="#{iniciativa.estado}" />
+		</p:column>
+                  <p:column headerText="Fecha_Creacion" sortBy="#{iniciativa.fechaCreacion}">
+                    <h:outputText value="#{iniciativa.fechaCreacion}" />
+		</p:column>
+                  <p:column headerText="Area" sortBy="#{iniciativa.usuario.area}">
+                    <h:outputText value="#{iniciativa.usuario.area}" />
+		</p:column>
+                  <p:column headerText="Palabras clave" sortBy="#{iniciativa.palabrasClave}">
+                    <h:outputText value="#{iniciativa.palabrasClave}" />
+		</p:column>
+            </p:dataTable>
+
+
+        </h:form>
         <footer id="footerinvestigacion">
                 <div class="footercontainer">
                     <div class="direccion">
@@ -62,7 +83,7 @@
                    </div> 
                 </div>
              </footer>
-
-	</h:body>
-	
+         
+        
+    </h:body>
 </html>

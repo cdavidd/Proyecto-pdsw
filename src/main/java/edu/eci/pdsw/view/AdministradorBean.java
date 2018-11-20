@@ -112,6 +112,8 @@ public class AdministradorBean extends BasePageBean{
     public void setComentario(String comentario) {
         this.comentario = comentario;
     }
+
+    
     
     
 }

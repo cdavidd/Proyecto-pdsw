@@ -6,13 +6,11 @@
 	xmlns:p="http://primefaces.org/ui">
 
     <h:head>
-        <title></title>
-		<link rel="stylesheet" href="Recursos/login.css" />
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-        
+        <title>Inicio</title>
+        <link rel="stylesheet" href="Recursos/usuarios.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
     </h:head>
-    <h:body style="overflow-x:hidden; overflow-y:scroll" >
-
+    <h:body style="overflow-x:hidden; overflow-y:hidden">
         <header>
                 <div class="contenedorlogos"> 
                     <div id="logoescuela">
@@ -26,7 +24,7 @@
                         <a class="toggleMenu" href="#" style="display: none;">Menu</a>
                          <ul class="nav" style="display: block;">
 
-                                 <li>
+                                <li>
                                          <a href="homeP.xhtml"><i class="fa fa-user" style="font-size:24px"></i>#{inicioBean.usuario.nombre} (#{inicioBean.usuario.rol})</a>
                                  </li>
                                  <li>
@@ -44,6 +42,33 @@
                      </div>
                  </center>       
             </section>
+        
+        
+        <h:form id="iniciativaForm">
+            <br><p:inputText id="palabraclave"  placeholder="palabras clave" value="#{iniciativaBean.palabraC}"> </p:inputText></br>
+            
+            <p:commandButton value="actualizar" update="iniciativa_tabla" />    
+           <!-- <a href="IniciativasPalabras.xhtml"><input type="button" value="Ir"/></a> -->
+              <p:dataTable id="iniciativa_tabla" var="iniciativa" value="#{iniciativaBean.buscarIniciativas(iniciativaBean.palabraC)}"  paginator="true" rows="10" scrollable="true" scrollHeight="300">
+                  <p:column headerText="Descripcion"  sortBy="#{iniciativa.descripcion}">
+                    <h:outputText value="#{iniciativa.descripcion}"/>
+		</p:column>
+                  <p:column headerText="Estado" sortBy="#{iniciativa.estado}">
+                    <h:outputText value="#{iniciativa.estado}" />
+		</p:column>
+                  <p:column headerText="Fecha_Creacion" sortBy="#{iniciativa.fechaCreacion}">
+                    <h:outputText value="#{iniciativa.fechaCreacion}" />
+		</p:column>
+                  <p:column headerText="Area" sortBy="#{iniciativa.usuario.area}">
+                    <h:outputText value="#{iniciativa.usuario.area}" />
+		</p:column>
+                  <p:column headerText="Palabras clave" sortBy="#{iniciativa.palabrasClave}">
+                    <h:outputText value="#{iniciativa.palabrasClave}" />
+		</p:column>
+            </p:dataTable>
+
+
+        </h:form>
         <footer id="footerinvestigacion">
                 <div class="footercontainer">
                     <div class="direccion">
@@ -57,6 +82,7 @@
                    </div> 
                 </div>
              </footer>
-
-	</h:body>
+         
+        
+    </h:body>
 </html>

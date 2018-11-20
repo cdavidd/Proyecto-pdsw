@@ -31,7 +31,7 @@
                                      <a href="RegistrarIniciativa.xhtml?usuarioId=#{inicioBean.usuario.id}"><i class=" fa fa-edit" style="font-size:24px" ></i>Nueva Iniciativa</a>
                                  </li>
                                  <li>
-                                     <a href="buscarIniciativa.xhtml"><i class="fa fa-search" style="font-size:24px" ></i>Buscar Iniciativa</a>
+                                     <a href="buscarIniciativaHomeP.xhtml"><i class="fa fa-search" style="font-size:24px" ></i>Buscar Iniciativa</a>
                                  </li>
                                 <li>
                                      <a href="Inicio.xhtml"><i class="fa fa-window-close" style="font-size:24px" ></i>Cerrar Sesion</a>
@@ -45,7 +45,7 @@
             <f:viewParam name="usuarioId" value="#{proponenteBean.usuarioId}" />
 	</f:metadata>
          <h:form id="form_registroIniciativa">
-            <br><p:inputText id="Titulo"  placeholder="&#49;&#50;&#51; palabras clave" value="#{proponenteBean.palabrasClave}"> </p:inputText></br>
+            <br><p:inputText id="PalabrasClave"  placeholder="&#49;&#50;&#51; palabras clave" value="#{proponenteBean.palabrasClave}"> </p:inputText></br>
             <br><p:inputTextarea rows="10" cols="40" id="Descripcion" placeholder="&#128100; Descripcion" value="#{proponenteBean.descripcion}"> </p:inputTextarea></br>
             <div id="Botones">
                 <p:commandButton value="Registrar Iniciativa" actionListener="#{proponenteBean.registrarIniciativa(proponenteBean.descripcion, proponenteBean.palabrasClave)}" action="homeP.xhtml"/>

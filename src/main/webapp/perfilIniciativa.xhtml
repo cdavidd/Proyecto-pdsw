@@ -45,21 +45,12 @@
             </section>
             <h:form id="UsuariosForm">
               <p:dataTable id="usuarios_tabla" var="ini" value="#{administradorBean.consultarIniciativa()}">
+                 <p:column headerText="Nombre Proponente">
+                        <h:outputText value="#{ini.usuario.nombre}" />
+                </p:column>
                  <p:column headerText="Descripcion">
                             <h:outputText value="#{ini.descripcion}" />
                 </p:column>
-              <!-- <p:column headerText="Estado">
-                   <p:cellEditor>
-                       <f:facet name="output">  
-                            <h:outputText value="#{administradorBean.estado}" />  
-                        </f:facet> 
-                       <f:facet name="input">
-                            <h:selectOneMenu id="res" value = "#{administradorBean.estado}" > 
-                                <f:selectItems value="#{administradorBean.tipoEstado}" />
-                            </h:selectOneMenu> 
-                        </f:facet>
-                   </p:cellEditor>
-                </p:column> --> 
                 <p:column headerText="Fecha_Creacion">
                     <h:outputText value="#{ini.fechaCreacion}" />
                 </p:column>
