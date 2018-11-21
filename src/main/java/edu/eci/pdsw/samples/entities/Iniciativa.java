@@ -22,14 +22,23 @@ public class Iniciativa implements Serializable{
     private Date fechaCreacion; //
     private Usuario usuario; //
     private String palabrasClave;
+    private ArrayList<Comentario> comentarios;
     
     public Iniciativa(){}
+    
     public Iniciativa(String descripcion, Date fecha, Usuario usuario, String palabrasClave){
         this.descripcion= descripcion;
         this.fechaCreacion= fecha;
         this.usuario=usuario;
         this.setPalabrasClave(palabrasClave);
     }
+    
+    public Iniciativa(String descripcion, Date fecha, String palabrasClave){
+        this.descripcion= descripcion;
+        this.fechaCreacion= fecha;
+        this.setPalabrasClave(palabrasClave);
+    }
+    
     public int getId() {
         return id;
     }
@@ -78,6 +87,17 @@ public class Iniciativa implements Serializable{
         this.usuario = usuario;
     }
 
+    public ArrayList<Comentario> getComentarios() {
+        return comentarios;
+    }
+
+    public void setComentarios(ArrayList<Comentario> comentarios) {
+        this.comentarios = comentarios;
+    }
+
+   
+
+    
 
     @Override
     public String toString() {

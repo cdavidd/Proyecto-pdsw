@@ -125,4 +125,9 @@ public class ServiciosBancoStub implements ServiciosBanco {
     public List<String[]> getEstadisticas() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public List<Comentario> getComentarios(int id) throws ExcepcionServicesBanco {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

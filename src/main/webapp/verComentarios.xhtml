@@ -6,13 +6,11 @@
 	xmlns:p="http://primefaces.org/ui">
 
     <h:head>
-        <title></title>
+        <title>Ver Comentarios</title>
         <link rel="stylesheet" href="Recursos/usuarios.css" />
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
     </h:head>
-    <h:body style="overflow-x:hidden; overflow-y:scroll" >
-
+    <h:body style="overflow-x:hidden; overflow-y:scroll">
         <header>
                 <div class="contenedorlogos"> 
                     <div id="logoescuela">
@@ -20,16 +18,13 @@
                     </div>
                 </div>  
             </header>
-        
-
         <section class="menu">
                 <center>
                      <div class="container">
                         <a class="toggleMenu" href="#" style="display: none;">Menu</a>
                          <ul class="nav" style="display: block;">
-
-                                 <li>
-                                         <a href="homeAdmi.xhtml"><i class="fa fa-user" style="font-size:24px"></i>#{inicioBean.usuario.nombre} (#{inicioBean.usuario.rol})</a>
+                                <li>
+                                    <a href="homeAdmi.xhtml"><i class="fa fa-user" style="font-size:24px"></i>#{inicioBean.usuario.nombre} (#{inicioBean.usuario.rol})</a>
                                  </li>
                                  <li>
                                      <a href="consultarUsuarios.xhtml"><i class="fa fa-address-card" style="font-size:24px" ></i>Consultar Usuarios del sistema</a>
@@ -37,19 +32,35 @@
                                  <li>
                                      <a href="ConsultarIniciativas.xhtml"><i class="fa fa-bars" style="font-size:24px" ></i>Modificar Iniciativas</a>
                                  </li> 
-                                <li>
+                                 <li>
                                     <a href="buscarIniciativaHomeA.xhtml"><i class="fa fa-search" style="font-size:24px" ></i>Consultar Iniciativas</a>
                                 </li>
-                               <li>             
-                                     <h:form>                                                  
-                                         <p:commandButton value="Cerrar sesion" actionListener="#{inicioBean.reiniciar}" action="Inicio"></p:commandButton> 
-                                      </h:form>
-                                 </li>
+                                 <li>
+                                     <a href="Inicio.xhtml"><i class="fa fa-caret-square-o-left" style="font-size:24px" ></i>Cerrar Sesion</a>
+                                 </li> 
+                                 
                          </ul>
                      </div>
                  </center>       
             </section>
-        <footer id="footerinvestigacion">
+        
+        <h:form id="iniciativaForm">
+            <p:dataTable id="iniciativa_tabla" rendered="true"  paginator="true" var="comentario" value="#{comentarioBean.getComentarios()}" scrollable="true" scrollHeight="300">
+		<p:column headerText="Comentarista">
+                    <h:outputText value="#{comentario.usuario.nombre}" />
+		</p:column>
+                <p:column headerText="Comentario">
+                    <h:outputText value="#{comentario.comentario}" />
+		</p:column>
+                <p:column headerText="Fecha Publicacion">
+                    <h:outputText value="#{comentario.fecha_publicacion}" />
+		</p:column>
+                <p:column headerText="Iniciativa">
+                    <h:outputText value="#{comentario.iniciativa.id}" />
+		</p:column>
+            </p:dataTable>
+        </h:form>
+                <footer id="footerinvestigacion">
                 <div class="footercontainer">
                     <div class="direccion">
                         <p>ESCUELA COLOMBIANA DE INGENIERIA JULIO GARAVITO</p>
@@ -62,7 +73,7 @@
                    </div> 
                 </div>
              </footer>
-
-	</h:body>
-	
+        
+        
+    </h:body>
 </html>

@@ -45,6 +45,9 @@
             </section>
             <h:form id="UsuariosForm">
               <p:dataTable id="usuarios_tabla" var="ini" value="#{administradorBean.consultarIniciativa()}">
+                <p:column headerText="Proponente">
+                            <h:outputText value="#{ini.usuario.nombre}" />
+                </p:column> 
                  <p:column headerText="Descripcion">
                             <h:outputText value="#{ini.descripcion}" />
                 </p:column> 

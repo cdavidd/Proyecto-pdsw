@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="edu.eci.pdsw.sampleprj.dao.mybatis.mappers.ComentarioMapper">
+
+<resultMap id = "ComentarioResult" type = "Comentario">
+    <id property = "id" column = "id_c"/>
+    <result property = "Fecha_publicacion" column = "fecha_publicacion"/>
+    <result property = "comentario" column = "comentario"/>
+    <association property="usuario" javaType="Usuario" resultMap="edu.eci.pdsw.sampleprj.dao.mybatis.mappers.UsuarioMapper.UsuarioResult" />
+    <association property="iniciativa" javaType="Iniciativa" resultMap="IniciativaResult" />
+</resultMap>
+
+<resultMap id = "IniciativaResult" type = "Iniciativa">
+    <id property = "id" column = "iid"/>
+    <result property = "descripcion" column = "Descripcion"/>
+    <result property = "estado" column = "Estado"/>
+    <result property = "fechaCreacion" column = "Fecha_Creacion"/>
+    <result property = "palabrasClave" column = "PalabrasClave"/>
+</resultMap>
+
+
+
+<select id="getComentarios" resultMap="ComentarioResult">
+       SELECT u.id,u.nombre as Nombre,u.email,u.rol,u.area,u.contrasena,
+            i.id as iid,i.descripcion as Descripcion,i.estado as Estado,i.fecha_creacion as Fecha_Creacion,i.palabrasclave as PalabrasClave,
+            c.id as id_c,c.comentario,c.fecha_publicacion
+        FROM Comentarios as c join Usuarios as u ON c.usuario_id=u.id join Iniciativas as i on c.iniciativa_id=i.id
+        WHERE c.iniciativa_id=#{Id_Iniciativa}
+</select>
+
+
+</mapper>

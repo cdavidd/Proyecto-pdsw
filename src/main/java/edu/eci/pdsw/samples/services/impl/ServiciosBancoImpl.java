@@ -11,6 +11,7 @@ import edu.eci.pdsw.samples.entities.Usuario;
 import edu.eci.pdsw.samples.services.ExcepcionServicesBanco;
 import edu.eci.pdsw.samples.services.ServiciosBanco;
 import edu.eci.pdsw.sampleprj.dao.*;
+import edu.eci.pdsw.samples.entities.Comentario;
 import edu.eci.pdsw.samples.entities.Rol;
 import java.util.ArrayList;
 import java.util.Date;
@@ -27,6 +28,9 @@ public class ServiciosBancoImpl implements ServiciosBanco{
     
     @Inject
     private ProponenteDAO proponenteDao;
+    
+    @Inject
+    private ComentarioDAO comentarioDAO;
     
     @Override
     public void registrarUsuario(Usuario u) throws ExcepcionServicesBanco {
@@ -161,5 +165,15 @@ public class ServiciosBancoImpl implements ServiciosBanco{
            throw new ExcepcionServicesBanco("Error al consultar los usuarios");
         }
         
+    }
+
+    @Override
+    public List<Comentario> getComentarios(int id) throws ExcepcionServicesBanco {
+        try {
+            return comentarioDAO.getComentarios(id);
+        }
+        catch(PersistenceException ex) {
+           throw new ExcepcionServicesBanco("Error al consultar los comentarios");
+        }
     }
 }

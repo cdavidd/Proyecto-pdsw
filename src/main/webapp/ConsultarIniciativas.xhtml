@@ -30,10 +30,10 @@
                                      <a href="consultarUsuarios.xhtml"><i class="fa fa-address-card" style="font-size:24px" ></i>Consultar Usuarios del sistema</a>
                                  </li>
                                  <li>
-                                     <a href="ConsultarIniciativas.xhtml"><i class="fa fa-bars" style="font-size:24px" ></i>Consultar Iniciativas</a>
+                                     <a href="ConsultarIniciativas.xhtml"><i class="fa fa-bars" style="font-size:24px" ></i>Modificar Iniciativas</a>
                                  </li> 
                              <li>
-                                    <a href="buscarIniciativaHomeA.xhtml"><i class="fa fa-search" style="font-size:24px" ></i>Buscar Iniciativas</a>
+                                    <a href="buscarIniciativaHomeA.xhtml"><i class="fa fa-search" style="font-size:24px" ></i>Consultar Iniciativas</a>
                                 </li>
                                  <li>
                                      <a href="Inicio.xhtml"><i class="fa fa-caret-square-o-left" style="font-size:24px" ></i>Cerrar Sesion</a>
@@ -63,9 +63,6 @@
                 <p:column headerText="Iniciativa">
 			<p:button outcome="perfilIniciativa.xhtml?id=#{iniciativa.id}" value="Ver Iniciativa" />
 		</p:column>	
-                <p:column headerText="Comentario Iniciativa">
-			<p:button outcome="perfilIniciativaComment.xhtml?id=#{iniciativa.id}" value="Ir a Iniciativa" />
-		</p:column>
             </p:dataTable>
             </h:form>
             <footer id="footerinvestigacion">

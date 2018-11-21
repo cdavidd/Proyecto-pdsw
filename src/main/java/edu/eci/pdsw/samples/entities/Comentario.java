@@ -14,15 +14,17 @@ import java.sql.Date;
  */
 public class Comentario implements Serializable {
     
-    private int id,usuario_id,iniciativas_id;
+    private int id;
+    private Usuario usuario;
+    private Iniciativa iniciativa;
     private String comentario;
     private Date Fecha_publicacion;
 
     public Comentario(){}
     
-    public Comentario(int user, int iniciativa, String comentario, Date fecha){
-        this.usuario_id=user;
-        this.iniciativas_id=iniciativa;
+    public Comentario(Usuario user, Iniciativa iniciativa, String comentario, Date fecha){
+        this.usuario=user;
+        this.iniciativa=iniciativa;
         this.comentario=comentario;
         this.Fecha_publicacion=fecha;
     }
@@ -35,21 +37,23 @@ public class Comentario implements Serializable {
         this.id = id;
     }
 
-    public int getUsuario_id() {
-        return usuario_id;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setUsuario_id(int usuario_id) {
-        this.usuario_id = usuario_id;
+    public void setUsuario(Usuario user) {
+        this.usuario = user;
     }
 
-    public int getIniciativas_id() {
-        return iniciativas_id;
+    public Iniciativa getIniciativa() {
+        return iniciativa;
     }
 
-    public void setIniciativas_id(int iniciativas_id) {
-        this.iniciativas_id = iniciativas_id;
+    public void setIniciativa(Iniciativa iniciativa) {
+        this.iniciativa = iniciativa;
     }
+
+    
 
     public String getComentario() {
         return comentario;

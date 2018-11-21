@@ -5,14 +5,14 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 
-    <h:head>
+     <h:head>
         <title></title>
-        <link rel="stylesheet" href="Recursos/usuarios.css" />
+        <link rel="stylesheet" href="Recursos/prueba.css" />
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
         
     </h:head>
     <h:body style="overflow-x:hidden; overflow-y:scroll" >
-
+		
         <header>
                 <div class="contenedorlogos"> 
                     <div id="logoescuela">
@@ -20,8 +20,6 @@
                     </div>
                 </div>  
             </header>
-        
-
         <section class="menu">
                 <center>
                      <div class="container">
@@ -29,26 +27,29 @@
                          <ul class="nav" style="display: block;">
 
                                  <li>
-                                         <a href="homeAdmi.xhtml"><i class="fa fa-user" style="font-size:24px"></i>#{inicioBean.usuario.nombre} (#{inicioBean.usuario.rol})</a>
+                                         <a href="homePublico.xhtml"><i class="fa fa-user" style="font-size:24px"></i>#{inicioBean.usuario.nombre} (#{inicioBean.usuario.rol})</a>
                                  </li>
                                  <li>
-                                     <a href="consultarUsuarios.xhtml"><i class="fa fa-address-card" style="font-size:24px" ></i>Consultar Usuarios del sistema</a>
+                                     <a href="verIniciativas.xhtml?usuarioId=#{inicioBean.usuario.id}"><i class=" fa fa-menu" style="font-size:24px" ></i>Ver Iniciativas</a>
                                  </li>
                                  <li>
-                                     <a href="ConsultarIniciativas.xhtml"><i class="fa fa-bars" style="font-size:24px" ></i>Modificar Iniciativas</a>
-                                 </li> 
+                                     <a href="buscarIniciativaHomeP.xhtml"><i class="fa fa-search" style="font-size:24px" ></i>Buscar Iniciativa</a>
+                                 </li>
                                 <li>
-                                    <a href="buscarIniciativaHomeA.xhtml"><i class="fa fa-search" style="font-size:24px" ></i>Consultar Iniciativas</a>
-                                </li>
-                               <li>             
-                                     <h:form>                                                  
+                                      <h:form>                                                  
                                          <p:commandButton value="Cerrar sesion" actionListener="#{inicioBean.reiniciar}" action="Inicio"></p:commandButton> 
                                       </h:form>
-                                 </li>
+                                 </li> 
                          </ul>
                      </div>
                  </center>       
             </section>
+        <h:form id="form_botones">
+            <p:commandButton style="background-color: transparent; color:black; padding: 2%; font-size: 150%; font-weight:bold;" value="Ver Iniciativas" class=" fa fa-menu" action="verIniciativas.xhtml"></p:commandButton> 
+          <p:commandButton   style="background-color: transparent; color:black; padding: 2%; font-size: 150%; font-weight:bold;" value=" Buscar Iniciativa" class="fa fa-search" action="buscarIniciativaHomeP.xhtml"></p:commandButton> 
+          <p:commandButton style="background-color: transparent; color:black; padding: 2%; font-size: 150%; font-weight:bold;"  value="Cerrar sesion" class="fa fa-hotel" actionListener="#{inicioBean.reiniciar}"  action="Inicio"></p:commandButton> 
+
+        </h:form>
         <footer id="footerinvestigacion">
                 <div class="footercontainer">
                     <div class="direccion">
@@ -64,5 +65,4 @@
              </footer>
 
 	</h:body>
-	
 </html>
