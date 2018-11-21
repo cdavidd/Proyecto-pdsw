@@ -33,13 +33,6 @@
                                  <li>
                                      <a href="Registro.xhtml"><i class=" fa fa-edit" style="font-size:24px" ></i>Registrarse</a>
                                  </li>
-
-                                 <li>
-                                         <a href="VerIniciativas.xhtml" ><i class="fa fa-list" style="font-size:24px"></i>  Iniciativas</a>
-                                 </li>
-                                <li>
-                                         <a href="buscarIniciativa.xhtml"><i class="fa fa-search" style="font-size:24px"></i>Buscar iniciativas</a>
-                                </li>
                                 <li>
                                          <a href=""><i class=" fa fa-phone-square" style="font-size:24px"></i>Contactenos</a>
                                 </li> 
@@ -62,7 +55,7 @@
                         <br><p:inputText id="contrasena"  placeholder="&#128272; Contraseña" type="password" value="#{inicioBean.contrasena}" > </p:inputText></br>
                 </div>
                 <div id="Botones">
-                        <p:commandButton  id ="enviar"  value="login" actionListener="#{inicioBean.consultar(inicioBean.email)}"  action= "#{inicioBean.irHome(inicioBean.email)}" />  
+                        <p:commandButton  id ="enviar"  value="login" actionListener="#{inicioBean.consultar(inicioBean.email)}"  action= "home.xhtml" />  
                 </div>
             </h:form>
         </center>

@@ -25,9 +25,6 @@ import org.primefaces.PrimeFaces;
 public class InicioBean extends BasePageBean{
     
     private static final long serialVersionUID = 3594009161252782831L;
-    
-    
-    
 
     
     @Inject
@@ -41,7 +38,7 @@ public class InicioBean extends BasePageBean{
     
     public Usuario consultar(String correo){
         try{
-        	this.setUsuario(servicioBanco.consultarUsuario(correo));
+            this.setUsuario(servicioBanco.consultarUsuario(correo));
             return servicioBanco.consultarUsuario(correo);
         }catch(ExcepcionServicesBanco ex){
             System.out.println(ex.getMessage());
@@ -50,7 +47,7 @@ public class InicioBean extends BasePageBean{
     }
     
     
-    public String irHome(String email) {
+    /*public String irHome(String email) {
     	Usuario user;
         FacesMessage message = null;
         boolean loggedIn = false;
@@ -89,7 +86,7 @@ public class InicioBean extends BasePageBean{
                 return null;
         }
     }
-    
+    */
     
  
     

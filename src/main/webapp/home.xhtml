@@ -7,21 +7,21 @@
 
     <h:head>
         <title></title>
-		<link rel="stylesheet" href="Recursos/usuarios.css" />
+        <link rel="stylesheet" href="Recursos/usuarios.css" />
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-	</h:head>
-	<h:body >
-            <f:metadata>
-                <f:viewParam name="email" value="#{registroBean.email}" />
-            </f:metadata>
-            <header>
+        
+    </h:head>
+    <h:body style="overflow-x:hidden; overflow-y:scroll" >
+
+        <header>
                 <div class="contenedorlogos"> 
                     <div id="logoescuela">
                         <img src="Recursos/logoescuela.png" alt=""></img>
                     </div>
                 </div>  
-            </header>
-            <section class="menu">
+            </header> 
+        
+        <section class="menu">
                 <center>
                      <div class="container">
                         <a class="toggleMenu" href="#" style="display: none;">Menu</a>
@@ -53,40 +53,8 @@
                     </div>
                 </center>       
         </section>
-            
-            <h:form id="UsuariosForm">
-              <p:dataTable id="usuarios_tabla" var="usuario" value="#{registroBean.consultarUsuario()}">
-                 <p:column headerText="Nombre">
-                            <h:outputText value="#{usuario.nombre}" />
-                </p:column>
-              <!-- <p:column headerText="Estado">
-                   <p:cellEditor>
-                       <f:facet name="output">  
-                            <h:outputText value="#{administradorBean.estado}" />  
-                        </f:facet> 
-                       <f:facet name="input">
-                            <h:selectOneMenu id="res" value = "#{administradorBean.estado}" > 
-                                <f:selectItems value="#{administradorBean.tipoEstado}" />
-                            </h:selectOneMenu> 
-                        </f:facet>
-                   </p:cellEditor>
-                </p:column> --> 
-                <p:column headerText="Email">
-                    <h:outputText value="#{usuario.email}" />
-                </p:column>
-                <p:column headerText="Rol">
-                    <h:outputText value="#{usuario.rol}" />
-                </p:column>
-                <p:column headerText="Area">
-                    <h:outputText value="#{usuario.area}" />
-                </p:column>
-            </p:dataTable>
-                <h:selectOneMenu id="rol" value = "#{registroBean.rol}" > 
-                    <f:selectItems value="#{registroBean.tipoRol}" />
-                </h:selectOneMenu> 
-                <p:commandButton value="Actualizar" actionListener="#{registroBean.cambiarRol()}" action="consultarUsuarios" />
-            </h:form>
-            <footer id="footerinvestigacion">
+        
+        <footer id="footerinvestigacion">
                 <div class="footercontainer">
                     <div class="direccion">
                         <p>ESCUELA COLOMBIANA DE INGENIERIA JULIO GARAVITO</p>
@@ -99,8 +67,6 @@
                    </div> 
                 </div>
              </footer>
-            
-
 
 	</h:body>
 	

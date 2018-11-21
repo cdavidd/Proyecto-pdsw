@@ -21,27 +21,35 @@
                 <center>
                      <div class="container">
                         <a class="toggleMenu" href="#" style="display: none;">Menu</a>
-                         <ul class="nav" style="display: block;">
-
-                                 <li>
-                                         <a href="homeAdmi.xhtml"><i class="fa fa-user" style="font-size:24px"></i>#{inicioBean.usuario.nombre} (#{inicioBean.usuario.rol})</a>
-                                 </li>
-                                 <li>
-                                     <a href="consultarUsuarios.xhtml"><i class="fa fa-address-card" style="font-size:24px" ></i>Consultar Usuarios del sistema</a>
-                                 </li>
-                                 <li>
-                                     <a href="ConsultarIniciativas.xhtml"><i class="fa fa-bars" style="font-size:24px" ></i>Modificar Iniciativas</a>
-                                 </li> 
-                             <li>
-                                    <a href="buscarIniciativaHomeA.xhtml"><i class="fa fa-search" style="font-size:24px" ></i>Consultar Iniciativas</a>
-                                </li>
-                                 <li>
-                                     <a href="Inicio.xhtml"><i class="fa fa-caret-square-o-left" style="font-size:24px" ></i>Cerrar Sesion</a>
-                                 </li> 
-                         </ul>
-                     </div>
-                 </center>       
-            </section>
+                        <ul class="nav" style="display: block;">
+                            <li>
+                                    <a href="home.xhtml"><i class="fa fa-user" style="font-size:24px"></i>#{inicioBean.usuario.nombre} (#{inicioBean.usuario.rol})</a>
+                            </li>
+                            <li>
+                                <h:link outcome="consultarUsuarios" rendered="#{inicioBean.usuario.rol == 'Administrador'}" ><i class="fa fa-address-card" style="font-size:24px"></i>Consultar Usuarios del sistema</h:link><!-- Solo admin -->
+                            </li>
+                            <li>
+                                <h:link outcome="ModificarIniciativas" rendered="#{inicioBean.usuario.rol == 'Administrador'}"><i class="fa fa-bars" style="font-size:24px"></i>Modificar Iniciativas</h:link><!-- Solo admin -->
+                            </li> 
+                            <li>
+                               <h:link outcome="consultarIniciativaRefactor" ><i class="fa fa-search" style="font-size:24px" ></i>Consultar Iniciativas</h:link><!-- Para los 3 roles -->
+                            </li> 
+                            <li>
+                                <h:link outcome="RegistrarIniciativa.xhtml?usuarioId=#{inicioBean.usuario.id}" rendered="#{inicioBean.usuario.rol == 'Proponente'}"><i class=" fa fa-edit" style="font-size:24px" ></i>Nueva Iniciativa</h:link><!-- Solo proponente -->
+                            </li> 
+                            <li>
+                                <h:link outcome="VerIniciativas" rendered="#{inicioBean.usuario.rol != 'Administrador'}" ><i class="fa fa-list" style="font-size:24px"></i>Ver Iniciativas</h:link><!-- para Proponente y publico -->
+                            </li>
+                            <li>
+                                 <h:form>                                                  
+                                     <p:commandButton  value="Cerrar sesion" actionListener="#{inicioBean.reiniciar()}" action="Inicio" style="background-color: #ffffff; color: #006666; font-weight: bold; outline: none; border-color: #ffffff; font-size: 14px" ></p:commandButton> 
+                                 </h:form>
+                            </li>  
+                        </ul>
+                    </div>
+                </center>       
+        </section>
+    
 	<h:body style="overflow-x:hidden; overflow-y:scroll">
             <h:form id="IniciativasForm">
               <p:dataTable  id="iniciativas_tabla" var="iniciativa" value="#{administradorBean.iniciativas}" scrollable="true" scrollHeight="300" >
@@ -61,7 +69,7 @@
                     <h:outputText value="#{iniciativa.palabrasClave}" />
 		</p:column>
                 <p:column headerText="Iniciativa">
-			<p:button outcome="perfilIniciativa.xhtml?id=#{iniciativa.id}" value="Ver Iniciativa" />
+			<p:button outcome="perfilIniciativa.xhtml?id=#{iniciativa.id}" value="Ir a Iniciativa" />
 		</p:column>	
             </p:dataTable>
             </h:form>

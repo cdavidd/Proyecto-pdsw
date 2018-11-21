@@ -8,6 +8,7 @@
     <h:head>
         <link rel="stylesheet" href="Recursos/usuarios.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+         <h:outputScript name="Recursos/chartsScript.js"/>
     </h:head>
     <body>
         <header>
@@ -20,7 +21,10 @@
         <h:form>
             <p:commandButton value="Generar Estadisticas" actionListener="#{chartView.listar()}" update="panel"></p:commandButton>
             <h:panelGroup id="panel" layout="block">
-                <p:chart type="bar" model="#{chartView.pieModel}" style="height:50%; width: 30%" rendered="#{chartView.pieModel != null}"/>
+                <p:chart type="bar" model="#{chartView.pieModel}" style="height:50%; width: 30%" rendered="#{chartView.pieModel != null}" widgetVar="char1"/>
+                <p:commandLink onclick="exportChartInPDF1()">
+                    <p:graphicImage name="/Imagenes/pdf.png" width="40"/>
+                </p:commandLink>
             </h:panelGroup> 
         </h:form>
         <footer id="footerinvestigacion">
@@ -38,5 +42,6 @@
              </footer>
         
     </body>
+    
 	
 </html>
