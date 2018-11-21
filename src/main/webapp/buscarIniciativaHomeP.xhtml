@@ -35,9 +35,9 @@
                                  </li>
                                 <li>
                                       <h:form>                                                  
-                                         <p:commandButton value="Cerrar sesion" actionListener="#{inicioBean.reiniciar}" action="Inicio"></p:commandButton> 
+                                          <p:commandButton value="Cerrar sesion" actionListener="#{inicioBean.reiniciar}" action="Inicio" style="background-color: #ffffff; color: #006666; font-weight: bold; outline: none; border-color: #ffffff; font-size: 14px" ></p:commandButton> 
                                       </h:form>
-                                 </li> 
+                                 </li>  
                          </ul>
                      </div>
                  </center>       
@@ -64,6 +64,12 @@
 		</p:column>
                   <p:column headerText="Palabras clave" sortBy="#{iniciativa.palabrasClave}">
                     <h:outputText value="#{iniciativa.palabrasClave}" />
+		</p:column>
+                <p:column headerText="Comentar">
+			<p:button outcome="perfilIniciativaComment.xhtml?id=#{iniciativa.id}" value="Comentar Iniciativa" />
+		</p:column>
+                <p:column headerText="Ver Comentarios">
+			<p:button outcome="verComentarios.xhtml?id=#{iniciativa.id}" value="Ver Comentarios" />
 		</p:column>
             </p:dataTable>
 

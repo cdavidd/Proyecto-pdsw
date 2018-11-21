@@ -76,7 +76,7 @@ public class InicioBean extends BasePageBean{
                         case Pmo_Odi:
                             return null;
                         case Publico:
-                            return null;
+                            return "homePublico";
                         default:
                             return null;
                     }

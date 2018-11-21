@@ -25,22 +25,19 @@
                          <ul class="nav" style="display: block;">
 
                                  <li>
-                                         <a href="homeAdmi.xhtml"><i class="fa fa-user" style="font-size:24px"></i>#{inicioBean.usuario.nombre} (#{inicioBean.usuario.rol})</a>
+                                         <a href="homePublico.xhtml"><i class="fa fa-user" style="font-size:24px"></i>#{inicioBean.usuario.nombre} (#{inicioBean.usuario.rol})</a>
                                  </li>
                                  <li>
-                                     <a href="consultarUsuarios.xhtml"><i class="fa fa-address-card" style="font-size:24px" ></i>Consultar Usuarios del sistema</a>
-                                 </li>
-                                 <li>
-                                     <a href="ConsultarIniciativas.xhtml"><i class="fa fa-bars" style="font-size:24px" ></i>Modificar Iniciativas</a>
-                                 </li> 
-                                 <li>
-                                    <a href="buscarIniciativaHomeA.xhtml"><i class="fa fa-search" style="font-size:24px" ></i>Consultar Iniciativas</a>
-                                </li>
-                                 <li>
+                                     <a href="VerIniciativas.xhtml" ><i class="fa fa-list" style="font-size:24px"></i>  Iniciativas</a>
+                             </li>
+                            <li>
+                                     <a href="buscarIniciativa.xhtml"><i class="fa fa-search" style="font-size:24px"></i>Buscar iniciativas</a>
+                            </li>
+                                <li>
                                       <h:form>                                                  
                                           <p:commandButton value="Cerrar sesion" actionListener="#{inicioBean.reiniciar}" action="Inicio" style="background-color: #ffffff; color: #006666; font-weight: bold; outline: none; border-color: #ffffff; font-size: 14px" ></p:commandButton> 
                                       </h:form>
-                                 </li>  
+                                 </li> 
                          </ul>
                      </div>
                  </center>       
@@ -51,10 +48,8 @@
             <br><p:inputText id="palabraclave"  placeholder="palabras clave" value="#{iniciativaBean.palabraC}"> </p:inputText></br>
             
             <p:commandButton value="actualizar" update="iniciativa_tabla" />    
+           <!-- <a href="IniciativasPalabras.xhtml"><input type="button" value="Ir"/></a> -->
               <p:dataTable id="iniciativa_tabla" var="iniciativa" value="#{iniciativaBean.buscarIniciativas(iniciativaBean.palabraC)}"  paginator="true" rows="10" scrollable="true" scrollHeight="300">
-                <p:column headerText="Proponente"  sortBy="#{iniciativa.usuario.nombre}">
-                    <h:outputText value="#{iniciativa.usuario.nombre}"/> 
-		</p:column>  
                   <p:column headerText="Descripcion"  sortBy="#{iniciativa.descripcion}">
                     <h:outputText value="#{iniciativa.descripcion}"/>
 		</p:column>
@@ -70,7 +65,7 @@
                   <p:column headerText="Palabras clave" sortBy="#{iniciativa.palabrasClave}">
                     <h:outputText value="#{iniciativa.palabrasClave}" />
 		</p:column>
-                <p:column headerText="Comentar">
+                  <p:column headerText="Comentar">
 			<p:button outcome="perfilIniciativaComment.xhtml?id=#{iniciativa.id}" value="Comentar Iniciativa" />
 		</p:column>
                 <p:column headerText="Ver Comentarios">

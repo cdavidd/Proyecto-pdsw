@@ -7,7 +7,7 @@
 
      <h:head>
         <title></title>
-        <link rel="stylesheet" href="Recursos/prueba.css" />
+        <link rel="stylesheet" href="Recursos/usuarios.css" />
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
         
     </h:head>
@@ -30,26 +30,20 @@
                                          <a href="homePublico.xhtml"><i class="fa fa-user" style="font-size:24px"></i>#{inicioBean.usuario.nombre} (#{inicioBean.usuario.rol})</a>
                                  </li>
                                  <li>
-                                     <a href="verIniciativas.xhtml?usuarioId=#{inicioBean.usuario.id}"><i class=" fa fa-menu" style="font-size:24px" ></i>Ver Iniciativas</a>
-                                 </li>
-                                 <li>
-                                     <a href="buscarIniciativaHomeP.xhtml"><i class="fa fa-search" style="font-size:24px" ></i>Buscar Iniciativa</a>
-                                 </li>
+                                     <a href="VerIniciativas.xhtml" ><i class="fa fa-list" style="font-size:24px"></i>  Iniciativas</a>
+                             </li>
+                            <li>
+                                <a href="buscarIniciativaHomePublico.xhtml"><i class="fa fa-search" style="font-size:24px"></i>Buscar iniciativas</a>
+                            </li>
                                 <li>
                                       <h:form>                                                  
-                                         <p:commandButton value="Cerrar sesion" actionListener="#{inicioBean.reiniciar}" action="Inicio"></p:commandButton> 
+                                          <p:commandButton value="Cerrar sesion" actionListener="#{inicioBean.reiniciar}" action="Inicio" style="background-color: #ffffff; color: #006666; font-weight: bold; outline: none; border-color: #ffffff; font-size: 14px" ></p:commandButton> 
                                       </h:form>
                                  </li> 
                          </ul>
                      </div>
                  </center>       
             </section>
-        <h:form id="form_botones">
-            <p:commandButton style="background-color: transparent; color:black; padding: 2%; font-size: 150%; font-weight:bold;" value="Ver Iniciativas" class=" fa fa-menu" action="verIniciativas.xhtml"></p:commandButton> 
-          <p:commandButton   style="background-color: transparent; color:black; padding: 2%; font-size: 150%; font-weight:bold;" value=" Buscar Iniciativa" class="fa fa-search" action="buscarIniciativaHomeP.xhtml"></p:commandButton> 
-          <p:commandButton style="background-color: transparent; color:black; padding: 2%; font-size: 150%; font-weight:bold;"  value="Cerrar sesion" class="fa fa-hotel" actionListener="#{inicioBean.reiniciar}"  action="Inicio"></p:commandButton> 
-
-        </h:form>
         <footer id="footerinvestigacion">
                 <div class="footercontainer">
                     <div class="direccion">

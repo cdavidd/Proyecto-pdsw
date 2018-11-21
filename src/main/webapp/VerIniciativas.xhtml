@@ -24,25 +24,9 @@
                         <a class="toggleMenu" href="#" style="display: none;">Menu</a>
                          <ul class="nav" style="display: block;">
                             <li>
-                                     <a href="Inicio.xhtml"><i class="fa fa-home" style="font-size:24px"></i>Inicio</a>
+                                     <a href=""><i class="fa fa-user" style="font-size:24px"></i>#{inicioBean.usuario.nombre} (#{inicioBean.usuario.rol})</a>
                             </li>
-                            <li>
-                                     <a href="inicioSesion.xhtml"><i class="fa fa-user" style="font-size:24px"></i>Iniciar Sesion</a>
-                             </li>
-                             <li>
-                                 <a href="Registro.xhtml"><i class=" fa fa-edit" style="font-size:24px" ></i>Registrarse</a>
-                             </li>
-                         
-                             <li>
-                                     <a href="VerIniciativas.xhtml" ><i class="fa fa-list" style="font-size:24px"></i>  Iniciativas</a>
-                             </li>
-                            <li>
-                                     <a href="buscarIniciativa.xhtml"><i class="fa fa-search" style="font-size:24px"></i>Buscar iniciativas</a>
-                            </li>
-                            <li>
-                                     <a href=""><i class=" fa fa-phone-square" style="font-size:24px"></i>Contactenos</a>
-                            </li> 
-                                 
+
                          </ul>
                      </div>
                  </center>       
@@ -64,6 +48,9 @@
 		</p:column>
                 <p:column headerText="Palabras clave" sortBy="#{iniciativa.palabrasClave}">
                     <h:outputText value="#{iniciativa.palabrasClave}" />
+		</p:column>
+                <p:column headerText="Iniciativa">
+			<p:button outcome="perfilIniciativa.xhtml?id=#{iniciativa.id}" value="Ver Iniciativa" />
 		</p:column>
             </p:dataTable>
         </h:form>
