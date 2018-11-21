@@ -34,7 +34,10 @@
         
         <h:form id="iniciativaForm">
             <p:dataTable id="iniciativa_tabla" rendered="true"  rows="3" paginator="true" var="iniciativa" value="#{iniciativaBean.iniciativas}" scrollable="true" scrollHeight="300">
-		<p:column headerText="Descripcion"  sortBy="#{iniciativa.descripcion}">
+		<p:column headerText="Nombre Proponente">
+                        <h:outputText value="#{iniciativa.usuario.nombre}" />
+                </p:column>
+                <p:column headerText="Descripcion"  sortBy="#{iniciativa.descripcion}">
                     <h:outputText value="#{iniciativa.descripcion}" />
 		</p:column>
 		<p:column headerText="Estado" sortBy="#{iniciativa.estado}">
@@ -50,7 +53,7 @@
                     <h:outputText value="#{iniciativa.palabrasClave}" />
 		</p:column>
                 <p:column headerText="Iniciativa">
-			<p:button outcome="perfilIniciativa.xhtml?id=#{iniciativa.id}" value="Ver Iniciativa" />
+			<p:button outcome="perfilIniciativaCorriente.xhtml?id=#{iniciativa.id}" value="Ver Iniciativa" />
 		</p:column>
             </p:dataTable>
         </h:form>

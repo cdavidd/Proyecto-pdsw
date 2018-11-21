@@ -27,11 +27,34 @@
                         <a class="toggleMenu" href="#" style="display: none;">Menu</a>
                          <ul class="nav" style="display: block;">
 
-
+                                <li>
+                                         <a href=""><i class="fa fa-user" style="font-size:24px"></i>#{inicioBean.usuario.nombre} (#{inicioBean.usuario.rol})</a>
+                                 </li>
+                                 
                          </ul>
                      </div>
                  </center>       
             </section>
+            <h:form id="UsuariosForm">
+              <p:dataTable id="usuarios_tabla" var="ini" value="#{administradorBean.consultarIniciativa()}">
+                 <p:column headerText="Nombre Proponente">
+                        <h:outputText value="#{ini.usuario.nombre}" />
+                </p:column>
+                 <p:column headerText="Descripcion">
+                            <h:outputText value="#{ini.descripcion}" />
+                </p:column>
+                <p:column headerText="Fecha_Creacion">
+                    <h:outputText value="#{ini.fechaCreacion}" />
+                </p:column>
+                <p:column headerText="Area">
+                            <h:outputText value="#{ini.usuario.area}" />
+                </p:column>
+                <p:column headerText="Palabras clave">
+                    <h:outputText value="#{ini.palabrasClave}" />
+		</p:column>
+            </p:dataTable>
+                
+            </h:form>
             <h:form id="relacionadosForm">
                 <p:dataTable id="relacionados_tabla" scrollable="true" scrollHeight="150" var="ini" value="#{iniciativaBean.buscarIniciativasRelacionadas(administradorBean.consultarIniciativa().palabrasClave)}">
                 <f:facet name="header">
@@ -49,9 +72,6 @@
                 <p:column headerText="Palabras clave">
                     <h:outputText value="#{ini.palabrasClave}" />
                 </p:column>
-                <p:column headerText="Iniciativa">
-			<p:button outcome="perfilIniciativaCorriente.xhtml?id=#{iniciativa.id}" value="Ver Iniciativa" />
-		</p:column>
                 </p:dataTable>
             </h:form>
                 

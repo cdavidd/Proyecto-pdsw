@@ -5,14 +5,12 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 
-     <h:head>
-        <title></title>
+    <h:head>
+        <title>Inicio</title>
         <link rel="stylesheet" href="Recursos/usuarios.css" />
-                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
     </h:head>
-    <h:body style="overflow-x:hidden; overflow-y:scroll" >
-
+    <h:body style="overflow-x:hidden; overflow-y:scroll">
         <header>
                 <div class="contenedorlogos"> 
                     <div id="logoescuela">
@@ -20,7 +18,7 @@
                     </div>
                 </div>  
             </header>
-            <section class="menu">
+        <section class="menu">
                 <center>
                      <div class="container">
                         <a class="toggleMenu" href="#" style="display: none;">Menu</a>
@@ -47,7 +45,33 @@
                      </div>
                  </center>       
             </section>
-        <footer id="footerinvestigacion">
+        
+        <h:form id="iniciativaForm">
+            <p:dataTable id="iniciativa_tabla" rendered="true"  rows="3" paginator="true" var="iniciativa" value="#{iniciativaBean.iniciativas}" scrollable="true" scrollHeight="300">
+		<p:column headerText="Nombre Proponente">
+                        <h:outputText value="#{iniciativa.usuario.nombre}" />
+                </p:column>
+                <p:column headerText="Descripcion"  sortBy="#{iniciativa.descripcion}">
+                    <h:outputText value="#{iniciativa.descripcion}" />
+		</p:column>
+		<p:column headerText="Estado" sortBy="#{iniciativa.estado}">
+                    <h:outputText value="#{iniciativa.estado}" />
+		</p:column>
+		<p:column headerText="Fecha_Creacion" sortBy="#{iniciativa.fechaCreacion}">
+                    <h:outputText value="#{iniciativa.fechaCreacion}" />
+		</p:column>
+		<p:column headerText="Area" sortBy="#{iniciativa.usuario.area}">
+                    <h:outputText value="#{iniciativa.usuario.area}" />
+		</p:column>
+                <p:column headerText="Palabras clave" sortBy="#{iniciativa.palabrasClave}">
+                    <h:outputText value="#{iniciativa.palabrasClave}" />
+		</p:column>
+                <p:column headerText="Iniciativa ">
+			<p:button outcome="perfilIniciativaCorriente.xhtml?id=#{iniciativa.id}" value="Ver Iniciativa " />
+		</p:column>
+            </p:dataTable>
+        </h:form>
+                <footer id="footerinvestigacion">
                 <div class="footercontainer">
                     <div class="direccion">
                         <p>ESCUELA COLOMBIANA DE INGENIERIA JULIO GARAVITO</p>
@@ -60,6 +84,7 @@
                    </div> 
                 </div>
              </footer>
-
-	</h:body>
+        
+        
+    </h:body>
 </html>

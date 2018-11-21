@@ -18,13 +18,13 @@
                     </div>
                 </div>  
             </header>
-        <section class="menu">
+            <section class="menu">
                 <center>
                      <div class="container">
                         <a class="toggleMenu" href="#" style="display: none;">Menu</a>
                          <ul class="nav" style="display: block;">
 
-                                <li>
+                                 <li>
                                          <a href="homeP.xhtml"><i class="fa fa-user" style="font-size:24px"></i>#{inicioBean.usuario.nombre} (#{inicioBean.usuario.rol})</a>
                                  </li>
                                  <li>
@@ -33,11 +33,14 @@
                                  <li>
                                      <a href="buscarIniciativaHomeP.xhtml"><i class="fa fa-search" style="font-size:24px" ></i>Buscar Iniciativa</a>
                                  </li>
-                                <li>
+                                 <li>
+                                     <a href="VerIniciativaProponente.xhtml" ><i class="fa fa-list" style="font-size:24px"></i>  Iniciativas</a>
+                                </li>
+                                 <li>
                                       <h:form>                                                  
                                           <p:commandButton value="Cerrar sesion" actionListener="#{inicioBean.reiniciar}" action="Inicio" style="background-color: #ffffff; color: #006666; font-weight: bold; outline: none; border-color: #ffffff; font-size: 14px" ></p:commandButton> 
                                       </h:form>
-                                 </li>  
+                                 </li> 
                          </ul>
                      </div>
                  </center>       
@@ -50,7 +53,10 @@
             <p:commandButton value="actualizar" update="iniciativa_tabla" />    
            <!-- <a href="IniciativasPalabras.xhtml"><input type="button" value="Ir"/></a> -->
               <p:dataTable id="iniciativa_tabla" var="iniciativa" value="#{iniciativaBean.buscarIniciativas(iniciativaBean.palabraC)}"  paginator="true" rows="10" scrollable="true" scrollHeight="300">
-                  <p:column headerText="Descripcion"  sortBy="#{iniciativa.descripcion}">
+                <p:column headerText="Nombre Proponente">
+                        <h:outputText value="#{iniciativa.usuario.nombre}" />
+                </p:column>
+                <p:column headerText="Descripcion"  sortBy="#{iniciativa.descripcion}">
                     <h:outputText value="#{iniciativa.descripcion}"/>
 		</p:column>
                   <p:column headerText="Estado" sortBy="#{iniciativa.estado}">

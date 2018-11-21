@@ -28,10 +28,10 @@
                                          <a href="homePublico.xhtml"><i class="fa fa-user" style="font-size:24px"></i>#{inicioBean.usuario.nombre} (#{inicioBean.usuario.rol})</a>
                                  </li>
                                  <li>
-                                     <a href="VerIniciativas.xhtml" ><i class="fa fa-list" style="font-size:24px"></i>  Iniciativas</a>
+                                     <a href="VerIniciativasPublico.xhtml" ><i class="fa fa-list" style="font-size:24px"></i>  Iniciativas</a>
                              </li>
                             <li>
-                                     <a href="buscarIniciativa.xhtml"><i class="fa fa-search" style="font-size:24px"></i>Buscar iniciativas</a>
+                                <a href="buscarIniciativaHomePublico.xhtml"><i class="fa fa-search" style="font-size:24px"></i>Buscar iniciativas</a>
                             </li>
                                 <li>
                                       <h:form>                                                  
@@ -50,7 +50,10 @@
             <p:commandButton value="actualizar" update="iniciativa_tabla" />    
            <!-- <a href="IniciativasPalabras.xhtml"><input type="button" value="Ir"/></a> -->
               <p:dataTable id="iniciativa_tabla" var="iniciativa" value="#{iniciativaBean.buscarIniciativas(iniciativaBean.palabraC)}"  paginator="true" rows="10" scrollable="true" scrollHeight="300">
-                  <p:column headerText="Descripcion"  sortBy="#{iniciativa.descripcion}">
+                <p:column headerText="Nombre Proponente">
+                        <h:outputText value="#{iniciativa.usuario.nombre}" />
+                </p:column>
+                <p:column headerText="Descripcion"  sortBy="#{iniciativa.descripcion}">
                     <h:outputText value="#{iniciativa.descripcion}"/>
 		</p:column>
                   <p:column headerText="Estado" sortBy="#{iniciativa.estado}">
