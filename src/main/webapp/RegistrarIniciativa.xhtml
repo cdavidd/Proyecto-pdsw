@@ -12,6 +12,9 @@
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
     </h:head>
     <h:body >
+        <f:metadata>
+            <f:viewParam name="usuarioId" value="#{proponenteBean.usuarioId}" />
+	</f:metadata>
         <header>
                 <div class="contenedorlogos"> 
                     <div id="logoescuela">
@@ -53,9 +56,7 @@
                 </center>       
         </section>
         
-        <f:metadata>
-            <f:viewParam name="usuarioId" value="#{proponenteBean.usuarioId}" />
-	</f:metadata>
+        
          <h:form id="form_registroIniciativa">
             <br><p:inputText id="PalabrasClave"  placeholder="&#49;&#50;&#51; palabras clave" value="#{proponenteBean.palabrasClave}"> </p:inputText></br>
             <br><p:inputTextarea rows="10" cols="40" id="Descripcion" placeholder="&#128100; Descripcion" value="#{proponenteBean.descripcion}"> </p:inputTextarea></br>

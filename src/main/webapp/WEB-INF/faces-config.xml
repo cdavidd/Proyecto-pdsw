@@ -4,16 +4,9 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
               http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_6_2.xsd">
+
     <navigation-rule>
-	<from-view-id>/Inicio.xhtml</from-view-id>
-	    <navigation-case>
-	    	<from-outcome>home</from-outcome>
-	    	<to-view-id>/home.xhtml</to-view-id>
-	    	<redirect />
-	    </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-	<from-view-id>/homeAdmi.xhtml</from-view-id>
+	<from-view-id>/home.xhtml</from-view-id>
 	    <navigation-case>
 	    	<from-outcome>usuarios</from-outcome>
 	    	<to-view-id>/usuarios.xhtml</to-view-id>
@@ -23,16 +16,8 @@
     <navigation-rule>
 	<from-view-id>/inicioSesion.xhtml</from-view-id>
 	    <navigation-case>
-	    	<from-outcome>homeP</from-outcome>
-	    	<to-view-id>/homeP.xhtml</to-view-id>
-	    	<redirect />
-	    </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-	<from-view-id>/inicioSesion.xhtml</from-view-id>
-	    <navigation-case>
-	    	<from-outcome>homeAdmi</from-outcome>
-	    	<to-view-id>/homeAdmi.xhtml</to-view-id>
+	    	<from-outcome>home</from-outcome>
+	    	<to-view-id>/home.xhtml</to-view-id>
 	    	<redirect />
 	    </navigation-case>
     </navigation-rule>

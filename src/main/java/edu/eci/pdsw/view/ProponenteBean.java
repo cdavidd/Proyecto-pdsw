@@ -6,12 +6,10 @@
 package edu.eci.pdsw.view;
 
 import com.google.inject.Inject;
-import edu.eci.pdsw.samples.entities.Usuario;
 import edu.eci.pdsw.samples.services.ExcepcionServicesBanco;
 import edu.eci.pdsw.samples.services.ServiciosBanco;
 
 import java.time.LocalDate;
-import java.util.Calendar;
 import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
