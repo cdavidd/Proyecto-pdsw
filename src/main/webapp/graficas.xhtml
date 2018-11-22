@@ -3,12 +3,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
     <h:head>
         <link rel="stylesheet" href="Recursos/usuarios.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
-         <h:outputScript name="Recursos/chartsScript.js"/>
     </h:head>
     <body>
         <header>
@@ -18,15 +18,58 @@
                     </div>
                 </div>  
         </header>
-        <h:form>
-            <p:commandButton value="Generar Estadisticas" actionListener="#{chartView.listar()}" update="panel"></p:commandButton>
-            <h:panelGroup id="panel" layout="block">
-                <p:chart type="bar" model="#{chartView.pieModel}" style="height:50%; width: 30%" rendered="#{chartView.pieModel != null}" widgetVar="char1"/>
-                <p:commandLink onclick="exportChartInPDF1()">
-                    <p:graphicImage name="/Imagenes/pdf.png" width="40"/>
-                </p:commandLink>
-            </h:panelGroup> 
+        <section class="menu">
+                <center>
+                     <div class="container">
+                        <a class="toggleMenu" href="#" style="display: none;">Menu</a>
+                        <ul class="nav" style="display: block;">
+                            <li>
+                                    <a href="home.xhtml"><i class="fa fa-user" style="font-size:24px"></i>#{inicioBean.usuario.nombre} (#{inicioBean.usuario.rol})</a>
+                            </li>
+                            <li>
+                                <h:link outcome="consultarUsuarios" rendered="#{inicioBean.usuario.rol == 'Administrador'}" ><i class="fa fa-address-card" style="font-size:24px"></i>Consultar Usuarios del sistema</h:link><!-- Solo admin -->
+                            </li>
+                            <li>
+                                <h:link outcome="ModificarIniciativas" rendered="#{inicioBean.usuario.rol == 'Administrador'}"><i class="fa fa-bars" style="font-size:24px"></i>Modificar Iniciativas</h:link><!-- Solo admin -->
+                            </li> 
+                            <li>
+                               <h:link outcome="consultarIniciativaRefactor" ><i class="fa fa-search" style="font-size:24px" ></i>Consultar Iniciativas</h:link><!-- Para los 3 roles -->
+                            </li> 
+                            <li>
+                                <h:link outcome="RegistrarIniciativa.xhtml?usuarioId=#{inicioBean.usuario.id}" rendered="#{inicioBean.usuario.rol == 'Proponente'}"><i class=" fa fa-edit" style="font-size:24px" ></i>Nueva Iniciativa</h:link><!-- Solo proponente -->
+                            </li> 
+                            <li>
+                                <h:link outcome="VerIniciativas" rendered="#{inicioBean.usuario.rol != 'Administrador'}" ><i class="fa fa-list" style="font-size:24px"></i>Ver Iniciativas</h:link><!-- para Proponente y publico -->
+                            </li>
+                            <li>
+                                <h:link outcome="graficas" rendered="#{inicioBean.usuario.rol != 'Administrador'}" ><i class="fa fa-bar-chart" style="font-size:24px"></i>Ver Estadisticas</h:link><!-- para Proponente y publico -->
+                            </li>
+                            <li>
+                                 <h:form>                                                  
+                                     <p:commandButton  value="Cerrar sesion" actionListener="#{inicioBean.reiniciar()}" action="Inicio" style="background-color: #ffffff; color: #006666; font-weight: bold; outline: none; border-color: #ffffff; font-size: 14px" ></p:commandButton> 
+                                 </h:form>
+                            </li>  
+                        </ul>
+                    </div>
+                </center>       
+        </section>
+        <h:form >
+            <center>
+                <p:commandButton value="Generar Estadisticas" actionListener="#{chartView.listar()}" update="Areas"></p:commandButton>
+            
+            
+            <p:panel id="Areas">
+                            <h:panelGrid columns="2" cellpadding="10" >
+                                    <p:chart type="pie" model="#{chartView.pieMode2}" style="height:50%; width: 30%" rendered="#{chartView.pieMode2 != null}" />
+                                  <p:chart type="bar" model="#{chartView.pieModel}" style="height:50%; width: 30%" rendered="#{chartView.pieModel != null}" widgetVar="char1"/>
+                            </h:panelGrid>
+            </p:panel>
+            </center>
+
+
+
         </h:form>
+        
         <footer id="footerinvestigacion">
                 <div class="footercontainer">
                     <div class="direccion">

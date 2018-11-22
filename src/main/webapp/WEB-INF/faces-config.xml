@@ -146,6 +146,14 @@
 	    </navigation-case>
     </navigation-rule>
     
+    <navigation-rule>
+	<from-view-id>/graficas.xhtml</from-view-id>
+	    <navigation-case>
+	    	<from-outcome>Inicio</from-outcome>
+	    	<to-view-id>/Inicio.xhtml</to-view-id>
+	    	<redirect />
+	    </navigation-case>
+    </navigation-rule>
     <!--
 
     -->

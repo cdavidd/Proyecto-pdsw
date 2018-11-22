@@ -33,15 +33,17 @@ public class ChartView extends BasePageBean implements Serializable {
     ServiciosBanco servicioBanco;
 
     private  BarChartModel pieModel;
-
-    
+    private  PieChartModel pieMode2;
+    private  HashMap<String,Integer> pd;
     public void listar() throws ExcepcionServicesBanco{
         List<String[]> e=getEstadisticas();
         HashMap<String,Integer>l=new HashMap<>();
         for (int i=0;i<e.size();i++){
            l.put(e.get(i)[0], Integer.parseInt(e.get(i)[1]));
         }
+        pd=l;
         graficar(l);
+        graficar2(l);
     }
     public void graficar(HashMap<String,Integer> h){
         pieModel=new  BarChartModel();
@@ -61,8 +63,34 @@ public class ChartView extends BasePageBean implements Serializable {
         yAxis.setMax(20);
         
     }
+    public void graficar2(HashMap<String,Integer> h){
+       pieMode2=new PieChartModel();
+       for(Map.Entry<String, Integer> entry :h.entrySet()){
+            pieMode2.set(entry.getKey(), entry.getValue());
+        }
+        pieMode2.setTitle("Iniciativas por Areas");
+        pieMode2.setLegendPosition("e");
+        pieMode2.setFill(false);
+        pieMode2.setShowDataLabels(true);
+        pieMode2.setDiameter(150);
+        pieMode2.setShadow(false);
+    }
+
+    public HashMap<String, Integer> getPd() {
+        return pd;
+    }
+
+    public PieChartModel getPieMode2() {
+        return pieMode2;
+    }
+
+    public void setPieMode2(PieChartModel pieMode2) {
+        this.pieMode2 = pieMode2;
+    }
+    
 
     public  BarChartModel getPieModel() {
+        System.out.println("entro");
         return pieModel;
     }
 
