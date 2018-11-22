@@ -111,12 +111,12 @@ public class ServiciosBancoImpl implements ServiciosBanco{
     
     
     @Override
-    public Set<Iniciativa> buscarIniciativasRelacionadas(String palabraClave) throws ExcepcionServicesBanco {
+    public Set<Iniciativa> buscarIniciativasRelacionadas(Iniciativa iniciativa) throws ExcepcionServicesBanco {
         try{
-            return iniciativaDAO.buscarIniciativasRelacionadas(palabraClave);
+            return iniciativaDAO.buscarIniciativasRelacionadas(iniciativa);
         }catch(PersistenceException ex) {
         	System.out.println(ex.getMessage());
-            throw new ExcepcionServicesBanco("Error al buscar iniciativa relacionadas con palabra clave "+ palabraClave );
+            throw new ExcepcionServicesBanco("Error al buscar iniciativa relacionadas con palabra clave "+ iniciativa.getPalabrasClave() );
         }    
     }
 

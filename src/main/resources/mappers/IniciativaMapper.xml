@@ -63,7 +63,7 @@
         rol,
         PalabrasClave
 	    FROM usuarios join iniciativas as i on usuario_id = usuarios.id 
-        where lower (palabrasclave) LIKE  CONCAT('%', #{palabra} ,'%') and #{palabra} != palabrasclave
+        where lower (palabrasclave) LIKE  CONCAT('%', #{palabra} ,'%') and #{id} != i.id
 </select>
 
 

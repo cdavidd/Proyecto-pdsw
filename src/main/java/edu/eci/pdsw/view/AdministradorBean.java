@@ -40,7 +40,15 @@ public class AdministradorBean extends BasePageBean{
     private int id;
     private String estado,comentario;
     private List<String> tipoEstado= Arrays.asList("En Espera Revision", "En revision", "Proyecto", "Solucionado");
+    private List<Iniciativa> iniciativas = new ArrayList<Iniciativa>();
 
+    public ServiciosBanco getServicioBanco() {
+        return servicioBanco;
+    }
+
+    public void setServicioBanco(ServiciosBanco servicioBanco) {
+        this.servicioBanco = servicioBanco;
+    }
     
     
     public List<String> getTipoEstado() {
@@ -62,8 +70,20 @@ public class AdministradorBean extends BasePageBean{
     }
     
     public List<Iniciativa> getIniciativas() throws ExcepcionServicesBanco{
-        return servicioBanco.getIniciativas();
+          try{
+            List<Iniciativa> temp=new ArrayList<Iniciativa>();
+            if (iniciativas.isEmpty() || super.nuevaIniciativa){
+                super.nuevaIniciativa=false;
+                temp.addAll(servicioBanco.getIniciativas());
+                iniciativas= temp;
+           }
+           return iniciativas;   
+        }catch(Exception ex){
+            System.out.println(ex);
+            return null;
+        }
     }
+    
     
     public Iniciativa consultarIniciativa(){
         return servicioBanco.consultarIniciativa(id);

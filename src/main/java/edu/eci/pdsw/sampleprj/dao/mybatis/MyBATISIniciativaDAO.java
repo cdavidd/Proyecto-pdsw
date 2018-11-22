@@ -52,12 +52,12 @@ public class MyBATISIniciativaDAO implements IniciativaDAO{
     }
     
      @Override
-    public Set<Iniciativa> buscarIniciativasRelacionadas(String palabraClave) throws PersistenceException {
+    public Set<Iniciativa> buscarIniciativasRelacionadas(Iniciativa iniciativa) throws PersistenceException {
         try {
                 Set<Iniciativa> iniciativas = new HashSet<Iniciativa>();
-                String[] palabras = palabraClave.split(",");
+                String[] palabras = iniciativa.getPalabrasClave().split(",");
                 for (int i=0; i<palabras.length;i++) {
-                        for (Iniciativa j :iniciativaMapper.buscarIniciativasRelacionadas(palabras[i].toLowerCase())) {
+                        for (Iniciativa j :iniciativaMapper.buscarIniciativasRelacionadas(palabras[i].toLowerCase(),iniciativa.getId())) {
                                 iniciativas.add(j);
                         }
                 }

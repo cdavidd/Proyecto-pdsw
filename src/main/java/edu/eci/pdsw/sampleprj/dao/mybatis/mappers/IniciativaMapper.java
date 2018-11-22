@@ -13,7 +13,7 @@ public interface IniciativaMapper {
 
 	public List<Iniciativa> buscarIniciativa(@Param("palabra")String palabraClave);
         
-        public List<Iniciativa> buscarIniciativasRelacionadas(@Param("palabra")String palabraClave);
+        public List<Iniciativa> buscarIniciativasRelacionadas(@Param("palabra")String palabraClave,@Param("id")int id);
         
         public List<Iniciativa> getIniciativas();
         

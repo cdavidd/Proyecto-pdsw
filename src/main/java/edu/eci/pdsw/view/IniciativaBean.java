@@ -108,16 +108,16 @@ public class IniciativaBean extends BasePageBean implements Serializable{
         }    	
     }
     
-    public List<Iniciativa> buscarIniciativasRelacionadas(String palabraClave) {
+    public List<Iniciativa> buscarIniciativasRelacionadas(Iniciativa iniciativa) {
             
         try {
             
             List<Iniciativa> temp=new ArrayList<Iniciativa>();
             if (iniciativas.isEmpty() || super.nuevaIniciativa || !palabraTemp.equals(this.palabraC) || super.cambioPagina){
-                palabraTemp = palabraClave;
+                palabraTemp = iniciativa.getPalabrasClave().toLowerCase();
                 super.nuevaIniciativa=false;
                 super.cambioPagina=false;
-                temp.addAll(servicioBanco.buscarIniciativasRelacionadas(palabraClave));
+                temp.addAll(servicioBanco.buscarIniciativasRelacionadas(iniciativa));
                 iniciativas= temp;
             }
              //System.out.println(iniciativas.toString());
