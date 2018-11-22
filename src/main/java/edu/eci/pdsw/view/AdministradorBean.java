@@ -39,7 +39,7 @@ public class AdministradorBean extends BasePageBean{
 
     private int id;
     private String estado,comentario;
-    private List<String> tipoEstado= Arrays.asList("En_Espera_Revision", "En_revision", "Proyecto", "Solucionado");
+    private List<String> tipoEstado= Arrays.asList("En Espera Revision", "En revision", "Proyecto", "Solucionado");
 
     
     
@@ -73,7 +73,14 @@ public class AdministradorBean extends BasePageBean{
     
     public void cambiarEstado() throws ExcepcionServicesBanco{   
         Iniciativa iniciativa=consultarIniciativa();
-        servicioBanco.cambiarEstado(iniciativa,TipoEstado.valueOf(estado));
+        if (estado.equals("En Espera Revision")){
+            servicioBanco.cambiarEstado(iniciativa,TipoEstado.valueOf("En_Espera_Revision"));
+        }else if (estado.equals("En revision")){
+            servicioBanco.cambiarEstado(iniciativa,TipoEstado.valueOf("En_revision"));
+        }else{
+            servicioBanco.cambiarEstado(iniciativa,TipoEstado.valueOf(estado));
+        }
+        
     }
     
     public void cambiarRol (Usuario usuario, String rol) throws ExcepcionServicesBanco{

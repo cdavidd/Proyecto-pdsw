@@ -30,10 +30,10 @@ public class ProponenteBean extends BasePageBean{
     
     @ManagedProperty(value = "#{param.usuarioId}")
 
-    
+    private int usuarioId;
     private String descripcion,palabrasClave,area;
     private Date fecha;
-    private int usuarioId;
+    
     
     
     public void registrarIniciativa(String descripcion,String palabrasClave) throws ExcepcionServicesBanco{
@@ -80,8 +80,6 @@ public class ProponenteBean extends BasePageBean{
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-
-    
 
     public int getUsuarioId() {
         return usuarioId;

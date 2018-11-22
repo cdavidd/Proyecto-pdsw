@@ -3,18 +3,12 @@ package edu.eci.pdsw.view;
 import com.google.inject.Inject;
 import edu.eci.pdsw.samples.entities.Comentario;
 
-import edu.eci.pdsw.samples.entities.Iniciativa;
-import edu.eci.pdsw.samples.entities.Rol;
-import edu.eci.pdsw.samples.entities.TipoEstado;
-import edu.eci.pdsw.samples.entities.Usuario;
 import edu.eci.pdsw.samples.services.ExcepcionServicesBanco;
 import edu.eci.pdsw.samples.services.ServiciosBanco;
-import java.time.LocalDate;
 import java.util.*;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
 
 /**
  *

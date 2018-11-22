@@ -37,4 +37,106 @@
 	    	<redirect />
 	    </navigation-case>
     </navigation-rule>
+    
+    <navigation-rule>
+	<from-view-id>/consultarIniciativaRefactor.xhtml</from-view-id>
+	    <navigation-case>
+	    	<from-outcome>Inicio</from-outcome>
+	    	<to-view-id>/Inicio.xhtml</to-view-id>
+	    	<redirect />
+	    </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+	<from-view-id>/RegistrarIniciativa.xhtml</from-view-id>
+	    <navigation-case>
+	    	<from-outcome>Inicio</from-outcome>
+	    	<to-view-id>/Inicio.xhtml</to-view-id>
+	    	<redirect />
+	    </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+	<from-view-id>/VerIniciativas.xhtml</from-view-id>
+	    <navigation-case>
+	    	<from-outcome>Inicio</from-outcome>
+	    	<to-view-id>/Inicio.xhtml</to-view-id>
+	    	<redirect />
+	    </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+	<from-view-id>/perfilIniciativaComment.xhtml</from-view-id>
+	    <navigation-case>
+	    	<from-outcome>Inicio</from-outcome>
+	    	<to-view-id>/Inicio.xhtml</to-view-id>
+	    	<redirect />
+	    </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+	<from-view-id>/verComentarios.xhtml</from-view-id>
+	    <navigation-case>
+	    	<from-outcome>Inicio</from-outcome>
+	    	<to-view-id>/Inicio.xhtml</to-view-id>
+	    	<redirect />
+	    </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+	<from-view-id>/perfilIniciativaCorriente.xhtml</from-view-id>
+	    <navigation-case>
+	    	<from-outcome>Inicio</from-outcome>
+	    	<to-view-id>/Inicio.xhtml</to-view-id>
+	    	<redirect />
+	    </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+	<from-view-id>/consultarUsuarios.xhtml</from-view-id>
+	    <navigation-case>
+	    	<from-outcome>Inicio</from-outcome>
+	    	<to-view-id>/Inicio.xhtml</to-view-id>
+	    	<redirect />
+	    </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+	<from-view-id>/ModificarIniciativas.xhtml</from-view-id>
+	    <navigation-case>
+	    	<from-outcome>Inicio</from-outcome>
+	    	<to-view-id>/Inicio.xhtml</to-view-id>
+	    	<redirect />
+	    </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+	<from-view-id>/perfilUsuario.xhtml</from-view-id>
+	    <navigation-case>
+	    	<from-outcome>Inicio</from-outcome>
+	    	<to-view-id>/Inicio.xhtml</to-view-id>
+	    	<redirect />
+	    </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+	<from-view-id>/perfilIniciativa.xhtml</from-view-id>
+	    <navigation-case>
+	    	<from-outcome>Inicio</from-outcome>
+	    	<to-view-id>/Inicio.xhtml</to-view-id>
+	    	<redirect />
+	    </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+	<from-view-id>/perfilIniciativa.xhtml</from-view-id>
+	    <navigation-case>
+	    	<from-outcome>ModificarIniciativas</from-outcome>
+	    	<to-view-id>/ModificarIniciativas.xhtml</to-view-id>
+	    	<redirect />
+	    </navigation-case>
+    </navigation-rule>
+    <!--
+
+    -->
 </faces-config>

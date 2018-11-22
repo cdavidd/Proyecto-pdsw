@@ -240,7 +240,7 @@ form{
 footer {
     width: 100%;
     background-color: #990000;
-    position: relative;
+    position: absolute;
     color: white;
     padding-top: 30px;
     padding-bottom: 10px;
