@@ -194,15 +194,15 @@ input[type="button"]{
   position: relative;
 
 }
-form{
-    margin:auto;
-    width: 50%;
-    position: absolute;
-    top: 30%;
-    left: 30%;
-    max-width: 500px;
-    padding: 30px;
+
+.contenedor{
+    margin-top: 4%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    max-width: 500px;  
 }
+
 @media(max-widh: 768px){
 	form{
 		width:75%;
