@@ -79,7 +79,7 @@
                 
             </h:form>
             <h:form id="relacionadosForm">
-                <p:dataTable id="relacionados_tabla" scrollable="true" scrollHeight="150" var="ini" value="#{iniciativaBean.buscarIniciativasRelacionadas(administradorBean.consultarIniciativa().palabrasClave)}">
+                <p:dataTable id="relacionados_tabla" scrollable="true" scrollHeight="150" var="ini" value="#{iniciativaBean.buscarIniciativasRelacionadas(administradorBean.consultarIniciativa())}">
                 <f:facet name="header">
                     iniciativas relacionadas
                 </f:facet>
