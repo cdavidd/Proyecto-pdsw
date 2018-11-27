@@ -108,5 +108,29 @@
     GROUP BY area
 </select>
 
+<select id="getEstadisticasEstado"  resultType="string">
+    SELECT 
+        CONCAT(estado,' ',COUNT(descripcion))
+    from 
+        iniciativas join usuarios on usuarios.id=usuario_id 
+    GROUP BY estado
+</select>
+
+<select id="buscarIniciativaProponente" resultMap="IniciativaResult">
+        select
+        i.id as iid,
+        Descripcion,
+        Estado,
+        fecha_creacion,
+        area,
+        usuario_id as id,
+        nombre, 
+        email,
+        contrasena,
+        rol,
+        PalabrasClave
+	FROM usuarios join iniciativas as i on usuario_id = usuarios.id
+        WHERE usuario_id=#{id}
+</select>
 
 </mapper>

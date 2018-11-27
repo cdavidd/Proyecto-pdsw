@@ -162,7 +162,7 @@ public class ServiciosBancoImpl implements ServiciosBanco{
             return temp;
         }
         catch(PersistenceException ex) {
-           throw new ExcepcionServicesBanco("Error al consultar los usuarios");
+           throw new ExcepcionServicesBanco("Error al consultar las estadisticas por area");
         }
         
     }
@@ -174,6 +174,33 @@ public class ServiciosBancoImpl implements ServiciosBanco{
         }
         catch(PersistenceException ex) {
            throw new ExcepcionServicesBanco("Error al consultar los comentarios");
+        }
+    }
+
+    @Override
+    public List<String[]> getEstadisticasEstado() throws ExcepcionServicesBanco {
+        try {
+            List<String[]> temp = new ArrayList<String[]>();
+            for (String s : iniciativaDAO.getEstadisticasEstado()){
+                String[] te = new String[2];
+                te=s.split(" ");
+                //System.out.println(te[0]+" "+te[1]);
+                temp.add(te);
+            }
+            return temp;
+        }
+        catch(PersistenceException ex) {
+           throw new ExcepcionServicesBanco("Error al consultar las estadisticas por estado");
+        }
+    }
+
+    @Override
+    public List<Iniciativa> buscarIniciativaProponente(int id) throws ExcepcionServicesBanco {
+        try {
+            return iniciativaDAO.buscarIniciativaProponente(id);
+        }
+        catch(PersistenceException ex) {
+           throw new ExcepcionServicesBanco("Error al consultar Iniciativas del proponente");
         }
     }
 }

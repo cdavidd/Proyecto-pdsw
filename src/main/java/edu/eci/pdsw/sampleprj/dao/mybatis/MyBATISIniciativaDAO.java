@@ -102,12 +102,31 @@ public class MyBATISIniciativaDAO implements IniciativaDAO{
     @Override
     public List<String> getEstadisticas() throws PersistenceException {
         try {
-            System.out.println(iniciativaMapper.getEstadisticas().toString());
+            //System.out.println(iniciativaMapper.getEstadisticas().toString());
             return iniciativaMapper.getEstadisticas();
         }catch(org.apache.ibatis.exceptions.PersistenceException e) {
-            
-            System.out.println(e.getMessage());
+            //System.out.println(e.getMessage());
             throw new PersistenceException("Error al consultar estadisticas ");
+        }
+    }
+
+    @Override
+    public List<String> getEstadisticasEstado() throws PersistenceException{
+        try {
+            //System.out.println(iniciativaMapper.getEstadisticasEstado().toString());
+            return iniciativaMapper.getEstadisticasEstado();
+        }catch(org.apache.ibatis.exceptions.PersistenceException e) {
+            //System.out.println(e.getMessage());
+            throw new PersistenceException("Error al consultar estadisticas estado");
+        }
+    }
+
+    @Override
+    public List<Iniciativa> buscarIniciativaProponente(int id) throws PersistenceException {
+        try {
+            return iniciativaMapper.buscarIniciativaProponente(id);
+        }catch(org.apache.ibatis.exceptions.PersistenceException e) {
+            throw new PersistenceException("Error al consultar estadisticas estado");
         }
     }
 }

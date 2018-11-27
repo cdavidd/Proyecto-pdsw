@@ -46,4 +46,8 @@ public interface ServiciosBanco {
     public List<String[]> getEstadisticas() throws ExcepcionServicesBanco;
     
     public List<Comentario> getComentarios(int id) throws ExcepcionServicesBanco;
+    
+    public List <String[]> getEstadisticasEstado() throws ExcepcionServicesBanco;
+    
+    public List<Iniciativa> buscarIniciativaProponente (int id) throws ExcepcionServicesBanco;
 }
