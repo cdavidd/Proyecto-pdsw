@@ -41,7 +41,7 @@
                                 <h:link outcome="VerIniciativas" rendered="#{inicioBean.usuario.rol != 'Administrador'}" ><i class="fa fa-list" style="font-size:24px"></i>Ver Iniciativas</h:link><!-- para Proponente y publico -->
                             </li>
                             <li>
-                                <h:link outcome="graficas" ><i class="fa fa-bar-chart" style="font-size:24px"></i>Ver Estadisticas</h:link><!-- para Proponente y publico -->
+                                <h:link outcome="graficas" onclick="#{chartView.listar()}" ><i class="fa fa-bar-chart" style="font-size:24px"></i>Ver Estadisticas</h:link><!-- para Proponente y publico -->
                             </li>
                             <li>
                                  <h:form>                                                  
