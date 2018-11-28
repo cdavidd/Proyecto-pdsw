@@ -36,9 +36,11 @@ public class AdministradorBean extends BasePageBean{
     ServiciosBanco servicioBanco;
     
     @ManagedProperty(value="#{param.id}")
-
     private int id;
-    private String estado,comentario;
+    
+    
+    
+    private String estado,comentario,descripcion,palabrasClave;
     private List<String> tipoEstado= Arrays.asList("En Espera Revision", "En revision", "Proyecto", "Solucionado");
     private List<Iniciativa> iniciativas = new ArrayList<Iniciativa>();
 
@@ -115,6 +117,15 @@ public class AdministradorBean extends BasePageBean{
     public void comentarIniciativas(int usuario_id){
         servicioBanco.comentarIniciativas(usuario_id,id,comentario,java.sql.Date.valueOf(LocalDate.now()));
     }
+    
+    public void modificarDescripcion() throws ExcepcionServicesBanco{
+        servicioBanco.modificarDescripcion(id, descripcion);
+    }
+    
+    public void modificarPalabrasClave() throws ExcepcionServicesBanco{
+        servicioBanco.modificarPalabrasClave(id, palabrasClave);
+    }
+
 
     public int getId() {
         return id;
@@ -140,5 +151,19 @@ public class AdministradorBean extends BasePageBean{
         this.comentario = comentario;
     }
     
-    
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getPalabrasClave() {
+        return palabrasClave;
+    }
+
+    public void setPalabrasClave(String palabrasclave) {
+        this.palabrasClave = palabrasclave;
+    }
 }

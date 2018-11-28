@@ -31,6 +31,16 @@
       WHERE ID = #{id};
 </update>
 
+<update id = "modificarDescripcion" parameterType = "Iniciativa">
+      UPDATE Iniciativas SET descripcion = #{descripcion}
+      WHERE ID = #{id};
+</update>
+
+<update id = "modificarPalabrasClave" parameterType = "Iniciativa">
+      UPDATE Iniciativas SET palabrasclave = #{palabrasclave}
+      WHERE ID = #{id};
+</update>
+
 <select id="buscarIniciativa" resultMap="IniciativaResult">
   
          select

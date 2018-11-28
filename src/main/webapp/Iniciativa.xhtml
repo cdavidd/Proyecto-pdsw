@@ -10,6 +10,10 @@
 		<link rel="stylesheet" href="Recursos/usuarios.css" />
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 	</h:head>
+    	<h:body style="overflow-x:hidden; overflow-y:scroll">
+             <f:metadata>
+                <f:viewParam name="id" value="#{administradorBean.id}" />
+            </f:metadata>
         <header>
                 <div class="contenedorlogos"> 
                     <div id="logoescuela">
@@ -53,32 +57,18 @@
                 </center>       
         </section>
     
-	<h:body style="overflow-x:hidden; overflow-y:scroll">
-            <h:form id="IniciativasForm">
-                <p:dataTable  id="iniciativas_tabla" rows="3" paginator="true" var="iniciativa" value="#{administradorBean.getIniciativas()}" scrollable="true" scrollHeight="300" >
-                    <p:column headerText="Descripcion" >
-                            <h:outputText value="#{iniciativa.descripcion}" />
-                </p:column>
-                <p:column headerText="Estado" >
-                            <h:outputText value="#{iniciativa.estado}" />
-                </p:column>
-                <p:column headerText="Fecha_Creacion" >
-                    <h:outputText value="#{iniciativa.fechaCreacion}" />
-                </p:column>
-                <p:column headerText="Area" >
-                    <h:outputText value="#{iniciativa.usuario.area}" />
-		</p:column>
-                <p:column headerText="Palabras clave" >
-                    <h:outputText value="#{iniciativa.palabrasClave}" />
-		</p:column>
-                <p:column headerText="Iniciativa">
-			<p:button outcome="perfilIniciativa.xhtml?id=#{iniciativa.id}" value="Ir a Iniciativa" />
-		</p:column>
-                <p:column headerText="modificar">
-			<p:button outcome="Iniciativa.xhtml?id=#{iniciativa.id}" value="Modificar iniciativa" />
-		</p:column>     
-            </p:dataTable>
-            </h:form>
+            <center>
+            <h:form id="descripcion">
+                <br> <p:inputTextarea rows="6" cols="50" value="#{administradorBean.descripcion}"/></br>
+                <p:commandButton action="Iniciativa" value="Modificar Descripcion" actionListener="#{administradorBean.modificarDescripcion()}">   </p:commandButton>
+               </h:form>
+            
+            <h:form id="palabras">        
+                <p:inputTextarea rows="6" cols="50" value="#{administradorBean.palabrasClave}"/>
+                <p><p:commandButton value="Modificar palabras clave" actionListener="#{administradorBean.modificarPalabrasClave()}"> </p:commandButton></p>                         
+             </h:form>
+            </center>
+            
             <footer id="footerinvestigacion">
                 <div class="footercontainer">
                     <div class="direccion">

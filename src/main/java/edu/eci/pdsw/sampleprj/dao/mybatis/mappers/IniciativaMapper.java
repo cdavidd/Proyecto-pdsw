@@ -28,5 +28,9 @@ public interface IniciativaMapper {
     public List<String> getEstadisticasEstado();
 
     public List<Iniciativa> buscarIniciativaProponente(@Param("id") int id);
+    
+    public void modificarPalabrasClave(@Param("id")int id, @Param("palabrasclave") String descripcion);   
+    
+    public void modificarDescripcion(@Param("id")int id, @Param("descripcion") String descripcion);   
 
 }

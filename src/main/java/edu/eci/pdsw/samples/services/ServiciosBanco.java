@@ -50,4 +50,8 @@ public interface ServiciosBanco {
     public List <String[]> getEstadisticasEstado() throws ExcepcionServicesBanco;
     
     public List<Iniciativa> buscarIniciativaProponente (int id) throws ExcepcionServicesBanco;
+    
+    public void modificarDescripcion(int ind, String desripcion) throws ExcepcionServicesBanco;
+    
+    public void modificarPalabrasClave(int id,String palabrasClave) throws ExcepcionServicesBanco;
 }

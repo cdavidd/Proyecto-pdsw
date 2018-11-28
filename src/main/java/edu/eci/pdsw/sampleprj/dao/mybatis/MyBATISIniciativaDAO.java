@@ -21,6 +21,28 @@ public class MyBATISIniciativaDAO implements IniciativaDAO{
     IniciativaMapper iniciativaMapper;
 
     @Override
+    public void modificarDescripcion(int id, String descripcion) throws PersistenceException {
+            try {
+                iniciativaMapper.modificarDescripcion(id,descripcion);
+            }
+            catch(org.apache.ibatis.exceptions.PersistenceException e) {
+                System.out.println(e.getMessage());
+                throw new PersistenceException("Error al modificar la descripcion de la iniciativa");
+            }	    
+    }
+    
+    @Override
+    public void modificarPalabrasClave(int id, String palabrasclave) throws PersistenceException {
+            try {
+                iniciativaMapper.modificarPalabrasClave(id,palabrasclave);
+            }
+            catch(org.apache.ibatis.exceptions.PersistenceException e) {
+                System.out.println(e.getMessage());
+                throw new PersistenceException("Error al modificar las palabras clave de la iniciativa");
+            }	    
+    }
+
+    @Override
     public void cambiarEstado(Iniciativa iniciativa, TipoEstado tipoEstado) throws PersistenceException {
             try {
                 iniciativaMapper.cambiarEstado(iniciativa.getId(),tipoEstado);

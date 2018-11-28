@@ -18,7 +18,6 @@ import java.util.*;
  */
 public class ServiciosBancoStub implements ServiciosBanco {
 
-    
     private final Map<String,Usuario> usuarios;
     
     
@@ -140,4 +139,17 @@ public class ServiciosBancoStub implements ServiciosBanco {
     public List<Iniciativa> buscarIniciativaProponente(int id) throws ExcepcionServicesBanco {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    
+    @Override
+    public void modificarDescripcion(int id,String descripcion) throws ExcepcionServicesBanco {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+     @Override
+    public void modificarPalabrasClave(int id,String palabrasclave) throws ExcepcionServicesBanco {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
 }

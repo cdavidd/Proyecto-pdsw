@@ -203,4 +203,32 @@ public class ServiciosBancoImpl implements ServiciosBanco{
            throw new ExcepcionServicesBanco("Error al consultar Iniciativas del proponente");
         }
     }
+    
+    
+    @Override
+    public void modificarDescripcion(int id, String descripcion) throws ExcepcionServicesBanco {
+        try {
+            if (!consultarIniciativa(id).getEstado().toString().equals(TipoEstado.En_Espera_Revision.toString())){
+                throw new ExcepcionServicesBanco("Solo se pueden modificar iniciativas que este en espera de revision");
+            }
+            iniciativaDAO.modificarDescripcion(id,descripcion);
+        }
+        catch(PersistenceException ex){
+           throw new ExcepcionServicesBanco("Error al modificar la descripcion de la iniciativa");        
+        }
+    }
+ 
+    @Override
+    public void modificarPalabrasClave(int id,String palabrasclave) throws ExcepcionServicesBanco {
+        try {
+            if (!consultarIniciativa(id).getEstado().toString().equals(TipoEstado.En_Espera_Revision.toString())){
+                throw new ExcepcionServicesBanco("Solo se pueden modificar iniciativas que este en espera de revision");
+            }
+            iniciativaDAO.modificarPalabrasClave(id,palabrasclave);
+        }
+        catch(PersistenceException ex){
+           throw new ExcepcionServicesBanco("Error al modificar las palabras clave de la iniciativa");        
+        }    
+    }
+    
 }
