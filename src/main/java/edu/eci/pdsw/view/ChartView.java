@@ -34,16 +34,25 @@ public class ChartView extends BasePageBean implements Serializable {
 
     private  BarChartModel pieModel;
     private  PieChartModel pieMode2;
+    private  BarChartModel pieMode3;
+    private  PieChartModel pieMode4;
     private  HashMap<String,Integer> pd;
     public void listar() throws ExcepcionServicesBanco{
         List<String[]> e=getEstadisticas();
+        List<String[]> c=servicioBanco.getEstadisticasEstado();
         HashMap<String,Integer>l=new HashMap<>();
+        HashMap<String,Integer>c2=new HashMap<>();
         for (int i=0;i<e.size();i++){
            l.put(e.get(i)[0], Integer.parseInt(e.get(i)[1]));
         }
-        pd=l;
+        for (int i=0;i<c.size();i++){
+            System.out.println(c.get(i)[0]);
+            c2.put(c.get(i)[0], Integer.parseInt(c.get(i)[1]));
+        }
         graficar(l);
         graficar2(l);
+        graficar3(c2);
+        graficar4(c2);
     }
     public void graficar(HashMap<String,Integer> h){
         pieModel=new  BarChartModel();
@@ -60,8 +69,30 @@ public class ChartView extends BasePageBean implements Serializable {
         Axis yAxis = pieModel.getAxis(AxisType.Y);
         yAxis.setLabel("numero Iniciativas");
         yAxis.setMin(0);
+        yAxis.setMax(10);
+        
+    }
+    public void graficar3(HashMap<String,Integer> h){
+        pieMode3=new  BarChartModel();
+        ChartSeries b = new ChartSeries();
+        b.setLabel("Estados");
+        for(Map.Entry<String, Integer> entry :h.entrySet()){
+            b.set(entry.getKey(), entry.getValue());
+            System.out.print(entry.getKey());
+        }
+         pieMode3.addSeries(b);
+        Axis xAxis = pieMode3.getAxis(AxisType.X);
+        xAxis.setLabel("Estados");
+ 
+        Axis yAxis = pieMode3.getAxis(AxisType.Y);
+        yAxis.setLabel("Iniciativas Por Estado");
+        yAxis.setMin(0);
         yAxis.setMax(20);
         
+    }
+
+    public void setPieMode3(BarChartModel pieMode3) {
+        this.pieMode3 = pieMode3;
     }
     public void graficar2(HashMap<String,Integer> h){
        pieMode2=new PieChartModel();
@@ -75,9 +106,33 @@ public class ChartView extends BasePageBean implements Serializable {
         pieMode2.setDiameter(150);
         pieMode2.setShadow(false);
     }
+    public void graficar4(HashMap<String,Integer> h){
+       pieMode4=new PieChartModel();
+       for(Map.Entry<String, Integer> entry :h.entrySet()){
+            pieMode4.set(entry.getKey(), entry.getValue());
+        }
+        pieMode4.setTitle("Iniciativas Por Estado");
+        pieMode4.setLegendPosition("e");
+        pieMode4.setFill(false);
+        pieMode4.setShowDataLabels(true);
+        pieMode4.setDiameter(150);
+        pieMode4.setShadow(false);
+    }
+
+    public void setPieMode4(PieChartModel pieMode4) {
+        this.pieMode4 = pieMode4;
+    }
+
+    public PieChartModel getPieMode4() {
+        return pieMode4;
+    }
 
     public HashMap<String, Integer> getPd() {
         return pd;
+    }
+
+    public BarChartModel getPieMode3() {
+        return pieMode3;
     }
 
     public PieChartModel getPieMode2() {
