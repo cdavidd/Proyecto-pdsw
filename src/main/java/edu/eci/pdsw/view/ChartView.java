@@ -37,8 +37,9 @@ public class ChartView extends BasePageBean implements Serializable {
     private  BarChartModel pieMode3;
     private  PieChartModel pieMode4;
     private  HashMap<String,Integer> pd;
+    private List<String[]> e;
     public void listar() throws ExcepcionServicesBanco{
-        List<String[]> e=getEstadisticas();
+        e=getEstadisticas();
         List<String[]> c=servicioBanco.getEstadisticasEstado();
         HashMap<String,Integer>l=new HashMap<>();
         HashMap<String,Integer>c2=new HashMap<>();
@@ -46,7 +47,6 @@ public class ChartView extends BasePageBean implements Serializable {
            l.put(e.get(i)[0], Integer.parseInt(e.get(i)[1]));
         }
         for (int i=0;i<c.size();i++){
-            System.out.println(c.get(i)[0]);
             c2.put(c.get(i)[0], Integer.parseInt(c.get(i)[1]));
         }
         graficar(l);
@@ -54,13 +54,20 @@ public class ChartView extends BasePageBean implements Serializable {
         graficar3(c2);
         graficar4(c2);
     }
+
+    public void setE(List<String[]> e) {
+        this.e = e;
+    }
+
+    public List<String[]> getE() {
+        return e;
+    }
     public void graficar(HashMap<String,Integer> h){
         pieModel=new  BarChartModel();
         ChartSeries b = new ChartSeries();
         b.setLabel("Areas");
         for(Map.Entry<String, Integer> entry :h.entrySet()){
             b.set(entry.getKey(), entry.getValue());
-            System.out.print(entry.getKey());
         }
          pieModel.addSeries(b);
         Axis xAxis = pieModel.getAxis(AxisType.X);
@@ -78,7 +85,6 @@ public class ChartView extends BasePageBean implements Serializable {
         b.setLabel("Estados");
         for(Map.Entry<String, Integer> entry :h.entrySet()){
             b.set(entry.getKey(), entry.getValue());
-            System.out.print(entry.getKey());
         }
          pieMode3.addSeries(b);
         Axis xAxis = pieMode3.getAxis(AxisType.X);
@@ -145,7 +151,6 @@ public class ChartView extends BasePageBean implements Serializable {
     
 
     public  BarChartModel getPieModel() {
-        System.out.println("entro");
         return pieModel;
     }
 

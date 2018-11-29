@@ -69,7 +69,7 @@
                   <p:column headerText="Descripcion"  sortBy="#{iniciativa.descripcion}">
                     <h:outputText value="#{iniciativa.descripcion}"/>
 		</p:column>
-                  <p:column headerText="Estado" sortBy="#{iniciativa.estado}">
+                  <p:column headerText="Estado" sortBy="#{iniciativa.estado}" filterBy="#{iniciativa.estado}">
                     <h:outputText value="#{iniciativa.estado}" />
 		</p:column>
                   <p:column headerText="Fecha_Creacion" sortBy="#{iniciativa.fechaCreacion}">
@@ -78,7 +78,7 @@
                   <p:column headerText="Area" sortBy="#{iniciativa.usuario.area}">
                     <h:outputText value="#{iniciativa.usuario.area}" />
 		</p:column>
-                  <p:column headerText="Palabras clave" sortBy="#{iniciativa.palabrasClave}">
+                  <p:column headerText="Palabras clave" sortBy="#{iniciativa.palabrasClave}" >
                     <h:outputText value="#{iniciativa.palabrasClave}" />
 		</p:column>
                 <p:column headerText="Comentar">

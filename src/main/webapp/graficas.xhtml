@@ -68,6 +68,22 @@
 
 
         </h:form>
+        <h:form id="iniciativaForm">
+            
+            
+            
+            <p:dataTable id="iniciativa_tabla" var="iniciativa" value="#{chartView.e}"  paginator="true" rows="10" scrollable="true" scrollHeight="300">
+                <p:column headerText="Proponente"  >
+                    <h:outputText value="#{iniciativa[0]}"/> 
+		</p:column>  
+                  <p:column headerText="Descripcion"  >
+                    <h:outputText value="#{iniciativa[1]}"/>
+		</p:column>
+                  
+            </p:dataTable>
+
+
+        </h:form>
         
         <footer id="footerinvestigacion">
                 <div class="footercontainer">
