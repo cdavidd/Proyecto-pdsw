@@ -38,9 +38,7 @@ public interface ServiciosBanco {
     public abstract Set<Iniciativa> buscarIniciativasRelacionadas(Iniciativa iniciativa)throws ExcepcionServicesBanco;
 
     public List<Iniciativa> getIniciativas();
-    
-    public List<Iniciativa> getIniciativas(int usuario) throws ExcepcionServicesBanco;
-    
+        
     public Iniciativa consultarIniciativa(int id);
     
     public void comentarIniciativas(int usuario_id, int iniciativa_if, String comentarios, Date fecha);

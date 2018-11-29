@@ -153,9 +153,4 @@ public class ServiciosBancoStub implements ServiciosBanco {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-     @Override
-    public List<Iniciativa> getIniciativas(int usuario) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }

@@ -92,22 +92,6 @@
         PalabrasClave
 	FROM usuarios join iniciativas as i on usuario_id = usuarios.id 
 </select>
-<select id="getIniciativasUsuario" resultMap="IniciativaResult">
-        select
-        i.id as iid,
-        Descripcion,
-        Estado,
-        fecha_creacion,
-        area,
-        usuario_id as id,
-        nombre, 
-        email,
-        contrasena,
-        rol,
-        PalabrasClave
-	FROM usuarios join iniciativas as i on usuario_id = usuarios.id 
-        where usuario_id = #{id}
-</select>
 
 <select id="consultarIniciativa" resultMap="IniciativaResult">
         select
