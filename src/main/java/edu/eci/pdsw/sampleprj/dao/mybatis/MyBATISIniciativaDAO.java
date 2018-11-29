@@ -153,4 +153,26 @@ public class MyBATISIniciativaDAO implements IniciativaDAO{
             throw new PersistenceException("Error al consultar estadisticas estado");
         }
     }
+
+    @Override
+    public void darLike(int iniciativa_id, int usuario_id) throws PersistenceException {
+        try {
+            iniciativaMapper.darLike(iniciativa_id,usuario_id);
+        }catch(org.apache.ibatis.exceptions.PersistenceException e) {
+            System.out.println(e.getMessage());
+            throw new PersistenceException("Error al dar like");
+        }    
+    }
+
+    @Override
+    public int consultarLikes(int iniciativa) throws PersistenceException {
+        try {
+            return iniciativaMapper.consultarLikes(iniciativa);
+        }catch(org.apache.ibatis.exceptions.PersistenceException e) {
+            throw new PersistenceException("Error al dar like");
+        }    
+    }
+    
+    
+    
 }

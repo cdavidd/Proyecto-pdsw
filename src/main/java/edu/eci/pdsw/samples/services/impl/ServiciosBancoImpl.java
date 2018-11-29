@@ -18,8 +18,6 @@ import java.util.Date;
 
 public class ServiciosBancoImpl implements ServiciosBanco{
 
-
-	
     @Inject
     private AdministradorDAO administradorDAO;
 
@@ -231,4 +229,23 @@ public class ServiciosBancoImpl implements ServiciosBanco{
         }    
     }
     
+    @Override
+    public void likes(int iniciativa_id,int usuario_id) throws ExcepcionServicesBanco {
+        try {
+            iniciativaDAO.darLike(iniciativa_id,usuario_id);
+        }
+        catch(PersistenceException ex){
+           throw new ExcepcionServicesBanco("Error al dar like");        
+        }       
+    }
+
+    @Override
+    public int consultarLikes(int id) throws ExcepcionServicesBanco {
+         try {
+            return iniciativaDAO.consultarLikes(id);
+        }
+        catch(PersistenceException ex){
+           throw new ExcepcionServicesBanco("Error al consultar los likes");        
+        }     
+    }
 }

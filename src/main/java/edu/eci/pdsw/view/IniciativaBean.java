@@ -139,6 +139,26 @@ public class IniciativaBean extends BasePageBean implements Serializable{
             return null;
         }    	
     }
+    
+    // id de la iniciativa a la que se le va a dar like
+    public void likes(int iniciativa_id,int usuario_id){
+        try{
+            servicioBanco.likes(iniciativa_id,usuario_id);
+        }
+        catch (ExcepcionServicesBanco e) {
+            System.out.println(e.getMessage());
+        } 
+    }
+    
+    public int consultarLikes(int iniciativa){
+        try{
+            return servicioBanco.consultarLikes(iniciativa);
+        }
+        catch (ExcepcionServicesBanco e) {
+            return 0;
+        }
+    }
+    
 
     public String getRol() {
             return rol;

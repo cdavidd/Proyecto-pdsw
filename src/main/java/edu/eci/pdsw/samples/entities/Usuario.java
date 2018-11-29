@@ -27,7 +27,7 @@ public  class Usuario implements Serializable{
     public Rol rol;
     private ArrayList<Iniciativa> iniciativas;
     private ArrayList<Iniciativa> apoyar;
-
+    
    
     public Usuario(){
     }

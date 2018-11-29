@@ -32,5 +32,8 @@ public interface IniciativaMapper {
     public void modificarPalabrasClave(@Param("id")int id, @Param("palabrasclave") String descripcion);   
     
     public void modificarDescripcion(@Param("id")int id, @Param("descripcion") String descripcion);   
-
+    
+    public void darLike(@Param("id_iniciativa")int iniciativa_id, @Param("id_usuario") int usuario_id);
+    
+    public int consultarLikes(@Param("iniciativa") int iniciativa);
 }

@@ -31,5 +31,8 @@ public interface IniciativaDAO {
     public void modificarDescripcion(int id, String descripcion) throws PersistenceException;
     
     public void modificarPalabrasClave(int id, String palabrasclave) throws PersistenceException;
-
+    
+    public void darLike(int iniciativa_id, int usuario_id) throws PersistenceException;
+    
+    public int consultarLikes(int iniciativa) throws PersistenceException;
 }

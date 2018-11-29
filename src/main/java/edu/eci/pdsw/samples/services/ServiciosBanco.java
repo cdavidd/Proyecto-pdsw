@@ -54,4 +54,8 @@ public interface ServiciosBanco {
     public void modificarDescripcion(int ind, String desripcion) throws ExcepcionServicesBanco;
     
     public void modificarPalabrasClave(int id,String palabrasClave) throws ExcepcionServicesBanco;
+    
+    public void likes(int iniciativa_id,int usuario_id) throws ExcepcionServicesBanco;
+    
+    public int consultarLikes(int id) throws ExcepcionServicesBanco;
 }

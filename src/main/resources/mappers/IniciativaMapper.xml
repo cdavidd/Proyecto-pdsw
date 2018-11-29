@@ -25,6 +25,10 @@
         VALUES (#{usuario_id},#{iniciativa_id},#{comentario},#{fecha_publicacion})
  </insert>
     
+ <insert id="darLike">
+        INSERT INTO Like (usuario_id,iniciativa_i)
+        VALUES (#{id_usuario},#{id_iniciativa})
+ </insert>
     
 <update id = "cambiarEstado" parameterType = "Iniciativa">
       UPDATE Iniciativas SET estado = #{estado}
@@ -40,6 +44,17 @@
       UPDATE Iniciativas SET palabrasclave = #{palabrasclave}
       WHERE ID = #{id};
 </update>
+
+
+<select id="consultarLikes" resultMap="IniciativaResult">
+            
+         select
+         count(id)
+         case 
+         when (count(id) is null) then '0'
+         from Iniciativas join Likes on id=likes.iniciativa_id 
+    
+</select>
 
 <select id="buscarIniciativa" resultMap="IniciativaResult">
   
@@ -142,5 +157,9 @@
 	FROM usuarios join iniciativas as i on usuario_id = usuarios.id
         WHERE usuario_id=#{id}
 </select>
+
+
+
+
 
 </mapper>
