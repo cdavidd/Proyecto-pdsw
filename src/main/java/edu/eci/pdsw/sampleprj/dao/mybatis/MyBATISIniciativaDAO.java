@@ -165,10 +165,12 @@ public class MyBATISIniciativaDAO implements IniciativaDAO{
     }
 
     @Override
-    public int consultarLikes(int iniciativa) throws PersistenceException {
+    public String consultarLikes(int iniciativa) throws PersistenceException {
         try {
+            System.out.println(iniciativaMapper.consultarLikes(iniciativa));
             return iniciativaMapper.consultarLikes(iniciativa);
         }catch(org.apache.ibatis.exceptions.PersistenceException e) {
+            System.out.println(e.getMessage());
             throw new PersistenceException("Error al dar like");
         }    
     }

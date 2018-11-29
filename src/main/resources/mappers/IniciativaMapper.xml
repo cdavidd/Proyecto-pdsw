@@ -26,7 +26,7 @@
  </insert>
     
  <insert id="darLike">
-        INSERT INTO Like (usuario_id,iniciativa_i)
+        INSERT INTO Likes (usuario_id,iniciativa_id)
         VALUES (#{id_usuario},#{id_iniciativa})
  </insert>
     
@@ -46,14 +46,14 @@
 </update>
 
 
-<select id="consultarLikes" resultMap="IniciativaResult">
-            
+<select id="consultarLikes" resultType="string">          
          select
-         count(id)
          case 
-         when (count(id) is null) then '0'
-         from Iniciativas join Likes on id=likes.iniciativa_id 
-    
+         when (count(iniciativa_id) is null) then '0'
+         else count(iniciativa_id)
+         end
+         from Likes  
+         where iniciativa_id = #{iniciativa}
 </select>
 
 <select id="buscarIniciativa" resultMap="IniciativaResult">

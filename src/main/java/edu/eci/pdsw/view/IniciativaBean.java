@@ -29,6 +29,9 @@ public class IniciativaBean extends BasePageBean implements Serializable{
     private TipoEstado estado;
     private Date fecha;
     private String palabraTemp = "";
+    private String likes = "";
+    private boolean nuevosLikes = false;
+   
     private List<Iniciativa> iniciativas=new ArrayList<Iniciativa>();
     
     
@@ -47,6 +50,14 @@ public class IniciativaBean extends BasePageBean implements Serializable{
             System.out.println(ex.getMessage());
             return null;
         }    
+    }
+
+    public boolean isnuevosLikes() {
+        return nuevosLikes;
+    }
+
+    public void setNuevosLikes(boolean anadenLikes) {
+        this.nuevosLikes = anadenLikes;
     }
     
     public List<Iniciativa> buscarIniciativaProponente(int id) {
@@ -143,6 +154,7 @@ public class IniciativaBean extends BasePageBean implements Serializable{
     // id de la iniciativa a la que se le va a dar like
     public void likes(int iniciativa_id,int usuario_id){
         try{
+            nuevosLikes=true;
             servicioBanco.likes(iniciativa_id,usuario_id);
         }
         catch (ExcepcionServicesBanco e) {
@@ -150,12 +162,17 @@ public class IniciativaBean extends BasePageBean implements Serializable{
         } 
     }
     
-    public int consultarLikes(int iniciativa){
+    public String consultarLikes(int iniciativa){
         try{
-            return servicioBanco.consultarLikes(iniciativa);
+            //System.out.println(likes);
+            if (likes.isEmpty() || nuevosLikes){
+                nuevosLikes = false;
+                likes = servicioBanco.consultarLikes(iniciativa); 
+            }
+            return likes;
         }
         catch (ExcepcionServicesBanco e) {
-            return 0;
+            return "0";
         }
     }
     
@@ -171,5 +188,12 @@ public class IniciativaBean extends BasePageBean implements Serializable{
     public void cambioPagina(){
         cambioPagina=true;
     }
+    
+    public String getLikes() {
+        return likes;
+    }
 
+    public void setLikes(String likes) {
+        this.likes = likes;
+    }
 }

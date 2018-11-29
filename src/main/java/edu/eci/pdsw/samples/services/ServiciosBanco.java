@@ -57,5 +57,5 @@ public interface ServiciosBanco {
     
     public void likes(int iniciativa_id,int usuario_id) throws ExcepcionServicesBanco;
     
-    public int consultarLikes(int id) throws ExcepcionServicesBanco;
+    public String consultarLikes(int id) throws ExcepcionServicesBanco;
 }

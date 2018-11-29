@@ -34,5 +34,5 @@ public interface IniciativaDAO {
     
     public void darLike(int iniciativa_id, int usuario_id) throws PersistenceException;
     
-    public int consultarLikes(int iniciativa) throws PersistenceException;
+    public String consultarLikes(int iniciativa) throws PersistenceException;
 }

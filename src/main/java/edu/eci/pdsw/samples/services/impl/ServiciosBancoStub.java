@@ -161,7 +161,7 @@ public class ServiciosBancoStub implements ServiciosBanco {
     }
     
     @Override
-    public int consultarLikes(int id) throws ExcepcionServicesBanco {
+    public String consultarLikes(int id) throws ExcepcionServicesBanco {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

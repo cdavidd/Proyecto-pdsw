@@ -240,7 +240,7 @@ public class ServiciosBancoImpl implements ServiciosBanco{
     }
 
     @Override
-    public int consultarLikes(int id) throws ExcepcionServicesBanco {
+    public String consultarLikes(int id) throws ExcepcionServicesBanco {
          try {
             return iniciativaDAO.consultarLikes(id);
         }
