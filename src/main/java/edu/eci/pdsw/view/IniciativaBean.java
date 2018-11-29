@@ -31,26 +31,39 @@ public class IniciativaBean extends BasePageBean implements Serializable{
     private String palabraTemp = "";
     private List<Iniciativa> iniciativas=new ArrayList<Iniciativa>();
     
-   
+    
     public List<Iniciativa> getIniciativas(){
-        try{
-            
+        try{            
             List<Iniciativa> temp=new ArrayList<Iniciativa>();
-            if (iniciativas.isEmpty() || super.nuevaIniciativa){
+            if (iniciativas.isEmpty() || super.nuevaIniciativa || super.cambioPagina){
                 super.nuevaIniciativa=false;
+                cambioPagina = false;
                 temp.addAll(servicioBanco.getIniciativas());
                 iniciativas= temp;
            }
            //System.out.println(iniciativas.toString());
            return iniciativas;
-            
-           
-           
         }catch(Exception ex){
             System.out.println(ex.getMessage());
             return null;
-        }
-        
+        }    
+    }
+    
+    public List<Iniciativa> buscarIniciativaProponente(int id) {
+        try{
+            List<Iniciativa> temp=new ArrayList<Iniciativa>();
+            if (iniciativas.isEmpty() || super.nuevaIniciativa || super.cambioPagina){
+                super.nuevaIniciativa=false;
+                cambioPagina = false;
+                temp.addAll(servicioBanco.buscarIniciativaProponente(id));
+                iniciativas= temp;
+           }
+           //System.out.println(iniciativas.toString());
+            return iniciativas;
+         }catch(Exception ex){
+             System.out.println(ex.getMessage());
+             return null;
+         }
     }
     
     public void setDescripcion(String d){
@@ -89,12 +102,12 @@ public class IniciativaBean extends BasePageBean implements Serializable{
     
     public List<Iniciativa> buscarIniciativas(String palabraClave) {
             
-        try {
-            super.cambioPagina = true;    
+        try {  
             List<Iniciativa> temp=new ArrayList<Iniciativa>();
-            if (iniciativas.isEmpty() || super.nuevaIniciativa || !palabraTemp.equals(this.palabraC) ){
+            if (iniciativas.isEmpty() || super.nuevaIniciativa || !palabraTemp.equals(this.palabraC) || super.cambioPagina){
                 palabraTemp = palabraClave;
                 super.nuevaIniciativa=false;
+                super.cambioPagina = false;
                 temp.addAll(servicioBanco.buscarIniciativa(palabraClave));
                 iniciativas= temp;
             }
@@ -111,17 +124,15 @@ public class IniciativaBean extends BasePageBean implements Serializable{
     public List<Iniciativa> buscarIniciativasRelacionadas(Iniciativa iniciativa) {
             
         try {
-            
             List<Iniciativa> temp=new ArrayList<Iniciativa>();
-            if (iniciativas.isEmpty() || super.nuevaIniciativa || !palabraTemp.equals(this.palabraC) || super.cambioPagina){
-                palabraTemp = iniciativa.getPalabrasClave().toLowerCase();
+            if (iniciativas.isEmpty() || super.nuevaIniciativa || super.cambioPagina){
                 super.nuevaIniciativa=false;
                 super.cambioPagina=false;
                 temp.addAll(servicioBanco.buscarIniciativasRelacionadas(iniciativa));
                 iniciativas= temp;
             }
-             //System.out.println(iniciativas.toString());
-             //System.out.println("aaaaaaaaaaaaaaaaaaaaaa");
+          //System.out.println(iniciativas.toString());
+            // System.out.println("aaaaaaaaaaaaaaaaaaaaaa");
             return iniciativas;
         }
         catch (ExcepcionServicesBanco e) {
@@ -137,5 +148,8 @@ public class IniciativaBean extends BasePageBean implements Serializable{
             this.rol = rol;
     }
     
+    public void cambioPagina(){
+        cambioPagina=true;
+    }
 
 }

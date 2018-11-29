@@ -231,4 +231,14 @@ public class ServiciosBancoImpl implements ServiciosBanco{
         }    
     }
     
+    @Override
+    public List<Iniciativa> getIniciativas(int usuario) throws ExcepcionServicesBanco{
+        try {
+            return iniciativaDAO.getIniciativas(usuario);
+        }
+        catch(PersistenceException ex){
+           throw new ExcepcionServicesBanco("Error al consultar las iniciativas del usuario");        
+        }     
+    }
+    
 }

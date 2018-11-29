@@ -39,7 +39,7 @@
                                 <h:link outcome="RegistrarIniciativa.xhtml?usuarioId=#{inicioBean.usuario.id}" rendered="#{inicioBean.usuario.rol == 'Proponente'}"><i class=" fa fa-edit" style="font-size:24px" ></i>Nueva Iniciativa</h:link><!-- Solo proponente -->
                             </li> 
                             <li>
-                                <h:link outcome="VerIniciativas" rendered="#{inicioBean.usuario.rol != 'Administrador'}" ><i class="fa fa-list" style="font-size:24px"></i>Ver Iniciativas</h:link><!-- para Proponente y publico -->
+                                <h:link outcome="VerIniciativas" rendered="#{inicioBean.usuario.rol == 'Proponente'}" ><i class="fa fa-list" style="font-size:24px"></i>Mis Iniciativas</h:link><!-- para Proponente -->
                             </li>
                             <li>
                                 <h:link outcome="graficas" onclick="#{chartView.listar()}"><i class="fa fa-bar-chart" style="font-size:24px"></i>Ver Estadisticas</h:link><!-- para Proponente y publico -->

@@ -30,4 +30,6 @@ public abstract class BasePageBean implements Serializable {
     public void init() {
         getInjector().injectMembers(this);
     }
+    
+    
 }

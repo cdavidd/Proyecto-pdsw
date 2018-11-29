@@ -10,8 +10,11 @@
         <link rel="stylesheet" href="Recursos/usuarios.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
     </h:head>
-    <h:body style="overflow-x:hidden; overflow-y:scroll">
+    <h:body style="overflow-x:hidden; overflow-y:scroll" onload="">
         <header>
+            <f:metadata>
+                 <f:viewAction action="#{iniciativaBean.cambioPagina()}" />
+            </f:metadata>
                 <div class="contenedorlogos"> 
                     <div id="logoescuela">
                         <img src="Recursos/logoescuela.png" alt=""></img>
@@ -39,7 +42,7 @@
                                 <h:link outcome="RegistrarIniciativa.xhtml?usuarioId=#{inicioBean.usuario.id}" rendered="#{inicioBean.usuario.rol == 'Proponente'}"><i class=" fa fa-edit" style="font-size:24px" ></i>Nueva Iniciativa</h:link><!-- Solo proponente -->
                             </li> 
                             <li>
-                                <h:link outcome="VerIniciativas" rendered="#{inicioBean.usuario.rol != 'Administrador'}" ><i class="fa fa-list" style="font-size:24px"></i>Ver Iniciativas</h:link><!-- para Proponente y publico -->
+                                <h:link outcome="VerIniciativas" rendered="#{inicioBean.usuario.rol == 'Proponente'}" ><i class="fa fa-list" style="font-size:24px"></i>Mis Iniciativas</h:link><!-- para Proponente -->
                             </li>
                             <li>
                                 <h:link outcome="graficas"  onclick="#{chartView.listar()}"><i class="fa fa-bar-chart" style="font-size:24px"></i>Ver Estadisticas</h:link><!-- para Proponente y publico -->
@@ -55,7 +58,7 @@
         </section>
         
         <h:form id="iniciativaForm">
-            <p:dataTable id="iniciativa_tabla" rendered="true"  rows="3" paginator="true" var="iniciativa" value="#{iniciativaBean.iniciativas}" scrollable="true" scrollHeight="300">
+            <p:dataTable id="iniciativa_tabla" rendered="true"  rows="3" paginator="true" var="iniciativa" value="#{iniciativaBean.buscarIniciativaProponente(inicioBean.usuario.id)}" scrollable="true" scrollHeight="300">
 		<p:column headerText="Nombre Proponente">
                         <h:outputText value="#{iniciativa.usuario.nombre}" />
                 </p:column>
@@ -77,6 +80,10 @@
                 <p:column headerText="Iniciativa">
 			<p:button outcome="perfilIniciativaCorriente.xhtml?id=#{iniciativa.id}" value="Ver Iniciativa" />
 		</p:column>
+                <p:column headerText="modificar">
+			<p:button outcome="Iniciativa.xhtml?id=#{iniciativa.id}" value="Modificar iniciativa" />
+		</p:column>
+                
             </p:dataTable>
         </h:form>
                 <footer id="footerinvestigacion">

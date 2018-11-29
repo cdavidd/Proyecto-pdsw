@@ -16,6 +16,8 @@ public interface IniciativaDAO {
     
     public List<Iniciativa> getIniciativas() throws PersistenceException;
 
+    public List<Iniciativa> getIniciativas(int usuario) throws PersistenceException;
+
     public Iniciativa consultarIniciativa(int id) throws PersistenceException;
     
     public void comentarIniciativas(int id_user, int id_iniciativa, String comentario, Date fecha);

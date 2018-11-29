@@ -6,7 +6,27 @@
 	xmlns:p="http://primefaces.org/ui">
 
     <h:head>
-        <title></title>
+        <title></title>   
+           <script type="text/javascript">
+               function confirmarPalabras(){
+                if (!confirm('Seguro que quiere modificar las palabras clave de esta iniciativa?')) {
+                    return false;
+                }
+                else {
+                   setTimeout(document.location = document.location, 1000)
+                   return true;
+                }
+            }
+                function confirmarDescripcion(){
+                if (!confirm('Seguro que quiere modificar la descripcion de esta iniciativa?')) {
+                    return false;
+                }
+                else {
+                   setTimeout(document.location = document.location, 1000)
+                   return true;
+                }
+             }
+            </script>
 		<link rel="stylesheet" href="Recursos/usuarios.css" />
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 	</h:head>
@@ -42,7 +62,7 @@
                                 <h:link outcome="RegistrarIniciativa.xhtml?usuarioId=#{inicioBean.usuario.id}" rendered="#{inicioBean.usuario.rol == 'Proponente'}"><i class=" fa fa-edit" style="font-size:24px" ></i>Nueva Iniciativa</h:link><!-- Solo proponente -->
                             </li> 
                             <li>
-                                <h:link outcome="VerIniciativas" rendered="#{inicioBean.usuario.rol != 'Administrador'}" ><i class="fa fa-list" style="font-size:24px"></i>Ver Iniciativas</h:link><!-- para Proponente y publico -->
+                                <h:link outcome="VerIniciativas" rendered="#{inicioBean.usuario.rol == 'Proponente'}" ><i class="fa fa-list" style="font-size:24px"></i>Mis Iniciativas</h:link><!-- para Proponente-->
                             </li>
                             <li>
                                 <h:link outcome="graficas" onclick="#{chartView.listar()}" ><i class="fa fa-bar-chart" style="font-size:24px"></i>Ver Estadisticas</h:link><!-- para Proponente y publico -->
@@ -60,12 +80,12 @@
             <center>
             <h:form id="descripcion">
                 <br> <p:inputTextarea rows="6" cols="50" value="#{administradorBean.descripcion}"/></br>
-                <p:commandButton action="Iniciativa" value="Modificar Descripcion" actionListener="#{administradorBean.modificarDescripcion()}">   </p:commandButton>
+                <p:commandButton onclick="return confirmarDescripcion()" value="Modificar Descripcion" action="#{administradorBean.modificarDescripcion()}">  </p:commandButton>
                </h:form>
             
             <h:form id="palabras">        
                 <p:inputTextarea rows="6" cols="50" value="#{administradorBean.palabrasClave}"/>
-                <p><p:commandButton value="Modificar palabras clave" actionListener="#{administradorBean.modificarPalabrasClave()}"> </p:commandButton></p>                         
+                <p><p:commandButton onclick="return confirmarPalabras()" value="Modificar palabras clave" action="#{administradorBean.modificarPalabrasClave()}"> </p:commandButton></p>                         
              </h:form>
             </center>
             

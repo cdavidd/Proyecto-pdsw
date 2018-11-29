@@ -47,6 +47,9 @@ public class InicioBean extends BasePageBean{
     }
     
     
+    
+    
+    
     /*public String irHome(String email) {
     	Usuario user;
         FacesMessage message = null;

@@ -16,10 +16,21 @@ import java.util.Date;
 
 public class MyBATISIniciativaDAO implements IniciativaDAO{
 
-	
+  	
     @Inject
     IniciativaMapper iniciativaMapper;
 
+    @Override
+    public List<Iniciativa> getIniciativas(int usuario) throws PersistenceException {
+            try {
+                return iniciativaMapper.getIniciativasUsuario(usuario);
+            }
+            catch(org.apache.ibatis.exceptions.PersistenceException e) {
+                System.out.println(e.getMessage());
+                throw new PersistenceException("Error al consultar las iniciativas del usuario");
+            }   
+    }
+    
     @Override
     public void modificarDescripcion(int id, String descripcion) throws PersistenceException {
             try {

@@ -9,6 +9,9 @@
         <title></title>
 		<link rel="stylesheet" href="Recursos/usuarios.css" />
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+            <f:metadata>
+                <f:viewAction action="#{iniciativaBean.cambioPagina()}" />
+            </f:metadata>
 	</h:head>
         <header>
                 <div class="contenedorlogos"> 
@@ -73,10 +76,7 @@
 		</p:column>
                 <p:column headerText="Iniciativa">
 			<p:button outcome="perfilIniciativa.xhtml?id=#{iniciativa.id}" value="Ir a Iniciativa" />
-		</p:column>
-                <p:column headerText="modificar">
-			<p:button outcome="Iniciativa.xhtml?id=#{iniciativa.id}" value="Modificar iniciativa" />
-		</p:column>     
+		</p:column>   
             </p:dataTable>
             </h:form>
             <footer id="footerinvestigacion">

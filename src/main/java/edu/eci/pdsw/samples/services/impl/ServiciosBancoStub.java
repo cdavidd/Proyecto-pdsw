@@ -18,6 +18,8 @@ import java.util.*;
  */
 public class ServiciosBancoStub implements ServiciosBanco {
 
+   
+
     private final Map<String,Usuario> usuarios;
     
     
@@ -150,6 +152,10 @@ public class ServiciosBancoStub implements ServiciosBanco {
     public void modificarPalabrasClave(int id,String palabrasclave) throws ExcepcionServicesBanco {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
+     @Override
+    public List<Iniciativa> getIniciativas(int usuario) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
