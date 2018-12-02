@@ -62,7 +62,7 @@
             <br><p:inputText id="palabraclave"  placeholder="palabras clave" value="#{iniciativaBean.palabraC}"> </p:inputText></br>
             
             <p:commandButton value="actualizar" update="iniciativa_tabla" />    
-              <p:dataTable id="iniciativa_tabla" var="iniciativa" value="#{iniciativaBean.buscarIniciativas(iniciativaBean.palabraC)}"  paginator="true" rows="10" scrollable="true" scrollHeight="300">
+            <p:dataTable id="iniciativa_tabla" var="iniciativa" value="#{iniciativaBean.buscarIniciativas(iniciativaBean.palabraC)}"  paginator="true" rows="10" scrollable="true" scrollHeight="300" sortBy="#{iniciativaBean.consultarLikes(iniciativa.id)}" sortOrder="DESCENDING" sortField="megusta" >
                 <p:column headerText="Proponente"  sortBy="#{iniciativa.usuario.nombre}">
                     <h:outputText value="#{iniciativa.usuario.nombre}"/> 
 		</p:column>  
@@ -87,9 +87,10 @@
                 <p:column headerText="Ver Comentarios">
 			<p:button outcome="verComentarios.xhtml?id=#{iniciativa.id}" value="Ver Comentarios" />
 		</p:column>
-                <p:column headerText="Me gusta">
+                <p:column  id="megusta" headerText="Me gusta" sortBy="#{iniciativaBean.consultarLikes(iniciativa.id)}">
                     <center style="margin-top: 20%; margin-bottom: 10%">
-                        <p:commandButton  value="#{iniciativaBean.consultarLikes(iniciativa.id)}" actionListener="#{iniciativaBean.likes(iniciativa.id, inicioBean.usuario.id)}" class="fa fa-thumbs-up" style="background: none; color: #0f8279; font-size:210%;color:cornflowerblue ;border:none "> </p:commandButton>
+                        <p:commandButton rendered="#{iniciativaBean.estadoLike(iniciativa.id,inicioBean.usuario) == true}" update="iniciativa_tabla" value="#{iniciativaBean.consultarLikes(iniciativa.id)}" actionListener="#{iniciativaBean.likes(iniciativa.id, inicioBean.usuario,false)}" class="fa fa-thumbs-up" style="background: none; color: #EFEBE9; font-size:210%;color:#EFEBE9 ;border:none "> </p:commandButton>
+                        <p:commandButton rendered="#{iniciativaBean.estadoLike(iniciativa.id,inicioBean.usuario)== false}" update="iniciativa_tabla" value="#{iniciativaBean.consultarLikes(iniciativa.id)}" actionListener="#{iniciativaBean.likes(iniciativa.id, inicioBean.usuario,true)}" class="fa fa-thumbs-up" style="background: none; color: #0f8279; font-size:210%;color:cornflowerblue ;border:none "> </p:commandButton>
                     </center>
 		</p:column>
             </p:dataTable>

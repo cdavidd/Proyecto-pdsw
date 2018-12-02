@@ -36,4 +36,8 @@ public interface IniciativaMapper {
     public void darLike(@Param("id_iniciativa")int iniciativa_id, @Param("id_usuario") int usuario_id);
     
     public String consultarLikes(@Param("iniciativa") int iniciativa);
+    
+    public String consultarUsuarioDioLike(@Param("iniciativa") int iniciativa, @Param("usuario") int usuario);
+
+    public void dislikes(@Param("iniciativa")int iniciativa_id,@Param("usuario") int usuario_id);
 }

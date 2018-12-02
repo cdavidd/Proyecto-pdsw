@@ -35,6 +35,10 @@
       WHERE ID = #{id};
 </update>
 
+<delete id="dislikes">
+  delete from likes where usuario_id = #{usuario} and iniciativa_id = #{iniciativa}
+</delete>
+
 <update id = "modificarDescripcion" parameterType = "Iniciativa">
       UPDATE Iniciativas SET descripcion = #{descripcion}
       WHERE ID = #{id};
@@ -54,6 +58,16 @@
          end
          from Likes  
          where iniciativa_id = #{iniciativa}
+</select>
+
+<select id="consultarUsuarioDioLike" resultType="string">
+    select
+         case 
+         when (count(iniciativa_id) is null) then '0'
+         else count(iniciativa_id)
+         end
+         from Likes  
+         where iniciativa_id = #{iniciativa} and usuario_id = #{usuario}
 </select>
 
 <select id="buscarIniciativa" resultMap="IniciativaResult">

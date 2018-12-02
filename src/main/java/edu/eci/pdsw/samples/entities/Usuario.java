@@ -27,7 +27,9 @@ public  class Usuario implements Serializable{
     public Rol rol;
     private ArrayList<Iniciativa> iniciativas;
     private ArrayList<Iniciativa> apoyar;
-    
+    private ArrayList<Integer> likes = new ArrayList<Integer>();
+
+   
    
     public Usuario(){
     }
@@ -122,4 +124,11 @@ public  class Usuario implements Serializable{
         this.area = area;
     }
     
+    public ArrayList<Integer> getLikes() {
+        return likes;
+    }
+
+    public void setLikes(ArrayList<Integer> likes) {
+        this.likes = likes;
+    }
 }

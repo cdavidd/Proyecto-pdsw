@@ -10,6 +10,8 @@ import java.util.*;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import java.util.ArrayList;
+import org.javatuples.Pair; 
+
 
 @SuppressWarnings("deprecation")
 @ManagedBean(name = "iniciativaBean")
@@ -29,10 +31,11 @@ public class IniciativaBean extends BasePageBean implements Serializable{
     private TipoEstado estado;
     private Date fecha;
     private String palabraTemp = "";
-    private String likes = "";
+    private Integer likes = 0;
+    private HashMap<Integer, Integer> maplikes = new HashMap<>(); 
     private boolean nuevosLikes = false;
-   
     private List<Iniciativa> iniciativas=new ArrayList<Iniciativa>();
+    private HashMap<String, Boolean> mapliked = new HashMap<>(); 
     
     
     public List<Iniciativa> getIniciativas(){
@@ -152,30 +155,49 @@ public class IniciativaBean extends BasePageBean implements Serializable{
     }
     
     // id de la iniciativa a la que se le va a dar like
-    public void likes(int iniciativa_id,int usuario_id){
+    public void likes(int iniciativa_id,Usuario usuario,boolean like){
         try{
-            nuevosLikes=true;
-            servicioBanco.likes(iniciativa_id,usuario_id);
+            mapliked.replace(Integer.toString(iniciativa_id) +  "_" + Integer.toString(usuario.getId()),like);
+            if (like){
+                servicioBanco.likes(iniciativa_id,usuario.getId());
+                maplikes.replace(iniciativa_id, maplikes.get(iniciativa_id)+1);
+            }
+            else {
+                servicioBanco.dislikes(iniciativa_id,usuario.getId());
+                maplikes.replace(iniciativa_id, maplikes.get(iniciativa_id)-1);
+            }
         }
         catch (ExcepcionServicesBanco e) {
             System.out.println(e.getMessage());
         } 
     }
     
-    public String consultarLikes(int iniciativa){
+    public Integer consultarLikes(int iniciativa){
         try{
-            //System.out.println(likes);
-            if (likes.isEmpty() || nuevosLikes){
-                nuevosLikes = false;
-                likes = servicioBanco.consultarLikes(iniciativa); 
+            if (!maplikes.containsKey(iniciativa)){
+                likes = Integer.parseInt(servicioBanco.consultarLikes(iniciativa)); 
+                maplikes.put(iniciativa, likes);
+                return likes;
             }
-            return likes;
+            else return maplikes.get(iniciativa);
         }
         catch (ExcepcionServicesBanco e) {
-            return "0";
+            return 0;
         }
     }
     
+    
+    public boolean estadoLike(int iniciativa, Usuario usuario) throws ExcepcionServicesBanco{
+        String cadena = Integer.toString(iniciativa) + "_" +  Integer.toString(usuario.getId());
+        if (mapliked.containsKey(cadena)){
+            return mapliked.get(cadena);
+        }
+        else {
+            boolean dioLike = servicioBanco.consultarUsuarioDioLike(iniciativa,usuario.getId());
+            mapliked.put(cadena, dioLike);
+            return mapliked.get(cadena);
+        }
+    }
 
     public String getRol() {
             return rol;
@@ -189,11 +211,11 @@ public class IniciativaBean extends BasePageBean implements Serializable{
         cambioPagina=true;
     }
     
-    public String getLikes() {
+    public Integer getLikes() {
         return likes;
     }
 
-    public void setLikes(String likes) {
+    public void setLikes(Integer likes) {
         this.likes = likes;
     }
 }

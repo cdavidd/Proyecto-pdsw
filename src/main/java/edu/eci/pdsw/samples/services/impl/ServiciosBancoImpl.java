@@ -18,6 +18,10 @@ import java.util.Date;
 
 public class ServiciosBancoImpl implements ServiciosBanco{
 
+ 
+
+    
+
     @Inject
     private AdministradorDAO administradorDAO;
 
@@ -247,5 +251,25 @@ public class ServiciosBancoImpl implements ServiciosBanco{
         catch(PersistenceException ex){
            throw new ExcepcionServicesBanco("Error al consultar los likes");        
         }     
+    }
+    
+    @Override
+    public boolean consultarUsuarioDioLike(int iniciativa, int usuario) throws ExcepcionServicesBanco {
+        try {
+            return iniciativaDAO.consultarUsuarioDioLike(iniciativa,usuario);
+        }
+        catch(PersistenceException ex){
+           throw new ExcepcionServicesBanco("Error al consultar si el usuario de dio like");        
+        }   
+    }
+    
+    @Override
+    public void dislikes(int iniciativa_id, int usuario_id) throws ExcepcionServicesBanco {
+        try {
+            iniciativaDAO.dislikes(iniciativa_id,usuario_id);
+        }
+        catch(PersistenceException ex){
+           throw new ExcepcionServicesBanco("Error al dar dislike");        
+        }      
     }
 }

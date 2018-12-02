@@ -18,6 +18,8 @@ import java.util.*;
  */
 public class ServiciosBancoStub implements ServiciosBanco {
 
+
+
    
    
    
@@ -165,5 +167,13 @@ public class ServiciosBancoStub implements ServiciosBanco {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public boolean consultarUsuarioDioLike(int iniciativa, int usuario) throws ExcepcionServicesBanco {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
+    @Override
+    public void dislikes(int iniciativa_id, int usuario_id) throws ExcepcionServicesBanco {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

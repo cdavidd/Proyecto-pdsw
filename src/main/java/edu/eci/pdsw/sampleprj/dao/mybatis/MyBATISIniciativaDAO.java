@@ -16,6 +16,7 @@ import java.util.Date;
 
 public class MyBATISIniciativaDAO implements IniciativaDAO{
 
+
   	
     @Inject
     IniciativaMapper iniciativaMapper;
@@ -167,7 +168,6 @@ public class MyBATISIniciativaDAO implements IniciativaDAO{
     @Override
     public String consultarLikes(int iniciativa) throws PersistenceException {
         try {
-            System.out.println(iniciativaMapper.consultarLikes(iniciativa));
             return iniciativaMapper.consultarLikes(iniciativa);
         }catch(org.apache.ibatis.exceptions.PersistenceException e) {
             System.out.println(e.getMessage());
@@ -175,6 +175,24 @@ public class MyBATISIniciativaDAO implements IniciativaDAO{
         }    
     }
     
-    
-    
+    @Override
+    public boolean consultarUsuarioDioLike(int iniciativa, int usuario) throws PersistenceException {
+        try {
+            if (iniciativaMapper.consultarUsuarioDioLike(iniciativa,usuario).equals("0")) return false;
+            else return true;
+        }catch(org.apache.ibatis.exceptions.PersistenceException e) {
+            System.out.println(e.getMessage());
+            throw new PersistenceException("Error al consultar si el usuario le dio like");
+        }      
+    }
+
+    @Override
+    public void dislikes(int iniciativa_id, int usuario_id) throws PersistenceException {
+        try {
+            iniciativaMapper.dislikes(iniciativa_id,usuario_id);
+        }catch(org.apache.ibatis.exceptions.PersistenceException e) {
+            System.out.println(e.getMessage());
+            throw new PersistenceException("Error al dar dislike");
+        }      
+    }
 }
