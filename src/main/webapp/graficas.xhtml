@@ -7,8 +7,11 @@
         xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
 
     <h:head>
+        <title>Graficas</title>
         <link rel="stylesheet" href="Recursos/usuarios.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+        <link rel="shortcut icon" href="Recursos/favicon.ico" />
+
     </h:head>
     <body>
         <header>
@@ -24,25 +27,25 @@
                         <a class="toggleMenu" href="#" style="display: none;">Menu</a>
                         <ul class="nav" style="display: block;">
                             <li>
-                                    <a href="home.xhtml"><i class="fa fa-user" style="font-size:24px"></i>#{inicioBean.usuario.nombre} (#{inicioBean.usuario.rol})</a>
+                                    <a href="home.xhtml"><i class="fa fa-user" style="font-size:30px"></i>#{inicioBean.usuario.nombre} (#{inicioBean.usuario.rol})</a>
                             </li>
                             <li>
-                                <h:link outcome="consultarUsuarios" rendered="#{inicioBean.usuario.rol == 'Administrador'}" ><i class="fa fa-address-card" style="font-size:24px"></i>Consultar Usuarios del sistema</h:link><!-- Solo admin -->
+                                <h:link outcome="consultarUsuarios" rendered="#{inicioBean.usuario.rol == 'Administrador'}" ><i class="fa fa-address-card" style="font-size:30px"></i>Consultar Usuarios del sistema</h:link><!-- Solo admin -->
                             </li>
                             <li>
-                                <h:link outcome="ModificarIniciativas" rendered="#{inicioBean.usuario.rol == 'Administrador'}"><i class="fa fa-bars" style="font-size:24px"></i>Modificar Iniciativas</h:link><!-- Solo admin -->
+                                <h:link outcome="ModificarIniciativas" rendered="#{inicioBean.usuario.rol == 'Administrador'}"><i class="fa fa-bars" style="font-size:30px"></i>Modificar Iniciativas</h:link><!-- Solo admin -->
                             </li> 
                             <li>
-                               <h:link outcome="consultarIniciativaRefactor" ><i class="fa fa-search" style="font-size:24px" ></i>Consultar Iniciativas</h:link><!-- Para los 3 roles -->
+                               <h:link outcome="consultarIniciativaRefactor" ><i class="fa fa-search" style="font-size:30px" ></i>Consultar Iniciativas</h:link><!-- Para los 3 roles -->
                             </li> 
                             <li>
-                                <h:link outcome="RegistrarIniciativa.xhtml?usuarioId=#{inicioBean.usuario.id}" rendered="#{inicioBean.usuario.rol == 'Proponente'}"><i class=" fa fa-edit" style="font-size:24px" ></i>Nueva Iniciativa</h:link><!-- Solo proponente -->
+                                <h:link outcome="RegistrarIniciativa.xhtml?usuarioId=#{inicioBean.usuario.id}" rendered="#{inicioBean.usuario.rol == 'Proponente'}"><i class=" fa fa-edit" style="font-size:30px" ></i>Nueva Iniciativa</h:link><!-- Solo proponente -->
                             </li> 
                             <li>
-                                <h:link outcome="VerIniciativas" rendered="#{inicioBean.usuario.rol == 'Proponente'}" ><i class="fa fa-list" style="font-size:24px"></i>Mis Iniciativas</h:link><!-- para Proponente -->
+                                <h:link outcome="VerIniciativas" rendered="#{inicioBean.usuario.rol == 'Proponente'}" ><i class="fa fa-list" style="font-size:30px"></i>Mis Iniciativas</h:link><!-- para Proponente -->
                             </li>
                             <li>
-                                <h:link outcome="graficas"  onclick="#{chartView.listar()}"><i class="fa fa-bar-chart" style="font-size:24px"></i>Ver Estadisticas</h:link><!-- para Proponente y publico -->
+                                <h:link outcome="graficas"  onclick="#{chartView.listar()}"><i class="fa fa-bar-chart" style="font-size:30px"></i>Ver Estadisticas</h:link><!-- para Proponente y publico -->
                             </li>
                             <li>
                                  <h:form>                                                  
@@ -53,26 +56,22 @@
                     </div>
                 </center>       
         </section>
+        <br> </br>
         <h:form >
             <center>
             <p:panel id="Areas" style="width: 100%; height: 25%;">
                 <h:panelGrid columns="4" cellpadding="10"  >
-                                  <p:chart  type="pie" model="#{chartView.pieMode2}" style="height:10%; width: 10%" rendered="#{chartView.pieMode2 != null}" />
-                                  <p:chart type="bar" model="#{chartView.pieModel}" style="height:25%; width: 15%" rendered="#{chartView.pieModel != null}" widgetVar="char1"/>
-                                  <p:chart type="pie" model="#{chartView.pieMode4}" style="height:10%; width: 10%" rendered="#{chartView.pieMode4 != null}" />
-                                  
-                            </h:panelGrid>
+                    <p:chart  type="pie" model="#{chartView.pieMode2}" style="height:10%; width: 10%" rendered="#{chartView.pieMode2 != null}" />
+                    <p:chart type="bar" model="#{chartView.pieModel}" style="height:25%; width: 15%" rendered="#{chartView.pieModel != null}" widgetVar="char1"/>
+                    <p:chart type="pie" model="#{chartView.pieMode4}" style="height:10%; width: 10%" rendered="#{chartView.pieMode4 != null}" />                  
+                </h:panelGrid>
             </p:panel>
             </center>
-
-
-
         </h:form>
-        <h:form id="iniciativaForm">
-            
-            
-            
-            <p:dataTable id="iniciativa_tabla" var="iniciativa" value="#{chartView.e}"  paginator="true" rows="10" scrollable="true" scrollHeight="300">
+        <br> </br>
+        <center>
+        <h:form id="iniciativaForm" style="width: 1000px" >
+            <p:dataTable id="iniciativa_tabla" var="iniciativa" value="#{chartView.e}"  paginator="true" rows="10" scrollable="true" scrollHeight="300" paginatorPosition="top" >
                 <p:column headerText="Proponente"  >
                     <h:outputText value="#{iniciativa[0]}"/> 
 		</p:column>  
@@ -81,10 +80,8 @@
 		</p:column>
                   
             </p:dataTable>
-
-
         </h:form>
-        
+        </center>
         <footer id="footerinvestigacion">
                 <div class="footercontainer">
                     <div class="direccion">

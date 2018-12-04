@@ -62,10 +62,10 @@ public class RegistroBean extends BasePageBean{
     
     public Usuario consultarUsuario() {
     	try {
-			return servicioBanco.consultarUsuario(email);
-		} catch (ExcepcionServicesBanco e) {
-			return null;
-		}
+            return servicioBanco.consultarUsuario(email);
+        } catch (ExcepcionServicesBanco e) {
+                return null;
+        }
     }
     
     public void cambiarRol() throws ExcepcionServicesBanco{   

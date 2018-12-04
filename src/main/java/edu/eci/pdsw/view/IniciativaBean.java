@@ -47,7 +47,6 @@ public class IniciativaBean extends BasePageBean implements Serializable{
                 temp.addAll(servicioBanco.getIniciativas());
                 iniciativas= temp;
            }
-           //System.out.println(iniciativas.toString());
            return iniciativas;
         }catch(Exception ex){
             System.out.println(ex.getMessage());
@@ -72,7 +71,6 @@ public class IniciativaBean extends BasePageBean implements Serializable{
                 temp.addAll(servicioBanco.buscarIniciativaProponente(id));
                 iniciativas= temp;
            }
-           //System.out.println(iniciativas.toString());
             return iniciativas;
          }catch(Exception ex){
              System.out.println(ex.getMessage());
@@ -125,9 +123,6 @@ public class IniciativaBean extends BasePageBean implements Serializable{
                 temp.addAll(servicioBanco.buscarIniciativa(palabraClave));
                 iniciativas= temp;
             }
-             //System.out.println(iniciativas.toString());
-             //System.out.println("aaaaaaaaaaaaaaaaaaaaaa");
-
             return iniciativas;
         }
         catch (ExcepcionServicesBanco e) {
@@ -145,8 +140,6 @@ public class IniciativaBean extends BasePageBean implements Serializable{
                 temp.addAll(servicioBanco.buscarIniciativasRelacionadas(iniciativa));
                 iniciativas= temp;
             }
-          //System.out.println(iniciativas.toString());
-            // System.out.println("aaaaaaaaaaaaaaaaaaaaaa");
             return iniciativas;
         }
         catch (ExcepcionServicesBanco e) {
@@ -154,7 +147,6 @@ public class IniciativaBean extends BasePageBean implements Serializable{
         }    	
     }
     
-    // id de la iniciativa a la que se le va a dar like
     public void likes(int iniciativa_id,Usuario usuario,boolean like){
         try{
             mapliked.replace(Integer.toString(iniciativa_id) +  "_" + Integer.toString(usuario.getId()),like);

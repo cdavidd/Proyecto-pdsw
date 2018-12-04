@@ -158,7 +158,6 @@ public class ServiciosBancoImpl implements ServiciosBanco{
             for (String s : iniciativaDAO.getEstadisticas()){
                 String[] te = new String[2];
                 te=s.split(" ");
-                //System.out.println(te[0]+" "+te[1]);
                 temp.add(te);
             }
             return temp;
@@ -186,7 +185,6 @@ public class ServiciosBancoImpl implements ServiciosBanco{
             for (String s : iniciativaDAO.getEstadisticasEstado()){
                 String[] te = new String[2];
                 te=s.split(" ");
-                //System.out.println(te[0]+" "+te[1]);
                 temp.add(te);
             }
             return temp;

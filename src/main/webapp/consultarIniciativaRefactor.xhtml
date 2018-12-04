@@ -6,9 +6,11 @@
 	xmlns:p="http://primefaces.org/ui">
 
     <h:head>
-        <title>Inicio</title>
+        <title>Consultar Iniciativa</title>
         <link rel="stylesheet" href="Recursos/usuarios.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+        <link rel="shortcut icon" href="Recursos/favicon.ico" />
+
         <f:metadata>
                 <f:viewAction action="#{iniciativaBean.cambioPagina()}" />
         </f:metadata>
@@ -27,25 +29,25 @@
                         <a class="toggleMenu" href="#" style="display: none;">Menu</a>
                         <ul class="nav" style="display: block;">
                             <li>
-                                    <a href="home.xhtml"><i class="fa fa-user" style="font-size:24px"></i>#{inicioBean.usuario.nombre} (#{inicioBean.usuario.rol})</a>
+                                    <a href="home.xhtml"><i class="fa fa-user" style="font-size:30px"></i>#{inicioBean.usuario.nombre} (#{inicioBean.usuario.rol})</a>
                             </li>
                             <li>
-                                <h:link outcome="consultarUsuarios" rendered="#{inicioBean.usuario.rol == 'Administrador'}" ><i class="fa fa-address-card" style="font-size:24px"></i>Consultar Usuarios del sistema</h:link><!-- Solo admin -->
+                                <h:link outcome="consultarUsuarios" rendered="#{inicioBean.usuario.rol == 'Administrador'}" ><i class="fa fa-address-card" style="font-size:30px"></i>Consultar Usuarios del sistema</h:link><!-- Solo admin -->
                             </li>
                             <li>
-                                <h:link outcome="ModificarIniciativas" rendered="#{inicioBean.usuario.rol == 'Administrador'}"><i class="fa fa-bars" style="font-size:24px"></i>Modificar Iniciativas</h:link><!-- Solo admin -->
+                                <h:link outcome="ModificarIniciativas" rendered="#{inicioBean.usuario.rol == 'Administrador'}"><i class="fa fa-bars" style="font-size:30px"></i>Modificar Iniciativas</h:link><!-- Solo admin -->
                             </li> 
                             <li>
-                               <h:link outcome="consultarIniciativaRefactor" ><i class="fa fa-search" style="font-size:24px" ></i>Consultar Iniciativas</h:link><!-- Para los 3 roles -->
+                               <h:link outcome="consultarIniciativaRefactor" ><i class="fa fa-search" style="font-size:30px" ></i>Consultar Iniciativas</h:link><!-- Para los 3 roles -->
                             </li> 
                             <li>
-                                <h:link outcome="RegistrarIniciativa.xhtml?usuarioId=#{inicioBean.usuario.id}" rendered="#{inicioBean.usuario.rol == 'Proponente'}"><i class=" fa fa-edit" style="font-size:24px" ></i>Nueva Iniciativa</h:link><!-- Solo proponente -->
+                                <h:link outcome="RegistrarIniciativa.xhtml?usuarioId=#{inicioBean.usuario.id}" rendered="#{inicioBean.usuario.rol == 'Proponente'}"><i class=" fa fa-edit" style="font-size:30px" ></i>Nueva Iniciativa</h:link><!-- Solo proponente -->
                             </li> 
                             <li>
-                                <h:link outcome="VerIniciativas" rendered="#{inicioBean.usuario.rol == 'Proponente'}" ><i class="fa fa-list" style="font-size:24px"></i>Mis Iniciativas</h:link><!-- para Proponente -->
+                                <h:link outcome="VerIniciativas" rendered="#{inicioBean.usuario.rol == 'Proponente'}" ><i class="fa fa-list" style="font-size:30px"></i>Mis Iniciativas</h:link><!-- para Proponente -->
                             </li>
                             <li>
-                                <h:link outcome="graficas" onclick="#{chartView.listar()}" ><i class="fa fa-bar-chart" style="font-size:24px"></i>Ver Estadisticas</h:link><!-- para Proponente y publico -->
+                                <h:link outcome="graficas" onclick="#{chartView.listar()}" ><i class="fa fa-bar-chart" style="font-size:30px"></i>Ver Estadisticas</h:link><!-- para Proponente y publico -->
                             </li>
                             <li>
                                  <h:form>                                                  
@@ -59,43 +61,51 @@
         
         
         <h:form id="iniciativaForm">
-            <br><p:inputText id="palabraclave"  placeholder="palabras clave" value="#{iniciativaBean.palabraC}"> </p:inputText></br>
             
-            <p:commandButton value="actualizar" update="iniciativa_tabla" />    
-            <p:dataTable id="iniciativa_tabla" var="iniciativa" value="#{iniciativaBean.buscarIniciativas(iniciativaBean.palabraC)}"  paginator="true" rows="10" scrollable="true" scrollHeight="300" sortBy="#{iniciativaBean.consultarLikes(iniciativa.id)}" sortOrder="DESCENDING" sortField="megusta" >
-                <p:column headerText="Proponente"  sortBy="#{iniciativa.usuario.nombre}">
-                    <h:outputText value="#{iniciativa.usuario.nombre}"/> 
-		</p:column>  
-                  <p:column headerText="Descripcion"  sortBy="#{iniciativa.descripcion}">
-                    <h:outputText value="#{iniciativa.descripcion}"/>
-		</p:column>
-                  <p:column headerText="Estado" sortBy="#{iniciativa.estado}" filterBy="#{iniciativa.estado}">
-                    <h:outputText value="#{iniciativa.estado}" />
-		</p:column>
-                  <p:column headerText="Fecha_Creacion" sortBy="#{iniciativa.fechaCreacion}">
-                    <h:outputText value="#{iniciativa.fechaCreacion}" />
-		</p:column>
-                  <p:column headerText="Area" sortBy="#{iniciativa.usuario.area}">
-                    <h:outputText value="#{iniciativa.usuario.area}" />
-		</p:column>
-                  <p:column headerText="Palabras clave" sortBy="#{iniciativa.palabrasClave}" >
-                    <h:outputText value="#{iniciativa.palabrasClave}" />
-		</p:column>
-                <p:column headerText="Comentar">
-			<p:button outcome="perfilIniciativaComment.xhtml?id=#{iniciativa.id}" value="Comentar Iniciativa" />
-		</p:column>
-                <p:column headerText="Ver Comentarios">
-			<p:button outcome="verComentarios.xhtml?id=#{iniciativa.id}" value="Ver Comentarios" />
-		</p:column>
-                <p:column  id="megusta" headerText="Me gusta" sortBy="#{iniciativaBean.consultarLikes(iniciativa.id)}">
-                    <center style="margin-top: 20%; margin-bottom: 10%">
-                        <p:commandButton rendered="#{iniciativaBean.estadoLike(iniciativa.id,inicioBean.usuario) == true}" update="iniciativa_tabla" value="#{iniciativaBean.consultarLikes(iniciativa.id)}" actionListener="#{iniciativaBean.likes(iniciativa.id, inicioBean.usuario,false)}" class="fa fa-thumbs-up" style="background: none; color: #EFEBE9; font-size:210%;color:#EFEBE9 ;border:none "> </p:commandButton>
-                        <p:commandButton rendered="#{iniciativaBean.estadoLike(iniciativa.id,inicioBean.usuario)== false}" update="iniciativa_tabla" value="#{iniciativaBean.consultarLikes(iniciativa.id)}" actionListener="#{iniciativaBean.likes(iniciativa.id, inicioBean.usuario,true)}" class="fa fa-thumbs-up" style="background: none; color: #0f8279; font-size:210%;color:cornflowerblue ;border:none "> </p:commandButton>
-                    </center>
-		</p:column>
-            </p:dataTable>
-
-
+            <br> </br>
+            <div style="display:grid;grid-template-columns:1100px 150px;margin-left: 17%" >
+                    <p:inputText id="palabraclave"  placeholder="palabras clave" value="#{iniciativaBean.palabraC}" style="width:1000px"> </p:inputText>
+                    <p:commandButton value="actualizar" update="iniciativa_tabla" />   
+            </div>
+            <br> </br>
+            <center>
+                <p:dataTable id="iniciativa_tabla" var="iniciativa" value="#{iniciativaBean.buscarIniciativas(iniciativaBean.palabraC)}"  paginator="true" paginatorPosition="top" rows="5" scrollable="true" scrollHeight="300" sortBy="#{iniciativaBean.consultarLikes(iniciativa.id)}" sortOrder="DESCENDING" sortField="megusta" style="width:1800px"  >
+                    <p:column headerText="Proponente"  sortBy="#{iniciativa.usuario.nombre}">
+                        <h:outputText value="#{iniciativa.usuario.nombre}"/> 
+                    </p:column>  
+                      <p:column headerText="Descripcion"  sortBy="#{iniciativa.descripcion}">
+                        <h:outputText value="#{iniciativa.descripcion}"/>
+                    </p:column>
+                      <p:column headerText="Estado" sortBy="#{iniciativa.estado}" filterBy="#{iniciativa.estado}">
+                        <h:outputText value="#{iniciativa.estado}" />
+                    </p:column>
+                      <p:column headerText="Fecha_Creacion" sortBy="#{iniciativa.fechaCreacion}">
+                        <h:outputText value="#{iniciativa.fechaCreacion}" />
+                    </p:column>
+                      <p:column headerText="Area" sortBy="#{iniciativa.usuario.area}">
+                        <h:outputText value="#{iniciativa.usuario.area}" />
+                    </p:column>
+                      <p:column headerText="Palabras clave" sortBy="#{iniciativa.palabrasClave}" >
+                        <h:outputText value="#{iniciativa.palabrasClave}" />
+                    </p:column>
+                    <p:column headerText="Comentar">
+                        <center>
+                            <p:button outcome="perfilIniciativaComment.xhtml?id=#{iniciativa.id}" value="Comentar Iniciativa" />    
+                        </center>
+                    </p:column>
+                    <p:column headerText="Ver Comentarios">
+                        <center>
+                            <p:button outcome="verComentarios.xhtml?id=#{iniciativa.id}" value="Ver Comentarios" />
+                        </center>
+                    </p:column>
+                    <p:column  id="megusta" headerText="Me gusta" sortBy="#{iniciativaBean.consultarLikes(iniciativa.id)}">
+                        <center style="margin-top: 20%; margin-bottom: 10%">
+                            <p:commandButton rendered="#{iniciativaBean.estadoLike(iniciativa.id,inicioBean.usuario) == true}" update="iniciativa_tabla" value="#{iniciativaBean.consultarLikes(iniciativa.id)}" actionListener="#{iniciativaBean.likes(iniciativa.id, inicioBean.usuario,false)}" class="fa fa-thumbs-up" style="background: none; color: #EFEBE9; font-size:210%;color:#EFEBE9 ;border:none "> </p:commandButton>
+                            <p:commandButton rendered="#{iniciativaBean.estadoLike(iniciativa.id,inicioBean.usuario)== false}" update="iniciativa_tabla" value="#{iniciativaBean.consultarLikes(iniciativa.id)}" actionListener="#{iniciativaBean.likes(iniciativa.id, inicioBean.usuario,true)}" class="fa fa-thumbs-up" style="background: none; color: #0f8279; font-size:210%;color:cornflowerblue ;border:none "> </p:commandButton>
+                        </center>
+                    </p:column>
+                </p:dataTable>
+            </center>
         </h:form>
         <footer id="footerinvestigacion">
                 <div class="footercontainer">

@@ -6,9 +6,10 @@
 	xmlns:p="http://primefaces.org/ui">
 
     <h:head>
-        <title>Inicio</title>
+        <title>Ver Iniciativas</title>
         <link rel="stylesheet" href="Recursos/usuarios.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+        <link rel="shortcut icon" href="Recursos/favicon.ico" />
     </h:head>
     <h:body style="overflow-x:hidden; overflow-y:scroll">
         <header>
@@ -27,25 +28,25 @@
                         <a class="toggleMenu" href="#" style="display: none;">Menu</a>
                         <ul class="nav" style="display: block;">
                             <li>
-                                    <a href="home.xhtml"><i class="fa fa-user" style="font-size:24px"></i>#{inicioBean.usuario.nombre} (#{inicioBean.usuario.rol})</a>
+                                    <a href="home.xhtml"><i class="fa fa-user" style="font-size:30px"></i>#{inicioBean.usuario.nombre} (#{inicioBean.usuario.rol})</a>
                             </li>
                             <li>
-                                <h:link outcome="consultarUsuarios" rendered="#{inicioBean.usuario.rol == 'Administrador'}" ><i class="fa fa-address-card" style="font-size:24px"></i>Consultar Usuarios del sistema</h:link><!-- Solo admin -->
+                                <h:link outcome="consultarUsuarios" rendered="#{inicioBean.usuario.rol == 'Administrador'}" ><i class="fa fa-address-card" style="font-size:30px"></i>Consultar Usuarios del sistema</h:link><!-- Solo admin -->
                             </li>
                             <li>
-                                <h:link outcome="ModificarIniciativas" rendered="#{inicioBean.usuario.rol == 'Administrador'}"><i class="fa fa-bars" style="font-size:24px"></i>Modificar Iniciativas</h:link><!-- Solo admin -->
+                                <h:link outcome="ModificarIniciativas" rendered="#{inicioBean.usuario.rol == 'Administrador'}"><i class="fa fa-bars" style="font-size:30px"></i>Modificar Iniciativas</h:link><!-- Solo admin -->
                             </li> 
                             <li>
-                               <h:link outcome="consultarIniciativaRefactor" ><i class="fa fa-search" style="font-size:24px" ></i>Consultar Iniciativas</h:link><!-- Para los 3 roles -->
+                               <h:link outcome="consultarIniciativaRefactor" ><i class="fa fa-search" style="font-size:30px" ></i>Consultar Iniciativas</h:link><!-- Para los 3 roles -->
                             </li> 
                             <li>
-                                <h:link outcome="RegistrarIniciativa.xhtml?usuarioId=#{inicioBean.usuario.id}" rendered="#{inicioBean.usuario.rol == 'Proponente'}"><i class=" fa fa-edit" style="font-size:24px" ></i>Nueva Iniciativa</h:link><!-- Solo proponente -->
+                                <h:link outcome="RegistrarIniciativa.xhtml?usuarioId=#{inicioBean.usuario.id}" rendered="#{inicioBean.usuario.rol == 'Proponente'}"><i class=" fa fa-edit" style="font-size:30px" ></i>Nueva Iniciativa</h:link><!-- Solo proponente -->
                             </li> 
                             <li>
-                                <h:link outcome="VerIniciativas" rendered="#{inicioBean.usuario.rol == 'Proponente'}" ><i class="fa fa-list" style="font-size:24px"></i>Mis Iniciativas</h:link><!-- para Proponente -->
+                                <h:link outcome="VerIniciativas" rendered="#{inicioBean.usuario.rol == 'Proponente'}" ><i class="fa fa-list" style="font-size:30px"></i>Mis Iniciativas</h:link><!-- para Proponente -->
                             </li>
                             <li>
-                                <h:link outcome="graficas"  onclick="#{chartView.listar()}"><i class="fa fa-bar-chart" style="font-size:24px"></i>Ver Estadisticas</h:link><!-- para Proponente y publico -->
+                                <h:link outcome="graficas"  onclick="#{chartView.listar()}"><i class="fa fa-bar-chart" style="font-size:30px"></i>Ver Estadisticas</h:link><!-- para Proponente y publico -->
                             </li>
                             <li>
                                  <h:form>                                                  
@@ -56,36 +57,42 @@
                     </div>
                 </center>       
         </section>
-        
-        <h:form id="iniciativaForm">
-            <p:dataTable id="iniciativa_tabla" rendered="true"  rows="3" paginator="true" var="iniciativa" value="#{iniciativaBean.buscarIniciativaProponente(inicioBean.usuario.id)}" scrollable="true" scrollHeight="300">
-		<p:column headerText="Nombre Proponente">
-                        <h:outputText value="#{iniciativa.usuario.nombre}" />
-                </p:column>
-                <p:column headerText="Descripcion"  sortBy="#{iniciativa.descripcion}">
-                    <h:outputText value="#{iniciativa.descripcion}" />
-		</p:column>
-		<p:column headerText="Estado" sortBy="#{iniciativa.estado}">
-                    <h:outputText value="#{iniciativa.estado}" />
-		</p:column>
-		<p:column headerText="Fecha_Creacion" sortBy="#{iniciativa.fechaCreacion}">
-                    <h:outputText value="#{iniciativa.fechaCreacion}" />
-		</p:column>
-		<p:column headerText="Area" sortBy="#{iniciativa.usuario.area}">
-                    <h:outputText value="#{iniciativa.usuario.area}" />
-		</p:column>
-                <p:column headerText="Palabras clave" sortBy="#{iniciativa.palabrasClave}">
-                    <h:outputText value="#{iniciativa.palabrasClave}" />
-		</p:column>
-                <p:column headerText="Iniciativa">
-			<p:button outcome="perfilIniciativaCorriente.xhtml?id=#{iniciativa.id}" value="Ver Iniciativa" />
-		</p:column>
-                <p:column headerText="modificar">
-			<p:button outcome="Iniciativa.xhtml?id=#{iniciativa.id}" value="Modificar iniciativa" />
-		</p:column>
-                
-            </p:dataTable>
-        </h:form>
+        <br> </br>
+        <center>
+            <h:form id="iniciativaForm">
+                <p:dataTable id="iniciativa_tabla" rendered="true"  rows="3" paginator="true" var="iniciativa" value="#{iniciativaBean.buscarIniciativaProponente(inicioBean.usuario.id)}" scrollable="true" scrollHeight="300" style="width: 1500px" paginatorPosition="top">
+                    <p:column headerText="Nombre Proponente">
+                            <h:outputText value="#{iniciativa.usuario.nombre}" />
+                    </p:column>
+                    <p:column headerText="Descripcion"  sortBy="#{iniciativa.descripcion}">
+                        <h:outputText value="#{iniciativa.descripcion}" />
+                    </p:column>
+                    <p:column headerText="Estado" sortBy="#{iniciativa.estado}">
+                        <h:outputText value="#{iniciativa.estado}" />
+                    </p:column>
+                    <p:column headerText="Fecha_Creacion" sortBy="#{iniciativa.fechaCreacion}">
+                        <h:outputText value="#{iniciativa.fechaCreacion}" />
+                    </p:column>
+                    <p:column headerText="Area" sortBy="#{iniciativa.usuario.area}">
+                        <h:outputText value="#{iniciativa.usuario.area}" />
+                    </p:column>
+                    <p:column headerText="Palabras clave" sortBy="#{iniciativa.palabrasClave}">
+                        <h:outputText value="#{iniciativa.palabrasClave}" />
+                    </p:column>
+                    <p:column headerText="Iniciativa">
+                        <center>
+                            <p:button outcome="perfilIniciativaCorriente.xhtml?id=#{iniciativa.id}" value="Ver Iniciativa" />
+                        </center>
+                    </p:column>
+                    <p:column headerText="Modificar">
+                        <center>
+                            <p:button outcome="Iniciativa.xhtml?id=#{iniciativa.id}" value="Modificar iniciativa" />
+                        </center>
+                    </p:column>
+
+                </p:dataTable>
+            </h:form>
+        </center>
                 <footer id="footerinvestigacion">
                 <div class="footercontainer">
                     <div class="direccion">
