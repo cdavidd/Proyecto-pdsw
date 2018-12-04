@@ -92,7 +92,9 @@ center {
 }
 a {
     text-decoration: none;
+    
 }
+
 @media (max-width: 900px){
     .menu {
         background-color: #F5F5F5;

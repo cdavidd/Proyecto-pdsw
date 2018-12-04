@@ -33,8 +33,8 @@ public class InicioBean extends BasePageBean{
     private String contrasena;
     private String email;
     private Usuario usuario;
+    private String message;
 
-    
     
     public Usuario consultar(String correo){
         try{
@@ -75,4 +75,24 @@ public class InicioBean extends BasePageBean{
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
+    
+    public String irHome(){
+        if (usuario == null){
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null,new FacesMessage(FacesMessage.SEVERITY_FATAL,"Error","Acceso Denegado"));
+            return "inicioSesion";
+        }
+        else return "home";
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+    
+    
+    
 }
