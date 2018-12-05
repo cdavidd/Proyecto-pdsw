@@ -45,20 +45,22 @@
                 
             
         <center>
-            <h:form class="contenedor">
+            <h:form class="contenedor">  
+                <p:panel>
                 <p:growl id="growl" showDetail="true" sticky="true"  />
                 <div id="imagenLog">
                     <img src="Recursos\login.png" width="20%" height="20%" />
                 </div>
                 <div id="Cuadro_email">
-                        <br><p:inputText id="correo" placeholder="&#128386; Correo" value="#{inicioBean.email}" > </p:inputText></br>
+                    <br><p:inputText  id="correo" placeholder="&#128386; Correo" value="#{inicioBean.email}" > </p:inputText></br>
                 </div>
                 <div id="Cuadro_pass">
-                        <br><p:inputText id="contrasena"  placeholder="&#128272; Contraseña" type="password" value="#{inicioBean.contrasena}" > </p:inputText></br>
+                    <br><p:inputText  id="contrasena"  placeholder="&#128272; Contraseña" type="password" value="#{inicioBean.contrasena}" > </p:inputText></br>
                 </div>
                 <div id="Botones">
-                    <p:commandButton  id ="enviar"  value="login" actionListener="#{inicioBean.consultar(inicioBean.email)}"  action= "#{inicioBean.irHome()}" update="@form" />  
+                    <p:commandButton  id ="enviar"  value="login" actionListener="#{inicioBean.consultar(inicioBean.email,inicioBean.contrasena)}"  action= "#{inicioBean.irHome()}" update="@form" />  
                 </div>
+                </p:panel>
             </h:form>
         </center>
             

@@ -62,4 +62,6 @@ public interface ServiciosBanco {
     public String consultarLikes(int id) throws ExcepcionServicesBanco;
     
     public boolean consultarUsuarioDioLike(int iniciativa,int usuario) throws ExcepcionServicesBanco;
+    
+    
 }

@@ -34,16 +34,22 @@ public class InicioBean extends BasePageBean{
     private String email;
     private Usuario usuario;
     private String message;
-
+    private boolean conIncorrecta;
     
-    public Usuario consultar(String correo){
+    public Usuario consultar(String correo,String contrasena){
         try{
             this.setUsuario(servicioBanco.consultarUsuario(correo));
+            if (!usuario.getContrasena().equals(contrasena)) setUsuario(null);
             return servicioBanco.consultarUsuario(correo);
-        }catch(ExcepcionServicesBanco ex){
-            System.out.println(ex.getMessage());
+        }
+        catch(ExcepcionServicesBanco ex){
+            //System.out.println(ex.getMessage());
             return null;
-        }        	
+        }
+        catch(Exception e){
+            setUsuario(null);
+            return null;
+        }
     }
 
     public void reiniciar(){
@@ -78,8 +84,8 @@ public class InicioBean extends BasePageBean{
     
     public String irHome(){
         if (usuario == null){
-            FacesContext context = FacesContext.getCurrentInstance();
-            context.addMessage(null,new FacesMessage(FacesMessage.SEVERITY_FATAL,"Error","Acceso Denegado"));
+            FacesContext context = FacesContext.getCurrentInstance();                
+            context.addMessage(null,new FacesMessage(FacesMessage.SEVERITY_FATAL,"Error de auntenticacion","Usuario o Contrasena incorrectos"));            
             return "inicioSesion";
         }
         else return "home";
@@ -93,6 +99,12 @@ public class InicioBean extends BasePageBean{
         this.message = message;
     }
     
-    
+    public boolean isConIncorrecta() {
+        return conIncorrecta;
+    }
+
+    public void setConIncorrecta(boolean conIncorrecta) {
+        this.conIncorrecta = conIncorrecta;
+    }
     
 }
