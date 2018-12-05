@@ -57,8 +57,8 @@
                 <div id="Cuadro_pass">
                     <br><p:inputText  id="contrasena"  placeholder="&#128272; Contraseña" type="password" value="#{inicioBean.contrasena}" > </p:inputText></br>
                 </div>
-                <div id="Botones">
-                    <p:commandButton  id ="enviar"  value="login" actionListener="#{inicioBean.consultar(inicioBean.email,inicioBean.contrasena)}"  action= "#{inicioBean.irHome()}" update="@form" />  
+                <div class="Botones">
+                    <p:commandButton  styleClass="enviar"  value="Login" actionListener="#{inicioBean.consultar(inicioBean.email,inicioBean.contrasena)}"  action= "#{inicioBean.irHome()}" update="@form" />  
                 </div>
                 </p:panel>
             </h:form>

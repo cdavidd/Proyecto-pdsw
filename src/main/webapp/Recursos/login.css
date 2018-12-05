@@ -251,3 +251,27 @@ footer {
     top:80%;
 }
 
+
+.ui-widget.ui-button.enviar{
+    background-color:  #990000 !important;
+    width: 60% !important;
+    margin-bottom: 4% !important;
+    margin-top:2% !important;
+    border-color: black !important;
+}
+
+.ui-widget.ui-button.enviar.ui-state-hover{
+    background-color: #0f8279 !important;      
+}
+
+.ui-widget.ui-button.registrar{
+    background-color:  #990000 !important;
+    width: 70% !important;
+    margin-bottom: 4% !important;
+    margin-top:2% !important;
+    border-color: black !important;
+}
+
+.ui-widget.ui-button.registrar.ui-state-hover{
+    background-color: #0f8279 !important;      
+}
