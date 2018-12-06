@@ -34,9 +34,6 @@
                                  <li>
                                      <a href="Registro.xhtml"><i class=" fa fa-edit" style="font-size:35px" ></i>Registrarse</a>
                                  </li>
-                                <li>
-                                         <a href=""><i class=" fa fa-phone-square" style="font-size:35px"></i>Contactenos</a>
-                                </li> 
                          </ul>
                      </div>
                  </center>       
@@ -53,7 +50,7 @@
 
                         <br><p:inputText id="contrasena" placeholder="&#128272; Contraseña" type="password" value="#{registroBean.contrasena}"> </p:inputText></br>
                         <div id="Botones">
-                            <p:commandButton styleClass="registrar" value="Registrarse" actionListener="#{registroBean.registrarUsuario(registroBean.nombre,registroBean.email,registroBean.contrasena,registroBean.area)}" action="inicioSesion.xhtml" />
+                            <p:commandButton styleClass="registrar" style="border-radius: 15px" value="Registrarse" actionListener="#{registroBean.registrarUsuario(registroBean.nombre,registroBean.email,registroBean.contrasena,registroBean.area)}" action="inicioSesion.xhtml" />
                         </div>
                       </p:panel> 
                 </h:form>

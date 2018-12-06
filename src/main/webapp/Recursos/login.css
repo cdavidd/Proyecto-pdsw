@@ -258,6 +258,9 @@ footer {
     margin-bottom: 4% !important;
     margin-top:2% !important;
     border-color: black !important;
+    border-radius: 30px 30px 30px 30px !important;
+    -moz-border-radius: 30px 30px 30px 30px !important;
+    -webkit-border-radius: 30px 30px 30px 30px !important;
 }
 
 .ui-widget.ui-button.enviar.ui-state-hover{
