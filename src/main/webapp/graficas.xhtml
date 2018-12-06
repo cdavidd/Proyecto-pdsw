@@ -56,46 +56,41 @@
                     </div>
                 </center>       
         </section>
-        <br> </br>
-        <h:form >
-            <center>
-            <p:panel id="Areas" style="width: 100%; height: 25%;">
-                <h:panelGrid columns="4" cellpadding="10"  >
-                    <p:chart  type="pie" model="#{chartView.pieMode2}" style="height:10%; width: 10%" rendered="#{chartView.pieMode2 != null}" />
-                    <p:chart type="bar" model="#{chartView.pieModel}" style="height:25%; width: 15%" rendered="#{chartView.pieModel != null}" widgetVar="char1"/>
-                    <p:chart type="pie" model="#{chartView.pieMode4}" style="height:10%; width: 10%" rendered="#{chartView.pieMode4 != null}" />                  
-                </h:panelGrid>
-            </p:panel>
-            </center>
-        </h:form>
-        <br> </br>
+        <br></br>
         <center>
-        <h:form id="iniciativaForm" style="width: 1000px" >
-            <p:dataTable id="iniciativa_tabla" var="iniciativa" value="#{chartView.e}"  paginator="true" rows="10" scrollable="true" scrollHeight="300" paginatorPosition="top" >
-                <p:column headerText="Proponente"  >
+            <i  style="font-size:30px">Iniciativas Por Area</i>
+        </center>
+        
+        <p:chart  type="pie" model="#{chartView.pieMode2}" style=" left: 35%; top: 27%;position: absolute; width: 25%; height: 35%" rendered="#{chartView.pieMode2 != null}" />
+             <p:chart type="bar" model="#{chartView.pieModel}" style="left: 65%; top: 27%;position: absolute; height: 40%" rendered="#{chartView.pieModel != null}" widgetVar="char1"/>
+         
+        <h:form id="iniciativaForm" style="position: absolute;width: 20%; top:27%; left: 5%" >
+            <p:dataTable id="iniciativa_tabla" var="iniciativa" value="#{chartView.e}"  scrollable="true" scrollHeight="300" >
+                <p:column headerText="Area"  >
                     <h:outputText value="#{iniciativa[0]}"/> 
 		</p:column>  
-                  <p:column headerText="Descripcion"  >
+                  <p:column headerText="Iniciativas"  >
                     <h:outputText value="#{iniciativa[1]}"/>
 		</p:column>
                   
             </p:dataTable>
         </h:form>
-        </center>
-        <footer id="footerinvestigacion">
-                <div class="footercontainer">
-                    <div class="direccion">
-                        <p>ESCUELA COLOMBIANA DE INGENIERIA JULIO GARAVITO</p>
-                        <br>AK.45 No.205-59 (Autopista Norte)</br>
-                        Contact center: 57(1) 668 3600
-                        <br>Linea Nacional Gratuita: 018000112668</br>
-                        Informacion detallada en: www.escuelaing.edu.co<br></br>
-                        Vigilada Mineducacion.
-                        <br><br>Bogota, D.C. - Colombia</br></br>          
-                   </div> 
-                </div>
-             </footer>
-        
+         <center>
+            <i  style="font-size:30px ; position: absolute; top: 61%; left: 40%">Iniciativas Por Estado</i>
+        </center>        
+         <h:form id="iniciativaForme" style="position: absolute;width: 20%; top:67%; left: 5%" >
+             <p:dataTable id="iniciativa_tabla" var="iniciativa" value="#{chartView.d}"  scrollable="true" scrollHeight="300" >
+                <p:column headerText="Estado"  >
+                    <h:outputText value="#{iniciativa[0]}"/> 
+		</p:column>  
+                  <p:column headerText="Iniciativa"  >
+                    <h:outputText value="#{iniciativa[1]}"/>
+		</p:column>
+                  
+            </p:dataTable>
+        </h:form>
+             <p:chart type="pie" model="#{chartView.pieMode4}" style=" left: 35%; top: 67%;position: absolute; width: 25% ; height: 35%" rendered="#{chartView.pieMode4 != null}" /> 
+             <p:chart type="bar" model="#{chartView.pieMode3}" style="left: 65%; top: 67%;position: absolute; height: 40%" rendered="#{chartView.pieMode3 != null}"/>
     </body>
     
 	
