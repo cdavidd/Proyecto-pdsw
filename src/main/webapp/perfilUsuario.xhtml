@@ -62,16 +62,24 @@
                 <h:form id="UsuariosForm" style="width:1500px" >
                   <p:dataTable id="usuarios_tabla" var="usuario" value="#{registroBean.consultarUsuario()}">
                      <p:column headerText="Nombre">
-                                <h:outputText value="#{usuario.nombre}" />
+                        <center>
+                            <h:outputText value="#{usuario.nombre}" />
+                        </center>
                     </p:column>
                     <p:column headerText="Email">
-                        <h:outputText value="#{usuario.email}" />
+                        <center>
+                            <h:outputText value="#{usuario.email}" />
+                        </center>
                     </p:column>
                     <p:column headerText="Rol">
-                        <h:outputText value="#{usuario.rol}" />
+                        <center>
+                            <h:outputText value="#{usuario.rol}" />
+                        </center>
                     </p:column>
                     <p:column headerText="Area">
-                        <h:outputText value="#{usuario.area}" />
+                        <center>
+                            <h:outputText value="#{usuario.area}" />
+                        </center>
                     </p:column>
                     </p:dataTable>
                     <br> </br>

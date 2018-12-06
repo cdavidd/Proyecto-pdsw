@@ -63,9 +63,11 @@
             <br> </br>
             <center>
                 <h:form id="UsuariosForm" style="width:1500px">
-                  <p:dataTable id="usuarios_tabla" var="ini" value="#{administradorBean.consultarIniciativa()}">
+                  <p:dataTable id="usuarios_tabla" var="ini" value="#{administradorBean.consultarIniciativa()}"  >
                     <p:column headerText="Proponente">
-                                <h:outputText value="#{ini.usuario.nombre}" />
+                        <center>
+                            <h:outputText value="#{ini.usuario.nombre}" />                            
+                        </center>
                     </p:column> 
                      <p:column headerText="Descripcion">
                                 <h:outputText value="#{ini.descripcion}" />
@@ -74,7 +76,9 @@
                         <h:outputText value="#{ini.fechaCreacion}" />
                     </p:column>
                     <p:column headerText="Area">
-                                <h:outputText value="#{ini.usuario.area}" />
+                        <center>
+                            <h:outputText value="#{ini.usuario.area}" />                          
+                        </center>
                     </p:column>
                 </p:dataTable>
                 <br> </br>

@@ -58,18 +58,19 @@
         <br> </br>
         <center>
             <h:form id="iniciativaForm">
-                <p:dataTable id="iniciativa_tabla" rendered="true"  paginator="true" var="comentario" value="#{comentarioBean.getComentarios()}" scrollable="true" scrollHeight="300" style="width: 1500px">
+                <p:dataTable id="iniciativa_tabla" rendered="true"  paginator="true" var="comentario" value="#{comentarioBean.getComentarios()}" paginatorPosition="top" scrollable="true" scrollHeight="300" style="width: 1500px">
                     <p:column headerText="Comentarista">
-                        <h:outputText value="#{comentario.usuario.nombre}" />
+                        <center>
+                            <h:outputText value="#{comentario.usuario.nombre}" />                           
+                        </center>
                     </p:column>
                     <p:column headerText="Comentario">
                         <h:outputText value="#{comentario.comentario}" />
                     </p:column>
                     <p:column headerText="Fecha Publicacion">
-                        <h:outputText value="#{comentario.fecha_publicacion}" />
-                    </p:column>
-                    <p:column headerText="Iniciativa">
-                        <h:outputText value="#{comentario.iniciativa.id}" />
+                        <center> 
+                            <h:outputText value="#{comentario.fecha_publicacion}" />                        
+                        </center>
                     </p:column>
                 </p:dataTable>
             </h:form>
