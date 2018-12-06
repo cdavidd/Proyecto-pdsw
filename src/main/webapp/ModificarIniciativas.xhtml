@@ -64,19 +64,27 @@
                             <h:outputText value="#{iniciativa.descripcion}" />
                 </p:column>
                 <p:column headerText="Estado" >
-                            <h:outputText value="#{iniciativa.estado}" />
+                    <center>
+                        <h:outputText value="#{iniciativa.estado}" />
+                    </center>
                 </p:column>
                 <p:column headerText="Fecha_Creacion" >
                     <h:outputText value="#{iniciativa.fechaCreacion}" />
                 </p:column>
                 <p:column headerText="Area" >
-                    <h:outputText value="#{iniciativa.usuario.area}" />
+                    <center>
+                        <h:outputText value="#{iniciativa.usuario.area}" />
+                    </center>
 		</p:column>
                 <p:column headerText="Palabras clave" >
-                    <h:outputText value="#{iniciativa.palabrasClave}" />
+                    <center>
+                        <h:outputText value="#{iniciativa.palabrasClave}" />
+                    </center>
 		</p:column>
                 <p:column headerText="Iniciativa">
+                    <center>
 			<p:button outcome="perfilIniciativa.xhtml?id=#{iniciativa.id}" value="Ir a Iniciativa" />
+                    </center>
 		</p:column>   
             </p:dataTable>
             </h:form>

@@ -81,10 +81,7 @@ public class RegistroBean extends BasePageBean{
      * @throws ExcepcionServicesBanco 
      */
     public void cambiarRol() throws ExcepcionServicesBanco{   
-    	System.out.println(rol);
         Usuario usuario=consultarUsuario();
-        System.out.println(usuario);
-        System.out.println(email);
         servicioBanco.cambiarRol(usuario,rol);
     }
     
