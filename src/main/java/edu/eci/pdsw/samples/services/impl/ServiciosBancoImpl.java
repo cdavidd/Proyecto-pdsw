@@ -18,10 +18,6 @@ import java.util.Date;
 
 public class ServiciosBancoImpl implements ServiciosBanco{
 
- 
-
-    
-
     @Inject
     private AdministradorDAO administradorDAO;
 
@@ -34,6 +30,11 @@ public class ServiciosBancoImpl implements ServiciosBanco{
     @Inject
     private ComentarioDAO comentarioDAO;
     
+    /**
+     * Este metodo se encarga de registrar un usuario 
+     * @param u
+     * @throws ExcepcionServicesBanco 
+     */
     @Override
     public void registrarUsuario(Usuario u) throws ExcepcionServicesBanco {
         try {
@@ -42,7 +43,13 @@ public class ServiciosBancoImpl implements ServiciosBanco{
            throw new ExcepcionServicesBanco("Error al consultar el usuario "+u.getEmail());
         }
     }
-
+    
+    /**
+     * Este metodo se encarga de retornar un usuario mediante la consulta de su correo
+     * @param correo
+     * @return Usuario
+     * @throws ExcepcionServicesBanco 
+     */
     @Override
     public Usuario consultarUsuario(String correo) throws ExcepcionServicesBanco {
         try {
@@ -51,7 +58,12 @@ public class ServiciosBancoImpl implements ServiciosBanco{
            throw new ExcepcionServicesBanco("Error al consultar el usuario "+correo);
         }
     }
-
+    
+    /**
+     * Este metodo se encarga de retornar todos los usuarios
+     * @return
+     * @throws ExcepcionServicesBanco 
+     */
     @Override
     public List<Usuario> consultarUsuarios() throws ExcepcionServicesBanco {
         try {
@@ -61,7 +73,13 @@ public class ServiciosBancoImpl implements ServiciosBanco{
            throw new ExcepcionServicesBanco("Error al consultar los usuarios");
         }
     }
-
+    
+    /**
+     * Este metodo se encarga de cambiar el estado de una iniciativa
+     * @param iniciativa
+     * @param tipoEstado
+     * @throws ExcepcionServicesBanco 
+     */
     @Override
     public void cambiarEstado(Iniciativa iniciativa, TipoEstado tipoEstado) throws ExcepcionServicesBanco{
         try {
@@ -72,7 +90,12 @@ public class ServiciosBancoImpl implements ServiciosBanco{
            throw new ExcepcionServicesBanco("Error al cambiar el estado de la iniciativa");
         }		
     }
-
+    
+    /**
+     * Este metodo se encarga de retornar los usuarios que esten sin rol
+     * @return
+     * @throws ExcepcionServicesBanco 
+     */
     @Override
     public List<Usuario> consultarUsuariosSinRol() throws ExcepcionServicesBanco{
         try {
@@ -82,7 +105,13 @@ public class ServiciosBancoImpl implements ServiciosBanco{
            throw new ExcepcionServicesBanco("Error al consultar los usuarios sin rol");
         }
     }
-
+    
+    /**
+     * Este metodo se encarga de cambiar el rol de un usuario
+     * @param usuario
+     * @param rol
+     * @throws ExcepcionServicesBanco 
+     */
     @Override
     public void cambiarRol(Usuario usuario, String rol) throws ExcepcionServicesBanco {
         try{
@@ -91,7 +120,15 @@ public class ServiciosBancoImpl implements ServiciosBanco{
             throw new ExcepcionServicesBanco("Error al cambiar el Rol a"+usuario.toString());
         }
     }
-
+    
+    /**
+     * Este metodo se encarga de registrar una iniciativa
+     * @param descripcion
+     * @param fecha
+     * @param usuario
+     * @param palabrasclave
+     * @throws ExcepcionServicesBanco 
+     */
     @Override
     public void registrarIniciativa(String descripcion, Date fecha, int usuario, String palabrasclave) throws ExcepcionServicesBanco {
         try{
@@ -100,7 +137,13 @@ public class ServiciosBancoImpl implements ServiciosBanco{
             throw new ExcepcionServicesBanco("Error al registrar iniciativa ");
         }
     }
-
+    
+    /**
+     * Este metodo se encarga de retornar iniciativas mediante la busqueda de la palabra clave
+     * @param palabraClave
+     * @return
+     * @throws ExcepcionServicesBanco 
+     */
     @Override
     public Set<Iniciativa> buscarIniciativa(String palabraClave) throws ExcepcionServicesBanco {
         try{
@@ -111,7 +154,12 @@ public class ServiciosBancoImpl implements ServiciosBanco{
         }
     }
     
-    
+    /**
+     * Este metodo se encarga de retornar iniciativas relacionadas
+     * @param iniciativa
+     * @return
+     * @throws ExcepcionServicesBanco 
+     */
     @Override
     public Set<Iniciativa> buscarIniciativasRelacionadas(Iniciativa iniciativa) throws ExcepcionServicesBanco {
         try{
@@ -121,7 +169,7 @@ public class ServiciosBancoImpl implements ServiciosBanco{
             throw new ExcepcionServicesBanco("Error al buscar iniciativa relacionadas con palabra clave "+ iniciativa.getPalabrasClave() );
         }    
     }
-
+    
     @Override
     public List<Iniciativa> getIniciativas() {
         try{
@@ -131,7 +179,12 @@ public class ServiciosBancoImpl implements ServiciosBanco{
             return null;
         }
     }
-
+    
+    /**
+     * Este metodo se encarga de retornar una iniciativa mediante su id
+     * @param id
+     * @return 
+     */
     @Override
     public Iniciativa consultarIniciativa(int id) {
         try{
@@ -141,7 +194,14 @@ public class ServiciosBancoImpl implements ServiciosBanco{
             return null;
         }
     }
-
+    
+    /**
+     * Este metodo se encarga de insertar un comentario a una iniciativa
+     * @param id_user
+     * @param id_iniciativa
+     * @param comentario
+     * @param fecha 
+     */
     @Override
     public void comentarIniciativas(int id_user, int id_iniciativa, String comentario, Date fecha) {
         try{
@@ -193,7 +253,13 @@ public class ServiciosBancoImpl implements ServiciosBanco{
            throw new ExcepcionServicesBanco("Error al consultar las estadisticas por estado");
         }
     }
-
+    
+    /**
+     * Este metodo se encarga de retornar todas las iniciativas hechas por un proponente
+     * @param id
+     * @return
+     * @throws ExcepcionServicesBanco 
+     */
     @Override
     public List<Iniciativa> buscarIniciativaProponente(int id) throws ExcepcionServicesBanco {
         try {
@@ -204,7 +270,12 @@ public class ServiciosBancoImpl implements ServiciosBanco{
         }
     }
     
-    
+    /**
+     * Este metodo se encarga de modificar la descripciion de una iniciativa
+     * @param id
+     * @param descripcion
+     * @throws ExcepcionServicesBanco 
+     */
     @Override
     public void modificarDescripcion(int id, String descripcion) throws ExcepcionServicesBanco {
         try {
@@ -217,7 +288,13 @@ public class ServiciosBancoImpl implements ServiciosBanco{
            throw new ExcepcionServicesBanco("Error al modificar la descripcion de la iniciativa");        
         }
     }
- 
+    
+    /**
+     * Este metodo se encarga de modificar las palabras clave de una iniciativa
+     * @param id
+     * @param palabrasclave
+     * @throws ExcepcionServicesBanco 
+     */
     @Override
     public void modificarPalabrasClave(int id,String palabrasclave) throws ExcepcionServicesBanco {
         try {
@@ -231,6 +308,12 @@ public class ServiciosBancoImpl implements ServiciosBanco{
         }    
     }
     
+    /**
+     * Este metodo se encarga de dar un like a una iniciativa
+     * @param iniciativa_id
+     * @param usuario_id
+     * @throws ExcepcionServicesBanco 
+     */
     @Override
     public void likes(int iniciativa_id,int usuario_id) throws ExcepcionServicesBanco {
         try {
@@ -240,7 +323,13 @@ public class ServiciosBancoImpl implements ServiciosBanco{
            throw new ExcepcionServicesBanco("Error al dar like");        
         }       
     }
-
+    
+    /**
+     * Este metodo se encarga de consutar los likes de una iniciativa
+     * @param id
+     * @return
+     * @throws ExcepcionServicesBanco 
+     */
     @Override
     public String consultarLikes(int id) throws ExcepcionServicesBanco {
          try {
@@ -251,6 +340,13 @@ public class ServiciosBancoImpl implements ServiciosBanco{
         }     
     }
     
+    /**
+     * Este metodo se encarga de consultar si un usuario ya le dio like a una iniciativa
+     * @param iniciativa
+     * @param usuario
+     * @return
+     * @throws ExcepcionServicesBanco 
+     */
     @Override
     public boolean consultarUsuarioDioLike(int iniciativa, int usuario) throws ExcepcionServicesBanco {
         try {
@@ -261,6 +357,12 @@ public class ServiciosBancoImpl implements ServiciosBanco{
         }   
     }
     
+    /**
+     * Este metodo se encarga de quitar el like que le dio un usuario a una iniciativa
+     * @param iniciativa_id
+     * @param usuario_id
+     * @throws ExcepcionServicesBanco 
+     */
     @Override
     public void dislikes(int iniciativa_id, int usuario_id) throws ExcepcionServicesBanco {
         try {

@@ -1,23 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.eci.pdsw.samples.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-/**
- *
- * @author 2133561
- */
 public  class Usuario implements Serializable{
     
-    /**
-	 * 
-	 */
-	
-	
     private static final long serialVersionUID = 1L;
     private int id;
     private String nombre;
@@ -29,11 +15,18 @@ public  class Usuario implements Serializable{
     private ArrayList<Iniciativa> apoyar;
     private ArrayList<Integer> likes = new ArrayList<Integer>();
 
-   
-   
     public Usuario(){
     }
     
+    /**
+     * Este metodo se encarga de la construccion del Usuario pidiendo
+     * @param id
+     * @param nombre
+     * @param email
+     * @param contrasena
+     * @param rol
+     * @param area 
+     */
     public Usuario(int id, String nombre, String email, String contrasena, String rol,String area) {
     	this.id = id;
     	this.nombre = nombre;
@@ -45,6 +38,13 @@ public  class Usuario implements Serializable{
     	this.apoyar = new ArrayList<Iniciativa>();
     }
     
+    /**
+     * Este metodo se encarga de la construccion del Usuario pidiendo
+     * @param nombre
+     * @param email
+     * @param contrasena
+     * @param area 
+     */
     public Usuario(String nombre, String email, String contrasena,String area) {
     	this.nombre = nombre;
     	this.email = email; 

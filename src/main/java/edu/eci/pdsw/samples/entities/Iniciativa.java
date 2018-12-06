@@ -1,18 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.eci.pdsw.samples.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-/**
- *
- * @author 2133561
- */
 public class Iniciativa implements Serializable{
 
     private int id;
@@ -26,6 +17,13 @@ public class Iniciativa implements Serializable{
     
     public Iniciativa(){}
     
+    /**
+     * Este metodo se encarga de la constrccion de la iniciativa pidiendo como parametro tambien el Usuario
+     * @param descripcion
+     * @param fecha
+     * @param usuario
+     * @param palabrasClave 
+     */
     public Iniciativa(String descripcion, Date fecha, Usuario usuario, String palabrasClave){
         this.descripcion= descripcion;
         this.fechaCreacion= fecha;
@@ -33,6 +31,12 @@ public class Iniciativa implements Serializable{
         this.setPalabrasClave(palabrasClave);
     }
     
+    /**
+     * Este metodo se encarga de la construccion de la iniciativa sin tener en cuenta el Usuario
+     * @param descripcion
+     * @param fecha
+     * @param palabrasClave 
+     */
     public Iniciativa(String descripcion, Date fecha, String palabrasClave){
         this.descripcion= descripcion;
         this.fechaCreacion= fecha;
@@ -94,10 +98,6 @@ public class Iniciativa implements Serializable{
     public void setComentarios(ArrayList<Comentario> comentarios) {
         this.comentarios = comentarios;
     }
-
-   
-
-    
 
     @Override
     public String toString() {

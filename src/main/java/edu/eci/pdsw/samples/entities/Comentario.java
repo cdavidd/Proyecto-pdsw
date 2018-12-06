@@ -1,17 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.eci.pdsw.samples.entities;
 
 import java.io.Serializable;
 import java.sql.Date;
 
-/**
- *
- * @author Nicolas
- */
 public class Comentario implements Serializable {
     
     private int id;
@@ -22,12 +13,20 @@ public class Comentario implements Serializable {
 
     public Comentario(){}
     
+    /**
+     * Este metodo se encarga de la construccion del comentario
+     * @param user
+     * @param iniciativa
+     * @param comentario
+     * @param fecha 
+     */
     public Comentario(Usuario user, Iniciativa iniciativa, String comentario, Date fecha){
         this.usuario=user;
         this.iniciativa=iniciativa;
         this.comentario=comentario;
         this.Fecha_publicacion=fecha;
     }
+    
     
     public int getId() {
         return id;
@@ -52,8 +51,6 @@ public class Comentario implements Serializable {
     public void setIniciativa(Iniciativa iniciativa) {
         this.iniciativa = iniciativa;
     }
-
-    
 
     public String getComentario() {
         return comentario;
