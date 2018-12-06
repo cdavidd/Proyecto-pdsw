@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.eci.pdsw.view;
 
 import com.google.inject.Inject;
@@ -15,10 +10,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
-/**
- *
- * @author cdavi_000
- */
+
 @SuppressWarnings("deprecation")
 @ManagedBean(name = "proponenteBean")
 @RequestScoped
@@ -35,7 +27,12 @@ public class ProponenteBean extends BasePageBean{
     private Date fecha;
     
     
-    
+    /**
+     * Este metodo se encarga de registrar una nueva iniciativa.
+     * @param descripcion Es la descripcion de la nueva iniciativa.
+     * @param palabrasClave Son las palabras clave de la nueva iniciativa.
+     * @throws ExcepcionServicesBanco 
+     */
     public void registrarIniciativa(String descripcion,String palabrasClave) throws ExcepcionServicesBanco{
         super.nuevaIniciativa=true;
         servicioBanco.registrarIniciativa(descripcion,java.sql.Date.valueOf(LocalDate.now()), usuarioId, palabrasClave);

@@ -21,7 +21,12 @@ public class MyBATISComentarioDAO implements ComentarioDAO {
      @Inject
      ComentarioMapper comentarioMapper;
 
-    
+    /**
+     * Este metodo se encarga de consultar los comentarios de una iniciativa 
+     * @param id el id de la iniciativa a la que se desea consultar los comentarios
+     * @return List<Comentario> los comentarios de la iniciativa
+     * @throws PersistenceException 
+     */
     @Override
     public List<Comentario> getComentarios(int id) throws PersistenceException {
         try {

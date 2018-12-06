@@ -10,10 +10,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 
-/**
- *
- * @author 2133561
- */
 @SuppressWarnings("deprecation")
 @ManagedBean(name = "comentarioBean")
 @RequestScoped
