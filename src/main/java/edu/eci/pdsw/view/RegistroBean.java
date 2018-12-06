@@ -30,6 +30,8 @@ public class RegistroBean extends BasePageBean{
     
     private int id;
     private String nombre,contrasena,area;
+    private String rol;
+    private List<String> tipoRol= Arrays.asList("Administrador", "Publico", "Pmo_Odi", "En_Espera","Proponente");
 
     public String getArea() {
         return area;
@@ -38,11 +40,6 @@ public class RegistroBean extends BasePageBean{
     public void setArea(String area) {
         this.area = area;
     }
-    private String rol;
-	private List<String> tipoRol= Arrays.asList("Administrador", "Publico", "Pmo_Odi", "En_Espera","Proponente");
-
-    
-    
     
     public List<String> getTipoRol() {
             return tipoRol;
@@ -51,6 +48,13 @@ public class RegistroBean extends BasePageBean{
             this.tipoRol = tipoRol;
     }
     
+    /**
+     * Este metodo se encarga de registrar un usuario nuevo.
+     * @param nombre Es el nombre del usuario.
+     * @param email Es el email del usuario.
+     * @param contrasena Es la contraseña del usuario.
+     * @param area  Es el area del usuario.
+     */
     public void registrarUsuario(String nombre, String email, String contrasena,String area){
         try{
             servicioBanco.registrarUsuario(new Usuario(nombre,email,contrasena,area));
@@ -60,6 +64,10 @@ public class RegistroBean extends BasePageBean{
     
     }
     
+    /**
+     * Este metodo se encarga de consultar a un usaurio.
+     * @return Retorna un usuario.
+     */
     public Usuario consultarUsuario() {
     	try {
             return servicioBanco.consultarUsuario(email);
@@ -68,6 +76,10 @@ public class RegistroBean extends BasePageBean{
         }
     }
     
+    /**
+     * Este metodo se encarga de cambiar el rol de un usuario.
+     * @throws ExcepcionServicesBanco 
+     */
     public void cambiarRol() throws ExcepcionServicesBanco{   
     	System.out.println(rol);
         Usuario usuario=consultarUsuario();
@@ -108,10 +120,10 @@ public class RegistroBean extends BasePageBean{
         this.contrasena=pass;
     }
 
-	public String getRol() {
-		return rol;
-	}
-	public void setRol(String rol) {
-		this.rol = rol;
-	}
+    public String getRol() {
+            return rol;
+    }
+    public void setRol(String rol) {
+            this.rol = rol;
+    }
 }

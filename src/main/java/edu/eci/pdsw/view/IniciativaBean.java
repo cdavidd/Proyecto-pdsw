@@ -54,6 +54,10 @@ public class IniciativaBean extends BasePageBean implements Serializable{
         }    
     }
 
+    /**
+     * Este metodo se encarga de retornar un bool verificando que hay like o no.
+     * @return Retorna True o False.
+     */
     public boolean isnuevosLikes() {
         return nuevosLikes;
     }
@@ -62,6 +66,11 @@ public class IniciativaBean extends BasePageBean implements Serializable{
         this.nuevosLikes = anadenLikes;
     }
     
+    /**
+     * Este metodo se encarga de buscar las iniciativas por un proponente dado.
+     * @param id Es el id del proponente.
+     * @return  Retorna la lista de iniciativas que realizó.
+     */
     public List<Iniciativa> buscarIniciativaProponente(int id) {
         try{
             List<Iniciativa> temp=new ArrayList<Iniciativa>();
@@ -112,6 +121,11 @@ public class IniciativaBean extends BasePageBean implements Serializable{
         this.palabraC = palabraC;
     }
     
+    /**
+     * Este metodo se encarga de buscar las iniciativas por palabras clave.
+     * @param palabraClave Son las palabras clave a buscar.
+     * @return Retorna las iniciativas.
+     */
     public List<Iniciativa> buscarIniciativas(String palabraClave) {
             
         try {  
@@ -130,6 +144,11 @@ public class IniciativaBean extends BasePageBean implements Serializable{
         }    	
     }
     
+    /**
+     * Este metodo se encarga de buscar iniciativas relacionadas a otra.
+     * @param iniciativa Es la iniciativa principal.
+     * @return Retorna una lista de iniciativas relacionadas.
+     */
     public List<Iniciativa> buscarIniciativasRelacionadas(Iniciativa iniciativa) {
             
         try {
@@ -147,6 +166,12 @@ public class IniciativaBean extends BasePageBean implements Serializable{
         }    	
     }
     
+    /**
+     * Este metodo se encarga de verificar los likes y registrarlos.
+     * @param iniciativa_id Es la iniciativa a la cual se le dio like.
+     * @param usuario Es el usuario que le dio like.
+     * @param like Es el bool dependiendo si es like o dislike.
+     */
     public void likes(int iniciativa_id,Usuario usuario,boolean like){
         try{
             mapliked.replace(Integer.toString(iniciativa_id) +  "_" + Integer.toString(usuario.getId()),like);
@@ -164,6 +189,11 @@ public class IniciativaBean extends BasePageBean implements Serializable{
         } 
     }
     
+    /**
+     * Este metodo se encarga de consultar los likes de una iniciativa.
+     * @param iniciativa Es la iniciativa a consultar.
+     * @return Retorna el numero de likes.
+     */
     public Integer consultarLikes(int iniciativa){
         try{
             if (!maplikes.containsKey(iniciativa)){
@@ -178,7 +208,13 @@ public class IniciativaBean extends BasePageBean implements Serializable{
         }
     }
     
-    
+    /**
+     * Este metodo se encarga de relacionar el usuario que dio like y la iniciativa.
+     * @param iniciativa Es la iniciativa que se le dio like.
+     * @param usuario Es el usuario que dio like.
+     * @return Retorna un bool.
+     * @throws ExcepcionServicesBanco 
+     */
     public boolean estadoLike(int iniciativa, Usuario usuario) throws ExcepcionServicesBanco{
         String cadena = Integer.toString(iniciativa) + "_" +  Integer.toString(usuario.getId());
         if (mapliked.containsKey(cadena)){

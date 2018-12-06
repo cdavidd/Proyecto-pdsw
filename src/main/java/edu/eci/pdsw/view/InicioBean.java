@@ -36,6 +36,12 @@ public class InicioBean extends BasePageBean{
     private String message;
     private boolean conIncorrecta;
     
+    /**
+     * Este metodo se encarga de consultar a un usuario especifico.
+     * @param correo Es el correo del usuario.
+     * @param contrasena Es la contraseña del usuario.
+     * @return Retorna un usuario.
+     */
     public Usuario consultar(String correo,String contrasena){
         try{
             this.setUsuario(servicioBanco.consultarUsuario(correo));
@@ -52,6 +58,9 @@ public class InicioBean extends BasePageBean{
         }
     }
 
+    /**
+     * Este metodo se encarga de reinicia el bean.
+     */
     public void reiniciar(){
         setContrasena("");
         setEmail("");
@@ -82,6 +91,10 @@ public class InicioBean extends BasePageBean{
         this.usuario = usuario;
     }
     
+    /**
+     * Este metodo se encarga de verificar el login.
+     * @return 
+     */
     public String irHome(){
         if (usuario == null){
             FacesContext context = FacesContext.getCurrentInstance();                

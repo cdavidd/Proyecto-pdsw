@@ -38,6 +38,11 @@ public class ChartView extends BasePageBean implements Serializable {
     private  PieChartModel pieMode4;
     private  HashMap<String,Integer> pd;
     private List<String[]> e;
+    
+    /**
+     * Este metodo se encarga de listar para ver las graficas.
+     * @throws ExcepcionServicesBanco 
+     */
     public void listar() throws ExcepcionServicesBanco{
         e=getEstadisticas();
         List<String[]> c=servicioBanco.getEstadisticasEstado();
@@ -62,6 +67,11 @@ public class ChartView extends BasePageBean implements Serializable {
     public List<String[]> getE() {
         return e;
     }
+    
+    /**
+     * Este metodo se encarga de graficar.
+     * @param h Es la tabla con los datos a graficar.
+     */
     public void graficar(HashMap<String,Integer> h){
         pieModel=new  BarChartModel();
         ChartSeries b = new ChartSeries();
@@ -77,8 +87,12 @@ public class ChartView extends BasePageBean implements Serializable {
         yAxis.setLabel("numero Iniciativas");
         yAxis.setMin(0);
         yAxis.setMax(10);
-        
     }
+    
+    /**
+     * Este metodo se encarga de graficar.
+     * @param h Es la tabla con los datos a graficar.
+     */
     public void graficar3(HashMap<String,Integer> h){
         pieMode3=new  BarChartModel();
         ChartSeries b = new ChartSeries();
@@ -100,6 +114,11 @@ public class ChartView extends BasePageBean implements Serializable {
     public void setPieMode3(BarChartModel pieMode3) {
         this.pieMode3 = pieMode3;
     }
+    
+    /**
+     * Este metodo se encarga de graficar.
+     * @param h Es la tabla con los datos a graficar.
+     */
     public void graficar2(HashMap<String,Integer> h){
        pieMode2=new PieChartModel();
        for(Map.Entry<String, Integer> entry :h.entrySet()){
@@ -112,6 +131,11 @@ public class ChartView extends BasePageBean implements Serializable {
         pieMode2.setDiameter(150);
         pieMode2.setShadow(false);
     }
+    
+    /**
+     * Este metodo se encarga de graficar.
+     * @param h Es la tabla con los datos a graficar.
+     */
     public void graficar4(HashMap<String,Integer> h){
        pieMode4=new PieChartModel();
        for(Map.Entry<String, Integer> entry :h.entrySet()){
@@ -158,6 +182,10 @@ public class ChartView extends BasePageBean implements Serializable {
         this.pieModel = pieModel;
     }
     
+    /**
+     * Este metodo se encarga de retornar las estadisticas.
+     * @return Retorna la lista de estadisticas.
+     */
     public List<String[]> getEstadisticas(){
         try{
             return servicioBanco.getEstadisticas();

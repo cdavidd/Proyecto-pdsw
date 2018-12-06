@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.eci.pdsw.guice;
+
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-
-
 import edu.eci.pdsw.sampleprj.dao.mybatis.*;
 import edu.eci.pdsw.samples.services.ServiciosBanco;
 import edu.eci.pdsw.samples.services.impl.*;
@@ -18,10 +12,6 @@ import org.mybatis.guice.XMLMyBatisModule;
 import org.mybatis.guice.datasource.helper.JdbcHelper;
 import edu.eci.pdsw.sampleprj.dao.*;
 
-/**
- *
- * @author cdavi_000
- */
 public class GuiceContextListener implements ServletContextListener{
      public void contextDestroyed(ServletContextEvent servletContextEvent) {
         ServletContext servletContext = servletContextEvent.getServletContext();
