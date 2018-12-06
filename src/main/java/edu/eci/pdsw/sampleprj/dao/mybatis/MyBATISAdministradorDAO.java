@@ -18,6 +18,11 @@ public class MyBATISAdministradorDAO implements AdministradorDAO{
     @Inject 
     private UsuarioMapper usuarioMapper;
 
+    /**
+     * Este metodo se encarga de consultar los usuarios
+     * @return List<Usuario> Retorna una lista con todos los usuarios.
+     * @throws PersistenceException 
+     */
     @Override
     public List<Usuario> consultarUsuarios() throws PersistenceException {
         try {
@@ -28,6 +33,11 @@ public class MyBATISAdministradorDAO implements AdministradorDAO{
         }
     }
 
+    /**
+     * Este metodo se encarga de consultar los usuarios que no tienen un rol asignado
+     * @return List<Usuario> retorna una lista con todos los usuarios que no tienen rol
+     * @throws PersistenceException 
+     */
     @Override
     public List<Usuario> consultarUsuariosSinRol() throws PersistenceException {
         try {
@@ -37,7 +47,12 @@ public class MyBATISAdministradorDAO implements AdministradorDAO{
             throw new PersistenceException("Error al consultar los clientes sin rol");
         }
     }
-
+    
+    /**
+    * Este metodo se encarga de registrar un usuario en la base de datos 
+     * @param u el usuario que se desea registrar
+     * @throws PersistenceException 
+     */
     @Override
     public void registrarUsuario(Usuario u) throws PersistenceException {
         try {
@@ -49,6 +64,12 @@ public class MyBATISAdministradorDAO implements AdministradorDAO{
         }
     }
 
+    /**
+     * Este metodo se encarga de consultar un usuario 
+     * @param correo el correo del usuario que se desea consultar 
+     * @return Usuario retorna el usuario que se desea consultar
+     * @throws PersistenceException 
+     */
     @Override
     public Usuario consultarUsuario(String correo) throws PersistenceException {
         try {
@@ -59,6 +80,12 @@ public class MyBATISAdministradorDAO implements AdministradorDAO{
         }
     }
 
+    /**
+     * Este metodo se encarga de cambiar el rol de un usuario
+     * @param usuario el usuario al que se desea cambiar el rol
+     * @param rol el rol por el que se desea cambiar el rol actual 
+     * @throws PersistenceException 
+     */
     @Override
     public void cambiarRol(Usuario usuario, String rol) throws PersistenceException {
         try{

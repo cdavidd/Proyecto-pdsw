@@ -19,7 +19,15 @@ public class MyBATISProponenteDAO implements ProponenteDAO{
     
     @Inject
     IniciativaMapper iniciativaMapper;
-    
+  
+    /**
+     * Este metodo se encarga de registrar una iniciativa
+     * @param descripcion la descripcion de la iniciativa 
+     * @param fecha la fecha de la iniciativa
+     * @param usuario el usuario que desea registar la iniciativa
+     * @param palabraclave las palabarasclave de la nueva iniciativa
+     * @throws PersistenceException 
+     */
     @Override
     public void registrarIniciativa(String descripcion, Date fecha, int usuario, String palabraclave) throws PersistenceException {
         try{
@@ -28,6 +36,5 @@ public class MyBATISProponenteDAO implements ProponenteDAO{
         	System.out.println(e.getMessage());
             throw new PersistenceException("Error al registrar iniciativa ");
         }
-    }
-    
+    }   
 }
