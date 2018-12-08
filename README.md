@@ -59,6 +59,12 @@ Este rol es asignado automáticamente a los usuarios que recién se registran en
 - Se realizo el desarrollo de la herramienta usando la metodologia de SCRUM, la cual facilita el trabajo en equipo y garantiza que el cliente participe activamente en el proceso para garantizar que el programa se ajuste a lo requerido por el cliente.
 - El backlog puede ser consultado en la pagina https://trello.com/b/nr5D1wyK/2018-2-proypdsw-clnd
 ### Link Heroku: http://proyecto-pdsw-clnd.herokuapp.com/faces/Inicio.xhtml
+### Link Github: https://github.com/nontoa/Proyecto-pdsw
+### Link Excel Scrum: https://drive.google.com/drive/folders/167f8TKs67YgPj99IskRbpnH6y_IFE36x
+### Link Trello: https://trello.com/b/nr5D1wyK/2018-2-proypdsw-clnd
+### Link CircleCI:
+### Roles
+![](img/roles.jpg) 
 ## Sprints
 ### Sprint 1
 ![](img/s1.PNG)
